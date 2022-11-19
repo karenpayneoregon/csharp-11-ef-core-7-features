@@ -1,0 +1,8 @@
+﻿Mike,Jones,10,True
+Jane,Adams,A,True
+Karen,Smith,10,true
+Karen,Smith,50,false
+
+
+
+
