@@ -28,11 +28,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExecuteDeleteSample", "Exec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMaterializationInterceptorSample", "IMaterializationInterceptorSample\IMaterializationInterceptorSample.csproj", "{60106EFA-66D8-4913-82CE-30A932211AC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectingToDatabase", "ConnectingToDatabase\ConnectingToDatabase.csproj", "{6D5A81DA-C0F9-4327-97EF-2EEFFC3742BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectingToDatabase", "ConnectingToDatabase\ConnectingToDatabase.csproj", "{6D5A81DA-C0F9-4327-97EF-2EEFFC3742BF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetStartedWinForms", "GetStartedWinForms\GetStartedWinForms.csproj", "{C13296AF-C022-4EC0-B6A2-EFBAC1C70B62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableSplittingSample", "TableSplittingSample\TableSplittingSample.csproj", "{78B68D3B-62A6-4616-AA91-BA4D706BDA1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TableSplittingSample", "TableSplittingSample\TableSplittingSample.csproj", "{78B68D3B-62A6-4616-AA91-BA4D706BDA1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
