@@ -114,6 +114,32 @@ internal partial class Program
         Console.WriteLine();
 
     }
+    private static void ValidatingLines()
+    {
+        Print();
+
+        string[] data = { "Mike,Jones,10,True", "Jane,Adams,A,True", "Karen,Smith,10,true", "Anne,Smith,50,false" };
+
+        string[] lines = data
+            .Where(x => !string.IsNullOrWhiteSpace(x))
+            .ToArray();
+
+        foreach (var line in lines)
+        {
+            var parts = line.Split(',');
+            if (parts is [_, _, "10" or "50", "True" or "False" or "true" or "false"])
+            {
+                Console.WriteLine($"      Match {string.Join(",", parts)}");
+            }
+            else
+            {
+                Console.WriteLine($"Not a match {string.Join(",", parts)}");
+            }
+        }
+
+        Console.WriteLine();
+
+    }
 
     /// <summary>
     /// Jagged match
