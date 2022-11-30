@@ -58,3 +58,7 @@ The above example has been kept simple for learning purposes, there is a great d
 
 ![Screen1](assets/screen1.png)
 
+# .NET Fiddle
+
+Supports .NET 7, see a couple of examples from this project [here](https://dotnetfiddle.net/AvBg7O).
+
