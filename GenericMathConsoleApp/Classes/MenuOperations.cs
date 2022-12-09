@@ -28,7 +28,7 @@ class MenuOperations
             new () {Id =  7, Text = "Generic Helpers     ", Action = Samples.GenericHelpersExamples },
             new () {Id =  8, Text = "Switch expression   ", Action = Samples.Expressions },
             new () {Id =  9, Text = "Rounding            ", Action = Samples.Rounding },
-            new () {Id =  10, Text = "About               ", Action = About },
+            new () {Id =  10, Text = "About              ", Action = About },
             new () {Id = -1,Text = "Exit                "},
         });
 
