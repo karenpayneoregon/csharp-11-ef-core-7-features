@@ -78,6 +78,9 @@ public static class GenericExtensions
     public static T Invert<T>(this T source) where T : INumber<T> 
         => -source;
 
+    public static T Round<T>(this T sender, int decimalPlaces) where T : IFloatingPoint<T>
+        => T.Round(sender, decimalPlaces);
+
     /// <summary>
     /// Convert all values in array to int array where non int values will be set to the default value.
     /// </summary>

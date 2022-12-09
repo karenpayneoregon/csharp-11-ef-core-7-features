@@ -151,6 +151,15 @@ namespace GenericMathConsoleApp.Classes
         {
             ExpressionBodiedMember(2.2);
         }
+
+        public static void Rounding()
+        {
+            decimal someDecimal = 10.1234m;
+            AnsiConsole.MarkupLine($"[green]someDecimal.Round(3)[/] = [white]{someDecimal.Round(3)}[/]");
+            double someDouble = 10.1234;
+            AnsiConsole.MarkupLine($"[green]someDouble.Round(3)[/] = [white]{someDouble.Round(3)}[/]");
+            ScreenUtilities.MenuPrompt();
+        }
         public static void ExpressionBodiedMember<T>(T caseSwitch) where T : INumber<T> =>
         (
             caseSwitch is 1 ? (Action)Case1 :
