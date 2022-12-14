@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using NumericMethodsApp.Classes;
+﻿using NumericMethodsApp.Classes;
 
 namespace NumericMethodsApp;
 

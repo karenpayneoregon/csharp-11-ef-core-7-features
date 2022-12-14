@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <Folder Include="assets\" />
+    <Folder Include="Tinkering\" />
   </ItemGroup>
 
 </Project>
