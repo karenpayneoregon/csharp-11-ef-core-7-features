@@ -1,8 +1,11 @@
 ﻿/*
  * Original source
  * https://github.com/Entomy/Numbersome/blob/main/Numbersome/Numerics/Percent.cs
+ *
+ * Modifications by Karen Payne
  */
 
+// ReSharper disable once CheckNamespace
 namespace System.Numerics;
 
 using Diagnostics.CodeAnalysis;
@@ -58,26 +61,22 @@ public readonly struct Percent<T> :
     public static Percent<T> MultiplicativeIdentity => new(T.MultiplicativeIdentity);
 
     /// <inheritdoc/>
-    public override Boolean Equals([NotNullWhen(true)] Object? obj)
-    {
-        switch (obj)
+    public override bool Equals([NotNullWhen(true)] object? sender) =>
+        sender switch
         {
-            case Percent<T> percent:
-                return Equals(percent);
-            default:
-                return false;
-        }
-    }
+            Percent<T> percent => Equals(percent),
+            _ => false
+        };
 
     /// <inheritdoc/>
     public Boolean Equals(Percent<T> other) => Value.Equals(other.Value);
 
     /// <inheritdoc/>
-    public override Int32 GetHashCode() => Value.GetHashCode();
+    public override int GetHashCode() => Value.GetHashCode();
 
     /// <inheritdoc/>
     [return: NotNull]
-    public override String ToString() => $"{Value}%";
+    public override string ToString() => $"{Value}%";
 
     /// <inheritdoc/>
     public static Percent<T> operator +(Percent<T> value) => new(+value.Value);
@@ -85,7 +84,6 @@ public readonly struct Percent<T> :
     /// <inheritdoc/>
     public static Percent<T> operator +(Percent<T> left, Percent<T> right) => new(left.Value + right.Value);
 
-    /// <inheritdoc/>
     public static T operator +(T left, Percent<T> right) => left + right.Of(left);
 
     /// <inheritdoc/>
@@ -93,8 +91,7 @@ public readonly struct Percent<T> :
 
     /// <inheritdoc/>
     public static Percent<T> operator -(Percent<T> left, Percent<T> right) => new(left.Value - right.Value);
-
-    /// <inheritdoc/>
+    
     public static T operator -(T left, Percent<T> right) => left - right.Of(left);
 
     /// <inheritdoc/>
@@ -104,10 +101,10 @@ public readonly struct Percent<T> :
     public static Percent<T> operator /(Percent<T> left, Percent<T> right) => new(left.Value / right.Value);
 
     /// <inheritdoc/>
-    public static Boolean operator ==(Percent<T> left, Percent<T> right) => left.Equals(right);
+    public static bool operator ==(Percent<T> left, Percent<T> right) => left.Equals(right);
 
     /// <inheritdoc/>
-    public static Boolean operator !=(Percent<T> left, Percent<T> right) => !left.Equals(right);
+    public static bool operator !=(Percent<T> left, Percent<T> right) => !left.Equals(right);
 
     /// <summary>
     /// Takes this <see cref="Percent{T}"/> of the <paramref name="value"/>.

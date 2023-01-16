@@ -19,18 +19,18 @@ class MenuOperations
 
         _ = menu.AddChoices(new List<MenuItem>()
         {
-            new () {Id =  1, Text = "Add ByRef Extension ", Action = Samples.AddByRefExtensionExamples },
-            new () {Id =  2, Text = "Clamp               ", Action = Samples.ClampExamples },
-            new () {Id =  3, Text = "IsOdd IsEven        ", Action = Samples.IsOddIsEvenExamples },
-            new () {Id =  4, Text = "Invert              ", Action = Samples.Invert },
-            new () {Id =  5, Text = "Increment Decrement ", Action = Samples.IncrementDecrementExamples },
-            new () {Id =  6, Text = "Preserve Array      ", Action = Samples.PreserveArrayExamples },
-            new () {Id =  7, Text = "Generic Helpers     ", Action = Samples.GenericHelpersExamples },
-            new () {Id =  8, Text = "Switch expression   ", Action = Samples.Expressions },
-            new () {Id =  10, Text = "Rounding           ", Action = Samples.Rounding },
-            new () {Id =  10, Text = "Percentage         ", Action = Samples.PercentageExample },
-            new () {Id =  11, Text = "About              ", Action = About },
-            new () {Id = -1,Text = "Exit                "},
+            new () {Id =  1,  Text  = "Add ByRef Extension ", Action = Samples.AddByRefExtensionExamples },
+            new () {Id =  2,  Text  = "Clamp               ", Action = Samples.ClampExamples },
+            new () {Id =  3,  Text  = "IsOdd IsEven        ", Action = Samples.IsOddIsEvenExamples },
+            new () {Id =  4,  Text  = "Invert              ", Action = Samples.Invert },
+            new () {Id =  5,  Text  = "Increment Decrement ", Action = Samples.IncrementDecrementExamples },
+            new () {Id =  6,  Text  = "Preserve Array      ", Action = Samples.PreserveArrayExamples },
+            new () {Id =  7,  Text  = "Generic Helpers     ", Action = Samples.GenericHelpersExamples },
+            new () {Id =  8,  Text  = "Switch expression   ", Action = Samples.Expressions },
+            new () {Id =  10, Text  = "Rounding            ", Action = Samples.Rounding },
+            new () {Id =  10, Text  = "Percentage          ", Action = Samples.PercentageExample },
+            new () {Id =  11, Text  = "About               ", Action = About },
+            new () {Id =  -1, Text  = "Exit                "},
         });
 
         return menu;

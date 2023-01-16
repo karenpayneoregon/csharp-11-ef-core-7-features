@@ -18,7 +18,7 @@ namespace GenericMathConsoleApp.Classes
 
             for (int index = 0; index < 110; index+=10)
             {
-                list.Add($"[white]{new Percent<Double>(index)}[/]");
+                list.Add($"[white]{new Percent<double>(index)}[/]");
             }
 
             AnsiConsole.MarkupLine(string.Join(",", list));
