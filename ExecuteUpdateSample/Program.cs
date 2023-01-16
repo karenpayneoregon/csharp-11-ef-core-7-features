@@ -37,7 +37,7 @@ internal partial class Program
         
         if (rows == 3)
         {
-            AnsiConsole.MarkupLine("[cyan]Values after to updated[/]");
+            AnsiConsole.MarkupLine("[cyan]Values after updated[/]");
             // NOTE we need to use AsNoTracking as ExecuteUpdateAsync does not track changes
             var updated = context.Products.AsNoTracking().Where(p => p.Name.EndsWith(" *")).ToList();
 

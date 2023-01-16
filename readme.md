@@ -3,7 +3,7 @@
 # New features for C# 11 and EF Core 7
 
 
-This repository is dedicated to new features in C# 11 in .NET Core 7 along with several code samples for EF Core 7. There are many sites which offer code samples yet from what I’ve seen most are the same and don’t go very deep into the new features. Here you will find code samples that are ready to run and for the most part easy to understand.
+This repository is dedicated to new features in C# 11 in .NET Core 7 along with several code samples for EF Core 7. There are many sites which offer code samples yet from what Iâ€™ve seen most are the same and donâ€™t go very deep into the new features. Here you will find code samples that are ready to run and for the most part easy to understand.
 
 There are many other features to explore, what is included here is a subset that are more important for the everyday developer.
 
@@ -27,4 +27,5 @@ Micosoft Visual Studio version 17.4 or higher
 
 - Microsoft [What's new in C# 11](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-11)
 - [Performance Improvements in .NET 7](https://devblogs.microsoft.com/dotnet/performance_improvements_in_net_7/)
+- [C#'s Generic Math from F#](https://dev.to/entomy/cs-generic-math-from-f-31a7)
 

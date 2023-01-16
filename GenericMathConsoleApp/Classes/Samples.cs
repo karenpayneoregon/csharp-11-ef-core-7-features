@@ -6,6 +6,24 @@ namespace GenericMathConsoleApp.Classes
 {
     internal class Samples
     {
+        /// <summary>
+        /// Generic method for percentage
+        /// https://dev.to/entomy/cs-generic-math-from-f-31a7
+        /// </summary>
+        public static void PercentageExample()
+        {
+            PrintSampleName();
+
+            List<string> list = new List<string>();
+
+            for (int index = 0; index < 110; index+=10)
+            {
+                list.Add($"[white]{new Percent<Double>(index)}[/]");
+            }
+
+            AnsiConsole.MarkupLine(string.Join(",", list));
+            ScreenUtilities.MenuPrompt();
+        }
         public static void PreserveArrayExamples()
         {
 
