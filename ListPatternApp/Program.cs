@@ -85,6 +85,7 @@ internal partial class Program
                     $"Record {string.Join(", ", transaction)} is invalid"),
             };
 
+            // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
             if (balance < 1000)
             {
                 AnsiConsole.MarkupLine($"[cyan]Record:[/] {string.Join(", ", transaction),-50} [white on red]Balance[/] {balance:C}");
