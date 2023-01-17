@@ -40,6 +40,17 @@ internal partial class Program
     /// </remarks>
     private static void BankTransactions()
     {
+        static decimal GetDecimal(string sender)
+        {
+            if (decimal.TryParse(sender, out var value))
+            {
+                return value;
+            }
+            else
+            {
+                return 0;
+            }
+        }
         Print();
 
         // local method
@@ -62,10 +73,10 @@ internal partial class Program
         {
             balance += transaction switch
             {
-                [_, "DEPOSIT" or "deposit", _, var amount] => decimal.Parse(amount),
-                [_, "WITHDRAWAL", .., var amount] => -decimal.Parse(amount),
-                [_, "INTEREST", var amount] => decimal.Parse(amount),
-                [_, "FEE", var fee] => -decimal.Parse(fee),
+                 [ _ , "DEPOSIT" or "deposit", _, var amount] => GetDecimal(amount),
+                 [ _ , "WITHDRAWAL", .., var amount] => -GetDecimal(amount),
+                 [ _ , "INTEREST", var amount] => GetDecimal(amount),
+                 [ _ , "FEE", ..,var fee] => -GetDecimal(fee),
                 /*
                  * If transaction type is not recognized throw an exception. In this case
                  * I setup one line with deposit lowercase so we don't throw.
