@@ -2,6 +2,7 @@
 using ConfigurationLibrary.Classes;
 using ConnectingToDatabase.Models;
 using Microsoft.EntityFrameworkCore;
+#pragma warning disable CS8618
 
 namespace ConnectingToDatabase.Data;
 
