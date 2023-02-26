@@ -320,11 +320,11 @@ Results
 
 ## Summary
 
-In this article I've touched on one benefit for using generics, there are others that can be found in the project GenericMathLibrary and GenericMathConsole projects while code presented here is in the project GenericMathListPatternConsoleApp.
+In this article I've touched on one benefit for using generics, there are others that can be found in the project [GenericMathLibrary](https://github.com/karenpayneoregon/csharp-11-ef-core-7-features/tree/master/GenericMathLibrary) and [GenericMathConsole](https://github.com/karenpayneoregon/csharp-11-ef-core-7-features/tree/master/GenericMathConsoleApp) projects while code presented here is in the project GenericMathListPatternConsoleApp.
 
 ## Source code
 
-Clone the following repository which was setup for when .NET Core 7 was released so there is more code than simply generic math.
+Clone the following [repository](https://github.com/karenpayneoregon/csharp-11-ef-core-7-features) which was setup for when .NET Core 7 was released so there is more code than simply generic math.
 
 
 
