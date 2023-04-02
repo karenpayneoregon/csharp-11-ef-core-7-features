@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using GetStartedWinForms.Classes;
+// ReSharper disable PossibleNullReferenceException
 
 namespace GetStartedWinForms
 {
@@ -47,7 +48,7 @@ namespace GetStartedWinForms
 
                 if (category != null)
                 {
-                    _dbContext.Entry(category).Collection(e => e.Products).Load();
+                    _dbContext.Entry(category).Collection(cat => cat.Products).Load();
                 }
             }
         }
