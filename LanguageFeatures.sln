@@ -42,7 +42,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NumericMethodsApp", "Numeri
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Number methods", "Number methods", "{0D49C4FB-58AD-4B34-AD63-871A4385A417}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericMathListPatternConsoleApp", "GenericMathListPatternConsoleApp\GenericMathListPatternConsoleApp.csproj", "{F7F31F75-ED57-496D-8029-D810C9D65F7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericMathListPatternConsoleApp", "GenericMathListPatternConsoleApp\GenericMathListPatternConsoleApp.csproj", "{F7F31F75-ED57-496D-8029-D810C9D65F7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecretManager1", "SecretManager1\SecretManager1.csproj", "{61F46BA4-FF89-4478-9E3E-DC35BEC21D3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -102,6 +104,10 @@ Global
 		{F7F31F75-ED57-496D-8029-D810C9D65F7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7F31F75-ED57-496D-8029-D810C9D65F7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7F31F75-ED57-496D-8029-D810C9D65F7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61F46BA4-FF89-4478-9E3E-DC35BEC21D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61F46BA4-FF89-4478-9E3E-DC35BEC21D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61F46BA4-FF89-4478-9E3E-DC35BEC21D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61F46BA4-FF89-4478-9E3E-DC35BEC21D3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

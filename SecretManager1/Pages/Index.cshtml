@@ -1,0 +1,19 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container">
+    <h1 class="fs-4 mt-2">Using secrets in development</h1>
+    
+    <div class="row shadow mt-2 border border-primary ms-1">
+        <dl>
+            <dt>Connection string</dt>
+            <dd>@Model.ConnectionString</dd>
+
+            <dt>Mail settings</dt>
+            <dd>@Model.MailSettings</dd>
+        </dl> 
+    </div>
+</div>

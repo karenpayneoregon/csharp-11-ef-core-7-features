@@ -1,0 +1,2 @@
+﻿dotnet user-secrets init type C:\OED\DotnetSecrets\secrets.json | dotnet user-secrets set --project "C:\OED\DotnetLand\VS2022\LanguageFeatures\SecretManager1\SecretManager1.csproj"
+
