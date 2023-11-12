@@ -145,5 +145,29 @@ public static class GenericExtensions
             .ToArray()
             .Where(item => item.IsNumber == false)
             .Select(item => item.Index).ToArray();
- 
+
+    /// <summary>
+    /// Add ellipsis-es to the end of a int and convert to a string
+    /// </summary>
+    /// <typeparam name="T">Type</typeparam>
+    /// <param name="sender">Type of <see cref="T"/></param>
+    /// <param name="width">Width to pad</param>
+    /// <param name="paddingChar">Character to pad with, defaults to a period</param>
+    /// <returns>Padded string</returns>
+    public static string Ellipsis<T>(this T sender, int width, char paddingChar = '.') where T : INumber<T>
+    {
+        return sender.ToString().Ellipsis(width, paddingChar);
+    }
+    public static string Ellipsis<T>(this T? sender, int width, char paddingChar = '.') where T : struct
+    {
+        if (sender is not null)
+        {
+            return sender.ToString().Ellipsis(width, paddingChar);
+        }
+        else
+        {
+            return "".Ellipsis(width, paddingChar);
+        }
+
+    }
 }

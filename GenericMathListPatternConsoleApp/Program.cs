@@ -12,7 +12,7 @@ internal partial class Program
         Examples.GetDecimals();
         Examples.JustGetTheNumbers();
 
-        Examples.BetweenExamples();
+        //Examples.BetweenExamples();
 
         Console.ReadLine();
     }
