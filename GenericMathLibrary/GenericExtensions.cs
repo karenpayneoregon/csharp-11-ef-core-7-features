@@ -147,7 +147,7 @@ public static class GenericExtensions
             .Select(item => item.Index).ToArray();
 
     /// <summary>
-    /// Add ellipsis-es to the end of a int and convert to a string
+    /// Add ellipsis-es to the end of type and convert to a string
     /// </summary>
     /// <typeparam name="T">Type</typeparam>
     /// <param name="sender">Type of <see cref="T"/></param>
