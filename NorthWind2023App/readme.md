@@ -16,6 +16,10 @@ ALTER TABLE dbo.Orders ALTER COLUMN DeliveredDate DATE NOT NULL;
 - VS2022 17.18.0 or higher
 - Create database and populate via Scripts folder
 
+## EF Core
+
+Resides in NorthWind2023Library class project
+
 ## Logs
 
 EF Core operations are logged to a file under the application folder.

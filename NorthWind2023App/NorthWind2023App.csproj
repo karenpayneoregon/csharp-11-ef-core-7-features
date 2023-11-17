@@ -25,15 +25,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<!-- ReSharper disable once VulnerablePackage -->
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Spectre.Console" Version="0.47.0" />
 	</ItemGroup>
 
@@ -44,7 +35,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Scripts\" />
+	  <ProjectReference Include="..\NorthWind2023Library\NorthWind2023Library.csproj" />
 	</ItemGroup>
 
 	<Target Name="MakeMyDir" AfterTargets="Build">

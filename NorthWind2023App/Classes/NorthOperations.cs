@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NorthWind2023App.Data;
-using NorthWind2023App.Models;
+using NorthWind2023Library.Data;
+using NorthWind2023Library.Models;
 
 namespace NorthWind2023App.Classes;
 internal class NorthOperations
