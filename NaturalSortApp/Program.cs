@@ -1,6 +1,4 @@
-﻿using GenericMathLibrary;
-using NaturalSortApp.Classes;
-using Spectre.Console;
+﻿using NaturalSortApp.Classes;
 using static NaturalSortApp.Classes.SpectreConsoleHelpers;
 
 namespace NaturalSortApp;
