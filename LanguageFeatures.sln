@@ -61,7 +61,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsingAliasExample", "UsingA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeApp", "TimeApp\TimeApp.csproj", "{99349981-32F6-4BC9-B7E1-B3CD53267C81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaturalSortApp", "NaturalSortApp\NaturalSortApp.csproj", "{2DB259C0-0D8F-4502-A8C8-05A43DDA716A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NaturalSortApp", "NaturalSortApp\NaturalSortApp.csproj", "{2DB259C0-0D8F-4502-A8C8-05A43DDA716A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionExpressionsApp", "CollectionExpressionsApp\CollectionExpressionsApp.csproj", "{F8B0C3B6-93F0-4A72-BE9A-EE1A8EEDFA95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -149,6 +151,10 @@ Global
 		{2DB259C0-0D8F-4502-A8C8-05A43DDA716A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DB259C0-0D8F-4502-A8C8-05A43DDA716A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DB259C0-0D8F-4502-A8C8-05A43DDA716A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B0C3B6-93F0-4A72-BE9A-EE1A8EEDFA95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B0C3B6-93F0-4A72-BE9A-EE1A8EEDFA95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B0C3B6-93F0-4A72-BE9A-EE1A8EEDFA95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B0C3B6-93F0-4A72-BE9A-EE1A8EEDFA95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -176,6 +182,7 @@ Global
 		{0EBB57A8-1D5F-4C87-BFA6-A8EFAC9CA2E3} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{99349981-32F6-4BC9-B7E1-B3CD53267C81} = {D9B3C6E1-5277-46E0-805E-28CF43F63519}
 		{2DB259C0-0D8F-4502-A8C8-05A43DDA716A} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{F8B0C3B6-93F0-4A72-BE9A-EE1A8EEDFA95} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}
