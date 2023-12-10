@@ -213,8 +213,7 @@ internal partial class Program
 
         var parts = MockedLinesFromFile()
             .Where(x => !string.IsNullOrWhiteSpace(x))
-            .Select(x => x.Split(','))
-            .ToArray();
+            .Select(x => x.Split(','));
 
         foreach (string[] part in parts)
         {
