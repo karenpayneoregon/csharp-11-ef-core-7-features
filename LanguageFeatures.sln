@@ -67,6 +67,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CollectionExpressionsApp", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp1", "WinFormsApp1\WinFormsApp1.csproj", "{13589C53-B1DC-4EC8-B6C2-DCC71CA392DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DumpifySample", "DumpifySample\DumpifySample.csproj", "{A034CAB3-E917-4FFC-9E81-CB5CB2E62F56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -161,6 +163,10 @@ Global
 		{13589C53-B1DC-4EC8-B6C2-DCC71CA392DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13589C53-B1DC-4EC8-B6C2-DCC71CA392DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13589C53-B1DC-4EC8-B6C2-DCC71CA392DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A034CAB3-E917-4FFC-9E81-CB5CB2E62F56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A034CAB3-E917-4FFC-9E81-CB5CB2E62F56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A034CAB3-E917-4FFC-9E81-CB5CB2E62F56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A034CAB3-E917-4FFC-9E81-CB5CB2E62F56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -189,6 +195,7 @@ Global
 		{99349981-32F6-4BC9-B7E1-B3CD53267C81} = {D9B3C6E1-5277-46E0-805E-28CF43F63519}
 		{2DB259C0-0D8F-4502-A8C8-05A43DDA716A} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{F8B0C3B6-93F0-4A72-BE9A-EE1A8EEDFA95} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{A034CAB3-E917-4FFC-9E81-CB5CB2E62F56} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}
