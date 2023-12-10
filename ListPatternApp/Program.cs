@@ -8,13 +8,24 @@ internal partial class Program
 
     static void Main(string[] args)
     {
-        BankTransactions();
-        ValidatingLinesInTextFile();
-        StringArrayMatchFirstThreeAndLastElement1();
-        StringArrayMatchFirstThreeAndLastElement2();
-        StringArrayMatchFirstThreeElements();
-        IntegerArrayMisMatchFirstThreeElements();
-        IntegerArrayMatchFirstThreeElements();
+        //ValidatingLinesFromRawStringLiteral();
+        //BankTransactions();
+        //var lines = MockedLinesFromFile();
+        ValidatingLinesInTextFile1();
+        Console.WriteLine();
+        ValidatingLinesInTextFile2();
+        Console.WriteLine();
+        ValidatingLinesInTextFile3();
+        //MicrosoftSample();
+        //StringArrayMatchFirstThreeAndLastElement1();
+        //StringArrayMatchFirstThreeAndLastElement2();
+        //StringArrayMatchFirstThreeElements();
+        //IntegerArrayMisMatchFirstThreeElements();
+        //IntegerArrayMatchFirstThreeElements();
+
+        var parts = MockedLinesFromFile()
+            .Where(x=> !string.IsNullOrWhiteSpace(x))
+            .Select(x => x.Split(','));
 
 
         Console.ReadLine();
@@ -73,10 +84,10 @@ internal partial class Program
         {
             balance += transaction switch
             {
-                 [ _ , "DEPOSIT" or "deposit", _, var amount] => GetDecimal(amount),
-                 [ _ , "WITHDRAWAL", .., var amount] => -GetDecimal(amount),
-                 [ _ , "INTEREST", var amount] => GetDecimal(amount),
-                 [ _ , "FEE", ..,var fee] => -GetDecimal(fee),
+                [_, "DEPOSIT" or "deposit", _, var amount] => GetDecimal(amount),
+                [_, "WITHDRAWAL", .., var amount] => -GetDecimal(amount),
+                [_, "INTEREST", var amount] => GetDecimal(amount),
+                [_, "FEE", .., var fee] => -GetDecimal(fee),
                 /*
                  * If transaction type is not recognized throw an exception. In this case
                  * I setup one line with deposit lowercase so we don't throw.
@@ -94,7 +105,7 @@ internal partial class Program
             {
                 AnsiConsole.MarkupLine($"[cyan]Record:[/] {string.Join(", ", transaction),-50} [yellow]Balance[/] {balance:C}");
             }
-            
+
         }
 
         Console.WriteLine();
@@ -102,30 +113,119 @@ internal partial class Program
     }
 
 
-    private static void ValidatingLinesInTextFile()
+    private static IEnumerable<string> MockedLinesFromFile() =>
+        """
+            Mike,Jones,10,True
+            Jane,Adams,A,True
+            Karen,Smith,10,true
+
+            Mike,Adams,50,false
+            """
+            .Split(Environment.NewLine);
+
+    private static string[] fileA() => 
+        """
+        Bankov, Peter  
+        Holm, Michael  
+        Garcia, Hugo  
+        Potra, Cristina  
+        Noriega, Fabricio  
+        Aw, Kam Foo  
+        Beebe, Ann  
+        Toyoshima, Tim  
+        Guy, Wey Yuan  
+        Garcia, Debra
+        """.Split(Environment.CommandLine);
+
+    private static string[] fileB() =>
+        """
+            Liu, Jinghao  
+            Bankov, Peter  
+            Holm, Michael  
+            Garcia, Hugo  
+            Beebe, Ann  
+            Gilchrist, Beth  
+            Myrcha, Jacek  
+            Giakoumakis, Leo  
+            McLin, Nkenge  
+            El Yassir, Mehdi
+            """.Split(Environment.CommandLine);
+
+    // https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/how-to-split-a-file-into-many-files-by-using-groups-linq
+    private static void MicrosoftSample()
+    {
+        var mergeQuery = fileA().Union(fileB());
+
+        // Group the names by the first letter in the last name.  
+        var groupQuery = from name in mergeQuery
+            let n = name.Split(',')
+            group name by n[0][0] into g
+            orderby g.Key
+            select g;
+
+        foreach (var g in groupQuery)
+        {
+            Console.WriteLine(g.Key);
+            foreach (var item in g)
+            {
+                var data = item.Split(Environment.NewLine);
+                foreach (var dataItem in data)
+                {
+                    Console.WriteLine($"{dataItem,30}");
+                }
+            }
+        }
+    }
+
+    private static void ValidatingLinesInTextFile1()
     {
         Print();
 
-        string[] lines = File.ReadAllLines("Sample1.txt")
-            .Where(x => !string.IsNullOrWhiteSpace(x))
-            .ToArray();
+        string[] lines = MockedLinesFromFile().Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
 
-        foreach (var line in lines)
+        foreach (string line in lines)
         {
             var parts = line.Split(',');
-            if (parts is [ _, _, "10" or "50", "True" or "False" or "true" or "false" ])
-            {
-                AnsiConsole.MarkupLine($"      [cyan]Match[/] [[{string.Join(",", parts)}]]");
-            }
-            else
-            {
-                AnsiConsole.MarkupLine($"[red]Not a match[/] [[{string.Join(",", parts)}]]");
-            }
+            AnsiConsole.MarkupLine(parts is [ _ , _ , "10" or "50", "True" or "False" or "true" or "false"]
+                ? $"      [cyan]Match[/] [[{string.Join(",", parts)}]]"
+                : $"[red]Not a match[/] [[{string.Join(",", parts)}]]");
+        }
+    }
+
+    private static void ValidatingLinesInTextFile2()
+    {
+        Print();
+
+        string[] lines = MockedLinesFromFile().Where(line => !string.IsNullOrWhiteSpace(line)).ToArray();
+        string[][] parts = lines.Select(x => x.Split(',')).ToArray();
+
+        foreach (string[] part in parts)
+        {
+            AnsiConsole.MarkupLine(part is [ _ , _ , "10" or "50", "True" or "False" or "true" or "false"]
+                ? $"      [cyan]Match[/] [[{string.Join(",", part)}]]"
+                : $"[red]Not a match[/] [[{string.Join(",", part)}]]");
+        }
+    }
+
+    private static void ValidatingLinesInTextFile3()
+    {
+        Print();
+
+        var parts = MockedLinesFromFile()
+            .Where(x => !string.IsNullOrWhiteSpace(x))
+            .Select(x => x.Split(','))
+            .ToArray();
+
+        foreach (string[] part in parts)
+        {
+            AnsiConsole.MarkupLine(part is [_, _, "10" or "50", "True" or "False" or "true" or "false"]
+                ? $"      [cyan]Match[/] [[{string.Join(",", part)}]]"
+                : $"[red]Not a match[/] [[{string.Join(",", part)}]]");
         }
 
-        Console.WriteLine();
-
     }
+
+
     private static void ValidatingLines()
     {
         Print();
@@ -161,7 +261,7 @@ internal partial class Program
         Print();
 
         var months = DateTimeFormatInfo.CurrentInfo.MonthNames[..^1].ToArray();
-            
+
 
         // if 1st three elements are January February March and last element is December continue
         if (months is ["January", "February", "March", _ , _ , _ , _ , _ , _ , _ , _ , "December"])
@@ -187,12 +287,12 @@ internal partial class Program
 
         string[] months =
         {
-            "january", "February", "March", "April", "May", "June", "July", 
+            "january", "February", "March", "April", "May", "June", "July",
             "August", "September", "October", "November", "December"
         };
 
         // if 1st three elements are January February March and last element is December continue
-        if (months is ["January" or "january", "February", "March", _, _, _, _, _, _, _, _, "December"])
+        if (months is ["January" or "january", "February", "March", _ , _ , _ , _ , _ , _ , _ , _ , "December"])
         {
             Console.WriteLine("Match");
         }
@@ -211,7 +311,7 @@ internal partial class Program
     /// </summary>
     private static void StringArrayMatchFirstThreeElements()
     {
-            
+
         Print();
 
         var months = DateTimeFormatInfo.CurrentInfo.MonthNames[..^1].ToArray();
@@ -233,7 +333,7 @@ internal partial class Program
     /// </summary>
     private static void IntegerArrayMisMatchFirstThreeElements()
     {
-            
+
         Print();
 
         var list1 = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -256,7 +356,7 @@ internal partial class Program
     /// </summary>
     private static void IntegerArrayMatchFirstThreeElements()
     {
-            
+
         Print();
 
         var list1 = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
