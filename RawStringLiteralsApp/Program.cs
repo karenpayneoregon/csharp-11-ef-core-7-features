@@ -1,4 +1,5 @@
-﻿using RawStringLiteralsApp.Models;
+﻿#nullable enable
+using RawStringLiteralsApp.Models;
 using System.Runtime.CompilerServices;
 using RawStringLiteralsApp.Classes;
 

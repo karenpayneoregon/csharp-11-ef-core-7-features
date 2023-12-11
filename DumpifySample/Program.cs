@@ -10,7 +10,7 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-
+        
         DumpConfig.Default.ColorConfig.TypeNameColor = new DumpColor(Color.Aqua);
         DumpConfig.Default.ColorConfig.NullValueColor = new DumpColor(Color.Red);
         using var context = new Context();
@@ -21,5 +21,7 @@ internal partial class Program
 
         category.Dump();
         ExitPrompt();
+        
+
     }
 }

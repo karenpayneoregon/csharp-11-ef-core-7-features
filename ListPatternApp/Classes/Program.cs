@@ -1,4 +1,5 @@
-﻿using ListPatternApp.Classes;
+﻿#nullable enable
+using ListPatternApp.Classes;
 using System.Runtime.CompilerServices;
 
 // ReSharper disable once CheckNamespace
