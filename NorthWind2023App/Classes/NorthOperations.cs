@@ -16,4 +16,10 @@ internal class NorthOperations
             .ThenInclude(p => p.Category)
             .FirstOrDefaultAsync(o => o.OrderID == orderIdentifier);
     }
+
+    public static async Task<List<Customers>> GetCustomers()
+    {
+        await using var context = new Context();
+        return await context.Customers.Include(x => x.Contact).ToListAsync();
+    }
 }

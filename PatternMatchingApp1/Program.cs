@@ -16,6 +16,9 @@ internal partial class Program
             ? "[yellow]Found conference days[/]"
             : "[yellow]No conference dates found[/]");
 
+        int test = 35;
+        test.ShouldBe(5);
+
         Console.ReadLine();
     }
 }

@@ -90,7 +90,7 @@ internal partial class Program
                 [_, "FEE", .., var fee] => -GetDecimal(fee),
                 /*
                  * If transaction type is not recognized throw an exception. In this case
-                 * I setup one line with deposit lowercase so we don't throw.
+                 * I set up one line with deposit lowercase so we don't throw.
                  */
                 _ => throw new InvalidOperationException(
                     $"Record {string.Join(", ", transaction)} is invalid"),
