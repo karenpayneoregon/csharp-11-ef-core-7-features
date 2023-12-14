@@ -13,6 +13,12 @@ public class Helpers
 
 
     /// <summary>
+    /// Wrapper for NextValue as some may like this name
+    /// </summary>
+    public static string NextInvoiceNumber(string sender, int incrementBy) 
+        => NextValue(sender, incrementBy);
+
+    /// <summary>
     /// Given a string which ends with a number, increment the number by  <seealso cref="incrementBy"/>
     /// </summary>
     /// <param name="sender"></param>
@@ -24,11 +30,4 @@ public class Helpers
         return sender[..^value.Length] + (long.Parse(value) + incrementBy)
             .ToString().PadLeft(value.Length, '0');
     }
-
-    /// <summary>
-    /// Wrapper for NextValue as some may like this name
-    /// </summary>
-    public static string NextInvoiceNumber(string sender, int incrementBy) 
-        => NextValue(sender, incrementBy);
-
 }
