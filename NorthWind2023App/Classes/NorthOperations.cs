@@ -20,6 +20,6 @@ internal class NorthOperations
     public static async Task<List<Customers>> GetCustomers()
     {
         await using var context = new Context();
-        return await context.Customers.Include(x => x.Contact).ToListAsync();
+        return await context.Customers.Include(x => x.CountryIdentifierNavigation).ToListAsync();
     }
 }

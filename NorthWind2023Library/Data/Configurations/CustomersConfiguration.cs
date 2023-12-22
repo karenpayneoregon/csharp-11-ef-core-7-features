@@ -50,6 +50,8 @@ public partial class CustomersConfiguration : IEntityTypeConfiguration<Customers
             .HasForeignKey(d => d.CountryIdentifier)
             .HasConstraintName("FK_Customers_Countries");
 
+        //entity.Navigation(e => e.Contact).AutoInclude(false);
+
         OnConfigurePartial(entity);
     }
 

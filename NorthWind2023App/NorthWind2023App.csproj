@@ -29,6 +29,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="ObjectDumper.NET" Version="4.1.3" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Update="appsettings.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
@@ -42,3 +46,4 @@
 		<MakeDir Directories="$(OutDir)LogFiles" />
 	</Target>
 </Project>
+

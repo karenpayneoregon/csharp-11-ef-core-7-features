@@ -27,6 +27,8 @@ namespace NorthWind2023Library.Data.Configurations
             .HasForeignKey(d => d.ContactTypeIdentifier)
             .HasConstraintName("FK_Contacts_ContactType");
 
+            
+
             OnConfigurePartial(entity);
         }
 

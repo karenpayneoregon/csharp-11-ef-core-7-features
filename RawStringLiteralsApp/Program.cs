@@ -9,9 +9,9 @@ namespace RawStringLiteralsApp
     {
         static void Main(string[] args)
         {
-            ColorExample();
+            //ColorExample();
             MimicEmailMessage();
-            WithGenericMath();
+            //WithGenericMath();
 
             Console.ReadLine();
         }
@@ -32,13 +32,13 @@ namespace RawStringLiteralsApp
 
         private static void MimicEmailMessage()
         {
-            Person person = new Person() { FirstName = "James", Title = "Mr", LastName = "Smith" };
-            string companyName = "Acme";
-            string phone = "555-123-4565";
-            var emailMessage = EmailMessageTemplate(person, companyName, phone);
-
+            Employee employee = new() { FirstName = "James", Title = "Mr", LastName = "Smith" };
             Console.WriteLine();
-            AnsiConsole.MarkupLine(emailMessage);
+            //EmailOperations.SendWelcomeMessage(EmailTemplates.CreateWelcomeMessage(employee));
+            
+            EmailOperations.SendWelcomeMessage(employee.CreateWelcomeMessage());
+
+
             Console.WriteLine();
         }
 
@@ -48,17 +48,13 @@ namespace RawStringLiteralsApp
         /// https://github.com/lukencode/FluentEmail
         /// But for small task raw string literals work well.
         /// </summary>
-        private static string EmailMessageTemplate(Person person, string companyName, string phone)
-        {
-            Print();
-            string emailMessage = $$"""
-            Hello {{ person.Title}}  {{ person.LastName}},
+        private static string EmailMessageTemplate(Employee person, string companyName, string phone) =>
+            $$"""
+              Hello {{person.Title}}  {{person.LastName}},
 
-            We are super excited to welcome you to {{ companyName}} 
-            If there is any questions call us at {{ phone}} 
-            """ ;
-            return emailMessage;
-        }
+              We are super excited to welcome you to {{companyName}}
+              If there is any questions call us at {{phone}}
+              """;
 
         private static void ColorExample()
         {

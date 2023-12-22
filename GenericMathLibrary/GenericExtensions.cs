@@ -99,7 +99,7 @@ public static class GenericExtensions
     }
 
     /// <summary>
-    ///  Example of how the we would write to get numbers before generic math, now we have <see cref="ToNumbersPreserveArray"/> above
+    ///  Example of how we would write to get numbers before generic math
     /// </summary>
     public static double[] ToDoublePreserveArray(this string[] sender)
     {
@@ -131,6 +131,7 @@ public static class GenericExtensions
             .Select(result => result.Value)
             .ToArray();
 
+    
     /// <summary>
     /// Get non numeric value indices
     /// </summary>
@@ -139,7 +140,7 @@ public static class GenericExtensions
     /// <returns>array of indices if there are any non-numeric values</returns>
     public static int[] GetNonNumericIndexes<T>(this string[] sender) where T : INumber<T> =>
         sender.Select(
-                (item, index) => T.TryParse(item, NumberStyles.Any | NumberStyles.AllowDecimalPoint, CultureInfo.CurrentCulture, out var _) ?
+                (item, index) => T.TryParse(item, NumberStyles.Any | NumberStyles.AllowDecimalPoint, CultureInfo.CurrentCulture, out _) ?
                     new { IsNumber = true, Index = index } :
                     new { IsNumber = false, Index = index })
             .ToArray()

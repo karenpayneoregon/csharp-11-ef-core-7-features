@@ -7,7 +7,8 @@ internal partial class Program
     static void Main(string[] args)
     {
         AnsiConsole.MarkupLine("[yellow]Number methods[/]");
-        StandardExamples();
+
+        //StandardExamples();
         Console.ReadLine();
     }
     public static void StandardExamples()
