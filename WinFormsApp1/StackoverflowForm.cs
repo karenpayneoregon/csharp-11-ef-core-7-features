@@ -1,4 +1,5 @@
-﻿namespace WinFormsApp1;
+﻿
+namespace WinFormsApp1;
 public partial class StackoverflowForm : Form
 {
     public StackoverflowForm()
@@ -26,6 +27,8 @@ public partial class StackoverflowForm : Form
 
     private void SelectedItemButton_Click(object sender, EventArgs e)
     {
+        
+
         Item item = comboBox1.SelectedItem as Item;
         MessageBox.Show($"Id: {item!.Id} - {item.Name}");
     }

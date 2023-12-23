@@ -83,6 +83,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsApp1", "WinFormsApp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomSharedApp", "RandomSharedApp\RandomSharedApp.csproj", "{A1ED8EFB-E11D-48CD-B513-B963048DEAD8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetBirthDateApp", "GetBirthDateApp\GetBirthDateApp.csproj", "{876849F3-DF92-4D3D-9853-171C7CBEC1B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -197,6 +199,10 @@ Global
 		{A1ED8EFB-E11D-48CD-B513-B963048DEAD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1ED8EFB-E11D-48CD-B513-B963048DEAD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1ED8EFB-E11D-48CD-B513-B963048DEAD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{876849F3-DF92-4D3D-9853-171C7CBEC1B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{876849F3-DF92-4D3D-9853-171C7CBEC1B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{876849F3-DF92-4D3D-9853-171C7CBEC1B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{876849F3-DF92-4D3D-9853-171C7CBEC1B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -233,6 +239,7 @@ Global
 		{4DAEB9D7-1A3E-408F-A464-6DB6445DC55B} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{64ED8F47-D39D-4A35-8624-9E97E3CD6790} = {4DAEB9D7-1A3E-408F-A464-6DB6445DC55B}
 		{A1ED8EFB-E11D-48CD-B513-B963048DEAD8} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{876849F3-DF92-4D3D-9853-171C7CBEC1B8} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}

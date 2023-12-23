@@ -8,4 +8,12 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="..\GenericMathLibrary\IComparableExtensions.cs" Link="Extensions\IComparableExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
 </Project>
