@@ -10,10 +10,12 @@
 
 	<ItemGroup>
 	  <None Remove="readme.md" />
+	  <None Remove="Scripts\Script1.sql" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Content Include="readme.md" />
+	  <Content Include="Scripts\Script1.sql" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="NodaTime" Version="3.1.10" />
