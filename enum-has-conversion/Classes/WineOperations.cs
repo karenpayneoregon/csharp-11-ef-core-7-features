@@ -42,7 +42,6 @@ public class WineOperations
             AnsiConsole.MarkupLine($"[cyan]{wine.WineType,-8}[/]{wine.Name}");
         }
 
-
         List<Wine> rose = [.. context.Wines.Where(wine => wine.WineType == WineType.Rose)];
 
         LineSeparator("[white]Rose[/]");
