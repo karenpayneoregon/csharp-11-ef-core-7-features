@@ -1,11 +1,13 @@
 ﻿using System.Diagnostics;
-using AuditInterceptorSampleApp.Classes;
 using AuditInterceptorSampleApp.Models;
+using InterceptorLibrary;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using static ConfigurationLibrary.Classes.ConfigurationHelper;
+using AuditInterceptor = AuditInterceptorSampleApp.Classes.AuditInterceptor;
+using DeleteConcurrencyInterceptor = AuditInterceptorSampleApp.Classes.DeleteConcurrencyInterceptor;
 
 namespace AuditInterceptorSampleApp.Data;
 
@@ -42,13 +44,20 @@ public class BookContext : DbContext
     /// </summary>
     public static void StandardLogging(DbContextOptionsBuilder optionsBuilder)
     {
-        
-        optionsBuilder
-            .UseSqlServer(ConnectionString())
-            .EnableSensitiveDataLogging()
-            .AddInterceptors(new AuditInterceptor())
-            .LogTo(message => Debug.WriteLine(message));
+        optionsBuilder.UseSqlServer(ConnectionString());
 
+        if (Debugger.IsAttached)
+        {
+            optionsBuilder
+                .EnableSensitiveDataLogging()
+                .AddInterceptors(new DevelopmentAuditInterceptor())
+                .LogTo(message => Debug.WriteLine(message));
+        }
+        else
+        {
+            optionsBuilder.AddInterceptors( new ProductionAuditInterceptor())
+                .LogTo(new DbContextToFileLogger().Log, new[] { DbLoggerCategory.Database.Command.Name }, LogLevel.Information);
+        }
     }
 
     /// <summary>

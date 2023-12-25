@@ -11,7 +11,7 @@ namespace InterceptorLibrary;
 /// <summary>
 /// Overrides SavingChangesAsync and SavingChanges to inject a method for writing changes to a SeriLog file. 
 /// </summary>
-public class AuditInterceptor : SaveChangesInterceptor
+public class DevelopmentAuditInterceptor : SaveChangesInterceptor
 {
     public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = new CancellationToken())
     {

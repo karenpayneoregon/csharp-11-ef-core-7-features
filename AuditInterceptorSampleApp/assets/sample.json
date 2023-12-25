@@ -1,0 +1,35 @@
+
+
+
+    [
+      {
+        "OriginalValue": {
+          "Id": 1,
+          "Title": "C# in Depth",
+          "Price": 44.99,
+          "CategoryId": 1
+        },
+        "NewValue": {
+          "Id": 1,
+          "Title": "C# in Depth - changed",
+          "Price": 54.99,
+          "CategoryId": 1
+        },
+        "EntityState": "Modified"
+      },
+      {
+        "OriginalValue": {
+          "Id": 4,
+          "Title": "Entity Framework Core in Action",
+          "Price": 55.99,
+          "CategoryId": 2
+        },
+        "NewValue": {
+          "Id": 4,
+          "Title": "Entity Framework Core in Action - updated",
+          "Price": 45.99,
+          "CategoryId": 2
+        },
+        "EntityState": "Modified"
+      }
+    ]

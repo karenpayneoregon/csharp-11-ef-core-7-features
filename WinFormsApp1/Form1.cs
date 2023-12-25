@@ -3,6 +3,7 @@ using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 
+
 #pragma warning disable SYSLIB0014
 
 namespace WinFormsApp1;
@@ -166,12 +167,13 @@ public partial class Form1 : Form
             ).ToString();
     }
 
-    private  void button3_Click(object sender, EventArgs e)
+    private void button3_Click(object sender, EventArgs e)
     {
         //Pacific Daylight Time
-        var  data = DateTimeHelpers.AllTimeZones();
+        var data = DateTimeHelpers.AllTimeZones();
 
     }
+
 }
 
 

@@ -9,11 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\GenericMathLibrary\IComparableExtensions.cs" Link="Extensions\IComparableExtensions.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Extensions\" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

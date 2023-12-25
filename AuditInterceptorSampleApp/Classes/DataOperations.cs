@@ -33,6 +33,7 @@ internal class DataOperations
     public static async Task<List<Book>> ReadBack()
     {
         await using var context = new BookContext();
+        
         return context.Books.Include(x => x.Category).ToList();
     }
 
