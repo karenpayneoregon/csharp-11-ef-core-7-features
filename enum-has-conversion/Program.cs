@@ -2,7 +2,7 @@
 using EnumHasConversion.Data;
 using EnumHasConversion.Extensions;
 using EnumHasConversion.Models;
-using Microsoft.VisualBasic;
+
 using static EnumHasConversion.Classes.SpectreConsoleHelpers;
 
 namespace EnumHasConversion;
