@@ -24,8 +24,6 @@
 		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.0" />
 	</ItemGroup>
 
-
-
 	<ItemGroup>
 		<PackageReference Include="Spectre.Console" Version="0.46.0" />
 	</ItemGroup>

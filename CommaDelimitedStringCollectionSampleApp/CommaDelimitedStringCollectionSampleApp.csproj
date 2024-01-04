@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="readme.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="assets\csharp.ico" />
+	  <Content Include="readme.md" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Spectre.Console" Version="0.48.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="appsettings.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="FileName.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+	<Target Name="CopyCustomContent" AfterTargets="AfterBuild">
+		<Copy SourceFiles="App.config" DestinationFiles="$(OutDir)\TestProject1.dll.config" />
+	</Target>
+</Project>
