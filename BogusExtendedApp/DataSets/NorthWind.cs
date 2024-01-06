@@ -10,9 +10,19 @@ public class NorthWind : DataSet
     /// Pre-defined contact titles
     /// </summary>
     private static string[] contactTitles { get; } = [
-        "Accounting Manager", "Assistant Sales Agent", "Assistant Sales Representative", "Marketing Assistant",
-        "Marketing Manager", "Order Administrator", "Owner", "Owner/Marketing Assistant", "Sales Agent",
-        "Sales Associate", "Sales Manager", "Sales Representative", "Vice President, Sales"
+        "Accounting Manager", 
+        "Assistant Sales Agent", 
+        "Assistant Sales Representative",
+        "Marketing Assistant",
+        "Marketing Manager", 
+        "Order Administrator", 
+        "Owner", 
+        "Owner/Marketing Assistant", 
+        "Sales Agent",
+        "Sales Associate", 
+        "Sales Manager", 
+        "Sales Representative", 
+        "Vice President, Sales"
     ];
 
     public string ContactTypeNames()

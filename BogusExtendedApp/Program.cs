@@ -10,7 +10,7 @@ internal partial class Program
     static void Main(string[] args)
     {
 
-        SerializeDeserialize();
+        SerializeFile();
         ExitPrompt();
     }
 
@@ -30,33 +30,29 @@ internal partial class Program
         }
     }
 
-    /// <summary>
-    /// protobuf-net demo
-    /// </summary>
-    private static void SerializeDeserialize()
+
+    private static void SerializeFile()
     {
-        // give the file a name most users will not look at
-        var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataLibrary.dll");
+        
+        var fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CommonLibrary.dll");
 
-        if (File.Exists(fileName))
-        {
-            File.Delete(fileName);
-        }
-
-        // generate a contact
-        List<Contact> original = BogusOperations.Contacts(1);
+        List<Contact> contacts = BogusOperations.Contacts(1);
 
         CryptoSerializer<Contact> cryptoSerializer = new(Secrets.Key);
 
-        // serialize contact to file
-        using (FileStream fileStream1 = new(fileName, FileMode.OpenOrCreate))
+        using (FileStream fileStream = new(fileName, FileMode.OpenOrCreate))
         {
-            cryptoSerializer.Serialize(original, fileStream1);
+            cryptoSerializer.Serialize(contacts, fileStream);
         }
-        // deserialize contact
-        using FileStream fileStream = new(fileName, FileMode.Open);
-        Contact readBack = cryptoSerializer.DeserializeSingle(fileStream);
 
-        Console.WriteLine(ObjectDumper.Dump(readBack, DumpStyle.CSharp));
+        DeserializeFile(fileName, cryptoSerializer);
     }
+
+    private static void DeserializeFile(string fileName, CryptoSerializer<Contact> cryptoSerializer)
+    {
+        using FileStream fileStream = new(fileName, FileMode.Open);
+        Contact contacts = cryptoSerializer.DeserializeSingle(fileStream);
+    }
+
+
 }
