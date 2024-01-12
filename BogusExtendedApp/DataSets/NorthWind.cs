@@ -1,6 +1,8 @@
 ﻿using Bogus;
+using BogusExtendedApp.Classes;
 using BogusExtendedApp.LanguageExtensions;
 using BogusExtendedApp.Models;
+using System.Text.Json;
 
 namespace BogusExtendedApp.DataSets;
 
@@ -55,19 +57,17 @@ public class NorthWind : DataSet
         cat.CategoryID = item.CategoryID;
         cat.CategoryName = item.CategoryName;
         cat.Description = item.Description;
-        return cat;
+        return item;
     }
 
-    private static List<Categories> categories() =>
-    [
-        new Categories() { CategoryID = 1, CategoryName = "Beverages", Description = "Soft drinks, coffees, teas, beers, and ales" },
-        new Categories() { CategoryID = 2, CategoryName = "Condiments", Description = "Sweet and savory sauces, relishes, spreads, and seasonings" },
-        new Categories() { CategoryID = 3, CategoryName = "Confections", Description = "Desserts, candies, and sweet breads" },
-        new Categories() { CategoryID = 4, CategoryName = "Dairy Products", Description = "Cheeses" },
-        new Categories() { CategoryID = 5, CategoryName = "Grains/Cereals", Description = "Breads, crackers, pasta, and cereal" },
-        new Categories() { CategoryID = 6, CategoryName = "Meat/Poultry", Description = "Prepared meats" },
-        new Categories() { CategoryID = 7, CategoryName = "Produce", Description = "Dried fruit and bean curd" },
-        new Categories() { CategoryID = 8, CategoryName = "Seafood", Description = "Seaweed and fish" },
-        new Categories() { CategoryID = 9, CategoryName = "Wine", Description = "Wine" }
-    ];
+    private static List<Categories> categories()
+    {
+        List<Categories> list = JsonSerializer.Deserialize<List<Categories>>(JsonStatements.CategoriesData);
+        foreach (var cat in list)
+        {
+            cat.Picture = cat.Photo.ByteToImage();
+        }
+
+        return list;
+    }
 }

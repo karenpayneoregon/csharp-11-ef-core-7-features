@@ -2,6 +2,7 @@
 using BogusExtendedApp.DataSets;
 using BogusExtendedApp.Models;
 using static BogusExtendedApp.Classes.SpectreConsoleHelpers;
+#pragma warning disable CA1416
 
 namespace BogusExtendedApp;
 
@@ -10,7 +11,9 @@ internal partial class Program
     static void Main(string[] args)
     {
 
-        SerializeFile();
+        //SerializeFile();
+        Other();
+        MainExample();
         ExitPrompt();
     }
 
@@ -22,12 +25,14 @@ internal partial class Program
 
     private static void Other()
     {
+        var table = CreateCategoryTable();
         for (int index = 0; index < 3; index++)
         {
             var category = NorthWind.SingleCategory();
-            Console.WriteLine($"{category.CategoryID,-4}{category.CategoryName,-30}{category.Description}");
-   
+            table.AddRow(category.CategoryID.ToString(), category.CategoryName, category.Description, category.Picture.Size.ToString());
         }
+
+        AnsiConsole.Write(table);
     }
 
 
