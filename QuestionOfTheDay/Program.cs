@@ -8,7 +8,7 @@ internal partial class Program
     {
 
         January12Question();
-
+        
         ExitPrompt();
     }
 }

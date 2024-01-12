@@ -23,6 +23,8 @@ internal partial class Program
         var firstThree2 = array.Take(3).ToArray();
         var lastThree2 = array.TakeLast(3).ToArray();
 
+        January12Extra(array);
+
     }
     private static void January12Extra(int[] array)
     {
