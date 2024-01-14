@@ -18,7 +18,7 @@ internal partial class Program
         int[] array2 = { 1, 3, 6, 7, 8, 10, 11, 4 };
         Console.WriteLine();
         Console.WriteLine($"Method 2 Before : {ObjectDumper.Dump(string.Join(",", array2))}");
-        var results2 = array.MissingWithMax();
+        var results2 = array2.MissingWithMax();
         Console.WriteLine($"Method 2 Result : {ObjectDumper.Dump(string.Join(",", results2))}");
         Console.WriteLine($"Method 2 After  : {ObjectDumper.Dump(string.Join(",", array2))}");
         ExitPrompt();
