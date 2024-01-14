@@ -15,8 +15,24 @@ public static class SequenceExtensions
             .ToArray();
     }
 
-
-
+    /// <summary>
+    /// Contribution from Twitter @thefactorygrows
+    /// </summary>
+    /// <example>
+    /// <code>
+    /// int[] array2 = { 1, 3, 6, 7, 8, 10, 11, 4 };
+    /// var results2 = array.MissingWithMax();
+    /// Console.WriteLine($"Method 2 Result : {ObjectDumper.Dump(string.Join(",", results2))}");
+    /// Console.WriteLine($"Method 2 After  : {ObjectDumper.Dump(string.Join(",", array2))}");
+    /// </code>
+    /// </example>
+    public static int[] MissingWithMax(this int[] sequence, int start = 1)
+    {
+        return Enumerable
+            .Range(start, sequence.Max())
+            .Except(sequence)
+            .ToArray();
+    }
 
     public static int[] Missing(this int[] sequence, int start = 1)
     {

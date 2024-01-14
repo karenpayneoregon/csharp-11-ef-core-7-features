@@ -9,7 +9,7 @@ internal partial class Program
     public static void Init()
     {
         Console.Title = $"Question of the day for '{DateTime.Now:D}'";
-        WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Fill);
+        WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
     }
 
     private static void January12Question()
