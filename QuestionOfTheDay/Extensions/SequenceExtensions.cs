@@ -30,6 +30,15 @@ public static class SequenceExtensions
     }
 
 
+    public static int[] MissingWithMax(this int[] sequence, int start = 1)
+    {
+        return Enumerable
+
+            .Range(start, sequence.Max())
+
+            .Except(sequence)
+            .ToArray();
+    }
 
     public static bool HasNull(this int[] sender)
     {
