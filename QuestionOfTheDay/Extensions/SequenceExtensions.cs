@@ -1,11 +1,13 @@
 ﻿
+using System.Xml.Linq;
+
 namespace QuestionOfTheDay.Extensions;
 
 
 public static class SequenceExtensions
 {
 
-    public static int[] Missing1(this int[] sequence, int start = 1)
+    public static int[] Missing1A(this int[] sequence, int start = 1)
     {
         return Enumerable
             .Range(start, sequence[^1])
@@ -13,14 +15,27 @@ public static class SequenceExtensions
             .ToArray();
     }
 
-    public static int[] Missing2(this int[] sequence, int start = 1)
+
+
+
+    public static int[] Missing(this int[] sequence, int start = 1)
     {
         Array.Sort(sequence);
         return Enumerable
+
             .Range(start, sequence[^1])
+
             .Except(sequence)
             .ToArray();
     }
+
+
+
+    public static bool HasNull(this int[] sender)
+    {
+        return sender.Any(t => t == null);
+    }
+
     /// <summary>
     /// Determine if the sequence has missing elements
     /// </summary>

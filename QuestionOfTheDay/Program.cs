@@ -11,12 +11,10 @@ internal partial class Program
 
 
         int[] array = { 1,3,6,7,8,10,11,4 };
-        var results1 = array.Missing1(); // unsorted - fails
-        var results2 = array.Missing2(); // sorted   - works
+        var results = array.Missing(); 
 
-        Console.WriteLine(ObjectDumper.Dump(results1));
-        Console.WriteLine();
-        Console.WriteLine(ObjectDumper.Dump(results2));
+
+        Console.WriteLine(ObjectDumper.Dump(results));
 
         ExitPrompt();
     }
