@@ -57,6 +57,10 @@ public static class GenericExtensions
     public static T Subtract<T>(this T  left, T right) where T : INumber<T> 
         => left - right;
 
+    /// <summary>Clamps a value to an inclusive minimum and maximum value.</summary>
+    public static T Clamp<T>(this T value, T min, T max) where T : INumber<T> 
+        => T.Clamp(value, min, max);
+
     /// <summary>Computes the absolute of a value.</summary>
     public static T Abs<T>(this T left, T right) where T : INumber<T> => 
         T.Abs(left);
@@ -69,16 +73,18 @@ public static class GenericExtensions
     public static T GetMaxNumber<T>(this T a, T b) where T : INumber<T> 
         => T.MaxNumber(a, b);
 
-    /// <summary>Clamps a value to an inclusive minimum and maximum value.</summary>
-    public static T Clamp<T>(this T value, T min, T max) where T : INumber<T> 
-        => T.Clamp(value, min, max);
-
     /// <summary> Flip negative to positive or positive to negative </summary>
     public static T Invert<T>(this T source) where T : INumber<T> 
         => -source;
 
     public static T Round<T>(this T sender, int decimalPlaces) where T : IFloatingPoint<T>
         => T.Round(sender, decimalPlaces);
+
+    public static T[] Merge<T>(this T[] front, T[] back) where T : INumber<T>
+        => front.Concat(back).ToArray();
+
+    // NET8 version of Merge above
+    // public static T[] Merge2<T>(this T[] front, T[] back) where T : INumber<T> => [.. front, .. back];
 
     /// <summary>
     /// Convert all values in array to int array where non int values will be set to the default value.
