@@ -7,6 +7,7 @@ namespace QuestionOfTheDay.Extensions;
 public static class SequenceExtensions
 {
 
+
     public static int[] Missing1A(this int[] sequence, int start = 1)
     {
         return Enumerable
