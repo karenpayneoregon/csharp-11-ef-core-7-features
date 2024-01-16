@@ -1,4 +1,6 @@
-﻿using QuestionOfTheDay.Models;
+﻿using Bogus;
+using QuestionOfTheDay.Extensions;
+using QuestionOfTheDay.Models;
 using static System.Globalization.DateTimeFormatInfo;
 
 namespace QuestionOfTheDay.Classes;
@@ -6,6 +8,17 @@ internal class Samples
 {
     public static string[] MonthNames => CurrentInfo!.MonthNames[..^1];
     public static string[] DayNames => CurrentInfo!.DayNames;
+
+    public static void JoinWithSample()
+    {
+        var faker = new Faker();
+        List<string> randomNames = Enumerable.Range(1, 7)
+            .Select(_ => faker.Name.FirstName())
+            .ToList();
+
+        Console.WriteLine($" {DayNames.JoinWithLastSeparator()}");
+        Console.WriteLine($" {randomNames.JoinWithLastSeparator(" plus ")}");
+    }
 
     private static void GroupBySample()
     {
@@ -21,5 +34,21 @@ internal class Samples
                 Console.WriteLine($"\t{member.Id,-3}{member.Active}");
             }
         }
-    }s
+    }
+
+    private static void DistinctBySeveralProperties()
+    {
+        var distinctByFirstLastNames = MemberOperations.MembersList()
+            .DistinctBy(member => new
+            {
+                member.FirstName,
+                member.SurName
+            })
+            .ToList();
+
+        foreach (var member in distinctByFirstLastNames)
+        {
+            Console.WriteLine($"{member.Id,-4}{member.FirstName,-10}{member.SurName}");
+        }
+    }
 }
