@@ -17,7 +17,7 @@ internal class Samples
             .ToList();
 
         Console.WriteLine($" {DayNames.JoinWithLastSeparator()}");
-        Console.WriteLine($" {randomNames.JoinWithLastSeparator(" plus ")}");
+        Console.WriteLine($" {randomNames.JoinWithLastSeparator1(" plus ")}");
     }
 
     private static void GroupBySample()
