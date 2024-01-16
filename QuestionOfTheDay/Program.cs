@@ -17,7 +17,8 @@ internal partial class Program
             {
                 member.FirstName, 
                 member.SurName
-            }).ToList();
+            })
+            .ToList();
 
         foreach (var member in distinctByFirstLastNames)
         {
