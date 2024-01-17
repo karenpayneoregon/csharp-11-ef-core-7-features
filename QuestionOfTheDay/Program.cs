@@ -12,8 +12,11 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-
-        Samples.JoinWithSample();
+        string sentence = "Hello    World  nice to be   here      ";
+        Console.WriteLine($"'{sentence}'");
+        Console.WriteLine($"'{sentence.RemoveExtraSpaces().TrimLastCharacter()}'");
+        Console.WriteLine($"'{sentence.RemoveExtraSpaces().ReplaceLastOccurrence(" ", "!!!")}'");
+        
         ExitPrompt();
     }
 }

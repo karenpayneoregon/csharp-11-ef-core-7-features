@@ -19,6 +19,9 @@ public static class GenericsExtensions
 
     public static T Invert<T>(this T source) where T : INumber<T>
         => -source;
+
+    public static double GetPercentage<T>(this T sender, int percentage) where T : IFloatingPoint<T> 
+        => (double)(decimal.CreateChecked(sender) * percentage / 100);
 }
 
 
