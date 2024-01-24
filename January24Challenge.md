@@ -4,7 +4,7 @@ Given a string with numbers bracketed how would you extract to a float array?
 
 No chance of nulls and all values will represent floats.
 
-## @mdxkln
+## @mdxkln (1)
 
 ```csharp
 using System.Text.Json;
@@ -15,7 +15,7 @@ float[] numbers = JsonSerializer.Deserialize<float[]>(bracketedData);
 foreach (float n in numbers) Console.WriteLine(n);
 ```
 
-## @CodeDux
+## @CodeDux (2)
 
 ```csharp
 /// <summary>
@@ -39,7 +39,7 @@ public static float[] Parse(ReadOnlySpan<char> input)
 }
 ```
 
-## @SuperBadGPT
+## @SuperBadGPT (3)
 
 ```csharp
 void Main()
@@ -61,7 +61,7 @@ public static class StringExtension
 }
 ```
 
-## @thefactorygrows
+## @thefactorygrows (4)
 
 **Program.cs**
 
@@ -93,5 +93,35 @@ public static partial class StringExtensions
 
         return matches.Select(m => float.Parse(m.Value)).ToArray();
     }
+}
+```
+
+## @sam_ferree (5)
+
+```csharp
+using System;
+using System.Linq;
+					
+public class Program
+{
+	public static void Main()
+	{
+		string floatString = "[10,20.5,30.88]";
+		float[] floatArray = floatString.ToFloatArray();
+		Console.WriteLine(string.Join(',', floatArray));
+	}
+}
+
+public static class StringToFloatArray
+{
+  public static float[] ToFloatArray(this string str)
+  => str
+	  .Split(',')
+	  .Select(RemoveBrackets)
+	  .Select(float.Parse)
+	  .ToArray();
+  
+  private static string RemoveBrackets(string str)
+  => str.Replace("[", "").Replace("]", "");
 }
 ```
