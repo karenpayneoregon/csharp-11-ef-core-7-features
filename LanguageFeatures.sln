@@ -17,6 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListPatternApp", "ListPatte
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{217BD5BF-EE8D-4A66-81B5-B30F04DF7BF8}"
 	ProjectSection(SolutionItems) = preProject
+		January24Challenge.md = January24Challenge.md
 		readme.md = readme.md
 		scriptsDump.sql = scriptsDump.sql
 	EndProjectSection
@@ -115,7 +116,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects", "Class pro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DialogsCoreLibrary", "DialogsCoreLibrary\DialogsCoreLibrary.csproj", "{D9A82305-8362-41EB-8718-51A8C7EF1206}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DialogsSamples", "DialogsSamples\DialogsSamples.csproj", "{420C9772-CABC-471F-95EC-B9830DC6DCA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DialogsSamples", "DialogsSamples\DialogsSamples.csproj", "{420C9772-CABC-471F-95EC-B9830DC6DCA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

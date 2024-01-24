@@ -9,7 +9,8 @@
     {
         static void Main(string[] args)
         {
-            GreetingsService service = new(new MorningTimeProvider());
+            GreetingsService service = new(new EveningTimeProvider());
+
             Console.WriteLine(service.TimeOfDay());
             Console.ReadLine();
         }

@@ -12,7 +12,7 @@
     {
         public override DateTimeOffset GetUtcNow()
         {
-            return new DateTimeOffset(2023, 12, 1, 8, 0, 0, TimeSpan.Zero);
+            return new DateTimeOffset(2025, 12, 1, 15, 0, 0, TimeSpan.Zero);
         }
     }
 
@@ -20,7 +20,7 @@
     {
         public override DateTimeOffset GetUtcNow()
         {
-            return new DateTimeOffset(2023, 12, 1, 16, 0, 0, TimeSpan.Zero);
+            return new DateTimeOffset(2023, 12, 1, 2, 0, 0, TimeSpan.Zero);
         }
     }
 
@@ -28,7 +28,7 @@
     {
         public override DateTimeOffset GetUtcNow()
         {
-            return new DateTimeOffset(2023, 12, 1, 20, 0, 0, TimeSpan.Zero);
+            return new DateTimeOffset(2023, 12, 1, 5, 0, 0, TimeSpan.Zero);
         }
     }
 }

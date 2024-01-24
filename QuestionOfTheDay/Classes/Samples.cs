@@ -51,4 +51,12 @@ internal class Samples
             Console.WriteLine($"{member.Id,-4}{member.FirstName,-10}{member.SurName}");
         }
     }
+
+    private static void Stash()
+    {
+        string sentence = "Hello    World  nice to be   here      ";
+        Console.WriteLine($"'{sentence}'");
+        Console.WriteLine($"'{sentence.RemoveExtraSpaces().TrimLastCharacter()}'");
+        Console.WriteLine($"'{sentence.RemoveExtraSpaces().ReplaceLastOccurrence(" ", "!!!")}'");
+    }
 }
