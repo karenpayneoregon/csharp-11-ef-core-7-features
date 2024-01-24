@@ -125,3 +125,51 @@ public static class StringToFloatArray
   => str.Replace("[", "").Replace("]", "");
 }
 ```
+
+## @MobiusSlit (6)
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
+public static class StringExtensions
+{
+    public static float[] ToFloatArray(this string input)
+    {
+        // Define the regular expression pattern for extracting floating-point numbers
+        string pattern = @"-?\d+(\.\d+)?";
+
+        // Use Regex.Matches to find all matches in the input string
+        var matches = Regex.Matches(input, pattern);
+
+        // Allocate the float array directly with the correct size
+        var output = new float[matches.Count];
+
+        // Iterate through the matches and convert each match to a float
+        for(int i = 0;i<matches.Count;i++)
+        {
+            output[i] = float.Parse(matches[i].Value); // we've been told all values are floats
+        }
+
+        return output;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        string bracketedData = "[10,20.5,30.88]";
+
+        // Use the extension method to extract float numbers from the input string
+        var floatArray = bracketedData.ToFloatArray();
+
+        // Display the extracted numbers
+        foreach (float number in floatArray)
+        {
+            Console.WriteLine(number);
+        }
+    }
+}
+```
