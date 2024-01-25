@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using Dapper;
@@ -53,7 +54,30 @@ namespace DapperSimpleApp
                 bindingNavigator1.BindingSource = BindingSource;
                 dataGridView1.DataSource = BindingSource;
                 CurrentButton.Enabled = true;
+                BindingSource.CurrentChanged += BindingSource_CurrentChanged;
             }
+        }
+
+        private Person currentItem = null;
+        private bool itemDirty = false; // can be used for "do you want to save?"
+        private void BindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            var handler = new PropertyChangedEventHandler((s, e2) => itemDirty = true);
+
+            var crnt = currentItem as INotifyPropertyChanged;
+            if (crnt != null) crnt.PropertyChanged -= handler;
+
+            currentItem = (Person)BindingSource.Current;
+
+            crnt = currentItem as INotifyPropertyChanged;
+            if (crnt != null) crnt.PropertyChanged += handler;
+
+            if (itemDirty)
+            {
+                
+            }
+
+            itemDirty = false;
         }
 
         /*

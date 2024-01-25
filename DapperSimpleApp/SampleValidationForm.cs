@@ -12,6 +12,7 @@ namespace DapperSimpleApp
     {
         public delegate void OnValidatePerson(Person person);
         public  event OnValidatePerson ValidPerson;
+
         private Person Person { get; set; }
         public SampleValidationForm()
         {

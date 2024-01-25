@@ -111,7 +111,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SampleValidationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "SampleValidationForm";
+            this.Text = "ValidationForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 

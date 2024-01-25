@@ -180,7 +180,6 @@ class Program
 static readonly char[] ExtractFloatsTrimChars = new char[] { '[', ']', ' ' };
 static float[] ExtractFloats(string input) =>
     input
-        .Trim()
         .Trim(ExtractFloatsTrimChars)
         .Split(',')
         .Select(float.Parse)
