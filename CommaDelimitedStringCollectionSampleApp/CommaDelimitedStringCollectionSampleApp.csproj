@@ -29,6 +29,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Update="app.config">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	  <None Update="appsettings.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>

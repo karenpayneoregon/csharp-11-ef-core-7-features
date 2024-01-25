@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using static ConfigurationLibrary.Classes.ConfigurationHelper;
-using AuditInterceptor = AuditInterceptorSampleApp.Classes.AuditInterceptor;
+//using AuditInterceptor = AuditInterceptorSampleApp.Classes.AuditInterceptor;
 using DeleteConcurrencyInterceptor = AuditInterceptorSampleApp.Classes.DeleteConcurrencyInterceptor;
 
 namespace AuditInterceptorSampleApp.Data;
