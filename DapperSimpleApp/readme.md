@@ -16,7 +16,7 @@ Used to keep things simple, a developer can use form controls instead bound to d
 
 ## Proper validation
 
-Not shown but consider using [FluentValidation](https://www.nuget.org/packages/FluentValidation). I have added the NuGet package to this project.
+Using [FluentValidation](https://www.nuget.org/packages/FluentValidation) done simple in child form.
 
 ## Edits, deletes, additions
 

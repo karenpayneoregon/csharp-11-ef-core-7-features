@@ -70,5 +70,19 @@ namespace DapperSimpleApp
                 MessageBox.Show($"From database {person}");
             }
         }
+
+        private void ValidateButton_Click(object sender, EventArgs e)
+        {
+            var f = new SampleValidationForm();
+            f.ValidPerson += ValidPersonFromChildForm;
+            f.ShowDialog();
+        }
+
+        private void ValidPersonFromChildForm(Person person)
+        {
+
+            MessageBox.Show($"{person.FirstName} {person.LastName} {person.BirthDate:d}");
+
+        }
     }
 }

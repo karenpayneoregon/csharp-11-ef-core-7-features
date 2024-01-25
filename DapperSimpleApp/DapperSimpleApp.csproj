@@ -65,6 +65,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Person.cs" />
+    <Compile Include="SampleValidationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SampleValidationForm.Designer.cs">
+      <DependentUpon>SampleValidationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Validators\PersonValidator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +86,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SampleValidationForm.resx">
+      <DependentUpon>SampleValidationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

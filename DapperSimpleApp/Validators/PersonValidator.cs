@@ -13,7 +13,7 @@ namespace DapperSimpleApp.Validators
         {
             RuleFor(x => x.FirstName).NotEmpty();
             RuleFor(x => x.LastName).NotEmpty();
-            RuleFor(x => x.BirthDate).LessThan(x => DateTime.Now);
+            RuleFor(x => x.BirthDate).LessThan(x => new DateTime(2000,1,1));
         }
     }
 }
