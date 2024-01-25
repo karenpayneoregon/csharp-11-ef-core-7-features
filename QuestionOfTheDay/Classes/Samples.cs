@@ -59,4 +59,26 @@ internal class Samples
         Console.WriteLine($"'{sentence.RemoveExtraSpaces().TrimLastCharacter()}'");
         Console.WriteLine($"'{sentence.RemoveExtraSpaces().ReplaceLastOccurrence(" ", "!!!")}'");
     }
+
+    public static void January25Challenge()
+    {
+        string lines =
+            """
+            January
+            February
+            March
+            April
+            May
+            June
+            July
+            August
+            September
+            October
+            November
+            December
+            """;
+
+        var results = lines.ReplaceLineEndings("\n");
+        Console.WriteLine("Place breakpoint here to validate");
+    }
 }
