@@ -60,6 +60,9 @@ internal class Samples
         Console.WriteLine($"'{sentence.RemoveExtraSpaces().ReplaceLastOccurrence(" ", "!!!")}'");
     }
 
+    /// <summary>
+    /// https://learn.microsoft.com/en-us/dotnet/api/system.string.replacelineendings?view=net-8.0
+    /// </summary>
     public static void January25Challenge()
     {
         string lines =
