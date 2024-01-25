@@ -187,7 +187,7 @@ static float[] ExtractFloats(string input) =>
         .ToArray();
 ```
 
-## @marcgravell (10)
+## @marcgravell (8)
 
 ```csharp
 using BenchmarkDotNet.Attributes;
