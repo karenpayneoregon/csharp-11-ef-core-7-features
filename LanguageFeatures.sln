@@ -118,6 +118,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DialogsCoreLibrary", "Dialo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DialogsSamples", "DialogsSamples\DialogsSamples.csproj", "{420C9772-CABC-471F-95EC-B9830DC6DCA8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework 4.8", "Framework 4.8", "{E882D755-CF06-4E43-9D5F-D1C26AEE30A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperSimpleApp", "DapperSimpleApp\DapperSimpleApp.csproj", "{45C54B67-6789-4A1B-ADAD-BE06E0E0A65C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -284,6 +288,10 @@ Global
 		{420C9772-CABC-471F-95EC-B9830DC6DCA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{420C9772-CABC-471F-95EC-B9830DC6DCA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{420C9772-CABC-471F-95EC-B9830DC6DCA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45C54B67-6789-4A1B-ADAD-BE06E0E0A65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C54B67-6789-4A1B-ADAD-BE06E0E0A65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C54B67-6789-4A1B-ADAD-BE06E0E0A65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C54B67-6789-4A1B-ADAD-BE06E0E0A65C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -335,6 +343,7 @@ Global
 		{029E9138-5B3A-41A8-9818-EE6A74F61EDD} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{D9A82305-8362-41EB-8718-51A8C7EF1206} = {029E9138-5B3A-41A8-9818-EE6A74F61EDD}
 		{420C9772-CABC-471F-95EC-B9830DC6DCA8} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{45C54B67-6789-4A1B-ADAD-BE06E0E0A65C} = {E882D755-CF06-4E43-9D5F-D1C26AEE30A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}

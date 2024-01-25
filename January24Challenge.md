@@ -173,3 +173,84 @@ class Program
     }
 }
 ```
+
+## @MrPeterMorris (7)
+
+```csharp
+static readonly char[] ExtractFloatsTrimChars = new char[] { '[', ']', ' ' };
+static float[] ExtractFloats(string input) =>
+    input
+        .Trim()
+        .Trim(ExtractFloatsTrimChars)
+        .Split(',')
+        .Select(float.Parse)
+        .ToArray();
+```
+
+## @marcgravell
+
+```csharp
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
+using System.Buffers;
+using System.Text.Json;
+
+// prove impl
+var obj = new MyBench { Count = 5 };
+obj.Init();
+Console.WriteLine(obj.Payload);
+Console.WriteLine(string.Join(',', obj.Linq()));
+Console.WriteLine(string.Join(',', obj.Json()));
+Console.WriteLine(string.Join(',', obj.Manual()));
+
+// bench
+BenchmarkRunner.Run(typeof(MyBench).Assembly);
+
+[MemoryDiagnoser]
+public class MyBench
+{
+    [Params(1, 3, 20, 200)]
+    public int Count { get; set; }
+
+    [GlobalSetup]
+    public void Init()
+    {
+        Random rand = new Random(1234151);
+        Payload = "[" + string.Join(',', Enumerable.Range(0, Count).Select(x => rand.Next(0,1000) / rand.Next(0,3) switch
+        {
+            0 => 1f,
+            1 => 10f,
+            _ => 100f
+        })) + "]";
+    }
+
+    public string Payload { get; private set; } = "[10,20.5,30.88]";
+
+    [Benchmark]
+    public float[] Linq() => Payload.Substring(1, Payload.Length-2).Split(',').Select(s => float.Parse(s)).ToArray();
+
+    [Benchmark]
+    public float[] Json() => JsonSerializer.Deserialize<float[]>(Payload)!;
+
+    [Benchmark]
+    public float[] Manual()
+    {
+        SequenceReader<char> r = new(new(Payload.AsMemory().Slice(1, Payload.Length - 2)));
+        var copy = r;
+        int count = 1; // count first
+        while (r.TryAdvanceTo(',')) count++;
+
+        // now repeat
+        float[] arr = new float[count];
+        r = copy;
+        int i = 0;
+        while (r.TryReadTo(out ReadOnlySpan<char> tok, ','))
+        {
+            arr[i++] = float.Parse(tok);
+        }
+        arr[i++] = float.Parse(r.UnreadSpan);
+        return arr;
+    }
+
+}
+```
