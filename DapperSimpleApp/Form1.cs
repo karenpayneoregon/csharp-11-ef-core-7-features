@@ -25,6 +25,7 @@ namespace DapperSimpleApp
         public Form1()
         {
             InitializeComponent();
+            
             bindingNavigatorDeleteItem.Enabled = false;
 
             if (Environment.UserName == "PayneK")
@@ -59,6 +60,7 @@ namespace DapperSimpleApp
          */
         private void GetAllButton_Click(object sender, EventArgs e)
         {
+           
             using (var cn = new SqlConnection(connectionString))
             {
                 // read from database
@@ -112,6 +114,7 @@ namespace DapperSimpleApp
                             MessageBox.Show("Failed to remove record");
                         }
                     }
+
                 }
             }
             
@@ -134,9 +137,9 @@ namespace DapperSimpleApp
                     {
                         cn.Execute(SqlStatements.UpdatePerson, new
                         {
-                            currentPerson.FirstName, 
-                            currentPerson.LastName, 
-                            currentPerson.BirthDate, 
+                            currentPerson.FirstName,
+                            currentPerson.LastName,
+                            currentPerson.BirthDate,
                             currentPerson.Id
                         });
                     }
@@ -171,10 +174,10 @@ namespace DapperSimpleApp
             }
         }
 
-        private void ValidateButton_Click(object sender, EventArgs e)
+        private void AddNewPersonButton_Click(object sender, EventArgs e)
         {
 
-            using (var f = new SampleValidationForm())
+            using (var f = new AddPersonForm())
             {
                 f.ValidPerson += ValidPersonFromChildForm;
                 f.ShowDialog();

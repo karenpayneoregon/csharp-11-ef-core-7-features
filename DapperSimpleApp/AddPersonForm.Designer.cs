@@ -1,6 +1,6 @@
 ﻿namespace DapperSimpleApp
 {
-    partial class SampleValidationForm
+    partial class AddPersonForm
     {
         /// <summary>
         /// Required designer variable.

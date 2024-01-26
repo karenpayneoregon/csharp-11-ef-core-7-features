@@ -14,13 +14,13 @@ namespace DapperSimpleApp
     /// Cancel button DialogResult is set to cancel which will close this form
     /// and no action is taken in the calling form.
     /// </summary>
-    public partial class SampleValidationForm : Form
+    public partial class AddPersonForm : Form
     {
         public delegate void OnValidatePerson(Person person);
         public  event OnValidatePerson ValidPerson;
         private readonly Dictionary<string, Control> _controls = new Dictionary<string, Control>();
         private Person Person { get; set; }
-        public SampleValidationForm()
+        public AddPersonForm()
         {
             InitializeComponent();
 

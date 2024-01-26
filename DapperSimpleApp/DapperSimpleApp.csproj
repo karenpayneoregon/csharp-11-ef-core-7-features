@@ -39,6 +39,9 @@
     <Reference Include="FluentValidation, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
       <HintPath>..\packages\FluentValidation.11.9.0\lib\netstandard2.0\FluentValidation.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -61,6 +64,7 @@
     <Compile Include="Classes\DataGridViewExtensions.cs" />
     <Compile Include="Classes\Dialogs.cs" />
     <Compile Include="Classes\Extensions.cs" />
+    <Compile Include="Classes\PersonOperations.cs" />
     <Compile Include="Classes\SortableBindingList.cs" />
     <Compile Include="Classes\SqlStatements.cs" />
     <Compile Include="Form1.cs">
@@ -69,16 +73,21 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ApplicationSettings.cs" />
+    <Compile Include="Classes\ConfigureSettings.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="SampleValidationForm.cs">
+    <Compile Include="AddPersonForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SampleValidationForm.Designer.cs">
-      <DependentUpon>SampleValidationForm.cs</DependentUpon>
+    <Compile Include="AddPersonForm.Designer.cs">
+      <DependentUpon>AddPersonForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Validators\PersonValidator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\NewRow_16x.png" />
     <Content Include="Scripts\Helpers.sql" />
     <Content Include="Scripts\populate.sql" />
@@ -95,8 +104,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SampleValidationForm.resx">
-      <DependentUpon>SampleValidationForm.cs</DependentUpon>
+    <EmbeddedResource Include="AddPersonForm.resx">
+      <DependentUpon>AddPersonForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

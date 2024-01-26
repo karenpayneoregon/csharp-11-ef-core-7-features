@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ConnectionButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.ValidateButton = new System.Windows.Forms.Button();
+            this.AddNewPersonButton = new System.Windows.Forms.Button();
             this.CurrentButton = new System.Windows.Forms.Button();
             this.GetAllButton = new System.Windows.Forms.Button();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
@@ -65,7 +65,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.ValidateButton);
+            this.panel1.Controls.Add(this.AddNewPersonButton);
             this.panel1.Controls.Add(this.CurrentButton);
             this.panel1.Controls.Add(this.GetAllButton);
             this.panel1.Controls.Add(this.ConnectionButton);
@@ -75,15 +75,15 @@
             this.panel1.Size = new System.Drawing.Size(800, 100);
             this.panel1.TabIndex = 1;
             // 
-            // ValidateButton
+            // AddNewPersonButton
             // 
-            this.ValidateButton.Location = new System.Drawing.Point(682, 19);
-            this.ValidateButton.Name = "ValidateButton";
-            this.ValidateButton.Size = new System.Drawing.Size(106, 44);
-            this.ValidateButton.TabIndex = 3;
-            this.ValidateButton.Text = "Validate";
-            this.ValidateButton.UseVisualStyleBackColor = true;
-            this.ValidateButton.Click += new System.EventHandler(this.ValidateButton_Click);
+            this.AddNewPersonButton.Location = new System.Drawing.Point(682, 19);
+            this.AddNewPersonButton.Name = "AddNewPersonButton";
+            this.AddNewPersonButton.Size = new System.Drawing.Size(106, 44);
+            this.AddNewPersonButton.TabIndex = 3;
+            this.AddNewPersonButton.Text = "Add";
+            this.AddNewPersonButton.UseVisualStyleBackColor = true;
+            this.AddNewPersonButton.Click += new System.EventHandler(this.AddNewPersonButton_Click);
             // 
             // CurrentButton
             // 
@@ -265,7 +265,7 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button CurrentButton;
-        private System.Windows.Forms.Button ValidateButton;
+        private System.Windows.Forms.Button AddNewPersonButton;
     }
 }
 
