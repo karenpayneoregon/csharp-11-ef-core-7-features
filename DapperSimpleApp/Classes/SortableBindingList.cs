@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DapperSimpleApp.Classes
 {
@@ -29,7 +26,7 @@ namespace DapperSimpleApp.Classes
         /// <summary>
         /// Initializes a new instance of the <see cref="SortableBindingList{T}"/> class.
         /// </summary>
-        /// <param name="list">An <see cref="T:System.Collections.Generic.IList`1" /> of items to be contained in the <see cref="T:System.ComponentModel.BindingList`1" />.</param>
+        /// <param name="list">A <see cref="T:System.Collections.Generic.IList`1" /> of items to be contained in the <see cref="T:System.ComponentModel.BindingList`1" />.</param>
         public SortableBindingList(IList<T> list)
             : base(list)
         {

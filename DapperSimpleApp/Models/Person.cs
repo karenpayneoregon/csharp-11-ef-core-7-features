@@ -5,6 +5,10 @@ using System.Runtime.CompilerServices;
 
 namespace DapperSimpleApp.Models
 {
+    /// <summary>
+    /// Setup for change notification for working with BindingList/BindingSource
+    /// to allow immediate updates in controls without refreshing controls.
+    /// </summary>
     public class Person : INotifyPropertyChanged
     {
         private int _id;

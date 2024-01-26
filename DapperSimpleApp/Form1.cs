@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Windows.Forms;
 using Dapper;
 using DapperSimpleApp.Classes;
@@ -16,12 +15,12 @@ namespace DapperSimpleApp
         private string connectionString =
             "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=InsertExamples;Integrated Security=True;Encrypt=False";
 
-        private BindingSource BindingSource = new BindingSource();
+        private BindingSource _bindingSource = new BindingSource();
 
         /// <summary>
         /// Provides ability to sort the DataGridView
         /// </summary>
-        private SortableBindingList<Person> BindingList;
+        private SortableBindingList<Person> _bindingList;
 
         public Form1()
         {
@@ -62,27 +61,42 @@ namespace DapperSimpleApp
         {
             using (var cn = new SqlConnection(connectionString))
             {
+                // read from database
                 var list = cn.Query<Person>(SqlStatements.GetAllPeople).AsList();
-                BindingList = new SortableBindingList<Person>(list);
-                BindingSource.DataSource = BindingList;
-                bindingNavigator1.BindingSource = BindingSource;
-                dataGridView1.DataSource = BindingSource;
+
+                _bindingList = new SortableBindingList<Person>(list);
+                _bindingSource.DataSource = _bindingList;
+                bindingNavigator1.BindingSource = _bindingSource;
+                dataGridView1.DataSource = _bindingSource;
+
                 dataGridView1.ExpandColumns();
-                BindingSource.ListChanged += BindingSource_ListChanged;
+                _bindingSource.ListChanged += BindingSource_ListChanged;
 
                 CurrentButton.Enabled = true;
                 bindingNavigatorDeleteItem.Enabled = true;
 
+                /*
+                 * Override default action of the BindingNavigator delete button
+                 * Note step 1 was to remove the default in the designer.
+                 */
                 bindingNavigatorDeleteItem.Click += BindingNavigatorDeleteItem_Click;
-                bindingNavigatorDeleteItem.Enabled = BindingList.Count > 0;
+
+                // No records yet so disable delete button in the BindingNavigator
+                bindingNavigatorDeleteItem.Enabled = _bindingList.Count > 0;
             }
         }
 
+        /// <summary>
+        /// Manually handle delete action
+        /// - Ask permission to remove current record
+        /// - Delete from database
+        /// - If delete successful remove from the BindingList which in turn removes the person from the DataGridView
+        /// </summary>
         private void BindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-            if (BindingSource.Current != null)
+            if (_bindingSource.Current != null)
             {
-                var currentPerson = BindingList[BindingSource.Position];
+                var currentPerson = _bindingList[_bindingSource.Position];
                 if (Dialogs.Question($"Delete {currentPerson.FirstName} {currentPerson.LastName} ?"))
                 {
                     using (var cn = new SqlConnection(connectionString))
@@ -90,8 +104,8 @@ namespace DapperSimpleApp
                         var affected = cn.Execute(SqlStatements.RemovePerson, new { currentPerson.Id });
                         if (affected == 1)
                         {
-                            BindingSource.RemoveCurrent();
-                            bindingNavigatorDeleteItem.Enabled = BindingList.Count > 0;
+                            _bindingSource.RemoveCurrent();
+                            bindingNavigatorDeleteItem.Enabled = _bindingList.Count > 0;
                         }
                         else
                         {
@@ -110,7 +124,7 @@ namespace DapperSimpleApp
         {
             if (e.ListChangedType == ListChangedType.ItemChanged)
             {
-                Person currentPerson = BindingList[e.OldIndex];
+                Person currentPerson = _bindingList[e.OldIndex];
                 PersonValidator validator = new PersonValidator();
                 ValidationResult result = validator.Validate(currentPerson);
 
@@ -136,7 +150,7 @@ namespace DapperSimpleApp
                     using (var cn = new SqlConnection(connectionString))
                     {
                         var person = cn.QueryFirst<Person>(SqlStatements.GetPerson, new { Id = currentPerson.Id });
-                        BindingList[e.OldIndex] = person;
+                        _bindingList[e.OldIndex] = person;
                     }
                 }
 
@@ -149,10 +163,10 @@ namespace DapperSimpleApp
          */
         private void CurrentButton_Click(object sender, EventArgs e)
         {
-            var currentPerson = BindingList[BindingSource.Position];
+            var currentPerson = _bindingList[_bindingSource.Position];
             using (var cn = new SqlConnection(connectionString))
             {
-                Person person = cn.QueryFirst<Person>(SqlStatements.GetPerson, new { Id = currentPerson.Id });
+                Person person = cn.QueryFirst<Person>(SqlStatements.GetPerson, new { currentPerson.Id });
                 MessageBox.Show($"From database {person}");
             }
         }
@@ -183,7 +197,7 @@ namespace DapperSimpleApp
                 using (var cn = new SqlConnection(connectionString))
                 {
                     person.Id = cn.QueryFirst<int>(SqlStatements.InsertPerson, person);
-                    BindingList.Add(person);
+                    _bindingList.Add(person);
                 }
             }
             else

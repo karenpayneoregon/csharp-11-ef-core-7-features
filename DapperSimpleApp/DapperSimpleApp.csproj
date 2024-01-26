@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Classes\DataGridViewExtensions.cs" />
     <Compile Include="Classes\Dialogs.cs" />
+    <Compile Include="Classes\Extensions.cs" />
     <Compile Include="Classes\SortableBindingList.cs" />
     <Compile Include="Classes\SqlStatements.cs" />
     <Compile Include="Form1.cs">
@@ -78,6 +79,7 @@
     <Compile Include="Validators\PersonValidator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\NewRow_16x.png" />
     <Content Include="Scripts\Helpers.sql" />
     <Content Include="Scripts\populate.sql" />
     <EmbeddedResource Include="Form1.resx">
@@ -91,6 +93,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SampleValidationForm.resx">
       <DependentUpon>SampleValidationForm.cs</DependentUpon>
