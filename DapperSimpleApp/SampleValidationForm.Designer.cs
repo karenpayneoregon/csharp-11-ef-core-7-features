@@ -52,6 +52,7 @@
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(268, 22);
             this.FirstNameTextBox.TabIndex = 1;
+            this.FirstNameTextBox.Text = "Karen";
             // 
             // label2
             // 
@@ -68,6 +69,7 @@
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(268, 22);
             this.LastNameTextBox.TabIndex = 3;
+            this.LastNameTextBox.Text = "Payne";
             // 
             // label3
             // 
@@ -85,6 +87,7 @@
             this.BrthDateTimePicker.Name = "BrthDateTimePicker";
             this.BrthDateTimePicker.Size = new System.Drawing.Size(268, 22);
             this.BrthDateTimePicker.TabIndex = 5;
+            this.BrthDateTimePicker.Value = new System.DateTime(2005, 1, 26, 6, 34, 0, 0);
             // 
             // ValidateButton
             // 

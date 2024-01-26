@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Windows.Forms;
 using Dapper;
 using DapperSimpleApp.Classes;
@@ -25,6 +26,12 @@ namespace DapperSimpleApp
         public Form1()
         {
             InitializeComponent();
+            bindingNavigatorDeleteItem.Enabled = false;
+
+            if (Environment.UserName == "PayneK")
+            {
+                GetAllButton.Enabled = true;
+            }
         }
 
         /*
@@ -62,8 +69,38 @@ namespace DapperSimpleApp
                 dataGridView1.DataSource = BindingSource;
                 dataGridView1.ExpandColumns();
                 BindingSource.ListChanged += BindingSource_ListChanged;
+
                 CurrentButton.Enabled = true;
+                bindingNavigatorDeleteItem.Enabled = true;
+
+                bindingNavigatorDeleteItem.Click += BindingNavigatorDeleteItem_Click;
+                bindingNavigatorDeleteItem.Enabled = BindingList.Count > 0;
             }
+        }
+
+        private void BindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            if (BindingSource.Current != null)
+            {
+                var currentPerson = BindingList[BindingSource.Position];
+                if (Dialogs.Question($"Delete {currentPerson.FirstName} {currentPerson.LastName} ?"))
+                {
+                    using (var cn = new SqlConnection(connectionString))
+                    {
+                        var affected = cn.Execute(SqlStatements.RemovePerson, new { currentPerson.Id });
+                        if (affected == 1)
+                        {
+                            BindingSource.RemoveCurrent();
+                            bindingNavigatorDeleteItem.Enabled = BindingList.Count > 0;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to remove record");
+                        }
+                    }
+                }
+            }
+            
         }
 
         /// <summary>
@@ -130,15 +167,29 @@ namespace DapperSimpleApp
             }
 
         }
+
         /// <summary>
         /// If the <see cref="Person"/> is valid in the child form, pass it back to
         /// here which perhaps add to the database table than if successful add to the
         /// BindingList which will have it shown in the DataGridView.
+        ///
+        /// This happens only if the DataGridView is currently populated.
         /// </summary>
         /// <param name="person"></param>
         private void ValidPersonFromChildForm(Person person)
         {
-            MessageBox.Show($"{person.FirstName} {person.LastName} {person.BirthDate:d}");
+            if (CurrentButton.Enabled)
+            {
+                using (var cn = new SqlConnection(connectionString))
+                {
+                    person.Id = cn.QueryFirst<int>(SqlStatements.InsertPerson, person);
+                    BindingList.Add(person);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Read all records and try again.");
+            }
         }
     }
 }

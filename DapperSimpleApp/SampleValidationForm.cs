@@ -28,6 +28,9 @@ namespace DapperSimpleApp
                 BirthDate = BrthDateTimePicker.Value
             };
 
+            /*
+             * Validate Person
+             */
             PersonValidator validator = new PersonValidator();
             ValidationResult result = validator.Validate(Person);
 

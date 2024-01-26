@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\DataGridViewExtensions.cs" />
+    <Compile Include="Classes\Dialogs.cs" />
     <Compile Include="Classes\SortableBindingList.cs" />
     <Compile Include="Classes\SqlStatements.cs" />
     <Compile Include="Form1.cs">
@@ -77,6 +78,8 @@
     <Compile Include="Validators\PersonValidator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Scripts\Helpers.sql" />
+    <Content Include="Scripts\populate.sql" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,8 +110,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Scripts\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,2 @@
+﻿--- 
+DBCC CHECKIDENT ([Person], RESEED, 5)

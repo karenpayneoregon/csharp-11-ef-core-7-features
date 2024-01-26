@@ -24,10 +24,8 @@ Using [FluentValidation](https://www.nuget.org/packages/FluentValidation) done s
 
 ## Edits, deletes, additions
 
-Only a basic edit is shown, using the pattern for edit add code for delete and add.
 
-Note its possible to delete from the DataGridView and BindingNavigator to consider.
 
-I never cared to add records in a DataGridView, always used a modal dialog in most cases.
+I never cared to add records in a DataGridView, always used a modal dialog in most cases so here its done in a dialog.
 
 See code in SampleValidationForm to see the basics to validate before an add new record.

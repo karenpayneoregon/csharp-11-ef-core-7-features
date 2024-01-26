@@ -18,6 +18,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{217BD5BF-EE8D-4A66-81B5-B30F04DF7BF8}"
 	ProjectSection(SolutionItems) = preProject
 		January24Challenge.md = January24Challenge.md
+		January26Challenge.md = January26Challenge.md
 		readme.md = readme.md
 		scriptsDump.sql = scriptsDump.sql
 	EndProjectSection
