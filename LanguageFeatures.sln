@@ -123,9 +123,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework 4.8", "Framework 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperSimpleApp", "DapperSimpleApp\DapperSimpleApp.csproj", "{45C54B67-6789-4A1B-ADAD-BE06E0E0A65C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrimaryConstructorIComparerApp", "PrimaryConstructorIComparerApp\PrimaryConstructorIComparerApp.csproj", "{70C959DA-94DF-418E-812D-7D79054C1F0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimaryConstructorIComparerApp", "PrimaryConstructorIComparerApp\PrimaryConstructorIComparerApp.csproj", "{70C959DA-94DF-418E-812D-7D79054C1F0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiagnosticsGuardSampleApp", "DiagnosticsGuardSampleApp\DiagnosticsGuardSampleApp.csproj", "{087C688F-2DBC-4243-8693-288DAA6F8A0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiagnosticsGuardSampleApp", "DiagnosticsGuardSampleApp\DiagnosticsGuardSampleApp.csproj", "{087C688F-2DBC-4243-8693-288DAA6F8A0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidatorsApp", "ValidatorsApp\ValidatorsApp.csproj", "{9F2A1526-555B-46CF-85F4-514F97C65936}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -305,6 +307,10 @@ Global
 		{087C688F-2DBC-4243-8693-288DAA6F8A0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{087C688F-2DBC-4243-8693-288DAA6F8A0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{087C688F-2DBC-4243-8693-288DAA6F8A0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F2A1526-555B-46CF-85F4-514F97C65936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F2A1526-555B-46CF-85F4-514F97C65936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F2A1526-555B-46CF-85F4-514F97C65936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F2A1526-555B-46CF-85F4-514F97C65936}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -359,6 +365,7 @@ Global
 		{45C54B67-6789-4A1B-ADAD-BE06E0E0A65C} = {E882D755-CF06-4E43-9D5F-D1C26AEE30A8}
 		{70C959DA-94DF-418E-812D-7D79054C1F0B} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{087C688F-2DBC-4243-8693-288DAA6F8A0B} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{9F2A1526-555B-46CF-85F4-514F97C65936} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}
