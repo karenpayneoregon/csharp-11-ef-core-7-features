@@ -10,7 +10,7 @@ Simple [DappAOT](https://aot.dapperlib.dev/gettingstarted) example.
 Sample error
 
 ```
-1>C:\DotnetLand\VS2022\LanguageFeatures\DapperSqlServerToJsonApp\Classes\CustomersOperations.cs(42,52,42,52): error DAP206: Error 46010: Incorrect syntax near CT. (https://aot.dapperlib.dev/rules/DAP206)
+1>C:\DotnetLand**\**VS2022\LanguageFeatures\DapperSqlServerToJsonApp\Classes\CustomersOperations.cs(42,52,42,52): error DAP206: Error 46010: Incorrect syntax near CT. (https://aot.dapperlib.dev/rules/DAP206)
 ```
 
 :small_orange_diamond: Error descriptions may not be descriptive but there is an error.
