@@ -4,6 +4,12 @@ Given a string with numbers bracketed how would you extract to a float array?
 
 No chance of nulls and all values will represent floats.
 
+## Winner
+
+**@marcgravell (8)**
+
+---
+
 ## @mdxkln (1)
 
 ```csharp
@@ -251,5 +257,32 @@ public class MyBench
         return arr;
     }
 
+}
+```
+
+## Mine
+
+Broken down into two separate method as I can see use for `BetweenBrackets` without `ToFloatArray`.
+
+```csharp
+using static System.Text.RegularExpressions.Regex;
+
+namespace UtilityLibrary.LanguageExtensions;
+
+public static class StringExtensions
+{
+    public static string BetweenBrackets(this string sender)
+    {
+        var match = Match(sender, @"\[(.*?)\]");
+        return match.Success ? 
+            match.Groups[1].Value : 
+            sender;
+    }
+
+    public static float[] ToFloatArray(this string sender, char separator = ',') 
+        => sender.BetweenBrackets()
+            .Split(separator)
+            .Select(float.Parse)
+            .ToArray();
 }
 ```
