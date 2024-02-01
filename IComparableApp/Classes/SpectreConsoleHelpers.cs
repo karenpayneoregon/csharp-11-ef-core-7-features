@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿#nullable enable
+using System.Runtime.CompilerServices;
 
 namespace IComparableApp.Classes;
 
@@ -31,8 +32,8 @@ public class SpectreConsoleHelpers
         Console.WriteLine();
     }
 
-    public static string PrintValue<T>(T item) => $"[cyan]{item.ToString()}[/]";
-    public static string PrintYes<T>(T item) => $"[green]{item.ToString()}[/]";
-    public static string PrintNo<T>(T item) => $"[red]{item.ToString()}[/]";
+    public static string PrintValue<T>(T item) => $"[cyan]{item!.ToString()}[/]";
+    public static string PrintYes<T>(T item) => $"[green]{item!.ToString()}[/]";
+    public static string PrintNo<T>(T item) => $"[red]{item!.ToString()}[/]";
     
 }

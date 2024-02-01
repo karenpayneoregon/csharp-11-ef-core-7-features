@@ -17,21 +17,23 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ConfigurationLibrary" Version="1.0.4" />
+		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.0" />
+		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
 	</ItemGroup>
-
-	<!--<ItemGroup>
-		--><!-- ReSharper disable once VulnerablePackage --><!--
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
-	</ItemGroup>-->
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.4" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.5" />
+		<PackageReference Include="Dapper" Version="2.1.28" />
+		<PackageReference Include="Dapper.AOT" Version="1.0.2" />
 	</ItemGroup>
+
+	<PropertyGroup>
+		<InterceptorsPreviewNamespaces>$(InterceptorsPreviewNamespaces);Dapper.AOT</InterceptorsPreviewNamespaces>
+	</PropertyGroup>
+
 
 	<ItemGroup>
 		<PackageReference Include="Spectre.Console" Version="0.46.0" />
@@ -41,6 +43,10 @@
 	  <None Update="appsettings.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="scripts\" />
 	</ItemGroup>
 
 </Project>

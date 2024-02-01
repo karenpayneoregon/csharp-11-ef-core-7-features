@@ -22,7 +22,7 @@ public class SetupLogging
 
     public static void Development()
     {
-        var logTemplate = "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u}] [{SourceContext}] {Message}{NewLine}{Exception}";
+        //var logTemplate = "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u}] [{SourceContext}] {Message}{NewLine}{Exception}";
         Log.Logger = new LoggerConfiguration()
             //.WriteTo.Console(outputTemplate: logTemplate, theme: SeriLogCustomThemes.Theme4())
             .WriteTo.File(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "LogFiles", $"{Now.Year}-{Now.Month}-{Now.Day}", "Log.txt"),
