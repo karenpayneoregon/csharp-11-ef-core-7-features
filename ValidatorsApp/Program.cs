@@ -26,10 +26,10 @@ internal partial class Program
         IntegerValidator integerValidator = new(minIntVal, maxIntVal, exclusive);
 
         int testInt = 0;
-        ValidationHelpers.ValidateInteger(integerValidator, testInt);
+        ValidationHelpers.ValidateIntegerMicrosoft(integerValidator, testInt);
         testInt = 1;
-        ValidationHelpers.ValidateInteger(integerValidator, testInt);
+        ValidationHelpers.ValidateIntegerMicrosoft(integerValidator, testInt);
         testInt = 5;
-        ValidationHelpers.ValidateInteger(integerValidator, testInt);
+        ValidationHelpers.ValidateIntegerMicrosoft(integerValidator, testInt);
     }
 }
