@@ -44,7 +44,7 @@ internal class CustomersOperations
                 INNER JOIN dbo.Countries AS CO
                     ON Cust.CountryIdentifier = CO.CountryIdentifier
             """;
-        // has where condition without assigning a value
+        
         IEnumerable<Customers> customers = _cn.Query<Customers>(statement);
         
         File.WriteAllText("Customers.json",
