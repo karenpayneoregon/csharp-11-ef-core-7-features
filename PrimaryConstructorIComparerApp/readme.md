@@ -5,6 +5,9 @@ Demonstrates
 - Creating Comparer using [IComparer](https://learn.microsoft.com/en-us/dotnet/api/system.collections.icomparer?view=net-8.0)&lt;T> using a model that we want to sort on LastName and/or Grade.
 - Primary constructors
 
+
+![Screenshot](assets/screenshot.png)
+
 ## Model
 
 Uses primary constructor. The override ToString is for demonstration only to write out data in a foreach statement.
