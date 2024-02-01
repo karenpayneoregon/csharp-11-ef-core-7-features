@@ -15,7 +15,7 @@ internal class ValidationHelpers
         }
         catch (ArgumentException e)
         {
-            Console.WriteLine($"Failed validation.  Message: {e.Message}");
+            AnsiConsole.WriteException(e);
             Log.Error(e, $"Failed validation.  Message: {e.Message}");
         }
     }

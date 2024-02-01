@@ -1,5 +1,8 @@
 ﻿using System.Configuration;
 using ValidatorsApp.Classes;
+using static ValidatorsApp.Classes.SpectreConsoleHelpers;
+
+// ReSharper disable ConditionIsAlwaysTrueOrFalse
 
 namespace ValidatorsApp;
 
@@ -9,8 +12,7 @@ internal partial class Program
     {
         IntegerValidationSample();
 
-        AnsiConsole.MarkupLine("[yellow]Hello[/]");
-        Console.ReadLine();
+        ExitPrompt();
     }
 
     /// <summary>
@@ -25,10 +27,15 @@ internal partial class Program
 
         IntegerValidator integerValidator = new(minIntVal, maxIntVal, exclusive);
 
+
         int testInt = 0;
         ValidationHelpers.ValidateIntegerMicrosoft(integerValidator, testInt);
+        Console.WriteLine();
+
         testInt = 1;
         ValidationHelpers.ValidateIntegerMicrosoft(integerValidator, testInt);
+        Console.WriteLine();
+
         testInt = 5;
         ValidationHelpers.ValidateIntegerMicrosoft(integerValidator, testInt);
     }
