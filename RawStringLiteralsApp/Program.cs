@@ -49,22 +49,22 @@ namespace RawStringLiteralsApp
         /// But for small task raw string literals work well.
         /// </summary>
         private static string EmailMessageTemplate(Employee person, string companyName, string phone) =>
-            $$"""
-              Hello {{person.Title}}  {{person.LastName}},
+            $"""
+              Hello {person.Title}  {person.LastName},
 
-              We are super excited to welcome you to {{companyName}}
-              If there is any questions call us at {{phone}}
+              We are super excited to welcome you to {companyName}
+              If there is any questions call us at {phone}
               """;
 
         private static void ColorExample()
         {
             Print();
             string text = "[red]I've been injected[/] ";
-            string longMessage = $$"""
+            string longMessage = $"""
             This is a long message.
             It has several lines.
                 Some are indented
-                        more than others. {{ text}} 
+                        more than others. { text} 
             Some should start at the first column.
             Some have "quoted text" in them.
             """ ;

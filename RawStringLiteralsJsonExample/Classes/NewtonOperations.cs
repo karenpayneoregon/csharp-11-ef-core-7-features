@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Xml;
+#pragma warning disable CA1860
 
 namespace JsonExample.Classes;
 
@@ -28,3 +29,10 @@ internal class NewtonOperations
         doc.Save("People.xml");
     }
 }
+
+
+
+
+
+
+
