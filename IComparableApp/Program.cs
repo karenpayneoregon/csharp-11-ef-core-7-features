@@ -11,31 +11,24 @@ internal partial class Program
     static void Main(string[] args)
     {
 
+        
+        BetweenChars();
         BetweenInt();
         BetweenDateOnly();
         BetweenDateTime();
         BetweenTimeOnly();
         BetweenDecimal();
-        //StripMarkup();
         ExitPrompt();
     }
 
-    private static void StripMarkup()
+
+    private static void BetweenChars()
     {
-        string firstName = "Karen";
-        string message = $"[cyan]{TimeOfDay()}[/] [yellow]{firstName}[/]!!!";
-        AnsiConsole.MarkupLine(message);
-        Console.WriteLine($"Without markup '{message.RemoveMarkup()}'");
+        PrintHeader();
+        var item = 'b'.Between('a', 'c');
+        AnsiConsole.MarkupLine($"Is [blue]b[/] between [blue]a[/] and [blue]c[/] {PrintYes(item.ToYesNo())}");
+        Console.WriteLine();
     }
-    public static string TimeOfDay() => Now.Hour switch
-    {
-        <= 12 => "Good Morning",
-        <= 16 => "Good Afternoon",
-        <= 20 => "Good Evening",
-        _ => "Good Night"
-    };
-
-
     /// <summary>
     /// Works with int or int?, same with decimal and double
     /// </summary>
@@ -50,7 +43,12 @@ internal partial class Program
 
         if (value.HasValue)
         {
-            var result = value.Value.Between(start.Value, end.Value);
+            // true
+            var result1 = value.Value.Between(start.Value, end.Value);
+            value = 15;
+            // false
+            var result2 = value.Value.BetweenExclusive(start.Value, end.Value);
+            value = 9;
         }
 
 
@@ -58,7 +56,6 @@ internal partial class Program
                                $"{PrintValue(start)} and {PrintValue(end)}? " +
                                $"{PrintYes(value.Value.Between(start.Value, end.Value).ToYesNo())}");
 
-        LineSeparator();
 
     }
     private static void BetweenDecimal(decimal value = 9.9m)
@@ -90,7 +87,6 @@ internal partial class Program
                                $"{PrintValue(start)} and {PrintValue(end)}? " +
                                $"{PrintYes(value.Between(start, end).ToYesNo())}");
 
-        LineSeparator();
 
     }
 
@@ -108,7 +104,6 @@ internal partial class Program
                                $"{PrintValue(start)} and {PrintValue(end)}? " +
                                $"{PrintYes(value.Between(start, end).ToYesNo())}");
 
-        LineSeparator();
 
     }
 
@@ -126,7 +121,6 @@ internal partial class Program
                                $"{PrintValue(start)} and {PrintValue(end)}? " +
                                $"{PrintNo(value.Between(start, end).ToYesNo())}");
 
-        LineSeparator();
 
     }
 
