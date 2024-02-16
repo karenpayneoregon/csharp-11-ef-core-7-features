@@ -12,4 +12,8 @@
     <Folder Include="Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NodaTime" Version="3.1.11" />
+  </ItemGroup>
+
 </Project>

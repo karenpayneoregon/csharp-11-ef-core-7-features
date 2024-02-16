@@ -96,28 +96,26 @@ namespace DapperSimpleApp
         /// </summary>
         private void BindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-            if (_bindingSource.Current != null)
+            if (_bindingSource.Current == null) return;
+            var currentPerson = _bindingList[_bindingSource.Position];
+            if (Dialogs.Question($"Delete {currentPerson.FirstName} {currentPerson.LastName} ?"))
             {
-                var currentPerson = _bindingList[_bindingSource.Position];
-                if (Dialogs.Question($"Delete {currentPerson.FirstName} {currentPerson.LastName} ?"))
+                using (var cn = new SqlConnection(connectionString))
                 {
-                    using (var cn = new SqlConnection(connectionString))
+                    var affected = cn.Execute(SqlStatements.RemovePerson, new { currentPerson.Id });
+                    if (affected == 1)
                     {
-                        var affected = cn.Execute(SqlStatements.RemovePerson, new { currentPerson.Id });
-                        if (affected == 1)
-                        {
-                            _bindingSource.RemoveCurrent();
-                            bindingNavigatorDeleteItem.Enabled = _bindingList.Count > 0;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Failed to remove record");
-                        }
+                        _bindingSource.RemoveCurrent();
+                        bindingNavigatorDeleteItem.Enabled = _bindingList.Count > 0;
                     }
-
+                    else
+                    {
+                        MessageBox.Show("Failed to remove record");
+                    }
                 }
+
             }
-            
+
         }
 
         /// <summary>

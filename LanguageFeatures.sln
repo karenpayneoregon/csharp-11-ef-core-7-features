@@ -127,11 +127,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrimaryConstructorIComparer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiagnosticsGuardSampleApp", "DiagnosticsGuardSampleApp\DiagnosticsGuardSampleApp.csproj", "{087C688F-2DBC-4243-8693-288DAA6F8A0B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidatorsApp", "ValidatorsApp\ValidatorsApp.csproj", "{9F2A1526-555B-46CF-85F4-514F97C65936}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValidatorsApp", "ValidatorsApp\ValidatorsApp.csproj", "{9F2A1526-555B-46CF-85F4-514F97C65936}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperSqlServerToJsonApp", "DapperSqlServerToJsonApp\DapperSqlServerToJsonApp.csproj", "{B0B40BB9-2B14-4A2C-9104-7DCED8A84EE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperSqlServerToJsonApp", "DapperSqlServerToJsonApp\DapperSqlServerToJsonApp.csproj", "{B0B40BB9-2B14-4A2C-9104-7DCED8A84EE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormattableStringsSamplesApp", "FormattableStringsSamplesApp\FormattableStringsSamplesApp.csproj", "{F708BA7E-D258-4F41-AB29-60331B244CFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormattableStringsSamplesApp", "FormattableStringsSamplesApp\FormattableStringsSamplesApp.csproj", "{F708BA7E-D258-4F41-AB29-60331B244CFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

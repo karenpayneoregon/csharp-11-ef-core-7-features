@@ -15,23 +15,38 @@ public class WineOperations
     }
     public static void RunExamples()
     {
+
         using var context = new WineContext();
             
-        LineSeparator("[white]Grouped[/]");
-        List<WineGroupItem> allWinesGrouped = context.Wines
+        LineSeparator("[white]Grouped 1[/]");
+
+        List<WineGroupItem> allWinesGrouped1 = context.Wines
             .GroupBy( wine => wine.WineType)
             .Select(w => new WineGroupItem(w.Key, w.ToList()))
             .ToList();
 
-        foreach (WineGroupItem top in allWinesGrouped)
+        Dictionary<WineType, List<Wine>> allWinesGrouped2 = context.Wines.GroupBy(x => x.WineType)
+            .ToDictionary(k => k.Key, v => v.ToList());
+
+        foreach (WineGroupItem item in allWinesGrouped1)
         {
-            AnsiConsole.MarkupLine($"[cyan]{top.Key}[/]");
-            foreach (var wine in top.List)
+            AnsiConsole.MarkupLine($"[cyan]{item.Type}[/]");
+            foreach (var wine in item.List)
             {
                 Console.WriteLine($"\t{wine.WineId, -5}{wine.Name}");
             }
         }
+        
+        LineSeparator("[white]Grouped 2[/]");
 
+        foreach (KeyValuePair<WineType, List<Wine>> kvp in allWinesGrouped2)
+        {
+            AnsiConsole.MarkupLine($"[cyan]{kvp.Key}[/]");
+            foreach (var wine in kvp.Value)
+            {
+                Console.WriteLine($"\t{wine.WineId,-5}{wine.Name}");
+            }
+        }
 
         List<Wine> allWines = [.. context.Wines];
         
