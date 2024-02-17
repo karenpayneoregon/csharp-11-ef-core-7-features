@@ -12,7 +12,8 @@ namespace QuestionOfTheDay.Classes
                 .Select((ci,id) => new Language()
                 {
                     Id = id, 
-                    Title = ci.DisplayName, Code = ci.Name
+                    Title = ci.DisplayName, 
+                    Code = ci.Name
                 } )
                 .ToList();
 
@@ -31,7 +32,7 @@ namespace QuestionOfTheDay.Classes
             AnsiConsole.Prompt(
                 new SelectionPrompt<Language>()
                     .Title("[cyan]Select a language or last item to cancel by using up/down arrows then press enter[/]")
-                    .AddChoices(MenuChoices.Languages())
+                    .AddChoices(Languages())
                     .HighlightStyle(
                         new Style(
                             Color.White,
