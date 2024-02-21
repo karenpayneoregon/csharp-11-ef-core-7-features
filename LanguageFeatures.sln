@@ -133,6 +133,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DapperSqlServerToJsonApp", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormattableStringsSamplesApp", "FormattableStringsSamplesApp\FormattableStringsSamplesApp.csproj", "{F708BA7E-D258-4F41-AB29-60331B244CFA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bogus", "Bogus", "{55E0C874-7DF3-47D3-84F2-4C4D347DC0E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BogusProperGenderApp", "BogusProperGenderApp\BogusProperGenderApp.csproj", "{FD0B1C67-A55C-41B7-B80B-BE76A452FBDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -323,6 +327,10 @@ Global
 		{F708BA7E-D258-4F41-AB29-60331B244CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F708BA7E-D258-4F41-AB29-60331B244CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F708BA7E-D258-4F41-AB29-60331B244CFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD0B1C67-A55C-41B7-B80B-BE76A452FBDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD0B1C67-A55C-41B7-B80B-BE76A452FBDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD0B1C67-A55C-41B7-B80B-BE76A452FBDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD0B1C67-A55C-41B7-B80B-BE76A452FBDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -380,6 +388,8 @@ Global
 		{9F2A1526-555B-46CF-85F4-514F97C65936} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{B0B40BB9-2B14-4A2C-9104-7DCED8A84EE7} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{F708BA7E-D258-4F41-AB29-60331B244CFA} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{55E0C874-7DF3-47D3-84F2-4C4D347DC0E6} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{FD0B1C67-A55C-41B7-B80B-BE76A452FBDC} = {55E0C874-7DF3-47D3-84F2-4C4D347DC0E6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}
