@@ -25,16 +25,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Bogus" Version="35.4.0" />
-		<PackageReference Include="NaturalSort.Extension" Version="4.2.0" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Spectre.Console" Version="0.46.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\GenericMathLibrary\GenericMathLibrary.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -42,9 +33,5 @@
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
-
-	<Target Name="MakeMyDir" AfterTargets="Build">
-		<MakeDir Directories="$(OutDir)Files" />
-	</Target>
 
 </Project>

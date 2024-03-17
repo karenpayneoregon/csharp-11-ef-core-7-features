@@ -1,4 +1,6 @@
-﻿using NaturalSortApp.Classes;
+﻿using NaturalSort.Extension;
+using NaturalSortApp.Classes;
+using System.Text.RegularExpressions;
 using static NaturalSortApp.Classes.SpectreConsoleHelpers;
 
 namespace NaturalSortApp;
@@ -8,7 +10,7 @@ internal partial class Program
     static async Task Main(string[] args)
     {
         await Example();
-        Example1();
+        //Example1();
         ExitPrompt();
     }
 
@@ -38,7 +40,12 @@ internal partial class Program
             resultsTable.AddRow(sorted[index]);
         }
 
-        //AnsiConsole.Write(resultsTable);
+        AnsiConsole.Write(resultsTable);
+
+
+        // https://www.nuget.org/packages/NaturalSort.Extension/
+        var ordered = fileNames.OrderBy(x => x, new NaturalSortComparer(StringComparison.OrdinalIgnoreCase));
+        var ordered1 = fileNames.OrderBy(x => x, StringComparison.OrdinalIgnoreCase.WithNaturalSort());
 
         //ExitPrompt();
         Directory.Delete(_filesFolder, true);
@@ -68,13 +75,14 @@ internal partial class Program
         {
             IgnoreInaccessible = true,
             RecurseSubdirectories = true
-        }).ToList();
+        }).ToArray();
 
+        File.WriteAllLines("Documents.txt", files);
 
+        Console.WriteLine();
 
-
-        //var files = folder.EnumerateFiles("*.*", SearchOption.AllDirectories)
-        //    .NaturalOrderBy(x => x.Name)
-        //    .ToArray();
+        var fileInfoArray = fileNames.Select(x => new FileInfo(x)).ToArray();
+        var sorted1 = fileInfoArray.NaturalOrderBy(x => x.Name).ToArray();
+        
     }
 }

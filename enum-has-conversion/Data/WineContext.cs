@@ -12,7 +12,7 @@ namespace EnumHasConversion.Data;
 public class WineContext : DbContext
 {
     public DbSet<Wine> Wines { get; set; }
-    public DbSet<WineTypes> WineTypes { get; set; }
+    //public DbSet<WineTypes> WineTypes { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer(ConnectionString())

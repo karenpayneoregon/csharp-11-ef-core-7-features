@@ -1,4 +1,5 @@
-﻿using RandomSharedApp.Classes;
+﻿using System.Windows.Markup;
+using RandomSharedApp.Classes;
 using static RandomSharedApp.Classes.SpectreConsoleHelpers;
 
 namespace RandomSharedApp;
@@ -6,6 +7,18 @@ namespace RandomSharedApp;
 internal partial class Program
 {
     static async Task Main(string[] args)
+    {
+        await PeopleArrayExample();
+        ExitPrompt();
+    }
+
+    public static int[] GetRandomIntegers(params int[] listNumbers) 
+        => Random.Shared.GetItems(listNumbers, listNumbers.Length);
+
+    public static int[] GetRandomIntegers1(params int[] listNumbers)
+        => listNumbers.OrderBy(x => Random.Shared.Next()).ToArray();
+
+    private static async Task PeopleArrayExample()
     {
         var people = BogusOperations
             .People(100)
@@ -26,6 +39,5 @@ internal partial class Program
 
             Console.WriteLine();
         }
-        ExitPrompt();
     }
 }

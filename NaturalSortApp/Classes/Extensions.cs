@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 
 namespace NaturalSortApp.Classes;
-public static class Extensions
+public static partial class Extensions
 {
     public static IEnumerable<T> NaturalOrderBy<T>(this IEnumerable<T> items, Func<T, string> selector, StringComparer stringComparer = null)
     {
@@ -15,6 +15,12 @@ public static class Extensions
             match => match.Value.PadLeft(maxDigits, '0')), 
             stringComparer ?? StringComparer.CurrentCulture);
     }
+    
+    public static IEnumerable<string> NaturalOrderBy(this IEnumerable<string> me)
+    {
+        return me.OrderBy(x => NumbersRegex().Replace(x, m => m.Value.PadLeft(50, '0')));
+    }
 
-
+    [GeneratedRegex(@"\d+")]
+    private static partial Regex NumbersRegex();
 }
