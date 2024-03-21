@@ -10,13 +10,15 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        Language language = MenuChoices.LanguageChoice;
-        if (language.Id == -1)
-        {
-            return;
-        }
+        //Language language = MenuChoices.LanguageChoice;
+        //if (language.Id == -1)
+        //{
+        //    return;
+        //}
 
-        AnsiConsole.MarkupLine($"[yellow]{language.Title}[/] [cyan]{language.Code}[/]");
+        //AnsiConsole.MarkupLine($"[yellow]{language.Title}[/] [cyan]{language.Code}[/]");
+
+        Samples.Stash();
 
         ExitPrompt();
     }

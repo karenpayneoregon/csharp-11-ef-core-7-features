@@ -52,10 +52,11 @@ internal class Samples
         }
     }
 
-    private static void Stash()
+    public static void Stash()
     {
         string sentence = "Hello    World  nice to be   here      ";
         Console.WriteLine($"'{sentence}'");
+        Console.WriteLine($"'{sentence.RemoveExtraSpaces()}'");
         Console.WriteLine($"'{sentence.RemoveExtraSpaces().TrimLastCharacter()}'");
         Console.WriteLine($"'{sentence.RemoveExtraSpaces().ReplaceLastOccurrence(" ", "!!!")}'");
     }
