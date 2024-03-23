@@ -31,14 +31,14 @@ internal partial class Program
         Console.WriteLine(ObjectDumper.Dump(array.Get()));
     }
 
-    private static void January15Question()
-    {
-        var arr1 = new[] { 1, 2, 3, 4, 5, 0 };
-        var arr2 = new[] { 6, 7, 8, 9, 0 };
-        var array1 = arr1.Merge1(arr2);
+    //private static void January15Question()
+    //{
+    //    var arr1 = new[] { 1, 2, 3, 4, 5, 0 };
+    //    var arr2 = new[] { 6, 7, 8, 9, 0 };
+    //    var array1 = arr1.Merge1(arr2);
 
-        Console.WriteLine(string.Join(",", array1));
-        var array2 = arr1.Merge2(arr2);
-        Console.WriteLine(string.Join(",", array2));
-    }
+    //    Console.WriteLine(string.Join(",", array1));
+    //    var array2 = arr1.Merge2(arr2);
+    //    Console.WriteLine(string.Join(",", array2));
+    //}
 }

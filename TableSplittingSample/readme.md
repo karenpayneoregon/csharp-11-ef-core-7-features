@@ -2,7 +2,7 @@
 
 Entity splitting maps a single entity type to multiple tables. 
 
-:trident: Code sample is from Microsoft, broken out from a larger sample.
+:trident: Code sample is from Microsoft, broken out from a larger sample and properly have models and DbContext separated.
 
 # See also
 
