@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TableSplittingSample.Models;
+﻿namespace TableSplittingSample.Models;
 public class Customer
 {
     public Customer(string name, string street, string city, string? postCode, string country)
