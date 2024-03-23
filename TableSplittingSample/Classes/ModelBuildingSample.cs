@@ -1,6 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using TableSplittingSample.Data;
 using TableSplittingSample.Models;
 
