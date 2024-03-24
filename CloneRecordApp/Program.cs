@@ -49,7 +49,7 @@ internal partial class Program
                 Id = 4, 
                 FirstName = "Jim"
             },
-            // MainLanguage will be different than the two above
+            // MainLanguage will be different from the two above
             firstDeveloper with
             {
                 Id = 5,

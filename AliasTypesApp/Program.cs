@@ -1,26 +1,31 @@
 ﻿namespace AliasTypesApp;
 
-    internal partial class Program
+
+
+
+internal partial class Program
+{
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            FileExist exist = FileOperations.FileExists("appsettings.json");
-            if (exist)
-            {
-                Console.WriteLine("Found");
-            }
-            else
-            {
-                Console.WriteLine("Not found");
-            }
+        FileExist exist = Operations.FileExists("appsettings.json");
+        Console.WriteLine(exist ? "Found" : "Not found");
 
-            Console.ReadLine();
-        }
+        DirectoryExist directoryExist = Operations.DirectoryExists("C:\\Temp");
+        Console.WriteLine(directoryExist ? "Found" : "Not found");
 
+        string userProfile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+        CurrentUserFileList fileList = Directory.GetFiles(userProfile, "*.*", SearchOption.TopDirectoryOnly)
+            .Where(file => new[] { ".mdf", ".bak" }
+                .Contains(Path.GetExtension(file)))
+            .ToList();
 
+        Console.ReadLine();
     }
 
-    public class FileOperations
-    {
-        public static FileExist FileExists(string fileName) => File.Exists(fileName);
-    }
+}
+
+public class Operations
+{
+    public static FileExist FileExists(string fileName) => File.Exists(fileName);
+    public static DirectoryExist DirectoryExists(string fileName) => Directory.Exists(fileName);
+}
