@@ -24,15 +24,6 @@
 		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.0" />
 	</ItemGroup>
 
-	<!--<ItemGroup>
-		--><!-- ReSharper disable once VulnerablePackage --><!--
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
-	</ItemGroup>-->
-
-	<ItemGroup>
-		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.4" />
-	</ItemGroup>
-
 	<ItemGroup>
 		<PackageReference Include="Spectre.Console" Version="0.46.0" />
 	</ItemGroup>
