@@ -21,7 +21,7 @@ public static class IComparableExtensions
     public static string CaseWhen(this int sender) =>
         sender switch
         {
-            { } and >= 7 and <= 14 => $"I am 7 or above but less than 14",
+            >= 7 and <= 14 => $"I am 7 or above but less than 14",
             { } when sender.Between(4, 6) => $"I am between 4 and 6",
             { } when (sender.IsLessThan(3)) => $"I am 3 or less",
             _ => "I'm old"
