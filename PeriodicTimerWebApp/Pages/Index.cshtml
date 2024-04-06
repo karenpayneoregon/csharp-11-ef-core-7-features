@@ -9,13 +9,31 @@
         <h1 class="fs-5">Simple PeriodicTimer example</h1>
     </div>
     <div class="row">
-        See console window
+        <div class="col-auto">
+            See console window
+        </div>
+        
     </div>
     
-    <div class="row">
-        <input type="text" asp-for="Contacts.FirstName" id="firstName"></input>
+    <div class="row p-1">
+        <div class="col-auto">
+            <input type="button" class="btn btn-primary" id="sendButton" value="Get contacts"/>
+        </div>
+    </div>
+
+    <div class="row ms-1 fw-bold border-bottom border-2 w-50">
+        Contacts
+    </div>
+    
+    <div class="row p-1">
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
     </div>
 
 </div>
+
+<script src="lib/microsoft/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/chat.js"></script>
 
 
