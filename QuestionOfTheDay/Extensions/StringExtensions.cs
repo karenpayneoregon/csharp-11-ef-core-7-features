@@ -23,6 +23,8 @@ public static class StringExtensions
             sender :
             sender[..^1];
 
+
+
     // replace last occurrence with replacement.
     public static string ReplaceLastOccurrence(this string sender, string find, string replace)
     {

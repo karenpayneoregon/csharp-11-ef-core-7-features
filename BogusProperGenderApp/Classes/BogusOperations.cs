@@ -20,12 +20,12 @@ namespace BogusProperGenderApp.Classes;
 
             if (finish)
             {
-                faker.FinishWith((f, c) => Console.WriteLine($"" +
-                                                             $"{c.FirstName,-10}" +
-                                                             $"{c.LastName,-15}" +
-                                                             $"{c.Gender,-10}" +
-                                                             $"{c.BirthDay,-14:MM/dd/yyyy}" +
-                                                             $"{c.Email}"));
+                faker.FinishWith((f, c) => 
+                    Console.WriteLine($"{c.FirstName,-10}" + 
+                                      $"{c.LastName,-15}" + 
+                                      $"{c.Gender,-10}" + 
+                                      $"{c.BirthDay,-14:MM/dd/yyyy}" + 
+                                      $"{c.Email}"));
 
             }
 
