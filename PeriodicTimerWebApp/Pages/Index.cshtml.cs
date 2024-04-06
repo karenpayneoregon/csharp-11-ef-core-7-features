@@ -10,7 +10,7 @@ public class IndexModel : PageModel
 {
     
     [BindProperty]
-    public Contacts Contacts { get; set; } = new Contacts();
+    public Contacts Contacts { get; set; } //= new Contacts();
     private TimerOperations _timerOperations;
     public IOptions<ConnectionOptions> Options { get; }
     public IndexModel(TimerOperations timerOperations, IOptions<ConnectionOptions> options)
@@ -18,13 +18,6 @@ public class IndexModel : PageModel
         _timerOperations = timerOperations;
         Options = options;
         _timerOperations.ConnectionString = Options.Value.NorthWindConnection;
-        _timerOperations.OnShowContactHandler += ShowContact;
-    }
-
-    private void ShowContact(Contacts sender)
-    {
-        Contacts = sender;
-        
     }
 
     public void OnGet()

@@ -15,7 +15,7 @@ public class SetupLogging
     {
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
-            .WriteTo.Console(theme: SeriLogCustomThemes.Default())
+            .WriteTo.Console(theme: SeriLogCustomThemes.Theme5())
             .CreateLogger();
     }
 }

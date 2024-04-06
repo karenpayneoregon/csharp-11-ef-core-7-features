@@ -1,5 +1,5 @@
 using PeriodicTimerWebApp.Classes;
-using PeriodicTimerWebApp.Hubs;
+
 
 namespace PeriodicTimerWebApp;
 public class Program
@@ -11,11 +11,11 @@ public class Program
         // Add services to the container.
         builder.Services.AddRazorPages();
 
-        builder.Services.AddSignalR();
-
         builder.Services.AddSingleton<TimerOperations>();
+        
         builder.Services.Configure<ConnectionOptions>(
             builder.Configuration.GetSection(nameof(ConnectionOptions)));
+
         SetupLogging.Development();
 
         var app = builder.Build();
@@ -32,11 +32,8 @@ public class Program
         app.UseRouting();
 
         app.UseAuthorization();
-
         app.MapRazorPages();
-
-        app.MapHub<ChatHub>("/chatHub");
-
+        app.SetConsoleWindowTitle("PeriodicTimer demo");
         app.Run();
     }
 }

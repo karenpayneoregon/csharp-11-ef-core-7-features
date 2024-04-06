@@ -1,5 +1,7 @@
-﻿using PeriodicTimerWebApp.Models;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using PeriodicTimerWebApp.Models;
 using Serilog;
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
 namespace PeriodicTimerWebApp.Classes;
 
@@ -11,8 +13,6 @@ public class TimerOperations : IAsyncDisposable
     CancellationTokenSource _cts;
     public string ConnectionString { get; set; }
 
-    public delegate void OnShowContact(Contacts sender);
-    public event OnShowContact OnShowContactHandler;
     public TimerOperations()
     {
         _cts = new CancellationTokenSource();
@@ -43,10 +43,9 @@ public class TimerOperations : IAsyncDisposable
     {
         if (ConnectionString is not null)
         {
-            DapperOperations dapperOperations = new DapperOperations(ConnectionString);
+            DapperOperations dapperOperations = new(ConnectionString);
             var contact = dapperOperations.Contact();
-            OnShowContactHandler?.Invoke(contact);
-            Log.Information("Contact: {P1} {P2}", contact.FirstName, contact.LastName);
+            EmailOperations.SendEmail(contact);
         }
 
         return Task.CompletedTask;
@@ -58,4 +57,6 @@ public class TimerOperations : IAsyncDisposable
         await _timerTask;
         GC.SuppressFinalize(this);
     }
+
 }
+
