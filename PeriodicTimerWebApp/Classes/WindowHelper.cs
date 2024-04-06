@@ -2,7 +2,9 @@
 using System.Runtime.InteropServices;
 
 namespace PeriodicTimerWebApp.Classes;
-
+/// <summary>
+/// Taken from my personal class project
+/// </summary>
 public static class WindowHelper
 {
 
