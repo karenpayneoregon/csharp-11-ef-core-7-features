@@ -33,7 +33,9 @@ public class TimerOperations
 
                 if (IsQuarterMinute())
                 {
-                    OnShowContactHandler?.Invoke(DapperOperations.Contact());
+                    Contacts contacts = DapperOperations.Contact();
+                    OnShowContactHandler?.Invoke(contacts);
+                    EmailOperations.SendEmail(contacts);
                 }
             }
         }

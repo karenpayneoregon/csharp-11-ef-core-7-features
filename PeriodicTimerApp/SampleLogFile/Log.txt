@@ -1,0 +1,29 @@
+[2024-04-06 07:46:45.596 [Error] Error
+code = Error (1), message = System.Data.SQLite.SQLiteException (0x87AF001F): SQL logic error
+no such table: Contacts
+   at System.Data.SQLite.SQLite3.Prepare(SQLiteConnection cnn, SQLiteCommand command, String strSql, SQLiteStatement previous, UInt32 timeoutMS, String& strRemain)
+   at System.Data.SQLite.SQLiteCommand.BuildNextCommand()
+   at System.Data.SQLite.SQLiteCommand.GetStatement(Int32 index)
+   at System.Data.SQLite.SQLiteDataReader.NextResult()
+   at System.Data.SQLite.SQLiteDataReader..ctor(SQLiteCommand cmd, CommandBehavior behave)
+   at System.Data.SQLite.SQLiteCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SQLite.SQLiteCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1156
+   at Dapper.SqlMapper.QueryRowImpl[T](IDbConnection cnn, Row row, CommandDefinition& command, Type effectiveType) in /_/Dapper/SqlMapper.cs:line 1277
+   at Dapper.SqlMapper.QueryFirst[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 836
+   at PeriodicTimerApp.Classes.DapperOperations.Contact() in ./Classes/DapperOperations.cs:line 21
+   at PeriodicTimerApp.Classes.TimerOperations.Execute(CancellationToken token) in ./Classes/TimerOperations.cs:line 36
+[2024-04-06 15:48:31.415 [Information] "             
+Hello JosÃ© Pedro Freyre,
+
+This is a test email from the Periodic Timer Web App.
+Best regards,
+ 
+The Periodic Timer Web App Team"
+[2024-04-06 15:48:45.503 [Information] "             
+Hello Simon Crowther,
+
+This is a test email from the Periodic Timer Web App.
+Best regards,
+ 
+The Periodic Timer Web App Team"
