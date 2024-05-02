@@ -1,7 +1,12 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
-namespace DapperSqlServerToJsonApp;
+namespace FormattableString1;
 internal partial class Program
 {
     [ModuleInitializer]

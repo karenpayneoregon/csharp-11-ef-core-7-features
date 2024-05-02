@@ -64,9 +64,9 @@ internal class Samples
     /// <summary>
     /// https://learn.microsoft.com/en-us/dotnet/api/system.string.replacelineendings?view=net-8.0
     /// </summary>
-    public static void January25Challenge()
+    public static string January25Challenge()
     {
-        string lines =
+        const string lines = 
             """
             January
             February
@@ -82,7 +82,8 @@ internal class Samples
             December
             """;
 
-        var results = lines.ReplaceLineEndings("\n");
-        Console.WriteLine("Place breakpoint here to validate");
+        return lines.ReplaceLineEndings("\n");
+        
     }
+
 }

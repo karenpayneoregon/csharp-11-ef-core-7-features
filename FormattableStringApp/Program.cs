@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using FormattableStringApp.Classes;
 
 namespace FormattableStringApp;
 
@@ -101,12 +102,6 @@ public static class Extensions
     }
 }
 
-public class Person
-{
-    public int Id { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-}
 public enum DatabaseType
 {
     [Description("SqlServer")] SqlServer = 0,

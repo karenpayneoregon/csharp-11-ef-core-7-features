@@ -19,9 +19,7 @@ internal class CustomersOperations
     public void ToJson()
     {
         /*
-         * Currently this is a good query, good ahead and break it then build the project
-         * and see in Visual Studio output window if there is an error reported for the statement
-         * below.
+         * Broken on purpose INER rather than INNER
          */
         const string statement =
             """
@@ -35,7 +33,7 @@ internal class CustomersOperations
                    Cust.CountryIdentifier,
                    CO.Name,
                    Cust.Phone
-             FROM dbo.Customers AS Cust
+             FROM dbo.Customers AS Cust --- comment
                 INNER JOIN dbo.Contacts AS C
                     ON Cust.ContactId = C.ContactId
                 INNER JOIN dbo.ContactType AS CT
@@ -53,3 +51,4 @@ internal class CustomersOperations
 
     }
 }
+
