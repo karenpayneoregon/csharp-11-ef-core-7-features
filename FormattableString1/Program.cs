@@ -9,7 +9,8 @@ internal partial class Program
     static void Main(string[] args)
     {
         PersonExample();
-        //DayOfWeekExample();
+        Console.WriteLine();
+        DayOfWeekExample();
 
         Console.ReadLine();
     }
@@ -43,6 +44,8 @@ internal partial class Program
         Person person = new() { Id = 1, FirstName = "Karen", LastName = "Payne" };
         FormattableString format = FormattableStringFactory.Create("Id: {0} First {1} Last {2}",
             person.Id, person.FirstName, person.LastName);
+
+        Console.WriteLine($"Last name null {(format.LastName() is null).ToYesNo()}");
 
         Console.WriteLine($"Format      : {format.Format}");
         Console.WriteLine($"# Arguments : {format.ArgumentCount}");

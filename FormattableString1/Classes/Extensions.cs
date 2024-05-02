@@ -21,4 +21,7 @@ public static class Extensions
     {
         sender.GetArguments()[2] = value;
     }
+
+    public static string ToYesNo(this bool value)
+        => value ? "Yes" : "No";
 }
