@@ -153,7 +153,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PeriodicTimers", "PeriodicT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeriodicTimerWebApp", "PeriodicTimerWebApp\PeriodicTimerWebApp.csproj", "{958161CB-B2A3-41CA-9BE3-27F271B95CC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormattableString1", "FormattableString1\FormattableString1.csproj", "{C32F2281-0143-4A6F-BEA1-D8C67F80A6A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormattableString1", "FormattableString1\FormattableString1.csproj", "{C32F2281-0143-4A6F-BEA1-D8C67F80A6A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp2", "WinFormsApp2\WinFormsApp2.csproj", "{CA6C9341-71B2-44FB-B768-9AD8384929E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -381,6 +383,10 @@ Global
 		{C32F2281-0143-4A6F-BEA1-D8C67F80A6A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C32F2281-0143-4A6F-BEA1-D8C67F80A6A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C32F2281-0143-4A6F-BEA1-D8C67F80A6A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA6C9341-71B2-44FB-B768-9AD8384929E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA6C9341-71B2-44FB-B768-9AD8384929E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA6C9341-71B2-44FB-B768-9AD8384929E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA6C9341-71B2-44FB-B768-9AD8384929E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -449,6 +455,7 @@ Global
 		{967F1798-B1C1-401E-AF43-5480EB693ADF} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{958161CB-B2A3-41CA-9BE3-27F271B95CC7} = {967F1798-B1C1-401E-AF43-5480EB693ADF}
 		{C32F2281-0143-4A6F-BEA1-D8C67F80A6A2} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{CA6C9341-71B2-44FB-B768-9AD8384929E6} = {4DAEB9D7-1A3E-408F-A464-6DB6445DC55B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}

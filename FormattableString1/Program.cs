@@ -17,6 +17,7 @@ internal partial class Program
 
     private static void DayOfWeekExample()
     {
+        
         FormattableString format = FormattableStringFactory.Create("The weekend {0} {1} {2}",
             DayOfWeek.Friday,
             DayOfWeek.Saturday,
