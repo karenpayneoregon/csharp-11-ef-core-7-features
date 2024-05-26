@@ -99,4 +99,14 @@ internal partial class Program
             }
         }
     }
+    private static string[] ConvertIntArrayToStringArray(int[] intArray)
+    {
+        string[] stringArray = new string[intArray.Length];
+        for (int i = 0; i < intArray.Length; i++)
+        {
+            stringArray[i] = intArray[i].ToString();
+        }
+        return stringArray;
+    }
+
 }

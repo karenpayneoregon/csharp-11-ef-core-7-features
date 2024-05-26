@@ -155,7 +155,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeriodicTimerWebApp", "Peri
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FormattableString1", "FormattableString1\FormattableString1.csproj", "{C32F2281-0143-4A6F-BEA1-D8C67F80A6A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp2", "WinFormsApp2\WinFormsApp2.csproj", "{CA6C9341-71B2-44FB-B768-9AD8384929E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsApp2", "WinFormsApp2\WinFormsApp2.csproj", "{CA6C9341-71B2-44FB-B768-9AD8384929E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StringSyntaxAttributeExampleApp", "StringSyntaxAttributeExampleApp\StringSyntaxAttributeExampleApp.csproj", "{29441B11-C997-4C1B-BEE8-AF62122E37DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitHubCopilotPlayground", "GitHubCopilotPlayground\GitHubCopilotPlayground.csproj", "{12FA95DC-6BE1-4235-8140-5961EA425F95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlDataReaderDateOnlyTimeOnlySample", "SqlDataReaderDateOnlyTimeOnlySample\SqlDataReaderDateOnlyTimeOnlySample.csproj", "{2E34DC8C-C886-400F-88F7-BE09F330760D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -387,6 +393,18 @@ Global
 		{CA6C9341-71B2-44FB-B768-9AD8384929E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA6C9341-71B2-44FB-B768-9AD8384929E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA6C9341-71B2-44FB-B768-9AD8384929E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29441B11-C997-4C1B-BEE8-AF62122E37DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29441B11-C997-4C1B-BEE8-AF62122E37DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29441B11-C997-4C1B-BEE8-AF62122E37DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29441B11-C997-4C1B-BEE8-AF62122E37DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12FA95DC-6BE1-4235-8140-5961EA425F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12FA95DC-6BE1-4235-8140-5961EA425F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12FA95DC-6BE1-4235-8140-5961EA425F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12FA95DC-6BE1-4235-8140-5961EA425F95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E34DC8C-C886-400F-88F7-BE09F330760D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E34DC8C-C886-400F-88F7-BE09F330760D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E34DC8C-C886-400F-88F7-BE09F330760D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E34DC8C-C886-400F-88F7-BE09F330760D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -456,6 +474,9 @@ Global
 		{958161CB-B2A3-41CA-9BE3-27F271B95CC7} = {967F1798-B1C1-401E-AF43-5480EB693ADF}
 		{C32F2281-0143-4A6F-BEA1-D8C67F80A6A2} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{CA6C9341-71B2-44FB-B768-9AD8384929E6} = {4DAEB9D7-1A3E-408F-A464-6DB6445DC55B}
+		{29441B11-C997-4C1B-BEE8-AF62122E37DD} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{12FA95DC-6BE1-4235-8140-5961EA425F95} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{2E34DC8C-C886-400F-88F7-BE09F330760D} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}

@@ -20,4 +20,19 @@ internal class DapperOperations
             """;
         return cn.QueryFirst<Contacts>(sql);
     }
+
+    public static Task<Contacts> ContactAsync()
+    {
+        var cn = new SQLiteConnection(ConnectionString());
+        const string sql =
+            """
+            SELECT [ContactId]
+                ,[FirstName]
+                ,[LastName]
+                ,[ContactTypeIdentifier]
+            FROM Contacts
+            ORDER BY RANDOM() LIMIT 1
+            """;
+        return cn.QueryFirstAsync<Contacts>(sql);
+    }
 }

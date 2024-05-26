@@ -1,5 +1,6 @@
 ﻿using PeriodicTimerApp.Models;
 using Serilog;
+using System.Threading;
 using static System.DateTime;
 
 namespace PeriodicTimerApp.Classes;
@@ -46,6 +47,33 @@ public class TimerOperations
         }
     }
 
+    /// <summary>
+    /// Execute a data read operation every sixty seconds to retrieve a random contact.
+    /// </summary>
+    public static async Task ExecuteWait(CancellationToken token)
+    {
+
+        try
+        {
+            // take milliseconds into account to improve start-time accuracy
+            var delay = (60 - UtcNow.Second) * 1000; 
+            await Task.Delay(delay, token);
+
+            using PeriodicTimer timer = new(TimeSpan.FromMinutes(1));
+
+            while (await timer.WaitForNextTickAsync(token))
+            {
+                Contacts contacts = await DapperOperations.ContactAsync();
+                OnShowContactHandler?.Invoke(contacts);
+                EmailOperations.SendEmail(contacts);
+            }
+        }
+        catch (OperationCanceledException) { }
+        catch (Exception exception)
+        {
+            Log.Error(exception, "");
+        }
+    }
 
 }
 
