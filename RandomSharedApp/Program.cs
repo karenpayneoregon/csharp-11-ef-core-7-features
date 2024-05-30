@@ -1,5 +1,4 @@
-﻿using System.Windows.Markup;
-using RandomSharedApp.Classes;
+﻿using RandomSharedApp.Classes;
 using static RandomSharedApp.Classes.SpectreConsoleHelpers;
 
 namespace RandomSharedApp;

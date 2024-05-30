@@ -1,0 +1,37 @@
+﻿#nullable disable
+
+namespace NameOfSpecialSample.Models;
+
+public partial class Contacts
+{
+    /// <summary>
+    /// Id
+    /// </summary>
+    public int ContactId { get; set; }
+
+    /// <summary>
+    /// First name
+    /// </summary>
+    public string FirstName { get; set; }
+
+    /// <summary>
+    /// Last name
+    /// </summary>
+    public string LastName { get; set; }
+
+    /// <summary>
+    /// Contact Type Identifier
+    /// </summary>
+    public int? ContactTypeIdentifier { get; set; }
+
+    /// <summary>
+    /// Full name
+    /// </summary>
+    public string FullName { get; set; }
+
+    public virtual ICollection<ContactDevices> ContactDevices { get; set; } = new List<ContactDevices>();
+
+    public virtual ContactType ContactTypeIdentifierNavigation { get; set; }
+
+    public virtual ICollection<Customers> Customers { get; set; } = new List<Customers>();
+}

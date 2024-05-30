@@ -26,7 +26,7 @@ public partial class Form1 : Form
     {
         var age = 10;
         var name = "Joe";
-        Operations.CompositeFormat("First Name {0} Last name {1}");
+        Operations.CompositeFormat("First Name {0,-14} Last name {1}");
 
     }
 
