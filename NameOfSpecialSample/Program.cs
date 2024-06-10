@@ -33,18 +33,12 @@ internal partial class Program
         Console.WriteLine(test);
 
         var result = StringHelper.NameOf<Customers>(x => x.Contact.FullName);
+
+
         Console.WriteLine(result);
 
 
         ExitPrompt();
     }
 
-    static string StringOf(string value, [CallerArgumentExpression(nameof(value))] string fullpath = default!)
-    {
-
-        string outputString = fullpath.Substring(
-            fullpath.IndexOf($"(", StringComparison.Ordinal) + 1, fullpath.IndexOf(')') - fullpath.IndexOf($"(", StringComparison.Ordinal) - 1);
-
-        return outputString;
-    }
 }

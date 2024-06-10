@@ -16,7 +16,7 @@ public partial class CustomerSelectForm : Form
 
         InitializeComponent();
 
-        _bindingList = new BindingList<Customer>(CustomersList());
+        _bindingList = new BindingList<Customer>(CustomersWithKeysList());
         _bindingSource.DataSource = _bindingList;
         dataGridView1.DataSource = _bindingSource;
 

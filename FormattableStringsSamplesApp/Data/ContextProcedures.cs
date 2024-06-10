@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FormattableStringsSamplesApp.Data
 {
+
     public partial class Context
     {
         private IContextProcedures _procedures;
@@ -34,15 +35,28 @@ namespace FormattableStringsSamplesApp.Data
         }
     }
 
+    /// <summary>
+    /// Represents a set of procedures associated with the <see cref="Context"/> class.
+    /// </summary>
     public partial class ContextProcedures : IContextProcedures
     {
         private readonly Context _context;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContextProcedures"/> class.
+        /// </summary>
+        /// <param name="context">The <see cref="Context"/> instance.</param>
         public ContextProcedures(Context context)
         {
             _context = context;
         }
 
+        /// <summary>
+        /// Executes the stored procedure "usp_HolidaysForMonthYear" asynchronously.
+        /// </summary>
+        /// <param name="returnValue">The output parameter to capture the return value of the stored procedure.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A list of <see cref="usp_HolidaysForMonthYearResult"/> objects.</returns>
         public virtual async Task<List<usp_HolidaysForMonthYearResult>> usp_HolidaysForMonthYearAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
@@ -52,10 +66,10 @@ namespace FormattableStringsSamplesApp.Data
                 SqlDbType = System.Data.SqlDbType.Int,
             };
 
-            var sqlParameters = new []
+            var sqlParameters = new[]
             {
-                parameterreturnValue,
-            };
+                    parameterreturnValue,
+                };
             var _ = await _context.SqlQueryAsync<usp_HolidaysForMonthYearResult>("EXEC @returnValue = [dbo].[usp_HolidaysForMonthYear]", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);

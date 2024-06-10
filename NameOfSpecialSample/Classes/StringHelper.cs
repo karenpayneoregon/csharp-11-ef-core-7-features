@@ -23,7 +23,7 @@ namespace NameOfSpecialSample.Classes;
         {
             return removeParent
                 ? string.Join(".", sender.ToString().Split('.').Skip(1))
-                : typeof(T).Name + "." + string.Join(".", sender.ToString().Split('.').Skip(1));
+                : $"{typeof(T).Name}.{string.Join(".", sender.ToString().Split('.').Skip(1))}";
         }
 
     

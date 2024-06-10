@@ -35,17 +35,18 @@ partial class CustomerSelectForm
         // dataGridView1
         // 
         dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dataGridView1.Location = new Point(17, 19);
+        dataGridView1.Dock = DockStyle.Fill;
+        dataGridView1.Location = new Point(0, 0);
         dataGridView1.Name = "dataGridView1";
         dataGridView1.RowHeadersWidth = 51;
-        dataGridView1.Size = new Size(413, 248);
+        dataGridView1.Size = new Size(810, 340);
         dataGridView1.TabIndex = 0;
         // 
         // CustomerSelectForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(450, 285);
+        ClientSize = new Size(810, 340);
         Controls.Add(dataGridView1);
         FormBorderStyle = FormBorderStyle.FixedToolWindow;
         Name = "CustomerSelectForm";

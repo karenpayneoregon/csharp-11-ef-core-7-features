@@ -34,6 +34,14 @@ internal partial class Program
         }
     }
 
+    /// <summary>
+    /// Executes the Entity Framework Core stored procedure sample.
+    /// </summary>
+    /// <remarks>
+    /// This method calls the stored procedure <c>usp_HolidaysForMonthYearAsync</c> on the <c>Procedures</c>
+    /// property of the <c>Context</c> object.
+    /// It retrieves a list of holidays for the current month and year and prints the holiday information to the console.
+    /// </remarks>
     private static async Task EntityFrameworkCoreStoredProcedureSample()
     {
         PrintCyan();
