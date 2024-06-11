@@ -12,7 +12,7 @@ public class BogusOperations
         new() { Id = 2, Name = "Female"}
     ];
 
-    public static List<BirthDays> CustomersList(int count)
+    public static List<BirthDays> PeopleList(int count)
     {
 
         int identifier = 1;

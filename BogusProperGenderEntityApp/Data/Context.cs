@@ -37,7 +37,7 @@ public partial class Context : DbContext
         });
 
         modelBuilder.Entity<GenderData>().HasData(BogusOperations.GenderTypes());
-        modelBuilder.Entity<BirthDays>().HasData(new List<BirthDays>(BogusOperations.CustomersList(20)));
+        modelBuilder.Entity<BirthDays>().HasData(new List<BirthDays>(BogusOperations.PeopleList(20)));
 
     }
 
