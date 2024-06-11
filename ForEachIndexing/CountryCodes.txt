@@ -1,0 +1,110 @@
+Aland Islands,AX
+Albania,AL
+Andorra,AD
+Argentina,AR
+Australia,AU
+Austria,AT
+Bahamas,BS
+Barbados,BB
+Belarus,BY
+Belgium,BE
+Belize,BZ
+Benin,BJ
+Bolivia
+Bosnia and Herzegovina,BA
+Botswana,BW
+Brazil,BR
+Bulgaria,BG
+Canada,CA
+Chile,CL
+China,CN
+Colombia,CO
+Costa Rica,CR
+Croatia,HR
+Cuba,CU
+Cyprus,CY
+Czechia,CZ
+Denmark,DK
+Dominican Republic,DO
+Ecuador,EC
+Egypt,EG
+El Salvador,SV
+Estonia,EE
+Faroe Islands,FO
+Finland,FI
+France,FR
+Gabon,GA
+Gambia,GM
+Germany,DE
+Gibraltar,GI
+Greece,GR
+Greenland,GL
+Grenada,GD
+Guatemala,GT
+Guernsey,GG
+Guyana,GY
+Haiti,HT
+Honduras,HN
+Hungary,HU
+Iceland,IS
+Indonesia,ID
+Ireland,IE
+Isle of Man,IM
+Italy,IT
+Jamaica,JM
+Japan,JP
+Jersey,JE
+Latvia,LV
+Lesotho,LS
+Liechtenstein,LI
+Lithuania,LT
+Luxembourg
+Madagascar,MG
+Malta,MT
+Mexico,MX
+Moldova,MD
+Monaco,MC
+Mongolia,MN
+Montenegro,ME
+Montserrat,MS
+Morocco,MA
+Mozambique,MZ
+Namibia,NA
+Netherlands,NL
+New Zealand,NZ
+Nicaragua,NI
+Niger,NE
+Nigeria,NG
+North Macedonia,MK
+Norway,NO
+Panama,PA
+Papua New Guinea,PG
+Paraguay,PY
+Peru,PE
+Poland,PL
+Portugal,PT
+Puerto Rico,PR
+Romania,RO
+Russia,RU
+San Marino,SM
+Serbia,RS
+Singapore,SG
+Slovakia,SK
+Slovenia,SI
+South Africa,ZA
+South Korea,KR
+Spain,ES
+Suriname,SR
+Svalbard and Jan Mayen,SJ
+Sweden,SE
+Switzerland,CH
+Tunisia,TN
+Turkey,TR
+Ukraine,UA
+United Kingdom,GB
+United States,US
+Uruguay,UY
+Vatican City,VA
+Venezuela,VE
+Vietnam,VN
+Zimbabwe,ZW

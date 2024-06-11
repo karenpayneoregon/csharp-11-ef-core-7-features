@@ -18,12 +18,19 @@ public partial class BirthDays
 
     public DateOnly? BirthDate { get; set; }
 
+    // computered column, see DbContext OnModelCreating
     public int? YearsOld { get; set; }
 
     public string Email { get; set; }
     
+    // For Bogus to set Id property
     public BirthDays(int id)
     {
         Id = id;
+    }
+
+    public BirthDays()
+    {
+        
     }
 }

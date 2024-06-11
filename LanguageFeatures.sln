@@ -167,6 +167,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NameOfSpecialSample", "Name
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BogusProperGenderEntityApp", "BogusProperGenderEntityApp\BogusProperGenderEntityApp.csproj", "{50DCA3E2-04E5-479C-B465-D3F9EF620B43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForEachIndexing", "ForEachIndexing\ForEachIndexing.csproj", "{FAA0EB68-3988-489D-8651-25172D203540}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -417,6 +419,10 @@ Global
 		{50DCA3E2-04E5-479C-B465-D3F9EF620B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50DCA3E2-04E5-479C-B465-D3F9EF620B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50DCA3E2-04E5-479C-B465-D3F9EF620B43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAA0EB68-3988-489D-8651-25172D203540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAA0EB68-3988-489D-8651-25172D203540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAA0EB68-3988-489D-8651-25172D203540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAA0EB68-3988-489D-8651-25172D203540}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -491,6 +497,7 @@ Global
 		{2E34DC8C-C886-400F-88F7-BE09F330760D} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{B7CFED29-2DA1-45DA-9542-C0FC211696BA} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{50DCA3E2-04E5-479C-B465-D3F9EF620B43} = {55E0C874-7DF3-47D3-84F2-4C4D347DC0E6}
+		{FAA0EB68-3988-489D-8651-25172D203540} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}

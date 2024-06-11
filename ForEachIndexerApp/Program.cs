@@ -31,9 +31,6 @@ internal partial class Program
         }
 
 
-
-
-
         AnsiConsole.MarkupLine("[yellow]----------------[/]");
 
 

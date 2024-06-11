@@ -17,5 +17,6 @@ internal partial class Program
         var services = ApplicationConfiguration.ConfigureServices();
         await using var serviceProvider = services.BuildServiceProvider();
         serviceProvider.GetService<SetupServices>()!.GetConnectionStrings();
+        serviceProvider.GetService<SetupServices>()!.GetEntitySettings();
     }
 }

@@ -1,16 +1,24 @@
-﻿using BogusProperGenderEntityApp.Data;
+﻿using BogusProperGenderEntityApp.Classes;
+using BogusProperGenderEntityApp.Data;
 using BogusProperGenderEntityApp.Models;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace BogusProperGenderEntityApp;
 internal partial class Program
 {
+
     static async Task Main(string[] args)
     {
+
         await Setup();
         await using var context = new Context();
-        await context.Database.EnsureDeletedAsync();
-        await context.Database.EnsureCreatedAsync();
+        if (EntitySettings.Instance.CreateNew)
+        {
+            await context.Database.EnsureDeletedAsync();
+            await context.Database.EnsureCreatedAsync();
+        }
+
         var people = await context.BirthDays.ToListAsync();
 
         var table = CreateTable();
@@ -22,14 +30,15 @@ internal partial class Program
             }
             else
             {
-                table.AddRow(p.Id.ToString(), p.FirstName, p.LastName, $"[cyan]{p.Gender.ToString()}[/]", p.BirthDate.Value.ToString(),p.YearsOld.ToString(), p.Email);
+                table.AddRow(p.Id.ToString(), p.FirstName, p.LastName, $"[cyan]{p.Gender.ToString()}[/]", p.BirthDate.Value.ToString(), p.YearsOld.ToString(), p.Email);
             }
-
-
         }
 
         AnsiConsole.Write(table);
         ExitPrompt();
+
+
+  
     }
 
     private static Table CreateTable()
@@ -45,3 +54,4 @@ internal partial class Program
             .Border(TableBorder.Square)
             .Title("[LightGreen]Birth days[/]");
 }
+

@@ -19,11 +19,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ConfigurationLibrary" Version="1.0.4" />
+		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
+		<PackageReference Include="ConsoleConfigurationLibrary" Version="1.0.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.0" />
+		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
+		<PackageReference Include="EntityCoreFileLogger" Version="1.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -37,7 +39,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
 	</ItemGroup>
 
 	<!--<ItemGroup>
@@ -46,7 +48,7 @@
 	</ItemGroup>-->
 
 	<ItemGroup>
-		<PackageReference Include="Bogus" Version="35.3.0" />
+		<PackageReference Include="Bogus" Version="35.5.1" />
 	</ItemGroup>
 
 
@@ -56,15 +58,16 @@
 		<PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
 	</ItemGroup>
 
 
-	<Target Name="MakeMyDir" AfterTargets="Build">
-		<MakeDir Directories="$(OutDir)LogFiles" />
+	<Target Name="MakeLogDir" AfterTargets="Build">
+		<!-- Create folder LogFiles than each day create a folder with the current date -->
+		<MakeDir Directories="$(OutDir)LogFiles\$([System.DateTime]::Now.ToString(yyyy-MM-dd))" />
 	</Target>
 
 </Project>

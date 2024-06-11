@@ -1,27 +1,23 @@
 ﻿using BogusProperGenderEntityApp.Models;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using ConsoleConfigurationLibrary.Classes;
+
 namespace BogusProperGenderEntityApp.Classes;
+
+/// <summary>
+/// Configure services for obtaining database connection string and setting 
+/// </summary>
 internal class ApplicationConfiguration
 {
-    /// <summary>
-    /// Read sections from appsettings.json
-    /// </summary>
-    public static IConfigurationRoot ConfigurationRoot() =>
-        new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: false)
-            .AddEnvironmentVariables()
-            .Build();
 
     public static ServiceCollection ConfigureServices()
     {
         static void ConfigureService(IServiceCollection services)
         {
 
-            services.Configure<ConnectionStrings>(ConfigurationRoot()
-                .GetSection(nameof(ConnectionStrings)));
+            services.Configure<ConnectionStrings>(Configuration.JsonRoot().GetSection(nameof(ConnectionStrings)));
+            services.Configure<EntityConfiguration>(Configuration.JsonRoot().GetSection(nameof(EntityConfiguration)));
 
             services.AddTransient<SetupServices>();
         }

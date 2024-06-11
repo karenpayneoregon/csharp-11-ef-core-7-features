@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using Bogus.DataSets;
 using BogusProperGenderEntityApp.Models;
+// ReSharper disable MethodOverloadWithOptionalParameter
 
 namespace BogusProperGenderEntityApp.Classes;
 
@@ -8,15 +9,12 @@ public class BogusOperations
 {
     public static List<GenderData> GenderTypes() =>
     [
-        new() { Id = 1, Name = "Male" },
-        new() { Id = 2, Name = "Female"}
+        new() { Id = 1, Name = "Male" }, new() { Id = 2, Name = "Female"}
     ];
 
     public static List<BirthDays> PeopleList(int count)
     {
-
-        int identifier = 1;
-
+        var identifier = 1;
         Randomizer.Seed = new Random(338);
 
         var faker = new Faker<BirthDays>()
@@ -27,9 +25,26 @@ public class BogusOperations
             .RuleFor(c => c.BirthDate, f => f.Date.BetweenDateOnly(new DateOnly(1950, 1, 1), new DateOnly(2010, 1, 1)))
             .RuleFor(e => e.Email, (f, e) => f.Internet.Email(e.FirstName, e.LastName));
 
-        var list = faker.Generate(count);
-
-        return list;
+        return faker.Generate(count);
 
     }
+
+    public static List<BirthDays> PeopleList(int count, int seed = 338)
+    {
+        var identifier = 1;
+        Randomizer.Seed = new Random(seed);
+        var faker = new Faker<BirthDays>().Rules((f, b) =>
+        {
+            b.Id = identifier++;
+            b.Gender = f.PickRandom<Gender>();
+            b.FirstName = f.Name.FirstName((Name.Gender?)b.Gender);
+            b.LastName = f.Name.LastName();
+            b.BirthDate = f.Date.BetweenDateOnly(new DateOnly(1950, 1, 1), new DateOnly(2010, 1, 1));
+            b.Email = f.Internet.Email(b.FirstName, b.LastName);
+
+        });
+
+        return faker.Generate(count);
+    }
 }
+
