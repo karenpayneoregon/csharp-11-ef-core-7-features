@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.InteropServices;
+using ForEachIndexing.Classes;
 
 namespace ForEachIndexing;
 
@@ -9,8 +10,23 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        Span<string> lines = File.ReadAllLines("CountryCodes.txt");
+        ReadOnlySpan<string> lines = File.ReadAllLines("CountryCodes.txt");
 
+
+        Console.WriteLine();
+        //var listEnumerator = lines.GetEnumerator();
+
+        //for (var index = 0; listEnumerator.MoveNext(); index++)
+        //{
+        //    var line = listEnumerator.Current;
+        //    //Console.WriteLine($"{index, -5}{line}");
+        //    var parts = line.Split(',');
+        //    if (parts.Length < 2)
+        //    {
+        //        Console.WriteLine($"Line {index + 1} is invalid: {line}");
+        //    }
+        //}
+        //FindInvalidLinesInFileExample2();
 
 
         Console.ReadLine();
@@ -20,9 +36,10 @@ internal partial class Program
     /// Each line in the file should have country name and country two-letter code separated by comma.
     /// but several lines do not, they are missing two-letter code separated by comma.
     /// </summary>
-    private static void FindInvalidLinesInFileExample()
+    private static void FindInvalidLinesInFileExample1()
     {
         var lines = File.ReadAllLines("CountryCodes.txt");
+
         foreach (var (line, index) in lines.Select((line, index) => (value: line, i: index)))
         {
             var parts = line.Split(',');
@@ -30,7 +47,22 @@ internal partial class Program
             {
                 Console.WriteLine($"Line {index + 1} is invalid: {line}");
             }
+        }
+    }
+    private static void FindInvalidLinesInFileExample2()
+    {
+        Span<string> lines = File.ReadAllLines("CountryCodes.txt");
+        var enumerator = lines.Enumerator();
 
+        for (var index = 0; enumerator.MoveNext(); index++)
+        {
+            var line = enumerator.Current;
+       
+            var parts = line.Split(',');
+            if (parts.Length < 2)
+            {
+                Console.WriteLine($"Line {index + 1} is invalid: {line}");
+            }
         }
     }
     private static void FindInvalidLinesInFileWithIndexExample()

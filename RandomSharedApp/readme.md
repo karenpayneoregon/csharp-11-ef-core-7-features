@@ -13,6 +13,7 @@ internal class BogusOperations
 {
     public static List<Human> People(int count = 15)
     {
+        Randomizer.Seed = new Random(33);
         int identifier = 1;
         Faker<Human> fakePerson = new Faker<Human>()
             .CustomInstantiator(f => new Human(identifier++))
@@ -28,23 +29,31 @@ internal class BogusOperations
 ## Main code to generate random data
 
 ```csharp
-var people = BogusOperations
-    .People(100)
-    .OrderBy(x => x.LastName)
-    .ToArray();
-
-for (int index = 0; index < 10; index++)
-{
-    AnsiConsole.MarkupLine($"[cyan]Pass[/] " +
-                           $"[yellow]{index +1}[/]");
-    var items = Random.Shared.GetItems(people, 3);
-    await Task.Delay(500);
-    foreach (var human in items)
+    private static async Task PeopleExample()
     {
-        Console.WriteLine($"{human.Id,-5}{human.FirstName,-20}" +
-                          $"{human.LastName}");
+        List<Human> people = BogusOperations
+            .People(100)
+            .OrderBy(x => x.LastName)
+            .ToList();
+
+        for (int index = 0; index < 10; index++)
+        {
+            AnsiConsole.MarkupLine($"[cyan]Pass[/] [yellow]{index +1}[/]");
+
+            List<Human> items = Random.Shared
+                .GetItems<Human>(CollectionsMarshal.AsSpan(people), 3)
+                .ToList();
+
+            await Task.Delay(300);
+
+            foreach (var human in items)
+            {
+                Console.WriteLine($"{human.Id,-5}{human.FirstName,-15}{human.LastName}");
+            }
+
+            Console.WriteLine();
+        }
     }
-}
 ```
 
 
