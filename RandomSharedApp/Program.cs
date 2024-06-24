@@ -1,11 +1,7 @@
-﻿using System.ComponentModel;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using RandomSharedApp.Classes;
 using RandomSharedApp.Models;
 using static RandomSharedApp.Classes.SpectreConsoleHelpers;
-// ReSharper disable SuggestVarOrType_Elsewhere
-#pragma warning disable IDE0305
-
 
 namespace RandomSharedApp;
 
@@ -20,7 +16,7 @@ internal partial class Program
     {
         List<Human> people = BogusOperations.People(100);
 
-        for (int index = 0; index < 10; index++)
+        for (var index = 0; index < 10; index++)
         {
             AnsiConsole.MarkupLine($"[cyan]Pass[/] [yellow]{index +1}[/]");
 
