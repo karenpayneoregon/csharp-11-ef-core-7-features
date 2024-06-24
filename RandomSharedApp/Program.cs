@@ -13,30 +13,18 @@ internal partial class Program
 {
     static async Task Main(string[] args)
     {
-        await PeopleExample();
+        await Example();
         ExitPrompt();
     }
-
-    public static int[] GetRandomIntegers(params int[] listNumbers) 
-        => Random.Shared.GetItems(listNumbers, listNumbers.Length);
-
-    public static int[] GetRandomIntegers1(params int[] listNumbers)
-        => listNumbers.OrderBy(x => Random.Shared.Next()).ToArray();
-
-    private static async Task PeopleExample()
+    private static async Task Example()
     {
-        List<Human> people = BogusOperations
-            .People(100)
-            .OrderBy(x => x.LastName)
-            .ToList();
+        List<Human> people = BogusOperations.People(100);
 
         for (int index = 0; index < 10; index++)
         {
             AnsiConsole.MarkupLine($"[cyan]Pass[/] [yellow]{index +1}[/]");
 
-            List<Human> items = Random.Shared
-                .GetItems<Human>(CollectionsMarshal.AsSpan(people), 3)
-                .ToList();
+            var items = Random.Shared.GetItems<Human>(CollectionsMarshal.AsSpan(people), 3);
 
             await Task.Delay(300);
 

@@ -13,7 +13,8 @@ internal class BogusOperations
             .RuleFor(p => p.FirstName, f => f.Person.FirstName)
             .RuleFor(p => p.LastName, f => f.Person.LastName);
 
-        return fakePerson.Generate(count);
+        return fakePerson.Generate(count).OrderBy(x => x.LastName)
+            .ToList();
 
     }
 }
