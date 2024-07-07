@@ -1,7 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using RandomSharedApp.Classes;
 using RandomSharedApp.Models;
-using static RandomSharedApp.Classes.SpectreConsoleHelpers;
 
 namespace RandomSharedApp;
 
@@ -10,7 +9,7 @@ internal partial class Program
     static async Task Main(string[] args)
     {
         await Example();
-        ExitPrompt();
+        Console.ReadLine();
     }
     private static async Task Example()
     {

@@ -1,5 +1,4 @@
 ﻿#nullable enable
-using PrimaryConstructorIComparerApp;
 using PrimaryConstructorIComparerApp.Models;
 
 namespace PrimaryConstructorIComparerApp.Comparers;

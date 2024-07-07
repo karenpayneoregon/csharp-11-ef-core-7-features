@@ -10,9 +10,9 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        ReadOnlySpan<string> lines = File.ReadAllLines("CountryCodes.txt");
+        //ReadOnlySpan<string> lines = File.ReadAllLines("CountryCodes.txt");
 
-
+        FindInvalidLinesInFileExample2();
         Console.WriteLine();
         //var listEnumerator = lines.GetEnumerator();
 
@@ -49,15 +49,21 @@ internal partial class Program
             }
         }
     }
+
+
+    /// <summary>
+    /// Reads the lines from the "CountryCodes.txt" file and finds invalid
+    /// lines that do not have a country name and country two-letter code
+    /// separated by a comma.
+    /// </summary>
     private static void FindInvalidLinesInFileExample2()
     {
-        Span<string> lines = File.ReadAllLines("CountryCodes.txt");
-        var enumerator = lines.Enumerator();
+        Span<string>.Enumerator enumerator = File.ReadAllLines("CountryCodes.txt").AsSpan().Enumerator();
 
         for (var index = 0; enumerator.MoveNext(); index++)
         {
             var line = enumerator.Current;
-       
+
             var parts = line.Split(',');
             if (parts.Length < 2)
             {
@@ -65,6 +71,7 @@ internal partial class Program
             }
         }
     }
+
     private static void FindInvalidLinesInFileWithIndexExample()
     {
         var lines = File.ReadAllLines("CountryCodes.txt");
@@ -80,17 +87,24 @@ internal partial class Program
     }
     private static void StartWithSplitMonthNamesExample()
     {
-        List<string> list = [.. DateTimeFormatInfo.CurrentInfo.MonthNames[..^1]];
 
-        foreach (var month in list)
         {
+            List<string> list = [.. DateTimeFormatInfo.CurrentInfo.MonthNames[..^1]];
 
+            foreach (var month in list)
+            {
+
+            }
         }
 
-        foreach (var month in list.Select((month, index) => (value: month, i: index + 1)))
         {
+            List<string> list = [.. DateTimeFormatInfo.CurrentInfo.MonthNames[..^1]];
+            foreach (var month in list.Select((month, index) => (value: month, i: index + 1)))
+            {
 
+            }
         }
+
     }
     /// <summary>
     /// Change zero base index to one base index

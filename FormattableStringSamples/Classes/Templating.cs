@@ -1,50 +1,20 @@
 ﻿#nullable disable
-using StringTokenFormatter;
-using System.Configuration;
-using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Text.RegularExpressions;
+using FormattableStringSamples.Models;
+using StringTokenFormatter;
 
-namespace StringSyntaxAttributeExampleApp.Classes;
-public class Operations
+namespace FormattableStringSamples.Classes;
+public class Templating
 {
-    public static void SetDateFormat([StringSyntax(StringSyntaxAttribute.DateTimeFormat)] string format, params object[] arguments)
-    {
-   
-
-    }
-
-    public static void FormatRex([StringSyntax(StringSyntaxAttribute.Regex)] string regex)
-    {
-        
-    }
-
-    public static void SetNumberFormat([StringSyntax(StringSyntaxAttribute.NumericFormat)] string sender)
-    {
-        
-    }
-    public static void CompositeFormat([StringSyntax(StringSyntaxAttribute.CompositeFormat)] string sender)
-    {
-
-
-        string firstName = "Karen";
-        string lastName = "Payne";
-        string result = string.Format(sender, firstName, lastName);
-
-
-        FormattableString format = FormattableStringFactory.Create(sender, firstName,lastName, "S");
-
-    }
-
-
 
     /// <summary>
-    /// Demonstrates the usage of the Operations class.
+    /// Demonstrates creating an email message text
     /// </summary>
-    public static void Demo()
+    /// <remarks>
+    /// Using NuGet package
+    /// https://www.nuget.org/packages/StringTokenFormatter/9.0.1?_src=template
+    /// </remarks>
+    public static string CreateEmailMessage()
     {
         // Create a new Customer object
         Customer customer = new() {
@@ -98,10 +68,8 @@ public class Operations
             .CombinedResult();
 
         // Resolve the interpolated string using the combined container
-        string actual = resolver.FromContainer(interpolatedString, combinedContainer);
-
-        // Output the result
-        Debug.WriteLine(actual);
+        string messageText = resolver.FromContainer(interpolatedString, combinedContainer);
+        return messageText;
     }
 
     // Configure the StringTokenFormatter settings
@@ -129,23 +97,4 @@ public class Operations
     }
 
 
-}
-
-public class Customer
-{
-    public int Id { get; set; }
-    public string Title { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public bool IsFirstOrder { get; set; }
-}
-public class OrderLine
-{
-    public OrderLine(string product, double price)
-    {
-        Product = product;
-        Price = price;
-    }
-    public string Product { get; }
-    public double Price { get; }
 }
