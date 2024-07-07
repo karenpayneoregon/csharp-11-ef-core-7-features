@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using StringSyntaxWithEntityFrameworkCore.Classes.Configuration;
 using StringSyntaxWithEntityFrameworkCore.Data;
 
+// for StringSyntax
 using static System.Diagnostics.CodeAnalysis.StringSyntaxAttribute;
 
 namespace StringSyntaxWithEntityFrameworkCore.Classes;
