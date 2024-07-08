@@ -2,7 +2,7 @@
 
 public static class DatabaseHelper
 {
-    public static (string sqlFormat, Dictionary<string, object> parameter) ToParameter(
+    public static (string sqlFormat, Dictionary<string, object> parameter) ToParameters(
         this FormattableString sql, 
         DatabaseType databaseType = DatabaseType.SqlServer)
     {
@@ -26,6 +26,7 @@ public static class DatabaseHelper
 
         return (sqlFormat, parameter);
     }
+
     /// <summary>
     /// Set parameter prefix dependent of which database is being used.
     /// </summary>

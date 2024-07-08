@@ -1,6 +1,15 @@
 ﻿namespace FormattableStringSamples.Classes;
 public static class Extensions
 {
+    public static (string name, object value) Deconstruct(this KeyValuePair<string, object> sender)
+    {
+        sender.Deconstruct(out var parameterName, out var parameterValue);
+        return (parameterName, parameterValue);
+    }
+
+    public static string TableName(this FormattableString sender)
+        => (string)sender.GetArguments()[0];
+
     public static string ArgumentsJoined(this FormattableString sender)
         => string.Join(",", sender.GetArguments());
 
