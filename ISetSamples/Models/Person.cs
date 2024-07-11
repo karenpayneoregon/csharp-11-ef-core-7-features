@@ -2,6 +2,7 @@
 // ReSharper disable NonReadonlyMemberInGetHashCode
 #nullable disable
 using System.ComponentModel;
+#pragma warning disable CA1067
 
 namespace ISetSamples.Models;
 
@@ -11,7 +12,6 @@ public class Person : INotifyPropertyChanged, IEquatable<Person>
     private string _firstName;
     private string _lastName;
     private DateOnly _birthDate;
-    public Person() { }
 
     public int Id
     {

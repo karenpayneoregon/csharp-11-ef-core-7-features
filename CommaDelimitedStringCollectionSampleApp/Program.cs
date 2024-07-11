@@ -11,7 +11,15 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
+        MainExamples();
 
+
+
+        Console.ReadLine();
+    }
+
+    private static void Other()
+    {
         string[] mockedData = [
             "Start Download:",
             "[Start Time]: 12/30/2023 00:42:00",
@@ -33,16 +41,13 @@ internal partial class Program
         }
 
         Console.WriteLine(LogOperations.Finish());
-
-
-        Console.ReadLine();
     }
 
     private static void MainExamples()
     {
         {
             AnsiConsole.MarkupLine("[yellow]Comma delimited full month names[/]");
-            CommaDelimitedStringCollection result = new();
+            CommaDelimitedStringCollection result = [];
 
             result.AddRange(DateTimeFormatInfo.CurrentInfo.MonthNames[..^1]);
             Console.WriteLine($"\t{result}");
@@ -73,7 +78,7 @@ internal partial class Program
 
         {
             AnsiConsole.MarkupLine("[yellow]Using an int array[/]");
-            int[] items = { 1, 2, 3 };
+            int[] items = [1, 2, 3];
             CommaDelimitedStringCollection result = new();
             result.AddRange(items.ToStringArray());
             result.Add("4");

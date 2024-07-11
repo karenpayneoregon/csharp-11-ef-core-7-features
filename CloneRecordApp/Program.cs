@@ -6,7 +6,7 @@ namespace CloneRecordApp;
 
 internal partial class Program
 {
-    static void Main(string[] args)
+    private static void Main()
     {
         Person person1 = new(id: 1, firstName: "Karen", lastName: "Payne", address:
         [

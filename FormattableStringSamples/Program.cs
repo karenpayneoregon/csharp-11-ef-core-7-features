@@ -1,16 +1,58 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
-using System.Text.Json;
 using FormattableStringSamples.Classes;
 using FormattableStringSamples.Models;
+// ReSharper disable ConvertToLocalFunction
+// ReSharper disable ConvertClosureToMethodGroup
 #pragma warning disable IDE0059
 
 namespace FormattableStringSamples;
 
 internal partial class Program
 {
-    static void Main(string[] args)
+    private static void Main()
+    {
+
+        var nextInvoice = (string source, int increment = 1) 
+            => Helpers.NextValue(source , increment);
+        
+        Console.WriteLine(nextInvoice("A1")); 
+        Console.WriteLine(nextInvoice("AV22", 2));
+
+
+        var name = "Karen";
+        var (saturday, sunday) = GetWeekendDates();
+        FormattableString weekend = FormattableStringFactory.Create("{0} the weekend {1} {2}", 
+            name, saturday, sunday);
+        
+        Console.WriteLine(weekend);
+
+        foreach (var item in weekend.GetArguments())
+        {
+            if (item is DateOnly date)
+            {
+                Console.WriteLine(date);
+            }
+            else
+            {
+                Console.WriteLine($"Name is {item}");
+            }
+            
+        }
+
+        Console.ReadLine();
+
+    }
+    private static (DateOnly saturday, DateOnly sunday) GetWeekendDates()
+    {
+        var today = DateTime.Today;
+        var currentDayOfWeek = today.DayOfWeek;
+        return (
+            DateOnly.FromDateTime(today.AddDays(((int)DayOfWeek.Saturday - (int)currentDayOfWeek + 7) % 7)), 
+            DateOnly.FromDateTime(today.AddDays(((int)DayOfWeek.Sunday - (int)currentDayOfWeek + 7) % 7)));
+    }
+
+    private static void FromMain()
     {
         //AnsiConsole.MarkupLine("[yellow]Hello[/]");
         //CodeSamples.FormatDates("MM/dd/yyyy", [new DateOnly(2000, 1, 1), new DateOnly(1999, 12, 9)]);
@@ -27,23 +69,7 @@ internal partial class Program
 
         Console.WriteLine();
 
-        Dictionary<SourceType, Dictionary<Title, Author>> dictionary = new()
-        {
-            {
-                "Books", new()
-                {
-                    { "Professional C# 7 and .NET Core 2.0", "Christian Nagel" },
-                    { "Professional C# 8 and .NET 5", "Christian Nagel" }
-                }
-            },
-            {
-                "Magazines", new()
-                {
-                    { "MSDN Magazine", "Various" },
-                    { "Visual Studio Magazine", "Various" }
-                }
-            }
-        };
+        Dictionary<string, Dictionary<Title, Author>> dictionary = GetASD();
 
         foreach (var dict in dictionary)
         {
@@ -57,10 +83,26 @@ internal partial class Program
         //PersonFormat();
         //DayOfWeekExample();
         //InsertStatementExample();
-
-
-        Console.ReadLine();
     }
+
+    private static Dictionary<SourceType, Dictionary<Title, Author>> GetASD() => new()
+        {
+            {
+                "Books", new Dictionary<Title, Author>
+                {
+                    { "Professional C# 7 and .NET Core 2.0", "Christian Nagel" },
+                    { "Professional C# 8 and .NET 5", "Christian Nagel" }
+                }
+            },
+            {
+                "Magazines", new Dictionary<Title, Author>
+                {
+                    { "MSDN Magazine", "Various" },
+                    { "Visual Studio Magazine", "Various" }
+                }
+            }
+        };
+
 
 
     private static void DayOfWeekExample()
