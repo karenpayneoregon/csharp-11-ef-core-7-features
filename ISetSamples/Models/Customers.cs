@@ -7,17 +7,78 @@ namespace ISetSamples.Models;
 
 public partial class Customers : INotifyPropertyChanged, IEquatable<Customers>
 {
-    public int Id { get; set; }
+    private int _id;
+    private string _company;
+    private string _contactType;
+    private string _contactName;
+    private string _country;
+    private DateOnly _joinDate;
 
-    public string Company { get; set; }
+    public int Id
+    {
+        get => _id;
+        set
+        {
+            if (value == _id) return;
+            _id = value;
+            OnPropertyChanged(nameof(Id));
+        }
+    }
 
-    public string ContactType { get; set; }
+    public string Company
+    {
+        get => _company;
+        set
+        {
+            if (value == _company) return;
+            _company = value;
+            OnPropertyChanged(nameof(Company));
+        }
+    }
 
-    public string ContactName { get; set; }
+    public string ContactType
+    {
+        get => _contactType;
+        set
+        {
+            if (value == _contactType) return;
+            _contactType = value;
+            OnPropertyChanged(nameof(ContactType));
+        }
+    }
 
-    public string Country { get; set; }
+    public string ContactName
+    {
+        get => _contactName;
+        set
+        {
+            if (value == _contactName) return;
+            _contactName = value;
+            OnPropertyChanged(nameof(ContactName));
+        }
+    }
 
-    public DateOnly JoinDate { get; set; }
+    public string Country
+    {
+        get => _country;
+        set
+        {
+            if (value == _country) return;
+            _country = value;
+            OnPropertyChanged(nameof(Country));
+        }
+    }
+
+    public DateOnly JoinDate
+    {
+        get => _joinDate;
+        set
+        {
+            if (value.Equals(_joinDate)) return;
+            _joinDate = value;
+            OnPropertyChanged(nameof(JoinDate));
+        }
+    }
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
