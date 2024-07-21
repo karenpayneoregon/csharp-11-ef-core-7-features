@@ -16,28 +16,21 @@
 	  <Content Include="readme.md" />
 	</ItemGroup>
 
-	<!--<ItemGroup>
-		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
-	</ItemGroup>-->
-
 	<ItemGroup>
-		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
+		<PackageReference Include="ConfigurationLibrary" Version="1.0.4" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Spectre.Console" Version="0.49.1" />
-		<PackageReference Include="ExcelMapper" Version="5.2.590" />
+		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.0" />
 	</ItemGroup>
 
+
 	<ItemGroup>
-		<PackageReference Include="Dumpify" Version="0.6.6" />
+		<PackageReference Include="Spectre.Console" Version="0.46.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Update="appsettings.json">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Update="ExcelFiles\Customers.xlsx">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>

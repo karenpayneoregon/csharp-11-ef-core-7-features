@@ -11,11 +11,11 @@ internal class BogusOperations
     public static List<string> FileNames(int count = 20)
     {
         var numberList = Enumerable.Range(0, 100).Select(x => x).ToArray();
-        List<string> list = new List<string>();
+        List<string> list = [];
 
         for (int index = 0; index < count; index++)
         {
-            Random.Shared.Shuffle<int>(numberList);
+            Random.Shared.Shuffle(numberList);
             var dataSet = new Bogus.DataSets.System();
 
             list.Add(index.IsEven()

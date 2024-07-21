@@ -53,6 +53,8 @@ internal partial class Program
 
     private static void Example1()
     {
+
+
         var fileNames = 
             """
             File1Test.txt
@@ -66,6 +68,9 @@ internal partial class Program
             File5Test.txt
             File50Test.txt
             """.Split(Environment.NewLine);
+
+
+
 
         List<string> sorted = fileNames.NaturalOrderBy(x => x).ToList();
         sorted.ForEach(Console.WriteLine);

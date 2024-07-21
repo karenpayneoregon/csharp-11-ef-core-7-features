@@ -7,6 +7,12 @@ public static class Extensions
         return (parameterName, parameterValue);
     }
 
+    public static (string cell, DateOnly value) Deconstruct(this KeyValuePair<string, DateOnly> sender)
+    {
+        sender.Deconstruct(out var cell, out var dateValue);
+        return (cell, dateValue);
+    }
+
     public static string TableName(this FormattableString sender)
         => (string)sender.GetArguments()[0];
 

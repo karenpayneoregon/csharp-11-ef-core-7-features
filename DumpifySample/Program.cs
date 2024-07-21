@@ -13,13 +13,15 @@ internal partial class Program
         
         DumpConfig.Default.ColorConfig.TypeNameColor = new DumpColor(Color.Aqua);
         DumpConfig.Default.ColorConfig.NullValueColor = new DumpColor(Color.Red);
+        
         using var context = new Context();
         var category = context.Categories
             .Include(x => x.Products)
             .ThenInclude(x => x.OrderDetails.Take(1))
+            .ThenInclude(x => x.Order)
             .FirstOrDefault(c => c.CategoryID == 2);
 
-        category.Dump();
+        category.Dump(maxDepth:10);
         ExitPrompt();
         
 

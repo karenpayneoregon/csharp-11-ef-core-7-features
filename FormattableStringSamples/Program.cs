@@ -40,6 +40,19 @@ internal partial class Program
             
         }
 
+        Dictionary<string, DateOnly> dictDates = new()
+        {
+            { "H4", new(2017,1,1) },
+            { "H5", new(2017,1,2) },
+            { "H6", new(2017,1,3) },
+            { "H7", new(2017,1,4)}
+        };
+
+        foreach (KeyValuePair<string, DateOnly> kvp in dictDates)
+        {
+            var (cell, date) = kvp.Deconstruct();
+            Console.WriteLine($"{cell, -3}{date}");
+        }
         Console.ReadLine();
 
     }
