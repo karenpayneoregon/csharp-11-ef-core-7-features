@@ -1,8 +1,10 @@
 ﻿using System.Collections.Frozen;
 using Dumpify;
 using Ganss.Excel;
+using ISetSamples.Classes;
 using ISetSamples.Models;
 using static ISetSamples.Classes.SpectreConsoleHelpers;
+// ReSharper disable CollectionNeverQueried.Local
 
 // ReSharper disable ArrangeObjectCreationWhenTypeNotEvident
 #pragma warning disable CA1859
@@ -12,9 +14,10 @@ namespace ISetSamples;
 
 internal partial class Program
 {
-    
+
     static async Task Main(string[] args)
     {
+
         SetIntOperations1();
         SetIntOperations2();
         SetIntOperations3();
@@ -31,6 +34,8 @@ internal partial class Program
         Remove();
 
         await ReadFromExcel();
+
+        PersonSortedByLastNameExample();
 
         ExitPrompt();
     }
@@ -53,7 +58,7 @@ internal partial class Program
         ShowExecutingMethodName();
 
         ISet<Person> peopleSet = new HashSet<Person>(PeopleData());
-        List<Person> peopleList = [..peopleSet];
+        List<Person> peopleList = [.. peopleSet];
     }
 
 
@@ -67,13 +72,13 @@ internal partial class Program
         var peopleSet = PeopleData();
 
         peopleSet.UnionWith([
-            new() { Id = 1, FirstName = "Karen", LastName = "Payne", 
+            new() { Id = 1, FirstName = "Karen", LastName = "Payne",
                 BirthDate = new DateOnly(1956,9,24)},
-            new() { Id = 2, FirstName = "Sam", LastName = "Smith", 
+            new() { Id = 2, FirstName = "Sam", LastName = "Smith",
                 BirthDate = new DateOnly(1976,3,4) },
-            new() { Id = 3, FirstName = "Frank", LastName = "Adams", 
+            new() { Id = 3, FirstName = "Frank", LastName = "Adams",
                 BirthDate = new DateOnly(1966,3,4) },
-            new() { Id = 1, FirstName = "Karen", LastName = "Payne", 
+            new() { Id = 1, FirstName = "Karen", LastName = "Payne",
                 BirthDate = new DateOnly(1956,9,24) }
         ]);
 
@@ -106,9 +111,9 @@ internal partial class Program
         var peopleSet = PeopleData();
 
         peopleSet.ExceptWith([
-            new() { Id = 2, FirstName = "Sam", LastName = "Smith", 
+            new() { Id = 2, FirstName = "Sam", LastName = "Smith",
                 BirthDate = new DateOnly(1976,3,4) },
-            new() { Id = 3, FirstName = "Frank", LastName = "Adams", 
+            new() { Id = 3, FirstName = "Frank", LastName = "Adams",
                 BirthDate = new DateOnly(1966,3,4) },
         ]);
 
@@ -127,27 +132,65 @@ internal partial class Program
 
         var peopleSet = PeopleData();
 
-        peopleSet.Add(new() { Id = 3, FirstName = "Frank", LastName = "Adams", 
-            BirthDate = new DateOnly(1966, 3, 4) });
-        peopleSet.Add(new() { Id = 4, FirstName = "Karen", LastName = "Payne",
-            BirthDate = new DateOnly(1956, 9, 24) });
+        peopleSet.Add(new()
+        {
+            Id = 3,
+            FirstName = "Frank",
+            LastName = "Adams",
+            BirthDate = new DateOnly(1966, 3, 4)
+        });
+        peopleSet.Add(new()
+        {
+            Id = 4,
+            FirstName = "Karen",
+            LastName = "Payne",
+            BirthDate = new DateOnly(1956, 9, 24)
+        });
 
         return peopleSet.ToFrozenSet();
     }
 
     private static ISet<Person> PeopleData()
     {
-
         ISet<Person> peopleSet = new HashSet<Person>([
+
             new() { Id = 1, FirstName = "Karen", LastName = "Payne",
                 BirthDate = new DateOnly(1956,9,24)},
             new() { Id = 2, FirstName = "Sam", LastName = "Smith",
                 BirthDate = new DateOnly(1976,3,4) },
-            new() { Id = 1, FirstName = "Karen", LastName = "Payne", 
+            new() { Id = 1, FirstName = "Karen", LastName = "Payne",
                 BirthDate = new DateOnly(1956,9,24) }
         ]);
 
         return peopleSet;
+    }
+
+    private static List<Person> PeopleDataList()
+    {
+        List<Person> peopleList =
+        [
+            new() { Id = 1, FirstName = "Mike", LastName = "Williams",
+                BirthDate = new DateOnly(1956,9,24)},
+            new()
+            {
+                Id = 1, FirstName = "Karen", LastName = "Payne",
+                BirthDate = new DateOnly(1956, 9, 24)
+            },
+
+            new()
+            {
+                Id = 2, FirstName = "Sam", LastName = "Smith",
+                BirthDate = new DateOnly(1976, 3, 4)
+            },
+
+            new()
+            {
+                Id = 1, FirstName = "Karen", LastName = "Payne",
+                BirthDate = new DateOnly(1956, 9, 24)
+            }
+        ];
+
+        return peopleList.OrderBy(x => x.LastName).ToList();
     }
 
     /// <summary>
@@ -210,6 +253,21 @@ internal partial class Program
         set.Dump();
 
     }
+
+    private static void PersonSortedByLastNameExample()
+    {
+        ShowExecutingMethodName1();
+
+        var list = PeopleDataList();
+
+        SortedSet<Person> people = new(new PersonComparer());
+
+        people.AddRange(list);
+
+        people.Dump(tableConfig: _tableConfig);
+
+    }
+
 
     /// <summary>
     /// Here a worksheet is read from an Excel file which contains duplicates.

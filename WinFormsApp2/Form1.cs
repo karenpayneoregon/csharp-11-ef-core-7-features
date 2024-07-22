@@ -39,4 +39,32 @@ public partial class MainForm : Form
     {
         passwordTextBox.ToggleShow(false);
     }
+
+    private void revealPasswordButton_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void button2_Click(object sender, EventArgs e)
+    {
+
+
+        {
+            foreach (var dow in Enum.GetValues<DayOfWeek>())
+            {
+                // TODO
+            }
+        }
+
+        
+        {
+            foreach (var dow in (DayOfWeek[])Enum.GetValues(typeof(DayOfWeek)))
+            {
+                // TODO
+            }
+        }
+
+
+    }
 }
+

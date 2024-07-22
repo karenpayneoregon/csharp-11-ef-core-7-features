@@ -72,4 +72,6 @@ public class Person : INotifyPropertyChanged, IEquatable<Person>
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
     public override string ToString() => $"{FirstName,-12}{LastName}";
+
+
 }

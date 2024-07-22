@@ -31,6 +31,7 @@ partial class MainForm
         button1 = new Button();
         passwordTextBox = new TextBox();
         revealPasswordButton = new Button();
+        button2 = new Button();
         SuspendLayout();
         // 
         // button1
@@ -59,14 +60,26 @@ partial class MainForm
         revealPasswordButton.TabIndex = 2;
         revealPasswordButton.Text = "button2";
         revealPasswordButton.UseVisualStyleBackColor = true;
+        revealPasswordButton.Click += revealPasswordButton_Click;
         revealPasswordButton.MouseDown += revealPasswordButton_MouseDown;
         revealPasswordButton.MouseUp += revealPasswordButton_MouseUp;
+        // 
+        // button2
+        // 
+        button2.Location = new Point(266, 158);
+        button2.Name = "button2";
+        button2.Size = new Size(94, 29);
+        button2.TabIndex = 3;
+        button2.Text = "button2";
+        button2.UseVisualStyleBackColor = true;
+        button2.Click += button2_Click;
         // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(569, 227);
+        Controls.Add(button2);
         Controls.Add(revealPasswordButton);
         Controls.Add(passwordTextBox);
         Controls.Add(button1);
@@ -83,4 +96,5 @@ partial class MainForm
     private Button button1;
     private TextBox passwordTextBox;
     private Button revealPasswordButton;
+    private Button button2;
 }
