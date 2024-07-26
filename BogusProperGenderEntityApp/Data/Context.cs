@@ -2,6 +2,7 @@
 #nullable disable
 
 using BogusProperGenderEntityApp.Classes;
+using BogusProperGenderEntityApp.Classes.Configurations;
 using BogusProperGenderEntityApp.Models;
 using EntityCoreFileLogger;
 using Microsoft.EntityFrameworkCore;

@@ -1,4 +1,4 @@
-﻿using BogusProperGenderEntityApp.Classes;
+﻿using BogusProperGenderEntityApp.Classes.Configurations;
 using BogusProperGenderEntityApp.Data;
 using BogusProperGenderEntityApp.Models;
 using Microsoft.EntityFrameworkCore;

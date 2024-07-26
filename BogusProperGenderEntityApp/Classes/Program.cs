@@ -1,4 +1,4 @@
-﻿using BogusProperGenderEntityApp.Classes;
+﻿using BogusProperGenderEntityApp.Classes.Configurations;
 using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.CompilerServices;
 

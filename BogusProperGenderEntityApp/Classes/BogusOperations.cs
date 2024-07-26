@@ -29,10 +29,17 @@ public class BogusOperations
 
     }
 
+    /// <summary>
+    /// Generates a consistent list of people.
+    /// </summary>
+    /// <param name="count">The number of people to generate.</param>
+    /// <param name="seed">The seed value for repeatable data. Default is 338.</param>
+    /// <returns>A list of <see cref="BirthDays"/>> objects with repeatable people.</returns>
     public static List<BirthDays> PeopleList(int count, int seed = 338)
     {
         var identifier = 1;
         Randomizer.Seed = new Random(seed);
+
         var faker = new Faker<BirthDays>().Rules((f, b) =>
         {
             b.Id = identifier++;

@@ -1,4 +1,4 @@
-﻿namespace BogusProperGenderEntityApp.Models;
+﻿namespace BogusProperGenderEntityApp.Models.Configurations;
 /// <summary>
 /// For application connection strings
 /// </summary>
