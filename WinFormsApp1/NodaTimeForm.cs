@@ -1,6 +1,7 @@
 ﻿using NodaTime;
 using System.Diagnostics;
 using NodaTime.Extensions;
+// ReSharper disable SuggestVarOrType_SimpleTypes
 
 namespace WinFormsApp1;
 public partial class NodaTimeForm : Form
@@ -15,27 +16,53 @@ public partial class NodaTimeForm : Form
         LocalDate endDate = startDate.PlusWeeks(1);
 
         int period = Period.DaysBetween(startDate, endDate);
-        Period period1 = Period.Between(startDate, endDate);
+        var period1 = Period.Between(startDate, endDate);
 
     }
     private void betweenPeriodsButton_Click(object sender, EventArgs e)
     {
-        LocalDate birthday = new(1956, 9, 24);
-        LocalDate today = new(2024, 2, 9);
-        Period period = Period.Between(birthday, today,
+        var period = YearsOld(new DateOnly(1956, 9, 24), new DateOnly(2024, 8, 26));
+        Debug.WriteLine($"{period.Years} years  {period.Months} months {period.Days} days");
+    }
+
+
+    /// <summary>
+    /// Calculates the period between a birthdate and a given date in years, months, and days.
+    /// </summary>
+    /// <param name="birthDate">The birthdate.</param>
+    /// <param name="date">The date to calculate the period to.</param>
+    /// <returns>The period between the birthdate and the given date.</returns>
+    private static Period YearsOld(DateOnly birthDate, DateOnly date)
+    {
+        var birth = LocalDate.FromDateOnly(birthDate);
+        var now = LocalDate.FromDateOnly(date);
+        return Period.Between(LocalDate.FromDateOnly(birthDate), LocalDate.FromDateOnly(date),
             PeriodUnits.Years |
             PeriodUnits.Months |
             PeriodUnits.Days);
-
-        Debug.WriteLine($"{period.Years} years  {period.Months} months {period.Days} days");
     }
+
+    public static TimeSpan GetTimeZoneOffset(string timeZoneId, DateTime dateTimeUtc)
+    {
+        Instant instant = Instant.FromDateTimeUtc(dateTimeUtc);
+        DateTimeZone zone = DateTimeZoneProviders.Tzdb[timeZoneId];
+        Offset offset = zone.GetUtcOffset(instant);
+        return offset.ToTimeSpan();
+    }
+
     private void asiaButton_Click(object sender, EventArgs e)
     {
         Instant now = SystemClock.Instance.GetCurrentInstant();
         ZonedDateTime nowInIsoUtc = now.InUtc();
 
-        var dateTime1 = GetSysDateTimeNow("Asia/Shanghai");
-        var dateTime2 = GetSysDateTimeNow();
+        var pacificNorthWest = GetSysDateTimeNow();
+
+        var cancun = GetSysDateTimeNow("America/Cancun");
+        var offset = GetTimeZoneOffset("America/Cancun", DateTime.SpecifyKind(cancun, DateTimeKind.Utc));
+
+
+        Debug.WriteLine(offset.Hours);
+
     }
     public DateTime GetSysDateTimeNow(string zone = "US/Pacific")
     {

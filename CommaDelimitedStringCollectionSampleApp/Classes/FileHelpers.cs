@@ -1,6 +1,6 @@
 ﻿namespace CommaDelimitedStringCollectionSampleApp.Classes;
 
-static class FileHelpers
+internal static class FileHelpers
 {
     /// <summary>
     /// Find files with no regard to if the user has permissions

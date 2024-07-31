@@ -7,9 +7,10 @@ namespace NaturalSortApp;
 
 internal partial class Program
 {
-    static async Task Main(string[] args)
+    static void Main(string[] args)
     {
-        await Example();
+        //await Example();
+
         //Example1();
         ExitPrompt();
     }
@@ -90,4 +91,5 @@ internal partial class Program
         var sorted1 = fileInfoArray.NaturalOrderBy(x => x.Name).ToArray();
         
     }
+
 }

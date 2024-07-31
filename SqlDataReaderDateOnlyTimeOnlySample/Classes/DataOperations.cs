@@ -23,7 +23,7 @@ internal class DataOperations
         await using SqlCommand cmd = new() { Connection = cn, CommandText = statement };
 
         await cn.OpenAsync();
-        await using SqlDataReader? reader = await cmd.ExecuteReaderAsync();
+        await using SqlDataReader reader = await cmd.ExecuteReaderAsync();
 
         List<Person> list = [];
 

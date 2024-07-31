@@ -49,7 +49,9 @@ public partial class Context : DbContext
 
             // setup computed column
             entity.Property(e => e.YearsOld)
-                .HasComputedColumnSql("((CONVERT([int],format(getdate(),'yyyyMMdd'))-CONVERT([int],format([BirthDate],'yyyyMMdd')))/(10000))", false);
+                .HasComputedColumnSql(
+                    "((CONVERT([int],format(getdate(),'yyyyMMdd'))" +
+                    "-CONVERT([int],format([BirthDate],'yyyyMMdd')))/(10000))", false);
         });
 
         /*

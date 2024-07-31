@@ -2,7 +2,7 @@
 
 namespace SqlDataReaderDateOnlyTimeOnlySample.Extensions;
 
-internal static class ProviderExtensions
+internal static class SqlClientExtensions
 {
 
     public static DateOnly GetDateOnly(this SqlDataReader reader, int index)

@@ -10,7 +10,6 @@ public sealed class EntitySettings
 
     /// <summary>
     /// Gets or sets a value indicating whether the database should be recreated.
-    /// This property is set to true only when running under Visual Studio Debugger in the DbContext OnConfiguring method.
     /// </summary>
     public bool CreateNew { get; set; }
 }

@@ -12,6 +12,11 @@ public class BogusOperations
         new() { Id = 1, Name = "Male" }, new() { Id = 2, Name = "Female"}
     ];
 
+    /// <summary>
+    /// Generates a list of people with random data.
+    /// </summary>
+    /// <param name="count">The number of people to generate.</param>
+    /// <returns>A list of <see cref="BirthDays"/> objects with random people.</returns>
     public static List<BirthDays> PeopleList(int count)
     {
         var identifier = 1;
@@ -26,7 +31,6 @@ public class BogusOperations
             .RuleFor(e => e.Email, (f, e) => f.Internet.Email(e.FirstName, e.LastName));
 
         return faker.Generate(count);
-
     }
 
     /// <summary>

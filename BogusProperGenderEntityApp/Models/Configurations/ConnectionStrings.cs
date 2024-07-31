@@ -4,5 +4,8 @@
 /// </summary>
 public class ConnectionStrings
 {
+    /// <summary>
+    /// Connection string read from appsettings.json for EF Core
+    /// </summary>
     public string MainConnection { get; set; }
 }

@@ -9,11 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
+    <PackageReference Include="NodaTime" Version="3.1.11" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NodaTime" Version="3.1.11" />
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

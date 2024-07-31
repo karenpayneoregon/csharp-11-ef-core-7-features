@@ -8,12 +8,18 @@ internal partial class Program
     static void Main(string[] args)
     {
         decimal number = 123.4521234m;
-        Console.WriteLine(number.DecimalRemainder());
+        Console.WriteLine(number.Left());
+        Console.WriteLine(number.RemainderAsInt());
+        Console.WriteLine(number.RemainderAsDecimal());
+
+
 
         var test = number.GetScale();
-        //AnsiConsole.MarkupLine($"[yellow]After decimal[/] {valueAfterDecimalSeparator}");
+        
         Console.WriteLine(test);
+        Console.WriteLine(number.GetScaleAsInt());
 
+    
         Console.ReadLine();
     }
 

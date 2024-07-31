@@ -26,6 +26,9 @@ internal class SetupServices
     /// <summary>
     /// Reads the application data connection string from appsettings.
     /// </summary>
+    /// <remarks>
+    /// Karen's NuGet package can handle up to three connections from appsettings.json.
+    /// </remarks>
     public void GetConnectionStrings()
     {
         DataConnections.Instance.MainConnection = _options.MainConnection;
