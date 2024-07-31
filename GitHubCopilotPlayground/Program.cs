@@ -9,15 +9,15 @@ internal partial class Program
     {
         decimal number = 123.4521234m;
         Console.WriteLine(number.Left());
-        Console.WriteLine(number.RemainderAsInt());
-        Console.WriteLine(number.RemainderAsDecimal());
+        Console.WriteLine(number.RightAsInt());
+        Console.WriteLine(number.RightAsDecimal());
 
 
 
-        var test = number.GetScale();
+        var test = number.GetScale1();
         
         Console.WriteLine(test);
-        Console.WriteLine(number.GetScaleAsInt());
+        Console.WriteLine(number.GetScale2());
 
     
         Console.ReadLine();
