@@ -285,10 +285,10 @@ internal partial class Program
         Print();
 
         string[] months =
-        {
+        [
             "january", "February", "March", "April", "May", "June", "July",
             "August", "September", "October", "November", "December"
-        };
+        ];
 
         // if 1st three elements are January February March and last element is December continue
         if (months is ["January" or "january", "February", "March", _ , _ , _ , _ , _ , _ , _ , _ , "December"])
