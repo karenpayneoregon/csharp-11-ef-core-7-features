@@ -34,6 +34,7 @@ partial class NodaTimeForm
         button4 = new Button();
         button5 = new Button();
         button6 = new Button();
+        button7 = new Button();
         SuspendLayout();
         // 
         // button1
@@ -88,7 +89,7 @@ partial class NodaTimeForm
         // 
         // button6
         // 
-        button6.Location = new Point(105, 291);
+        button6.Location = new Point(43, 302);
         button6.Name = "button6";
         button6.Size = new Size(94, 29);
         button6.TabIndex = 5;
@@ -96,11 +97,22 @@ partial class NodaTimeForm
         button6.UseVisualStyleBackColor = true;
         button6.Click += button6_Click;
         // 
+        // button7
+        // 
+        button7.Location = new Point(159, 302);
+        button7.Name = "button7";
+        button7.Size = new Size(94, 29);
+        button7.TabIndex = 6;
+        button7.Text = "button7";
+        button7.UseVisualStyleBackColor = true;
+        button7.Click += button7_Click;
+        // 
         // NodaTimeForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(319, 367);
+        Controls.Add(button7);
         Controls.Add(button6);
         Controls.Add(button5);
         Controls.Add(button4);
@@ -122,4 +134,5 @@ partial class NodaTimeForm
     private Button button4;
     private Button button5;
     private Button button6;
+    private Button button7;
 }

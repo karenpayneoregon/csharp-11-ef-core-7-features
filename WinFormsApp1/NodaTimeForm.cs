@@ -1,11 +1,9 @@
 ﻿using NodaTime;
 using System.Diagnostics;
-using System.Globalization;
 using NodaTime.Extensions;
 using NodaTime.Text;
+using NodaTime.TimeZones;
 using WinFormsApp1.Classes;
-using System.Reflection.Metadata;
-using System.Security.Policy;
 
 // ReSharper disable SuggestVarOrType_SimpleTypes
 
@@ -14,6 +12,7 @@ namespace WinFormsApp1;
 public partial class NodaTimeForm : Form
 {
     public NodaTimeForm() { InitializeComponent(); }
+
     private void betweenDaysButton_Click(object sender, EventArgs e)
     {
         Instant now = SystemClock.Instance.GetCurrentInstant();
@@ -74,7 +73,8 @@ public partial class NodaTimeForm : Form
         //var pacificNorthWest = GetSysDateTimeNow();
 
         var cancun = GetSysDateTimeNow("America/Cancun");
-        var offset = GetTimeZoneOffset("America/Cancun", DateTime.SpecifyKind(cancun, DateTimeKind.Utc));
+        var offset = GetTimeZoneOffset("America/Cancun", 
+            DateTime.SpecifyKind(cancun, DateTimeKind.Utc));
 
 
         Debug.WriteLine(offset.Hours);
@@ -104,17 +104,27 @@ public partial class NodaTimeForm : Form
     {
 
 
+                UnitedStates us = new();
+                Debug.WriteLine($"  Eastern: {us.EastCoast.Offset}");
+                Debug.WriteLine($"           {us.EastCoast.DaylightSavingsSupported}");
+                Debug.WriteLine($"  Western: {us.WestCoast.Offset}");
+                Debug.WriteLine($"           {us.WestCoast.DaylightSavingsSupported}");
 
-        Debug.WriteLine($"Cancun: {Mexico.CancunOffset()}");
+                Mexico mx = new();
+                Debug.WriteLine($"Sea Coast: {mx.SeaCoast.Offset}");
+                Debug.WriteLine($"           {mx.SeaCoast.DaylightSavingsSupported()}");
 
-        UnitedStates unitedStates = new();
-        Debug.WriteLine($"Eastern: {unitedStates.East.Offset()}");
-        Debug.WriteLine($"Western: {unitedStates.West.Offset()}");
 
-        
 
 
 
     }
+
+    private void button7_Click(object sender, EventArgs e)
+    {
+        var readOnlyCollection = TimeZoneInfo.GetSystemTimeZones();
+
+    }
+
 }
 
