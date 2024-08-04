@@ -1,9 +1,16 @@
 ﻿using NodaTime;
 using System.Diagnostics;
+using System.Globalization;
 using NodaTime.Extensions;
+using NodaTime.Text;
+using WinFormsApp1.Classes;
+using System.Reflection.Metadata;
+using System.Security.Policy;
+
 // ReSharper disable SuggestVarOrType_SimpleTypes
 
 namespace WinFormsApp1;
+
 public partial class NodaTimeForm : Form
 {
     public NodaTimeForm() { InitializeComponent(); }
@@ -47,21 +54,31 @@ public partial class NodaTimeForm : Form
         Instant instant = Instant.FromDateTimeUtc(dateTimeUtc);
         DateTimeZone zone = DateTimeZoneProviders.Tzdb[timeZoneId];
         Offset offset = zone.GetUtcOffset(instant);
+        var test = offset.ToString("m", null);
         return offset.ToTimeSpan();
     }
 
+    public static string GetTimeZoneOffset1(string timeZoneId, DateTime dateTimeUtc)
+    {
+        Instant instant = Instant.FromDateTimeUtc(dateTimeUtc);
+        DateTimeZone zone = DateTimeZoneProviders.Tzdb[timeZoneId];
+        Offset offset = zone.GetUtcOffset(instant);
+        return offset.ToString("m", null);
+
+    }
     private void asiaButton_Click(object sender, EventArgs e)
     {
-        Instant now = SystemClock.Instance.GetCurrentInstant();
-        ZonedDateTime nowInIsoUtc = now.InUtc();
+        //Instant now = SystemClock.Instance.GetCurrentInstant();
+        //ZonedDateTime nowInIsoUtc = now.InUtc();
 
-        var pacificNorthWest = GetSysDateTimeNow();
+        //var pacificNorthWest = GetSysDateTimeNow();
 
         var cancun = GetSysDateTimeNow("America/Cancun");
         var offset = GetTimeZoneOffset("America/Cancun", DateTime.SpecifyKind(cancun, DateTimeKind.Utc));
 
 
         Debug.WriteLine(offset.Hours);
+        Debug.WriteLine(offset.ToString(@"hh\:mm"));
 
     }
     public DateTime GetSysDateTimeNow(string zone = "US/Pacific")
@@ -81,6 +98,23 @@ public partial class NodaTimeForm : Form
         var zoned = clock.InZone(DateTimeZoneProviders.Tzdb["Europe/London"]);
         LocalDate date = zoned.GetCurrentDate();
         LocalTime time = zoned.GetCurrentTimeOfDay();
+    }
+
+    private void button6_Click(object sender, EventArgs e)
+    {
+
+
+
+        Debug.WriteLine($"Cancun: {Mexico.CancunOffset()}");
+
+        UnitedStates unitedStates = new();
+        Debug.WriteLine($"Eastern: {unitedStates.East.Offset()}");
+        Debug.WriteLine($"Western: {unitedStates.West.Offset()}");
+
+        
+
+
+
     }
 }
 
