@@ -11,6 +11,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="readme.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="readme.md" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Include="GeneratedStuff\System.Text.RegularExpressions.Generator\System.Text.RegularExpressions.Generator.RegexGenerator\RegexGenerator.g.cs" />
 	</ItemGroup>
 	<ItemGroup>
