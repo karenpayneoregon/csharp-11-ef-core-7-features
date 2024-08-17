@@ -17,14 +17,5 @@ internal partial class Program
         Console.Title = "Code sample";
         WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
     }
-
-    /// <summary>
-    /// https://stackoverflow.com/a/390974/5509738
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="x"></param>
-    /// <param name="y"></param>
-    /// <returns></returns>
-    public bool Compare<T>(T x, T y) => EqualityComparer<T>.Default.Equals(x, y);
 }
 

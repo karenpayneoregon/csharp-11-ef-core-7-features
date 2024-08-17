@@ -14,16 +14,23 @@ public class EastCoast
     /// </summary>
     /// <returns>The offset of the East Coast time zone.</returns>
     public string Offset =>
-        TimeOperations.TimeZoneOffset(_timeZoneId, 
-            DateTime.SpecifyKind(TimeOperations.GetSysDateTimeNow(_timeZoneId), 
-                DateTimeKind.Utc)).offset;
+        TimeOperations.TimeZoneOffset(_timeZoneId,
+            DateTime.SpecifyKind(TimeOperations.GetSysDateTimeNow(_timeZoneId), DateTimeKind.Utc)).offset;
+
+    /// <summary>
+    /// Gets the time span representing the offset of the East Coast time zone.
+    /// </summary>
+    /// <returns>The time span representing the offset of the East Coast time zone.</returns>
+    public TimeSpan GetTimeSpan() =>
+        TimeOperations.GetTimeZoneOffset(_timeZoneId,
+            DateTime.SpecifyKind(TimeOperations.GetSysDateTimeNow(_timeZoneId), DateTimeKind.Utc));
 
     /// <summary>
     /// Determines whether the East Coast time zone is currently in daylight saving time.
     /// </summary>
     /// <returns>True if the East Coast time zone is currently in daylight saving time; otherwise, false.</returns>
     public bool DaylightSavingsSupported =>
-        TimeOperations.TimeZoneOffset(_timeZoneId, 
-            DateTime.SpecifyKind(TimeOperations.GetSysDateTimeNow(_timeZoneId), 
+        TimeOperations.TimeZoneOffset(_timeZoneId,
+            DateTime.SpecifyKind(TimeOperations.GetSysDateTimeNow(_timeZoneId),
                 DateTimeKind.Utc)).daylightSavings;
 }

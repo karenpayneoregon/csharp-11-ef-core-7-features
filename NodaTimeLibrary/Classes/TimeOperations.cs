@@ -11,7 +11,7 @@ namespace NodaTimeLibrary.Classes;
 /// https://nodatime.org/TimeZones
 /// https://gist.github.com/jrolstad/5ca7d78dbfe182d7c1be
 /// </summary>
-internal static class TimeOperations
+public static class TimeOperations
 {
     /// <summary>
     /// Gets the time zone offset and whether daylight savings is in effect for the specified time zone and UTC date and time.
@@ -31,6 +31,14 @@ internal static class TimeOperations
         Offset offset = daylightSavings ? zone.MinOffset : zone.MaxOffset;
 
         return (offset.ToString("m", null), daylightSavings);
+    }
+
+    public static TimeSpan GetTimeZoneOffset(string timeZoneId, DateTime dateTimeUtc)
+    {
+        Instant instant = Instant.FromDateTimeUtc(dateTimeUtc);
+        DateTimeZone zone = DateTimeZoneProviders.Tzdb[timeZoneId];
+        Offset offset = zone.GetUtcOffset(instant);
+        return offset.ToTimeSpan();
     }
 
     /// <summary>

@@ -1,5 +1,7 @@
 ﻿using System.Linq.Expressions;
 using System.Text.Json;
+using NodaTime.Text;
+using NodaTime;
 using NodaTimeDemoApp.Classes;
 using NodaTimeLibrary.Classes;
 using NodaTimeLibrary.Models;
@@ -13,26 +15,18 @@ internal partial class Program
     static void Main(string[] args)
     {
 
-        List<IndexContainer<string>> details = Helpers.AbbreviatedMonthNames();
-        var exist = Helpers.Contains("Jan");
-        var proper1 = "JAN".ProperCased();
-        var proper2 = "jAn".ProperCased();
-        var proper3 = "jan".ProperCased();
+     UnitedStates us = new();
 
-        var index = Helpers.GetNumberFromShortMonth("jun");
 
-        
-        var properName2 = "Hello john doe".ProperCased();
 
-        Demo();
-        UnitedStates us = new();
-        
         AnsiConsole.MarkupLine($"[yellow]United States[/]");
         AnsiConsole.MarkupLine($"[cyan]  Eastern offset[/]: [b]{us.EastCoast.Offset}[/]");
         AnsiConsole.MarkupLine($"[cyan]Daylight savings:[/] [b]{us.EastCoast.DaylightSavingsSupported.ToYesNo()}[/]");
+        AnsiConsole.MarkupLine($"[cyan]        TimeSpan:[/] [b]{us.EastCoast.GetTimeSpan().Hours}[/]");
 
         AnsiConsole.MarkupLine($"[cyan]  Western offset[/]: [b]{us.WestCoast.Offset}[/]");
         AnsiConsole.MarkupLine($"[cyan]Daylight savings:[/] [b]{us.WestCoast.DaylightSavingsSupported.ToYesNo()}[/]");
+        AnsiConsole.MarkupLine($"[cyan]        TimeSpan:[/] [b]{us.WestCoast.GetTimeSpan().Hours}[/]");
 
         Console.WriteLine();
 
@@ -45,16 +39,6 @@ internal partial class Program
         Console.WriteLine();
 
         GetYearsOld();
-
-        Person person =  new Person()
-        {
-            Id = 1,
-            FirstName = "John",
-            LastName = "Doe",
-            BirthDate = new DateOnly(1980, 1, 1)
-        };
-
-        //Utilities.UpdateView(() => person);
 
 
         ExitPrompt();
@@ -103,12 +87,6 @@ public class Result
     public int Temperature { get; set; }
 }
 
-public class Person
-{
-    public int Id { get; set; }
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public DateOnly BirthDate { get; set; }
-}
+
 
 
