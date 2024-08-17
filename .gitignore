@@ -366,3 +366,4 @@ FodyWeavers.xsd
 /ForEachIndexerApp/Stash.txt
 /FormattableStringsSamplesApp/stash.txt
 /RandomSharedApp/stash.txt
+/NodaTimeLibrary/GeneratedStuff/System.Text.RegularExpressions.Generator/System.Text.RegularExpressions.Generator.RegexGenerator/RegexGenerator.g.cs
