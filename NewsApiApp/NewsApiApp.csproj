@@ -5,7 +5,7 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>disable</Nullable>
-		<GenerateDocumentationFile>False</GenerateDocumentationFile>
+		<UserSecretsId>ab1bc6d2-503a-4289-99f1-a6b6f74d07bf</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -18,19 +18,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
+		<PackageReference Include="ConfigurationLibrary" Version="1.0.4" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
+		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Spectre.Console" Version="0.49.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
+		<PackageReference Include="NewsAPI" Version="0.7.0" />
 	</ItemGroup>
 
+
+
 	<ItemGroup>
-	  <ProjectReference Include="..\NodaTimeLibrary\NodaTimeLibrary.csproj" />
+		<PackageReference Include="Spectre.Console" Version="0.46.0" />
 	</ItemGroup>
 
 	<ItemGroup>

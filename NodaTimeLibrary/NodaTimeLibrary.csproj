@@ -5,6 +5,14 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="GeneratedStuff\System.Text.RegularExpressions.Generator\System.Text.RegularExpressions.Generator.RegexGenerator\RegexGenerator.g.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="GeneratedStuff\System.Text.RegularExpressions.Generator\System.Text.RegularExpressions.Generator.RegexGenerator\RegexGenerator.g.cs" />
+	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="NodaTime" Version="3.1.11" />
 	</ItemGroup>
@@ -13,4 +21,10 @@
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
+
+	<PropertyGroup>
+		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+		<CompilerGeneratedFilesOutputPath>GeneratedStuff</CompilerGeneratedFilesOutputPath>
+	</PropertyGroup>
+
 </Project>

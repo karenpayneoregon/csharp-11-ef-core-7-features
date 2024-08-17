@@ -193,9 +193,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadPeopleWithCopilotChatDe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Noda-Time", "Noda-Time", "{4B7A6364-D3FE-4FB5-BC8C-2EFCC0310E7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NodaTimeLibrary", "NodaTimeLibrary\NodaTimeLibrary.csproj", "{E94AAF3C-F704-454E-AC5A-021D23627507}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NodaTimeLibrary", "NodaTimeLibrary\NodaTimeLibrary.csproj", "{E94AAF3C-F704-454E-AC5A-021D23627507}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NodaTimeDemoApp", "NodaTimeDemoApp\NodaTimeDemoApp.csproj", "{BF699A51-A363-4F20-A741-ABE88C9B5BFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NodaTimeDemoApp", "NodaTimeDemoApp\NodaTimeDemoApp.csproj", "{BF699A51-A363-4F20-A741-ABE88C9B5BFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsApiApp", "NewsApiApp\NewsApiApp.csproj", "{23283CCA-215B-454F-BB4E-AF9627A1DB37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -483,6 +485,10 @@ Global
 		{BF699A51-A363-4F20-A741-ABE88C9B5BFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF699A51-A363-4F20-A741-ABE88C9B5BFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF699A51-A363-4F20-A741-ABE88C9B5BFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23283CCA-215B-454F-BB4E-AF9627A1DB37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23283CCA-215B-454F-BB4E-AF9627A1DB37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23283CCA-215B-454F-BB4E-AF9627A1DB37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23283CCA-215B-454F-BB4E-AF9627A1DB37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -571,6 +577,7 @@ Global
 		{4B7A6364-D3FE-4FB5-BC8C-2EFCC0310E7D} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{E94AAF3C-F704-454E-AC5A-021D23627507} = {4B7A6364-D3FE-4FB5-BC8C-2EFCC0310E7D}
 		{BF699A51-A363-4F20-A741-ABE88C9B5BFA} = {4B7A6364-D3FE-4FB5-BC8C-2EFCC0310E7D}
+		{23283CCA-215B-454F-BB4E-AF9627A1DB37} = {D3E69539-F5C7-4A93-B500-A961DD3072C0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}

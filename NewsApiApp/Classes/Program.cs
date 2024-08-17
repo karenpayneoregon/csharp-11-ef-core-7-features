@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 // ReSharper disable once CheckNamespace
-namespace NodaTimeDemoApp;
+namespace NewsApiApp;
 internal partial class Program
 {
     [ModuleInitializer]
@@ -17,14 +16,4 @@ internal partial class Program
         Console.Title = "Code sample";
         WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
     }
-
-    /// <summary>
-    /// https://stackoverflow.com/a/390974/5509738
-    /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="x"></param>
-    /// <param name="y"></param>
-    /// <returns></returns>
-    public bool Compare<T>(T x, T y) => EqualityComparer<T>.Default.Equals(x, y);
 }
-

@@ -1,4 +1,6 @@
-﻿using NodaTimeDemoApp.Classes;
+﻿using System.Linq.Expressions;
+using System.Text.Json;
+using NodaTimeDemoApp.Classes;
 using NodaTimeLibrary.Classes;
 using NodaTimeLibrary.Models;
 
@@ -11,6 +13,18 @@ internal partial class Program
     static void Main(string[] args)
     {
 
+        List<IndexContainer<string>> details = Helpers.AbbreviatedMonthNames();
+        var exist = Helpers.Contains("Jan");
+        var proper1 = "JAN".ProperCased();
+        var proper2 = "jAn".ProperCased();
+        var proper3 = "jan".ProperCased();
+
+        var index = Helpers.GetNumberFromShortMonth("jun");
+
+        
+        var properName2 = "Hello john doe".ProperCased();
+
+        Demo();
         UnitedStates us = new();
         
         AnsiConsole.MarkupLine($"[yellow]United States[/]");
@@ -32,6 +46,17 @@ internal partial class Program
 
         GetYearsOld();
 
+        Person person =  new Person()
+        {
+            Id = 1,
+            FirstName = "John",
+            LastName = "Doe",
+            BirthDate = new DateOnly(1980, 1, 1)
+        };
+
+        //Utilities.UpdateView(() => person);
+
+
         ExitPrompt();
     }
 
@@ -46,4 +71,44 @@ internal partial class Program
                                $"[b]{period.Months}[/] months " +
                                $"[b]{period.Days}[/] days");
     }
+
+    private static void Demo()
+    {
+        string json =
+            """
+            [
+                        {
+                            "Date": "2013-01-07T00:00:00Z",
+                            "Temperature": 23
+                        },
+                        {
+                            "Date": "2013-01-08T00:00:00Z",
+                            "Temperature": 28
+                        },
+                        {
+                            "Date": "2013-01-14T00:00:00Z",
+                            "Temperature": 8
+                        }
+                    ]
+            """;
+
+        var list = JsonSerializer.Deserialize<List<Result>>(json);
+
+    }
 }
+
+public class Result
+    {
+    public DateTimeOffset Date { get; set; }
+    public int Temperature { get; set; }
+}
+
+public class Person
+{
+    public int Id { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public DateOnly BirthDate { get; set; }
+}
+
+

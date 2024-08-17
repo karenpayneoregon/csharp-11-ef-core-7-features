@@ -1,0 +1,14 @@
+﻿using DumpifySample.Classes;
+
+namespace DumpifySample.Models;
+
+public class Person
+{
+    public int Id { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    [NoDumpData]
+    public DateOnly BirthDate { get; set; }
+    [NoDumpData]
+    public string SecretStuff { get; set; }
+}

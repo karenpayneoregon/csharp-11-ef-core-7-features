@@ -29,10 +29,7 @@ internal partial class Program
             Id = 3,
             FirstName = "Anne",
             LastName = "Noble",
-            Address = 
-                [
-                    new Address(1, 3, "1234 Elm St", "Portland", "OR")
-                ],
+            Address = [new Address(1, 3, "1234 Elm St", "Portland", "OR")],
             MainLanguage = "C#"
         };
 
