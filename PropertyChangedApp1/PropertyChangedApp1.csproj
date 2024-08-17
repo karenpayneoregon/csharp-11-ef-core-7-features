@@ -8,12 +8,20 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="readme.md" />
+		<Compile Remove="GeneratedStuff\System.Text.RegularExpressions.Generator\System.Text.RegularExpressions.Generator.RegexGenerator\RegexGenerator.g.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Include="assets\csharp.ico" />
-	  <Content Include="readme.md" />
+		<None Remove="readme.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="assets\csharp.ico" />
+		<Content Include="readme.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="GeneratedStuff\System.Text.RegularExpressions.Generator\System.Text.RegularExpressions.Generator.RegexGenerator\RegexGenerator.g.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -30,9 +38,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="appsettings.json">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 	</ItemGroup>
+
+	<PropertyGroup>
+		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+		<CompilerGeneratedFilesOutputPath>GeneratedStuff</CompilerGeneratedFilesOutputPath>
+	</PropertyGroup>
 
 </Project>
