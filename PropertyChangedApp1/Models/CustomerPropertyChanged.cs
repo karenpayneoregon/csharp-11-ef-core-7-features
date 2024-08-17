@@ -11,6 +11,7 @@ public partial class Customer
     protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = "")
     {
         if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+        // set breakpoint one next line
         field = value;
         OnPropertyChanged(propertyName);
         return true;
