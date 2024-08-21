@@ -11,6 +11,7 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
+
         //Language language = MenuChoices.LanguageChoice;
         //if (language.Id == -1)
         //{
@@ -60,7 +61,7 @@ internal partial class Program
         decimal[] decimals2 = [4.1m, 5.2m, 6.3m];
         decimal[] decimals3 = [7.1m, 8.2m, 9.3m];
 
-        list2 = list2.Merge(decimals1,decimals2, decimals3);
+        list2 = list2.Merge(decimals1, decimals2, decimals3);
         Console.WriteLine(string.Join(", ", list2));
     }
 }
@@ -78,7 +79,7 @@ public static class SomeExtensions
     }
 
 
-    public static string RemoveLastCharacters(this string sender, int count = 4) 
+    public static string RemoveLastCharacters(this string sender, int count = 4)
         => sender[..^count];
 
     public static int Age(this string sender) => int.Parse(sender);

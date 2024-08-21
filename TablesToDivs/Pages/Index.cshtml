@@ -1,0 +1,90 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Using tables";
+}
+
+<style>
+    td {
+        padding-left: 0px !important
+    }
+</style>
+
+<script src="lib/debugHelper.js"></script>
+
+<h1 class="fs-5 text-success">Personal information</h1>
+<form method="post" id="main-content"
+      class="needs-validation was-validated"
+      novalidate=""
+      autocomplete="off">
+
+    <table class="table-sm" id="table1">
+        <tr>
+            <td style="vertical-align: top;">
+                <label for="txtFirstName" style="padding-right: 4px;">First Name:</label>
+            </td>
+            <td>
+                <input type="text"
+                       class="form-control"
+                       id="txtFirstName"
+                       name="FirstName"
+                       value="Karen"
+                       required />
+                <div class="invalid-feedback">Please enter your first name</div>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="vertical-align: top;">
+                <label for="txtLastName">Last Name:</label>
+            </td>
+            <td>
+                <input type="text"
+                       class="form-control"
+                       id="txtLastName"
+                       name="LastName"
+                       value="Payne"
+                       required />
+                <div class="invalid-feedback">Please enter your last name</div>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @**@
+            </td>
+            <td>
+                <input type="submit"
+                       value="Submit"
+                       id="postButton"
+                       class="btn btn-primary float-end mt-2 submitBtn" />
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+
+@section Scripts
+{
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+        /*
+        * Karen code
+        * ALT+1 toggles adding/removing debugger.css
+        */
+        document.addEventListener('keydown', function (event) {
+
+            if (event.key === '1' && event.altKey && event.ctrlKey) {
+                $debugHelper.toggle();
+            }
+
+        });
+    </script>
+}
+@if (ViewData["JavaScript"] != null)
+{
+    <script>
+        @Html.Raw(ViewData["JavaScript"]);
+    </script>
+}

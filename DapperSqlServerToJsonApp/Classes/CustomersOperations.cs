@@ -45,10 +45,20 @@ internal class CustomersOperations
         
         IEnumerable<Customers> customers = _cn.Query<Customers>(statement);
         
-        File.WriteAllText("Customers.json",
-            JsonSerializer.Serialize(customers,
-                JsonSerializerOptions));
+        File.WriteAllText("Customers.json", JsonSerializer.Serialize(customers, JsonSerializerOptions));
+
 
     }
 }
 
+public static class ConnectionHelper
+{
+    private static JsonSerializerOptions JsonSerializerOptions = new() { WriteIndented = true };
+
+    public static void ToJson<T>(this IDbConnection sender, string fileName, IEnumerable<T> data)
+    {
+        File.WriteAllText(fileName,
+            JsonSerializer.Serialize(data,
+                JsonSerializerOptions));
+    }
+}

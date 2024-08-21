@@ -1,7 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 using FormattableStringSamples.Classes;
 using FormattableStringSamples.Models;
+using static FormattableStringSamples.Classes.Helpers;
+
 // ReSharper disable ConvertToLocalFunction
 // ReSharper disable ConvertClosureToMethodGroup
 #pragma warning disable IDE0059
@@ -13,18 +14,23 @@ internal partial class Program
     private static void Main()
     {
 
-        var nextInvoice = (string source, int increment = 1) 
-            => Helpers.NextValue(source , increment);
-        
-        Console.WriteLine(nextInvoice("A1")); 
-        Console.WriteLine(nextInvoice("AV22", 2));
 
+        var nextInvoice = (string invoice, int increment = 1)
+            => NextValue(invoice, increment);
+
+        var nextInvoiceValue1 = nextInvoice(arg1: "A100", arg2: 2);
+        var nextInvoiceValue2 = NextValue(value: "A100", incrementBy: 2);
+
+
+
+        Console.WriteLine(nextInvoiceValue1);
+        Console.WriteLine(nextInvoiceValue2);
 
         var name = "Karen";
         var (saturday, sunday) = GetWeekendDates();
-        FormattableString weekend = FormattableStringFactory.Create("{0} the weekend {1} {2}", 
+        FormattableString weekend = FormattableStringFactory.Create("{0} the weekend {1} {2}",
             name, saturday, sunday);
-        
+
         Console.WriteLine(weekend);
 
         foreach (var item in weekend.GetArguments())
@@ -37,7 +43,7 @@ internal partial class Program
             {
                 Console.WriteLine($"Name is {item}");
             }
-            
+
         }
 
         Dictionary<string, DateOnly> dictDates = new()
@@ -51,7 +57,7 @@ internal partial class Program
         foreach (KeyValuePair<string, DateOnly> kvp in dictDates)
         {
             var (cell, date) = kvp.Deconstruct();
-            Console.WriteLine($"{cell, -3}{date}");
+            Console.WriteLine($"{cell,-3}{date}");
         }
         Console.ReadLine();
 
@@ -61,7 +67,7 @@ internal partial class Program
         var today = DateTime.Today;
         var currentDayOfWeek = today.DayOfWeek;
         return (
-            DateOnly.FromDateTime(today.AddDays(((int)DayOfWeek.Saturday - (int)currentDayOfWeek + 7) % 7)), 
+            DateOnly.FromDateTime(today.AddDays(((int)DayOfWeek.Saturday - (int)currentDayOfWeek + 7) % 7)),
             DateOnly.FromDateTime(today.AddDays(((int)DayOfWeek.Sunday - (int)currentDayOfWeek + 7) % 7)));
     }
 
@@ -77,7 +83,7 @@ internal partial class Program
         foreach (KeyValuePair<string, object> kp in parameters)
         {
             var (parameterName, parameterValue) = kp.Deconstruct();
-            Console.WriteLine($"{parameterName, -10}{parameterValue}");
+            Console.WriteLine($"{parameterName,-10}{parameterValue}");
         }
 
         Console.WriteLine();
@@ -89,7 +95,7 @@ internal partial class Program
             Console.WriteLine($"{dict.Key}");
             foreach (var d in dict.Value)
             {
-                Console.WriteLine($"    {d.Key, -40}{d.Value}");
+                Console.WriteLine($"    {d.Key,-40}{d.Value}");
             }
         }
 

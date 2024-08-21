@@ -1,0 +1,36 @@
+﻿@page
+@model TablesToDivs.Pages.AboutModel
+@{
+}
+
+<div class="position-absolute top-50 start-50 translate-middle" id="main-content">
+
+    <div class="card bg-light shadow" style="width: 21rem;">
+        <h1 class="fs-5 ms-3 mt-1">About</h1>
+        <div class="card-body">
+            <h2 class="card-text fs-6" aria-label="And why not to use tables">Best to use <span class="fw-bold">DIV</span> than <span class="fw-bold">table</span> code sample.</h2>
+        </div>
+    </div>
+</div>
+
+@section customFooter
+{
+    <div class="container">
+        Example to replace table with div for accessibility.
+    </div>
+}
+
+@section Scripts
+{
+    <script>
+        /*
+         * See code which compliments this code in site.js
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('a#aboutNav').forEach(link => {
+                link.classList.add('border-dark');
+                link.classList.add('border-bottom');
+                link.classList.add('border-top'); }); });
+    </script>
+
+}

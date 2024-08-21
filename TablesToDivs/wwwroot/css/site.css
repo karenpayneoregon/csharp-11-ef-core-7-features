@@ -1,0 +1,42 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.submitBtn {
+
+}
+.skiplink {
+    position: absolute;
+    left: 5px;
+    top: 0;
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+    background: #cff4fc;
+    color: black;
+    padding: 20px;
+}
+
+.skiplink:focus {
+    transform: translateY(0);
+    top: .25em;
+    color: white;
+}

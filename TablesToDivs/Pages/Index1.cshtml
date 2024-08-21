@@ -1,0 +1,92 @@
+﻿@page
+@model TablesToDivs.Pages.Index1Model
+@{
+    ViewData["Title"] = "No tables";
+}
+
+<style>
+    .mt-2a {
+        margin-top: .75em;
+    }
+</style>
+
+<script src="lib/debugHelper.js"></script>
+
+<h1 class="fs-5 text-success">Personal information</h1>
+<form method="post"
+      id="main-content"
+      class="needs-validation was-validated mt-2a"
+      novalidate=""
+      autocomplete="off">
+
+    <div class="row g-2 mb-2">
+        <div class="col-auto">
+            <label for="txtFirstName" class="form-label">First Name:</label>
+        </div>
+        <div class="col-auto">
+            <input type="text"
+                   class="form-control"
+                   id="txtFirstName"
+                   name="FirstName"
+                   value="Karen"
+                   required="">
+            <div class="invalid-feedback">
+                Please enter your first name
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-2 mb-3">
+        <div class="col-auto">
+            <label for="txtLastName" class="form-label" style="padding-right: 2px">Last Name:</label>
+        </div>
+        <div class="col-auto">
+            <input type="text"
+                   class="form-control"
+                   id="txtLastName"
+                   name="LastName"
+                   value="Payne"
+                   required="">
+            <div class="invalid-feedback">
+                Please enter your last name
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-0">
+        <div class="col-auto" style="width: 7.65em">
+        </div>
+        <div class="col-2" style="width: 12.18em">
+            <input type="submit"
+                   value="Submit"
+                   class="btn btn-primary float-end"
+                   asp-page-handler="Submit" />
+        </div>
+    </div>
+
+</form>
+
+
+@section Scripts
+{
+    <script type="text/javascript" src="js/index.js"></script>
+    <script>
+        /*
+        * Karen code
+        * ALT+CTRL+1 toggles adding/removing debugger.css
+        */
+        document.addEventListener('keydown', function (event) {
+
+            if (event.key === '1' && event.altKey && event.ctrlKey) {
+                $debugHelper.toggle();
+            }
+
+        });
+    </script>
+}
+@if (ViewData["JavaScript"] != null)
+{
+    <script>
+        @Html.Raw(ViewData["JavaScript"]);
+    </script>
+}
