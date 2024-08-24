@@ -32,6 +32,10 @@ partial class MainForm
         passwordTextBox = new TextBox();
         revealPasswordButton = new Button();
         button2 = new Button();
+        menuStrip1 = new MenuStrip();
+        mainToolStripMenuItem = new ToolStripMenuItem();
+        M_Selecao = new ToolStripMenuItem();
+        menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
         // button1
@@ -74,6 +78,29 @@ partial class MainForm
         button2.UseVisualStyleBackColor = true;
         button2.Click += button2_Click;
         // 
+        // menuStrip1
+        // 
+        menuStrip1.ImageScalingSize = new Size(20, 20);
+        menuStrip1.Items.AddRange(new ToolStripItem[] { mainToolStripMenuItem });
+        menuStrip1.Location = new Point(0, 0);
+        menuStrip1.Name = "menuStrip1";
+        menuStrip1.Size = new Size(569, 28);
+        menuStrip1.TabIndex = 4;
+        menuStrip1.Text = "menuStrip1";
+        // 
+        // mainToolStripMenuItem
+        // 
+        mainToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { M_Selecao });
+        mainToolStripMenuItem.Name = "mainToolStripMenuItem";
+        mainToolStripMenuItem.Size = new Size(56, 24);
+        mainToolStripMenuItem.Text = "Main";
+        // 
+        // M_Selecao
+        // 
+        M_Selecao.Name = "M_Selecao";
+        M_Selecao.Size = new Size(224, 26);
+        M_Selecao.Text = "Item 1";
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
@@ -83,10 +110,14 @@ partial class MainForm
         Controls.Add(revealPasswordButton);
         Controls.Add(passwordTextBox);
         Controls.Add(button1);
+        Controls.Add(menuStrip1);
+        MainMenuStrip = menuStrip1;
         Name = "MainForm";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "Form1";
         Load += MainForm_Load;
+        menuStrip1.ResumeLayout(false);
+        menuStrip1.PerformLayout();
         ResumeLayout(false);
         PerformLayout();
     }
@@ -97,4 +128,7 @@ partial class MainForm
     private TextBox passwordTextBox;
     private Button revealPasswordButton;
     private Button button2;
+    private MenuStrip menuStrip1;
+    private ToolStripMenuItem mainToolStripMenuItem;
+    private ToolStripMenuItem M_Selecao;
 }

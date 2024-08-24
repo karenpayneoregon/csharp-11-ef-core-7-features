@@ -47,24 +47,14 @@ public partial class MainForm : Form
 
     private void button2_Click(object sender, EventArgs e)
     {
+        using var form = new Form3();
+        form.MenuEnable += OnMenuEnable;
+        form.ShowDialog();
+    }
 
-
-        {
-            foreach (var dow in Enum.GetValues<DayOfWeek>())
-            {
-                // TODO
-            }
-        }
-
-        
-        {
-            foreach (var dow in (DayOfWeek[])Enum.GetValues(typeof(DayOfWeek)))
-            {
-                // TODO
-            }
-        }
-
-
+    private void OnMenuEnable(bool sender)
+    {
+        M_Selecao.Enabled = sender;
     }
 }
 
