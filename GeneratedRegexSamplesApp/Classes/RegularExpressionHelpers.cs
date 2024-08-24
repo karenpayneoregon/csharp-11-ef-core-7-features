@@ -23,6 +23,7 @@ public static partial class RegularExpressionHelpers
         }
 
         return result;
+
     }
 
     /// <summary>
