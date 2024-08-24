@@ -33,6 +33,12 @@ public static partial class RegularExpressionHelpers
     public static int GetNumberFromShortMonth(string month)
         => Array.IndexOf(CurrentInfo!.AbbreviatedMonthNames[..^1], month.ProperCased()) + 1;
 
+    /// <summary>
+    /// Generates the next value based on the given value and increment.
+    /// </summary>
+    /// <param name="value">The current value.</param>
+    /// <param name="incrementBy">The increment value (default is 1).</param>
+    /// <returns>The next value.</returns>
     public static string NextValue(string value, int incrementBy = 1)
     {
         var current = NumbersPatternRegex().Match(value).Value;
