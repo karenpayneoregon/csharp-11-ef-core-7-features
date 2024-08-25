@@ -15,23 +15,12 @@ internal partial class Program
     {
 
 
-        var nextInvoice = (string invoice, int increment = 1)
-            => NextValue(invoice, increment);
-
-        var nextInvoiceValue1 = nextInvoice(arg1: "A100", arg2: 2);
-        var nextInvoiceValue2 = NextValue(value: "A100", incrementBy: 2);
-
-
-
-        Console.WriteLine(nextInvoiceValue1);
-        Console.WriteLine(nextInvoiceValue2);
-
         var name = "Karen";
-        var (saturday, sunday) = GetWeekendDates();
-        FormattableString weekend = FormattableStringFactory.Create("{0} the weekend {1} {2}",
+        var (saturday, sunday) = DateTime.Now.GetWeekendDates();
+        FormattableString weekend = FormattableStringFactory.Create("{0} the week {1} {2}",
             name, saturday, sunday);
 
-        Console.WriteLine(weekend);
+        //Console.WriteLine(weekend);
 
         foreach (var item in weekend.GetArguments())
         {
@@ -45,6 +34,22 @@ internal partial class Program
             }
 
         }
+
+
+
+
+        var nextInvoice = (string invoice, int increment = 1)
+            => NextValue(invoice, increment);
+
+        var nextInvoiceValue1 = nextInvoice(arg1: "A100", arg2: 2);
+        var nextInvoiceValue2 = NextValue(value: "A100", incrementBy: 2);
+
+
+
+        Console.WriteLine(nextInvoiceValue1);
+        Console.WriteLine(nextInvoiceValue2);
+
+
 
         Dictionary<string, DateOnly> dictDates = new()
         {
@@ -62,14 +67,7 @@ internal partial class Program
         Console.ReadLine();
 
     }
-    private static (DateOnly saturday, DateOnly sunday) GetWeekendDates()
-    {
-        var today = DateTime.Today;
-        var currentDayOfWeek = today.DayOfWeek;
-        return (
-            DateOnly.FromDateTime(today.AddDays(((int)DayOfWeek.Saturday - (int)currentDayOfWeek + 7) % 7)),
-            DateOnly.FromDateTime(today.AddDays(((int)DayOfWeek.Sunday - (int)currentDayOfWeek + 7) % 7)));
-    }
+
 
     private static void FromMain()
     {
@@ -123,8 +121,10 @@ internal partial class Program
         };
 
 
+    
 
-    private static void DayOfWeekExample()
+
+private static void DayOfWeekExample()
     {
 
         FormattableString format = FormattableStringFactory.Create("The weekend {0} {1} {2}",
@@ -222,4 +222,19 @@ internal partial class Program
          SELECT CAST(scope_identity() AS int);
          """;
 
+
+}
+
+public static class DateTimeExtensions
+{
+    public static (DateOnly saturday, DateOnly sunday) GetWeekendDates(this DateTime date, DayOfWeek startOfWeek = DayOfWeek.Sunday)
+    {
+        var weekStart = date.AddDays(-(int)date.DayOfWeek + (int)startOfWeek);
+
+        var saturday = weekStart.AddDays(5);
+        var sunday = weekStart.AddDays(6);
+
+        return (DateOnly.FromDateTime(saturday), DateOnly.FromDateTime(sunday));
+
+    }
 }
