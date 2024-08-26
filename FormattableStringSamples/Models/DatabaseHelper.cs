@@ -40,6 +40,6 @@ public static class DatabaseHelper
             DatabaseType.MySql => "?",
             DatabaseType.Oracle => ":",
             DatabaseType.PostgreSql => ":",
-            _ => "",
+            _ => "@",
         };
 }
