@@ -1,3 +1,0 @@
-﻿https://www.meziantou.net/post-redirect-get-and-tempdata-with-asp-net-core.htm
-
-https://www.aspsnippets.com/Articles/ASPNet-Core-Razor-Pages-Refresh-Page-after-Submit-POST.aspx
