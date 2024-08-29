@@ -7,6 +7,7 @@ namespace JsonExample
     {
         static void Main(string[] args)
         {
+            //Sample();
             var test = Json;
             var xml = SystemTextOperations.JsonToXml(Json);
             File.WriteAllText("Game.xml", xml);
@@ -25,19 +26,21 @@ namespace JsonExample
             Console.ReadLine();
         }
 
-        public static string Json => """
-                                     {
-                                         "SquidGame": {
-                                             "Genre": "Thriller",
-                                             "Rating": {
-                                                 "@Type": "Imdb",
-                                                 "#text": "8.1"
-                                             },
-                                             "Stars": ["Lee Jung-jae", "Park Hae-soo"],
-                                             "Budget": null
-                                         }
-                                     }
-                                     """;
+        public static string Json =>
+            /*lang=json*/
+            """
+            {
+                "SquidGame": {
+                    "Genre": "Thriller",
+                    "Rating": {
+                        "@Type": "Imdb",
+                        "#text": "8.1"
+                    },
+                    "Stars": ["Lee Jung-jae", "Park Hae-soo"],
+                    "Budget": null
+                }
+            }
+            """;
         /// <summary>
         /// Create People.json
         /// </summary>

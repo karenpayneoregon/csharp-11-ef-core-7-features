@@ -41,4 +41,24 @@ public static class UtilityExtensions
             .Replace("CAST", "[yellow]CAST[/]")
             .Replace("SELECT", "[green]SELECT[/]");
     }
+
+    [DebuggerStepThrough]
+    public static bool IsBetween<T>(this T value, T start, T end) where T : IComparable<T>
+    {
+        return value.CompareTo(start) >= 0 && value.CompareTo(end) <= 0;
+    }
+}
+
+public static class EnumerableExtensions
+{
+    public static bool IsEmpty<T>(this IEnumerable<T> sender) 
+        => sender is ICollection<T> collection ? collection.Count == 0 : !sender.Any();
+}
+
+public static class DateOnlyExtensions
+{
+    public static bool IsBetween(this DateOnly date, DateOnly startDate, DateOnly endDate)
+    {
+        return date >= startDate && date <= endDate;
+    }
 }
