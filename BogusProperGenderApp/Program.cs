@@ -7,7 +7,7 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        List<Customer> list = BogusOperations.CustomersList(20,false);
+        List<Customer> list = BogusOperations.CustomersList(20,true);
         var table = CreateTable();
         foreach (var customer in list)
         {

@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using BogusProperGenderApp.Classes;
 
 // ReSharper disable once CheckNamespace
 namespace BogusProperGenderApp;
@@ -9,6 +10,7 @@ internal partial class Program
     {
         Console.Title = "Bogus proper gender code sample";
         WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
+        SetupLogging.BogusLogging();
     }
     public static Table CreateTable()
         => new Table().RoundedBorder()
