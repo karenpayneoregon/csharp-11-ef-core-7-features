@@ -17,8 +17,7 @@ internal partial class Program
 
         var name = "Karen";
         var (saturday, sunday) = DateTime.Now.GetWeekendDates();
-        FormattableString weekend = FormattableStringFactory.Create("{0} the week {1} {2}",
-            name, saturday, sunday);
+        FormattableString weekend = FormattableStringFactory.Create("{0} the week {1} {2}", name, saturday, sunday);
 
         //Console.WriteLine(weekend);
 

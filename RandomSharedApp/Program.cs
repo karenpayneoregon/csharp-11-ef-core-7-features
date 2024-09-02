@@ -21,6 +21,7 @@ internal partial class Program
 
             var items = Random.Shared.GetItems<Human>(CollectionsMarshal.AsSpan(people), 3);
 
+            
             await Task.Delay(300);
 
             foreach (var human in items)

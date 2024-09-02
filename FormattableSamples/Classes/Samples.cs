@@ -1,7 +1,9 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Globalization;
+using System.Runtime.CompilerServices;
 using FormattableSamples.Models;
 using static FormattableSamples.Classes.SpectreConsoleHelpers;
 using static FormattableSamples.Classes.UtilityExtensions;
+using static System.FormattableString;
 
 namespace FormattableSamples.Classes;
 internal class Samples
@@ -88,6 +90,27 @@ internal class Samples
         Console.WriteLine();
     }
 
+    public static void UpdatePerson()
+    {
+        Person person = new()
+        {
+            Id = 1,
+            FirstName = "Karen",
+            LastName = "Payne",
+            BirthDate = new DateOnly(1956, 9, 24)
+        };
+
+        FormattableString format = FormattableStringFactory.Create("Id: {0} First {1} Last {2} Birth {3}",
+            person.Id, person.FirstName, person.LastName, person.BirthDate);
+
+        if (format.FirstName() == "Karen")
+        {
+            format.UpdateFirstName("Anne");
+        }
+        
+
+    }
+
     public static void TheWeekend()
     {
 
@@ -101,7 +124,28 @@ internal class Samples
 
         AnsiConsole.MarkupLine($"{template}");
 
+        foreach (var item in template.GetArguments())
+        {
+            if (item is DateOnly date)
+            {
+                Console.WriteLine($"    {date}");
+            }
+        }
 
+        Console.WriteLine();
+
+    }
+
+    public static void TheWeekend1()
+    {
+        PrintCyan();
+
+        var name = "Karen";
+        var (saturday, sunday) = DateTime.Now.GetWeekendDates();
+        FormattableString template = 
+            $"{Greetings.TimeOfDay()} [green]{name}[/], this weekend dates are [lightslateblue]{saturday} {sunday}[/]";
+
+        AnsiConsole.MarkupLine($"{template}");
 
         foreach (var item in template.GetArguments())
         {
@@ -119,10 +163,11 @@ internal class Samples
     /// break apart the statement and parameters
     /// </summary>
     /// <remarks>
-    /// For demonstration only, not to be used in a real project
+    /// For demonstration only, not to be used in a real project scope_identity()
     /// </remarks>
     public static void SqlStatementExample()
     {
+
         PrintCyan();
 
         var sql = InsertStatementExample1("Karen", "Payne", new DateOnly(1960, 12, 25));
@@ -150,4 +195,55 @@ internal class Samples
          ({firstName}, {lastName}, {birthDate});
          SELECT CAST(scope_identity() AS int);
          """;
+
+    public static void DateTimeCulture()
+    {
+
+        PrintCyan();
+
+        var uk = CultureInfo.CreateSpecificCulture("en-GB");
+        Thread.CurrentThread.CurrentCulture = uk;
+
+        var germany = CultureInfo.CreateSpecificCulture("de-DE");
+        string now = $"[cyan]Default: it is now[/] [yellow]{DateTime.UtcNow}[/]";
+        AnsiConsole.MarkupLine($"[yellow]UK[/]: {now}");
+
+        IFormattable first = $"[cyan]Specific: It is now[/] [yellow]{DateTime.UtcNow}[/]";
+        AnsiConsole.MarkupLine($"[yellow]Germany[/]: {first.ToString("ignored", germany)}");
+        FormattableString second = $"FormattableString: It is now {DateTime.UtcNow}";
+        Console.WriteLine(FormattableString.Invariant(second));
+        
+        // Via using static
+        Console.WriteLine(Invariant($"It is now {DateTime.UtcNow}"));
+
+        Console.WriteLine();
+
+    }
+
+    public static void VersionFormat()
+    {
+
+        PrintCyan();
+
+        Version version = new(1, 2, 3, 4);
+        FormattableString template = FormatVersion(version);
+        //AnsiConsole.MarkupLine($"[white on blue]{template}[/]");
+
+        DeconstructVersion(template);
+
+        Console.WriteLine();
+    }
+
+
+    public static void DeconstructVersion(FormattableString sender)
+    {
+        AnsiConsole.MarkupLine(
+            $"[yellow]Major[/] {sender.Major()} " +
+            $"[yellow]Major[/] {sender.Minor()} " +
+            $"[yellow]Build[/] {sender.Build()} " +
+            $"[yellow]Revision[/] {sender.Revision()}");
+    }
+
+    public static FormattableString FormatVersion(Version version) =>
+        FormattableStringFactory.Create("{0}.{1}.{2}.{3}", version.Major, version.Minor, version.Build, version.Revision);
 }

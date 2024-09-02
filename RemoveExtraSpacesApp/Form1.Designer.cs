@@ -30,6 +30,7 @@ partial class Form1
     {
         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
         ExecuteButton = new Button();
+        button1 = new Button();
         SuspendLayout();
         // 
         // ExecuteButton
@@ -45,11 +46,22 @@ partial class Form1
         ExecuteButton.UseVisualStyleBackColor = true;
         ExecuteButton.Click += ExecuteButton_Click;
         // 
+        // button1
+        // 
+        button1.Location = new Point(144, 108);
+        button1.Name = "button1";
+        button1.Size = new Size(94, 29);
+        button1.TabIndex = 1;
+        button1.Text = "button1";
+        button1.UseVisualStyleBackColor = true;
+        button1.Click += button1_Click;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(352, 155);
+        Controls.Add(button1);
         Controls.Add(ExecuteButton);
         FormBorderStyle = FormBorderStyle.FixedToolWindow;
         Name = "Form1";
@@ -61,4 +73,5 @@ partial class Form1
     #endregion
 
     private Button ExecuteButton;
+    private Button button1;
 }

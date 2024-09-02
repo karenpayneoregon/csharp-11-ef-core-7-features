@@ -58,6 +58,22 @@ public class MockedData
         return faker.Generate(count);
     }
 
+    public static List<Customer> GetCustomersTimeOnlySoon(int count,DateOnly minDate, DateOnly maxDate)
+    {
+        var identifier = 1;
+        Randomizer.Seed = new Random(338);
+
+        var faker = new Faker<Customer>()
+            .CustomInstantiator(f => new Customer { Id = identifier++ })
+            .RuleFor(c => c.FirstName, f => f.Name.FirstName())
+            .RuleFor(c => c.LastName, f => f.Name.LastName())
+            .RuleFor(c => c.Time, f => f.Date.SoonTimeOnly())
+            .RuleFor(c => c.Birthdate, f =>
+                f.Date.BetweenDateOnly(minDate, maxDate));
+
+        return faker.Generate(count);
+    }
+
     public static List<Customer> GetCustomersTimeOnlyRecent(int count)
     {
         var identifier = 1;

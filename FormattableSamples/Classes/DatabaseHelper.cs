@@ -34,16 +34,18 @@ public static class DatabaseHelper
     }
 
     /// <summary>
-    /// Set parameter prefix dependent of which database is being used.
+    /// Gets the prefix character based on the specified <paramref name="databaseType"/>.
     /// </summary>
-    /// <param name="databaseType"></param>
-    /// <returns></returns>
+    /// <param name="databaseType">The type of database being used.</param>
+    /// <returns>The prefix character for specified database.</returns>
     private static string GetPrefix(DatabaseType databaseType)
         => databaseType switch
         {
-            DatabaseType.Sqlite or DatabaseType.SqlServer => "@",
+            DatabaseType.Sqlite => "@",
+            DatabaseType.SqlServer => "@",
             DatabaseType.MySql => "?",
-            DatabaseType.Oracle or DatabaseType.PostgreSql => ":",
+            DatabaseType.Oracle => ":",
+            DatabaseType.PostgreSql => ":",
             _ => "@",
         };
 }

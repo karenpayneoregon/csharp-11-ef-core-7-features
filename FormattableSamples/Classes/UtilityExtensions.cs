@@ -33,32 +33,22 @@ public static class UtilityExtensions
         return result[..resultIndex].ToString();
     }
 
+    /// <summary>
+    /// Colorize keywords Spectre.Console
+    /// </summary>
+    /// <param name="sql">String which is a SQL statement</param>
+    /// <returns>Formatted string</returns>
     [DebuggerStepThrough]
-    public static string StatementColors(string sql)
-    {
-        return sql.Replace("INSERT INTO", "[green]INSERT INTO[/]")
+    public static string StatementColors(string sql) =>
+        sql.Replace("INSERT INTO", "[green]INSERT INTO[/]")
             .Replace("VALUES", "[green]VALUES[/]")
             .Replace("CAST", "[yellow]CAST[/]")
-            .Replace("SELECT", "[green]SELECT[/]");
-    }
+            .Replace("SELECT", "[green]SELECT[/]")
+            .Replace("scope_identity()", "[green]scope_identity()[/]");
 
     [DebuggerStepThrough]
     public static bool IsBetween<T>(this T value, T start, T end) where T : IComparable<T>
     {
         return value.CompareTo(start) >= 0 && value.CompareTo(end) <= 0;
-    }
-}
-
-public static class EnumerableExtensions
-{
-    public static bool IsEmpty<T>(this IEnumerable<T> sender) 
-        => sender is ICollection<T> collection ? collection.Count == 0 : !sender.Any();
-}
-
-public static class DateOnlyExtensions
-{
-    public static bool IsBetween(this DateOnly date, DateOnly startDate, DateOnly endDate)
-    {
-        return date >= startDate && date <= endDate;
     }
 }
