@@ -229,6 +229,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IProgressApp", "IProgressAp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarSqlQuerySample", "CalendarSqlQuerySample\CalendarSqlQuerySample.csproj", "{6F6C3C71-D5B5-483D-AE05-1B40B2909B99}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fluent Validation", "Fluent Validation", "{AE429984-4DA9-4491-A880-3F3A62298DC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingIncludeInValidation", "UsingIncludeInValidation\UsingIncludeInValidation.csproj", "{CEEB92AC-5160-4E21-8D0A-A6624A429528}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -555,6 +559,10 @@ Global
 		{6F6C3C71-D5B5-483D-AE05-1B40B2909B99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F6C3C71-D5B5-483D-AE05-1B40B2909B99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F6C3C71-D5B5-483D-AE05-1B40B2909B99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEEB92AC-5160-4E21-8D0A-A6624A429528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEEB92AC-5160-4E21-8D0A-A6624A429528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEEB92AC-5160-4E21-8D0A-A6624A429528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEEB92AC-5160-4E21-8D0A-A6624A429528}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -658,6 +666,8 @@ Global
 		{F2F09B5D-96CC-4556-A889-338F5CF90B3B} = {75093408-3A12-4CFB-96C9-3D2562726F97}
 		{B271DB68-7F17-4F46-AF0B-5E9596577F08} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{6F6C3C71-D5B5-483D-AE05-1B40B2909B99} = {40E8F81F-A80D-497D-BDC0-980F8FB44584}
+		{AE429984-4DA9-4491-A880-3F3A62298DC1} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{CEEB92AC-5160-4E21-8D0A-A6624A429528} = {AE429984-4DA9-4491-A880-3F3A62298DC1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}

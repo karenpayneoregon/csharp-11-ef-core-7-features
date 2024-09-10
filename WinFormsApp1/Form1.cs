@@ -2,6 +2,7 @@ using System.Collections.Frozen;
 using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+// ReSharper disable ReturnValueOfPureMethodIsNotUsed
 
 
 #pragma warning disable SYSLIB0014
@@ -126,7 +127,7 @@ public partial class Form1 : Form
 
     private void button1_Click(object sender, EventArgs e)
     {
-        List<int> normalList = new List<int> { 1, 2, 3 };
+        List<int> normalList = [1, 2, 3];
         ReadOnlyCollection<int> readonlyList = normalList.AsReadOnly();
         FrozenSet<int> frozenSet = normalList.ToFrozenSet();
         ImmutableList<int> immutableList = normalList.ToImmutableList();
@@ -174,6 +175,10 @@ public partial class Form1 : Form
 
     }
 
+    private async void button4_Click(object sender, EventArgs e)
+    {
+        var (list, success) = await DateTimeHelpers.TimeZones();
+    }
 }
 
 
@@ -194,7 +199,7 @@ public static class DateTimeHelpers
     {
         DateTimeOffset? local = await InternetHelpers.LocalTime();
         return local is null ? 
-            (new List<string>().ToImmutableList(), false) : 
+            (Enumerable.Empty<string>().ToImmutableList(), false) : 
             (local.Value.PossibleTimeZones(), true);
     }
 
