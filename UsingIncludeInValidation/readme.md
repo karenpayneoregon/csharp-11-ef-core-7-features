@@ -4,6 +4,8 @@ Its one way to iron out ideas while learning, write all code in Program.cs and i
 
 This can also work for more complex code.
 
+See clean [version](https://github.com/karenpayneoregon/fluent-validation-tips/tree/master/UsingIncludeInValidation).
+
 ## Notes
 
 - See NuGet packages used in the project
