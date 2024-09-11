@@ -7,7 +7,7 @@ internal partial class Program
 {
     static async Task Main(string[] args)
     {
-        var service = await GetEmailService();
+        var service = await EmailService();
 
         Person person = new() { Id = 1, FirstName = "Karen", LastName = "Payne" };
         Manager manager = new() { Id = 2, FirstName = "Sam", LastName = "Smith" };
