@@ -1,3 +1,4 @@
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using System.Configuration;
 using System.Text.Json;
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
@@ -7,21 +8,21 @@ namespace TestProject1;
 [TestClass]
 public class UnitTest1
 {
-    [TestMethod]
+    [TestMethod, TestCategory("CommaDelimitedStringCollection")]
     public void TestMethod1()
     {
         CommaDelimitedStringCollectionConverter cv = new();
         CommaDelimitedStringCollection col = ["Karen", "Payne"];
         Assert.AreEqual("Karen,Payne", cv.ConvertTo(null, null, col, typeof(string)));
     }
-    [TestMethod]
+    [TestMethod, TestCategory("CommaDelimitedStringCollection")]
     public void TestMethod2()
     {
         CommaDelimitedStringCollectionConverter cv = new();
         CommaDelimitedStringCollection col = ["Karen", "Payne"];
         Assert.AreNotEqual("Karen,payne", cv.ConvertTo(null, null, col, typeof(string)));
     }
-    [TestMethod]
+    [TestMethod, TestCategory("CommaDelimitedStringCollection")]
     public void TestMethod3()
     {
         CommaDelimitedStringCollectionConverter cv = new();
@@ -29,7 +30,7 @@ public class UnitTest1
         Assert.AreEqual("1,12", cv.ConvertTo(null, null, col, typeof(string)));
     }
 
-    [TestMethod]
+    [TestMethod, TestCategory("CommaDelimitedStringCollection")]
     public void TestMethod4()
     {
         

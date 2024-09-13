@@ -231,7 +231,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarSqlQuerySample", "C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fluent Validation", "Fluent Validation", "{AE429984-4DA9-4491-A880-3F3A62298DC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsingIncludeInValidation", "UsingIncludeInValidation\UsingIncludeInValidation.csproj", "{CEEB92AC-5160-4E21-8D0A-A6624A429528}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsingIncludeInValidation", "UsingIncludeInValidation\UsingIncludeInValidation.csproj", "{CEEB92AC-5160-4E21-8D0A-A6624A429528}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Using TestBase and traits", "Using TestBase and traits", "{ACCEDB29-2FA9-4D64-BFB4-F9E5B800177C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraitsTestProject", "TraitsTestProject\TraitsTestProject.csproj", "{E9008D63-74FE-4329-B38D-F34539D7D566}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraitsTestLibrary", "TraitsTestLibrary\TraitsTestLibrary.csproj", "{8E073385-00BA-4119-B840-AA55D978F0E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -563,6 +569,14 @@ Global
 		{CEEB92AC-5160-4E21-8D0A-A6624A429528}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEEB92AC-5160-4E21-8D0A-A6624A429528}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEEB92AC-5160-4E21-8D0A-A6624A429528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9008D63-74FE-4329-B38D-F34539D7D566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9008D63-74FE-4329-B38D-F34539D7D566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9008D63-74FE-4329-B38D-F34539D7D566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9008D63-74FE-4329-B38D-F34539D7D566}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E073385-00BA-4119-B840-AA55D978F0E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E073385-00BA-4119-B840-AA55D978F0E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E073385-00BA-4119-B840-AA55D978F0E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E073385-00BA-4119-B840-AA55D978F0E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -668,6 +682,9 @@ Global
 		{6F6C3C71-D5B5-483D-AE05-1B40B2909B99} = {40E8F81F-A80D-497D-BDC0-980F8FB44584}
 		{AE429984-4DA9-4491-A880-3F3A62298DC1} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{CEEB92AC-5160-4E21-8D0A-A6624A429528} = {AE429984-4DA9-4491-A880-3F3A62298DC1}
+		{ACCEDB29-2FA9-4D64-BFB4-F9E5B800177C} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{E9008D63-74FE-4329-B38D-F34539D7D566} = {ACCEDB29-2FA9-4D64-BFB4-F9E5B800177C}
+		{8E073385-00BA-4119-B840-AA55D978F0E8} = {ACCEDB29-2FA9-4D64-BFB4-F9E5B800177C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}

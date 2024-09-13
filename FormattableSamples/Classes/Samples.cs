@@ -4,6 +4,8 @@ using FormattableSamples.Models;
 using static FormattableSamples.Classes.SpectreConsoleHelpers;
 using static FormattableSamples.Classes.UtilityExtensions;
 using static System.FormattableString;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace FormattableSamples.Classes;
 internal class Samples
@@ -74,7 +76,7 @@ internal class Samples
         };
         FormattableString format = FormattableStringFactory.Create("Id: {0} First {1} Last {2} Birth {3}",
             person.Id, person.FirstName, person.LastName, person.BirthDate);
-
+        
         AnsiConsole.MarkupLine($"[cyan]Format[/]      : {format.Format}");
         AnsiConsole.MarkupLine($"[cyan]# Arguments[/] : {format.ArgumentCount}");
 
@@ -110,6 +112,8 @@ internal class Samples
         
 
     }
+
+
 
     public static void TheWeekend()
     {
