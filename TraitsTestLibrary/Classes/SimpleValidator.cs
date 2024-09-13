@@ -41,7 +41,7 @@ namespace TraitsTestLibrary.Classes
 
         public ValidationResponse()
         {
-            Results = new List<ValidationResult>();
+            Results = [];
             IsValid = false;
         }
     }
