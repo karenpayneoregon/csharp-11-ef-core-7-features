@@ -58,7 +58,8 @@ internal class Samples
         Console.WriteLine($"'{sentence}'");
         Console.WriteLine($"'{sentence.RemoveExtraSpaces()}'");
         Console.WriteLine($"'{sentence.RemoveExtraSpaces().TrimLastCharacter()}'");
-        Console.WriteLine($"'{sentence.RemoveExtraSpaces().ReplaceLastOccurrence(" ", "!!!")}'");
+        Console.WriteLine($"'{sentence.RemoveExtraSpaces()
+            .ReplaceLastOccurrence(" ", "!!!")}'");
     }
 
     /// <summary>
@@ -85,5 +86,25 @@ internal class Samples
         return lines.ReplaceLineEndings("\n");
         
     }
+    public static string LineEndings()
+    {
+        const string lines =
+            """
+            January
+            February
+            March
+            April
+            May
+            June
+            July
+            August
+            September
+            October
+            November
+            December
+            """;
 
+        return lines.ReplaceLineEndings("<br/>");
+
+    }
 }

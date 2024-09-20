@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
 
 namespace QuestionOfTheDay.Classes;
 

@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Security.Cryptography;
+using System.Text;
 using WinFormsApp2.Classes;
 
 namespace WinFormsApp2;
@@ -56,5 +58,34 @@ public partial class MainForm : Form
     {
         M_Selecao.Enabled = sender;
     }
+
+    private void button3_Click(object sender, EventArgs e)
+    {
+        //string randomAlphanumericString = RandomNumberGenerator.GetString(
+        //    choices: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",
+        //    length: 10
+        //);
+        //Debug.WriteLine(randomAlphanumericString);
+
+        Debug.WriteLine(Helpers.RandomNumberString(20));
+        string[] names = ["John", "Karen", "Adam", "Kevin", "Mary", "Ben", "Terry"];
+        var result = names.RandomElements(3);
+        Debug.WriteLine(string.Join(", ", result));
+
+    }
+}
+
+public static class Helpers
+{
+    public static string RandomNumberString(int length) =>
+        RandomNumberGenerator.GetString(
+            choices: new string('a'.To('z').Concat('A'.To('Z')).Concat('0'.To('9')).ToArray()),
+            length: length
+        );
+    public static T[] RandomElements<T>(this T[] source, int count) =>
+        RandomNumberGenerator.GetItems<T>(source,count);
+
+    public static IEnumerable<char> To(this char start, char end) => 
+        Enumerable.Range(start, end - start + 1).Select(index => (char)index);
 }
 

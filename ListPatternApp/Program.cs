@@ -18,10 +18,10 @@ internal partial class Program
         ValidatingLinesInTextFile3();
         //MicrosoftSample();
         //StringArrayMatchFirstThreeAndLastElement1();
-        //StringArrayMatchFirstThreeAndLastElement2();
+        StringArrayMatchFirstThreeAndLastElement2();
         //StringArrayMatchFirstThreeElements();
         //IntegerArrayMisMatchFirstThreeElements();
-        //IntegerArrayMatchFirstThreeElements();
+        IntegerArrayMatchFirstThreeElements();
 
         var parts = MockedLinesFromFile()
             .Where(x=> !string.IsNullOrWhiteSpace(x))
@@ -229,7 +229,7 @@ internal partial class Program
     {
         Print();
 
-        string[] data = { "Mike,Jones,10,True", "Jane,Adams,A,True", "Karen,Smith,10,true", "Anne,Smith,50,false" };
+        string[] data = ["Mike,Jones,10,True", "Jane,Adams,A,True", "Karen,Smith,10,true", "Anne,Smith,50,false"];
 
         string[] lines = data
             .Where(x => !string.IsNullOrWhiteSpace(x))
@@ -291,14 +291,10 @@ internal partial class Program
         ];
 
         // if 1st three elements are January February March and last element is December continue
-        if (months is ["January" or "january", "February", "March", _ , _ , _ , _ , _ , _ , _ , _ , "December"])
-        {
-            Console.WriteLine("Match");
-        }
-        else
-        {
-            Console.WriteLine("Failed");
-        }
+        Console.WriteLine(months is ["January" or "january", "February", "March", .. var monthNames, 
+            "December"]
+            ? $"between months: {string.Join(",", monthNames)}"
+            : "Failed");
 
         Console.WriteLine();
 
@@ -358,9 +354,9 @@ internal partial class Program
 
         Print();
 
-        var list1 = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        var list1 = new[] { 1, 2, 4, 3, 5, 6, 7, 8, 9, 10 };
 
-        if (list1 is [1, 2, 3, .. var values])
+        if (list1 is [1, 2, 4, .. var values])
         {
             Console.WriteLine(string.Join(",", values));
         }
@@ -372,4 +368,6 @@ internal partial class Program
         Console.WriteLine();
 
     }
+
+
 }

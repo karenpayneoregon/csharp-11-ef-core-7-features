@@ -35,6 +35,7 @@ partial class MainForm
         menuStrip1 = new MenuStrip();
         mainToolStripMenuItem = new ToolStripMenuItem();
         M_Selecao = new ToolStripMenuItem();
+        button3 = new Button();
         menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
@@ -98,14 +99,25 @@ partial class MainForm
         // M_Selecao
         // 
         M_Selecao.Name = "M_Selecao";
-        M_Selecao.Size = new Size(224, 26);
+        M_Selecao.Size = new Size(134, 26);
         M_Selecao.Text = "Item 1";
+        // 
+        // button3
+        // 
+        button3.Location = new Point(389, 158);
+        button3.Name = "button3";
+        button3.Size = new Size(94, 29);
+        button3.TabIndex = 5;
+        button3.Text = "button3";
+        button3.UseVisualStyleBackColor = true;
+        button3.Click += button3_Click;
         // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(569, 227);
+        Controls.Add(button3);
         Controls.Add(button2);
         Controls.Add(revealPasswordButton);
         Controls.Add(passwordTextBox);
@@ -131,4 +143,5 @@ partial class MainForm
     private MenuStrip menuStrip1;
     private ToolStripMenuItem mainToolStripMenuItem;
     private ToolStripMenuItem M_Selecao;
+    private Button button3;
 }

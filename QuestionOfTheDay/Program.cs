@@ -1,4 +1,6 @@
-﻿using QuestionOfTheDay.Classes;
+﻿using AgeCalculator;
+using AgeCalculator.Extensions;
+using QuestionOfTheDay.Classes;
 using QuestionOfTheDay.Extensions;
 using QuestionOfTheDay.Models;
 using static QuestionOfTheDay.Classes.SpectreConsoleHelpers;
@@ -11,6 +13,15 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
+
+        var lineBreaks = Samples.LineEndings();
+        var dob = DateTime.Parse("09/24/1956 00:00:02");
+
+        var age1 = new DateOnly(1956, 9, 24).CalculateAge(DateTime.Today, true);
+        Console.WriteLine($"Age1 = {age1.Years} years, {age1.Months} months {age1.Days} days, {age1.Time:hh\\:mm}");
+        // #1. Using the Age class constructor.
+        var age = new Age(dob, DateTime.Today); // as of 09/19/2021
+        Console.WriteLine($"Age: {age.Years} years, {age.Months} months, {age.Days} days, {age.Time}");
 
         //Language language = MenuChoices.LanguageChoice;
         //if (language.Id == -1)
@@ -33,9 +44,9 @@ internal partial class Program
         //int age = (now - dob) / 10000;
         //Console.WriteLine(age);
 
-        //Console.WriteLine(new DateOnly(1900, 9, 24).GetAge());
+        Console.WriteLine(new DateOnly(1956, 9, 24).GetAge());
 
-        Console.WriteLine(Samples.January25Challenge());
+        //Console.WriteLine(Samples.January25Challenge());
 
         ExitPrompt();
     }
@@ -68,6 +79,12 @@ internal partial class Program
 
 public static class SomeExtensions
 {
+    /// <summary>
+    /// https://stackoverflow.com/questions/9/how-do-i-calculate-someones-age-based-on-a-datetime-type-birthday
+    /// https://stackoverflow.com/a/11942/5509738
+    /// </summary>
+    /// <param name="dateOfBirth"></param>
+    /// <returns></returns>
     public static int GetAge(this DateOnly dateOfBirth)
     {
         var today = DateTime.Today;

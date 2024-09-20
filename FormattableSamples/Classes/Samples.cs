@@ -4,8 +4,6 @@ using FormattableSamples.Models;
 using static FormattableSamples.Classes.SpectreConsoleHelpers;
 using static FormattableSamples.Classes.UtilityExtensions;
 using static System.FormattableString;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace FormattableSamples.Classes;
 internal class Samples
@@ -113,7 +111,17 @@ internal class Samples
 
     }
 
-
+    public static string CreateTemplate(string name, string team, string position) =>
+        FormattableStringFactory
+            .Create("""
+                    My name is {0}
+                    and I am working in the
+                    {1}
+                    team\\n as a {2}
+                    """, 
+                name,
+                team, 
+                position).ToString();
 
     public static void TheWeekend()
     {

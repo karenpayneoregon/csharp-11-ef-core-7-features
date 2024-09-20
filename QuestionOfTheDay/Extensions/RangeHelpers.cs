@@ -11,7 +11,7 @@ public static class RangeHelpers
             Value = element,
             StartIndex = new Index(index),
             EndIndex = new Index(sender.Count - index - 1, true),
-            MonthIndex = index + 1
+            Index = index + 1
         }).ToList();
 
     public static List<Container<T>> Get<T>(this T[] sender) =>
@@ -20,6 +20,6 @@ public static class RangeHelpers
             Value = element,
             StartIndex = new Index(index),
             EndIndex = new Index(sender.Length - index - 1, true),
-            MonthIndex = index + 1
+            Index = index + 1
         }).ToList();
 }

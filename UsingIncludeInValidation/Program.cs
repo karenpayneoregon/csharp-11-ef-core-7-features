@@ -1,4 +1,6 @@
-﻿using FluentValidation;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using FluentValidation;
 using Microsoft.Extensions.Configuration;
 
 namespace UsingIncludeInValidation;
