@@ -23,13 +23,3 @@ public class Person
     [Dump(6)]
     public Address Address { get; set; }
 }
-
-public class Human
-{
-    [Dump(1)]
-    public int Id { get; set; }
-    [Dump(2)]
-    public string FirstName { get; set; }
-    [Dump(3)]
-    public string LastName { get; set; }
-}
