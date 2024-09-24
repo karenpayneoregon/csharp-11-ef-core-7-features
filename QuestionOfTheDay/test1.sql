@@ -11,5 +11,5 @@ SELECT Id,
        FirstName,
        LastName,
        BirthDate,
-       (CAST(FORMAT(GETDATE(), 'yyyyMMdd') AS INTEGER) - CAST(FORMAT(BirthDate, 'yyyyMMdd') AS INTEGER)) / 10000
+       (CAST(FORMAT(GETDATE(), 'yyyyMMdd') AS INTEGER) - CAST(FORMAT(BirthDate, 'yyyyMMdd') AS INTEGER)) / 10000 AS Age
   FROM dbo.BirthDays;

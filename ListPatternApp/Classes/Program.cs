@@ -16,7 +16,7 @@ internal partial class Program
 
     private static void Print([CallerMemberName] string? methodName = null)
     {
-        AnsiConsole.MarkupLine($"[white on blue]{methodName.SplitCamelCase()}[/]");
+        AnsiConsole.MarkupLine($"[white on blue]{methodName.SplitCase()}[/]");
         Console.WriteLine();
     }
 }
