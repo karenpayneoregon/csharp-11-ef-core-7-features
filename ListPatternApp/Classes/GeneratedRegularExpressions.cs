@@ -17,4 +17,7 @@ public static partial class StringExtensions
 
     [GeneratedRegex("[0-9][0-9 ]{13,}[0-9]")]
     private static partial Regex CreditCardMaskRegEx();
+
+    [GeneratedRegex(@"^(?=\\w{0,4}\\p{L})(?=\\w{0,4}\\d)\\w{5}")]
+    private static partial Regex SpecialRegEx();
 }

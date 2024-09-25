@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace GeneratedRegexApp.Classes;
 
@@ -23,6 +24,8 @@ public static partial class StringExtensions
     public static bool ValidatePassword(this string password)
         => PasswordRegEx().IsMatch(password);
 
+    public static bool ValidateString(this string input) 
+        => ValidateStringRegex().IsMatch(input);
 
     /// <summary>
     /// Gets the next value by incrementing the numeric suffix in the given string.

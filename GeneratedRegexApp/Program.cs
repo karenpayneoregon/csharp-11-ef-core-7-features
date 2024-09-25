@@ -1,5 +1,6 @@
 ﻿using GeneratedRegexApp.Classes;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 using StringExtensions = GeneratedRegexApp.Classes.StringExtensions;
 
 
@@ -13,13 +14,28 @@ internal partial class Program
         Samples.ValidatePassword();
         Samples.NextValueExample();
 
+        Samples.ValidateString();
+
         SpectreConsoleHelpers.ExitPrompt();
     }
 
 }
 
-public class Samples
+public partial class Samples
 {
+    // https://stackoverflow.com/questions/79021453/check-for-at-least-1-digit-and-1-letter-within-the-first-n-characters
+    public static void ValidateString()
+    {
+        Console.WriteLine();
+        SpectreConsoleHelpers.PrintCyan();
+
+        List<string> list = ["QAA1A", "QAAQB", "QAA1C", "QAA1D", "QAA1"];
+
+        foreach (var item in list)
+        {
+            Console.WriteLine($"{item,-10}{item.ValidateString().ToYesNo()}");
+        }
+    }
     public static void ValidatePassword()
     {
         Console.WriteLine();
@@ -80,4 +96,7 @@ public class Samples
             Console.WriteLine($"{originals[index].Number,-20}{invoices[index].Number,-12}");
         }
     }
+
+    [GeneratedRegex("^(?=\\w{0,4}\\p{L})(?=\\w{0,4}\\d)\\w{5}")]
+    private static partial Regex ValidateStringRegex();
 }
