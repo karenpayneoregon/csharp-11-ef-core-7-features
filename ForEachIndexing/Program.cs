@@ -10,22 +10,25 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        //ReadOnlySpan<string> lines = File.ReadAllLines("CountryCodes.txt");
+        //FindInvalidLinesInFileExample2();
 
-        FindInvalidLinesInFileExample2();
-        Console.WriteLine();
-        //var listEnumerator = lines.GetEnumerator();
+        ReadOnlySpan<string> lines = File.ReadAllLines("CountryCodes.txt");
 
-        //for (var index = 0; listEnumerator.MoveNext(); index++)
-        //{
-        //    var line = listEnumerator.Current;
-        //    //Console.WriteLine($"{index, -5}{line}");
-        //    var parts = line.Split(',');
-        //    if (parts.Length < 2)
-        //    {
-        //        Console.WriteLine($"Line {index + 1} is invalid: {line}");
-        //    }
-        //}
+        var listEnumerator = lines.GetEnumerator();
+
+        for (var index = 0; listEnumerator.MoveNext(); index++)
+        {
+            var line = listEnumerator.Current;
+
+            Console.WriteLine($"{index, -5}{line}");
+
+            var parts = line.Split(',');
+            if (parts.Length < 2)
+            {
+                Console.WriteLine($"Line {index + 1} is invalid: {line}");
+            }
+        }
+
         //FindInvalidLinesInFileExample2();
 
 

@@ -1,5 +1,7 @@
 using KeyedServiceProject1.Classes;
 using KeyedServiceProject1.Interfaces;
+using Serilog;
+using SeriLogThemesLibrary;
 
 namespace KeyedServiceProject1;
 public class Program
@@ -17,15 +19,16 @@ public class Program
             SecondNotification>(ServiceKeys.Second);
 
 
-
         SetupLogging.Development();
-        var app = builder.Build();
+        //builder.Services.AddSerilog();
 
+
+        var app = builder.Build();
+        //app.UseSerilogRequestLogging();
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
         {
             app.UseExceptionHandler("/Error");
-            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
 

@@ -14,6 +14,15 @@ internal partial class Program
     static void Main(string[] args)
     {
 
+        if (Question("Continue?"))
+        {
+            //
+        }
+        else
+        {
+            //
+        }
+
         var lineBreaks = Samples.LineEndings();
         var dob = DateTime.Parse("09/24/1956 00:00:02");
 
@@ -96,8 +105,11 @@ public static class SomeExtensions
     }
 
 
-    public static string RemoveLastCharacters(this string sender, int count = 4)
+    public static string RemoveLastCharacters1(this string sender, int count = 1)
         => sender[..^count];
+
+    public static string RemoveLastCharacters2(this string sender, int count = 1)
+        => new(sender.AsSpan()[..^count]);
 
     public static int Age(this string sender) => int.Parse(sender);
 

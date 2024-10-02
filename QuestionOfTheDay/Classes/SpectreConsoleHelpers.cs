@@ -3,7 +3,7 @@
 
 namespace QuestionOfTheDay.Classes;
 
-public class SpectreConsoleHelpers
+public partial class SpectreConsoleHelpers
 {
     public static void ExitPrompt()
     {
@@ -35,5 +35,6 @@ public class SpectreConsoleHelpers
     public static string PrintValue<T>(T item) => $"[cyan]{item.ToString()}[/]";
     public static string PrintYes<T>(T item) => $"[green]{item.ToString()}[/]";
     public static string PrintNo<T>(T item) => $"[red]{item.ToString()}[/]";
-    
+
+
 }

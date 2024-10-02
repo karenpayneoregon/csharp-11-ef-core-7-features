@@ -9,13 +9,14 @@ internal partial class Program
     public static void Init()
     {
         Console.Title = $"Question of the day for '{DateTime.Now:D}'";
+        Console.Title = $"Sample";
         WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
     }
 
     private static void January12Question()
     {
 
-        var array = new[] { 1, 2, 3, 4, 5 };
+        int[] array = [1, 2, 3, 4, 5];
 
         var firstThree1 = array[..3];
         var lastThree1 = array[^3..];

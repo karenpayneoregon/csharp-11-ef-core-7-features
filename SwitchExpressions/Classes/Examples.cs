@@ -140,9 +140,13 @@ namespace SwitchExpressions.Classes
             Console.ReadLine();
         }
 
+
         /// <summary>
-        /// Try working with different conditions for different outcomes like adding a zip code
+        /// Demonstrates the use of recursive pattern matching with a <see cref="Customer"/> object.
         /// </summary>
+        /// <exception cref="ArgumentNullException">
+        /// Thrown when the <see cref="Customer"/> object is null.
+        /// </exception>
         public static void RecursivePatternMatching()
         {
             const string state = "WA";
@@ -156,7 +160,7 @@ namespace SwitchExpressions.Classes
                 ShipmentStatus = Shipment.State.Delivered,
                 Address = new() { Street = "123 Apple street", State = "OR", Zip = "1111" }
             };
-
+            
             var message = customer switch
             {
                 { ShipmentStatus: Shipment.State.Ordered } => "Congrats on your order",

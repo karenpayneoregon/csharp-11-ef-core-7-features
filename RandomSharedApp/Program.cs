@@ -11,6 +11,10 @@ internal partial class Program
         await Example();
         Console.ReadLine();
     }
+    /// <summary>
+    /// Executes an example asynchronous operation that generates a list of people,
+    /// selects random items from the list, and prints their details to the console.
+    /// </summary>
     private static async Task Example()
     {
         List<Human> people = BogusOperations.People(100);

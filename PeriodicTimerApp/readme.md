@@ -2,4 +2,10 @@ An example for [PeriodicTimer](https://learn.microsoft.com/en-us/dotnet/api/syst
 
 Any errors are sent to a log file using [SeriLog](https://serilog.net/) along with displaying the error to Visual Studio output window when executed from debugging via <kbd>F5</kbd>
 
+<style type="text/css">
+	img[alt=thumbNail] { width: 350px; }
+</style>
+
 ![Figure1](assets/figure1.png)
+
+[<img src="assets/figure1.png" alt="thumbNail"/>](assets/figure1.png)
