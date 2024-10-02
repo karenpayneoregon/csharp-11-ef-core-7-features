@@ -7,6 +7,6 @@ internal class BogusOperations
 {
     public static List<FileContainer> Items(int count = 10)
     {
-        return Folders.File().Generate(count);
+        return FolderDataSet.File().Generate(count);
     }
 }

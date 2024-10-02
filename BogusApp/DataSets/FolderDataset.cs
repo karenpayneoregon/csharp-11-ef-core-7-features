@@ -3,7 +3,7 @@ using BogusApp.Models;
 
 namespace BogusApp.DataSets;
 
-public class Folders : DataSet
+public class FolderDataSet : DataSet
 {
     
 

@@ -8,6 +8,6 @@ public static class BogusExtensions
     /// <summary>
     /// Entry point for faker RuleFor
     /// </summary>
-    public static Folders ItemHelper(this Faker faker)
-        => ContextHelper.GetOrSet(faker, () => new Folders());
+    public static FolderDataSet ItemHelper(this Faker faker)
+        => ContextHelper.GetOrSet(faker, () => new FolderDataSet());
 }
