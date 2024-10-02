@@ -1,6 +1,4 @@
-﻿using Bogus;
-using Bogus.Bson;
-using BogusApp.DataSets;
+﻿using BogusApp.Classes;
 
 namespace BogusApp;
 
@@ -17,23 +15,9 @@ internal partial class Program
         }
 
 
-        AnsiConsole.MarkupLine("[yellow]Hello[/]");
+        AnsiConsole.MarkupLine("[yellow]Press a key...[/]");
 
         Console.ReadLine();
     }
 
-}
-
-public record FileContainer
-{
-    public string FileName { get; set; }
-    public sealed override string ToString() => FileName;
-}
-
-internal class BogusOperations
-{
-    public static List<FileContainer> Items(int count = 10)
-    {
-        return Folders.File().Generate(count);
-    }
 }

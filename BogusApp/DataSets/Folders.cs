@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using BogusApp.Models;
 
 namespace BogusApp.DataSets;
 
