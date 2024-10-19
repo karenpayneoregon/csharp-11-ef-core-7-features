@@ -30,7 +30,8 @@ public static class Extensions
     /// <c>true</c> if the value is between the lower and upper bounds, inclusive; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsBetween<T>(this T value, T lowerValue, T upperValue) where T : struct, IComparable<T>
-        => Comparer<T>.Default.Compare(value, lowerValue) >= 0 && Comparer<T>.Default.Compare(value, upperValue) <= 0;
+        => Comparer<T>.Default.Compare(value, lowerValue) >= 0 && 
+           Comparer<T>.Default.Compare(value, upperValue) <= 0;
 
     /// <summary>
     /// Determines whether the specified value is strictly between the given lower and upper bounds.
@@ -43,7 +44,8 @@ public static class Extensions
     /// <c>true</c> if the value is strictly between the lower and upper bounds; otherwise, <c>false</c>.
     /// </returns>
     public static bool BetweenExclusive<T>(this IComparable<T> sender, T minimumValue, T maximumValue)
-        => sender.CompareTo(minimumValue) > 0 && sender.CompareTo(maximumValue) < 0;
+        => sender.CompareTo(minimumValue) > 0 && 
+           sender.CompareTo(maximumValue) < 0;
 
     /// <summary>
     /// Determines whether the specified value is strictly between the given lower and upper bounds.
@@ -56,7 +58,8 @@ public static class Extensions
     /// <c>true</c> if the value is strictly between the lower and upper bounds; otherwise, <c>false</c>.
     /// </returns>
     public static bool IsBetweenExclusive<T>(this IComparable<T> sender, T minimumValue, T maximumValue)
-        => sender.CompareTo(minimumValue) > 0 && sender.CompareTo(maximumValue) < 0;
+        => sender.CompareTo(minimumValue) > 0 && 
+           sender.CompareTo(maximumValue) < 0;
 
 
 }
