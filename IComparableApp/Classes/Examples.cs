@@ -7,6 +7,7 @@ internal class Examples
     public static void BetweenChars()
     {
         PrintHeader();
+
         var item = 'b'.Between('a', 'c');
         AnsiConsole.MarkupLine($"Is [blue]b[/] between [blue]a[/] and [blue]c[/] {PrintYes(item.ToYesNo())}");
         Console.WriteLine();
@@ -33,10 +34,22 @@ internal class Examples
             value = 9;
         }
 
-
+        AnsiConsole.MarkupLine($"[{Color.Fuchsia}]Nullable int[/]");
         AnsiConsole.MarkupLine($"Is {PrintValue(value)} between " +
                                $"{PrintValue(start)} and {PrintValue(end)}? " +
                                $"{PrintYes(value.Value.Between(start.Value, end.Value).ToYesNo())}");
+
+        Console.WriteLine();
+
+        AnsiConsole.MarkupLine($"[{Color.Fuchsia}]int[/]");
+
+        foreach (var (index, item) in MockedInt.List.Index())
+        {
+            AnsiConsole.MarkupLine($"{index,-3}Is " +
+                                   $"{PrintValue(item.Value)} between " +
+                                   $"{PrintValue(item.Start)} and {PrintValue(item.End)}? " +
+                                   $"{PrintYes(item.Value.Between(item.Start, item.End).ToYesNo())}");
+        }
 
 
     }
@@ -44,14 +57,14 @@ internal class Examples
     {
         PrintHeader();
 
-        decimal start = 5;
-        decimal end = 9.6m;
 
-        string output = $"Is {PrintValue(value)} between " +
-                        $"{PrintValue(start)} and {PrintValue(end)}? " +
-                        $"{PrintYes(value.Between(start, end).ToYesNo())}";
-
-        AnsiConsole.MarkupLine(output);
+        foreach (var (index, item) in MockedDecimals.List.Index())
+        {
+            AnsiConsole.MarkupLine($"{index,-3}Is " +
+                                   $"{PrintValue(item.Value)} between " +
+                                   $"{PrintValue(item.Start)} and {PrintValue(item.End)}? " +
+                                   $"{PrintYes(item.Value.Between(item.Start, item.End).ToYesNo())}");
+        }
 
     }
 
@@ -59,15 +72,14 @@ internal class Examples
     {
         PrintHeader();
 
-        DateTime start = new(2023, 11, 1, 14, 0, 0);
-        DateTime end = new(2023, 11, 22, 16, 0, 0);
-        DateTime value = new(2023, 11, 22, 15, 0, 0);
 
-        var result = value.Between(start, end);
-
-        AnsiConsole.MarkupLine($"Is {PrintValue(value)} between " +
-                               $"{PrintValue(start)} and {PrintValue(end)}? " +
-                               $"{PrintYes(value.Between(start, end).ToYesNo())}");
+        foreach (var (index, item) in MockedDateTimes.List.Index())
+        {
+            AnsiConsole.MarkupLine($"{index,-3}Is " +
+                                   $"{PrintValue(item.Value)} between " +
+                                   $"{PrintValue(item.Start)} and {PrintValue(item.End)}? " +
+                                   $"{PrintYes(item.Value.Between(item.Start, item.End).ToYesNo())}");
+        }
 
 
     }
@@ -76,16 +88,14 @@ internal class Examples
     {
         PrintHeader();
 
-        DateOnly start = new(2023, 11, 1);
-        DateOnly end = new(2023, 11, 22);
-        DateOnly value = new(2023, 11, 1);
 
-        var result = value.Between(start, end);
-
-        AnsiConsole.MarkupLine($"Is {PrintValue(value)} between " +
-                               $"{PrintValue(start)} and {PrintValue(end)}? " +
-                               $"{PrintYes(value.Between(start, end).ToYesNo())}");
-
+        foreach (var (index, item) in MockedDateOnlyItem.List.Index())
+        {
+            AnsiConsole.MarkupLine($"{index,-3}Is " +
+                                   $"{PrintValue(item.Value)} between " +
+                                   $"{PrintValue(item.Start)} and {PrintValue(item.End)}? " +
+                                   $"{PrintYes(item.Value.Between(item.Start, item.End).ToYesNo())}");
+        }
 
     }
 
@@ -93,16 +103,13 @@ internal class Examples
     {
         PrintHeader();
 
-        TimeOnly start = new(14, 0, 0);
-        TimeOnly end = new(13, 0, 0);
-        TimeOnly value = new(16, 0, 0);
-
-        var result = value.Between(start, end);
-
-        AnsiConsole.MarkupLine($"Is {PrintValue(value)} between " +
-                               $"{PrintValue(start)} and {PrintValue(end)}? " +
-                               $"{PrintNo(value.Between(start, end).ToYesNo())}");
-
+        foreach (var (index, item) in MockedTimeOnlyItem.List.Index())
+        {
+            AnsiConsole.MarkupLine($"{index,-3}Is " +
+                                   $"{PrintValue(item.Value)} between " +
+                                   $"{PrintValue(item.Start)} and {PrintValue(item.End)}? " +
+                                   $"{PrintYes(item.Value.Between(item.Start, item.End).ToYesNo())}");
+        }
 
     }
 
@@ -120,22 +127,7 @@ internal class Examples
         isBetween = TimeOnly.Parse("1:00 PM").IsBetween(startTime, endTime);
         Console.WriteLine($"1:00 PM is between {startTime} and {endTime} -> {isBetween.ToYesNo()}"); // No
 
-        //WhereDatesBetween
 
     }
 
-    public static void Deconstruction1()
-    {
-        {
-            var (_, contentId, answer) = Deconstruction.Demo1(1);
-        }
-
-        {
-            var (id, contentID, answer) = Deconstruction.Demo2(1);
-        }
-
-        {
-            var (id, contentId, answer) = Deconstruction.Conventional(1);
-        }
-    }
 }
