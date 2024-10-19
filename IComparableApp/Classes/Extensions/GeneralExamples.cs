@@ -35,10 +35,9 @@ public static class GeneralExamples
     /// <returns>
     /// <c>true</c> if the date is between the start and end dates; otherwise, <c>false</c>.
     /// </returns>
-    public static bool IsBetweenTwoDateOnly(this DateOnly date, DateOnly startDate, DateOnly endDate)
-    {
-        return date >= startDate && date <= endDate;
-    }
+    public static bool IsBetweenTwoDateOnly(this DateOnly date, DateOnly startDate, DateOnly endDate) 
+        => date >= startDate && date <= endDate;
+
     /// <summary>
     /// Determines whether a specified character value falls within the range defined by the start and end values of the given range.
     /// </summary>

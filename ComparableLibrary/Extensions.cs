@@ -16,7 +16,8 @@ public static class Extensions
     /// <c>true</c> if the value is between the lower and upper bounds, inclusive; otherwise, <c>false</c>.
     /// </returns>
     public static bool Between<T>(this T value, T lowerValue, T upperValue) where T : struct, IComparable<T>
-        => Comparer<T>.Default.Compare(value, lowerValue) >= 0 && Comparer<T>.Default.Compare(value, upperValue) <= 0;
+        => Comparer<T>.Default.Compare(value, lowerValue) >= 0 && 
+           Comparer<T>.Default.Compare(value, upperValue) <= 0;
 
     /// <summary>
     /// Determines whether the specified value is between the given lower and upper bounds, inclusive.
