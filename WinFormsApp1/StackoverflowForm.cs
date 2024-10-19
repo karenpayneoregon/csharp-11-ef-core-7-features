@@ -1,4 +1,6 @@
 ﻿
+using System.Text.Json;
+
 namespace WinFormsApp1;
 public partial class StackoverflowForm : Form
 {
@@ -36,7 +38,7 @@ public partial class StackoverflowForm : Form
     private void YearsOldButton_Click(object sender, EventArgs e)
     {
         {
-            int now = 2024_08_26;
+            int now = 2024_10_15;
             int dob = 1956_09_24;
             var age = (now - dob) / 10000;
         }
@@ -57,6 +59,10 @@ public partial class StackoverflowForm : Form
 
     }
 
+    private void button1_Click(object sender, EventArgs e)
+    {
+
+    }
 }
 
 public class Item

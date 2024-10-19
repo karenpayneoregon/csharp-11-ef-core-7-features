@@ -9,8 +9,8 @@ public static class RangeHelpers
         sender.Select((element, index) => new Container<T>
         {
             Value = element,
-            StartIndex = new Index(index),
-            EndIndex = new Index(sender.Count - index - 1, true),
+            StartIndex = new(index),
+            EndIndex = new(sender.Count - index - 1, true),
             Index = index + 1
         }).ToList();
 
@@ -18,8 +18,8 @@ public static class RangeHelpers
         sender.Select((element, index) => new Container<T>
         {
             Value = element,
-            StartIndex = new Index(index),
-            EndIndex = new Index(sender.Length - index - 1, true),
+            StartIndex = new(index),
+            EndIndex = new(sender.Length - index - 1, true),
             Index = index + 1
         }).ToList();
 }

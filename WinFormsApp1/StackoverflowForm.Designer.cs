@@ -31,6 +31,7 @@ partial class StackoverflowForm
         comboBox1 = new ComboBox();
         SelectedItemButton = new Button();
         YearsOldButton = new Button();
+        button1 = new Button();
         SuspendLayout();
         // 
         // comboBox1
@@ -62,11 +63,22 @@ partial class StackoverflowForm
         YearsOldButton.UseVisualStyleBackColor = true;
         YearsOldButton.Click += YearsOldButton_Click;
         // 
+        // button1
+        // 
+        button1.Location = new Point(45, 141);
+        button1.Name = "button1";
+        button1.Size = new Size(94, 29);
+        button1.TabIndex = 3;
+        button1.Text = "button1";
+        button1.UseVisualStyleBackColor = true;
+        button1.Click += button1_Click;
+        // 
         // StackoverflowForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(button1);
         Controls.Add(YearsOldButton);
         Controls.Add(SelectedItemButton);
         Controls.Add(comboBox1);
@@ -80,4 +92,5 @@ partial class StackoverflowForm
     private ComboBox comboBox1;
     private Button SelectedItemButton;
     private Button YearsOldButton;
+    private Button button1;
 }

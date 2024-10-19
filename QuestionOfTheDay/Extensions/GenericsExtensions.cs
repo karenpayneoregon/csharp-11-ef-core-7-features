@@ -3,7 +3,7 @@
 namespace QuestionOfTheDay.Extensions;
 
 
-public static class GenericsExtensions
+public static partial class GenericsExtensions
 {
     public static int FractionalNumber<T>(this T sender) where T : INumber<T>
     {

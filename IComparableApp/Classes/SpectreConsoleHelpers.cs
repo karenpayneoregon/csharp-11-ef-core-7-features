@@ -28,8 +28,9 @@ public class SpectreConsoleHelpers
     }
     public static void PrintHeader([CallerMemberName] string? methodName = null)
     {
-        AnsiConsole.MarkupLine($"[yellow]{methodName}[/]");
         Console.WriteLine();
+        AnsiConsole.MarkupLine($"[yellow]{methodName}[/]");
+   
     }
 
     public static string PrintValue<T>(T item) => $"[cyan]{item!.ToString()}[/]";

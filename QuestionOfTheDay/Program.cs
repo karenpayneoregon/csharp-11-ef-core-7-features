@@ -56,6 +56,15 @@ internal partial class Program
         Console.WriteLine(new DateOnly(1956, 9, 24).GetAge());
 
         //Console.WriteLine(Samples.January25Challenge());
+        AnsiConsole.MarkupLine("[yellow]Hello[/] [red]World[/]");
+
+        IEnumerable<string> lines2 = File.ReadAllLines("output.txt");
+        foreach ((int index, string line) in lines2.Index())
+        {
+            Console.WriteLine($"{index + 1,-4}{line}");
+        }
+
+
 
         ExitPrompt();
     }

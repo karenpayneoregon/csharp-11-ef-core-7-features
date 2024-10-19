@@ -19,7 +19,7 @@ internal partial class Program
             await context.Database.EnsureCreatedAsync();
         }
 
-        var people = await context.BirthDays.ToListAsync();
+        var people = await context.BirthDays.OrderBy(x => x.LastName).ToListAsync();
 
         var table = CreateTable();
         foreach (var p in people)

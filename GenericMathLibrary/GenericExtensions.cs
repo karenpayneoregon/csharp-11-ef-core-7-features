@@ -137,21 +137,44 @@ public static class GenericExtensions
             .Select(result => result.Value)
             .ToArray();
 
-    
+
     /// <summary>
     /// Get non numeric value indices
     /// </summary>
     /// <typeparam name="T">type</typeparam>
     /// <param name="sender">string array</param>
     /// <returns>array of indices if there are any non-numeric values</returns>
-    public static int[] GetNonNumericIndexes<T>(this string[] sender) where T : INumber<T> =>
-        sender.Select(
-                (item, index) => T.TryParse(item, NumberStyles.Any | NumberStyles.AllowDecimalPoint, CultureInfo.CurrentCulture, out _) ?
-                    new { IsNumber = true, Index = index } :
-                    new { IsNumber = false, Index = index })
-            .ToArray()
-            .Where(item => item.IsNumber == false)
-            .Select(item => item.Index).ToArray();
+    //public static int[] GetNonNumericIndexes<T>(this string[] sender) where T : INumber<T> =>
+    //    sender.Select(
+    //            (item, index) => T.TryParse(item, NumberStyles.Any | NumberStyles.AllowDecimalPoint, CultureInfo.CurrentCulture, out _) ?
+    //                new { IsNumber = true, Index = index } :
+    //                new { IsNumber = false, Index = index })
+    //        .ToArray()
+    //        .Where(item => item.IsNumber == false)
+    //        .Select(item => item.Index).ToArray();
+    public static int[] GetNonNumericIndexes<T>(this string[] sender) where T : INumber<T>
+    {
+        int count = 0;
+        int length = sender.Length;
+        // First pass: count non-numeric values
+        for (int i = 0; i < length; i++)
+        {
+            if (T.TryParse(sender[i], NumberStyles.Any | NumberStyles.AllowDecimalPoint, CultureInfo.CurrentCulture,
+                    out _)) continue;
+            count++;
+        }
+        // Allocate array of the required size
+        int[] indexes = new int[count];
+        int index = 0;
+        // Second pass: fill the array with indices
+        for (int i = 0; i < length; i++)
+        {
+            if (T.TryParse(sender[i], NumberStyles.Any | NumberStyles.AllowDecimalPoint, CultureInfo.CurrentCulture,
+                    out _)) continue;
+            indexes[index++] = i;
+        }
+        return indexes;
+    }
 
     /// <summary>
     /// Add ellipsis-es to the end of type and convert to a string
