@@ -3,7 +3,7 @@ using RegularExpressionsTimeOutApp.Models;
 
 namespace RegularExpressionsTimeOutApp.Classes;
 
-public class RegularExpressionsOperations
+public class RegExOperations
 {
 
 

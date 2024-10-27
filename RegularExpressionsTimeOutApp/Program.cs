@@ -8,12 +8,12 @@ internal partial class Program
     static void Main(string[] args)
     {
         // set regular expression timeout from appsettings.json
-        RegularExpressionsOperations.SetTimeout();
+        RegExOperations.SetTimeout();
 
         /*
          * If no timeout there is no default timeout for regular expression operations.
          */
-        TimeSpan? time = RegularExpressionsOperations.GetTimeout();
+        TimeSpan? time = RegExOperations.GetTimeout();
         string formatted = $"{time?.Days:#0:;;\\}{time?.Hours:#0:;;\\}{time?.Minutes:00:}{time?.Seconds:00}";
         AnsiConsole.MarkupLine($"[yellow]Regular Expressions domain Timeout[/] " +
                                $"[white]{formatted}[/]");
@@ -24,7 +24,7 @@ internal partial class Program
         try
         {
             bool result = NumberPatternRegex().IsMatch(input);
-            Console.WriteLine($"Result: {result}");
+            AnsiConsole.MarkupLine($"[cyan]Success?[/] [white]{result.ToYesNo()}[/]");
         }
         catch (RegexMatchTimeoutException ex)
         {
