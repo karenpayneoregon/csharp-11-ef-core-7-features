@@ -53,7 +53,7 @@ internal class Examples
 
 
     }
-    public static void BetweenDecimal(decimal value = 9.9m)
+    public static void BetweenDecimal()
     {
         PrintHeader();
 
@@ -67,7 +67,6 @@ internal class Examples
         }
 
     }
-
     public static void BetweenDateTime()
     {
         PrintHeader();
@@ -86,9 +85,9 @@ internal class Examples
 
     public static void BetweenDateOnly()
     {
+
         PrintHeader();
-
-
+        
         foreach (var (index, item) in MockedDateOnlyItem.List.Index())
         {
             AnsiConsole.MarkupLine($"{index,-3}Is " +
