@@ -1,19 +1,16 @@
 ﻿using Microsoft.Extensions.Configuration;
+using static ConsoleConfigurationLibrary.Classes.Configuration;
 
 namespace RegularExpressionsTimeOutApp.Classes;
+
+/// <summary>
+/// Provides configuration-related functionalities for the RegularExpressionsTimeOutApp.
+/// </summary>
+/// <remarks>
+/// JsonRoot() requires NuGet package ConsoleConfigurationLibrary
+/// </remarks>
 public static class Configuration
 {
-    /// <summary>
-    /// Builds and returns the application's configuration root.
-    /// </summary>
-    /// <returns>An <see cref="IConfigurationRoot"/> object representing the application's configuration.</returns>
-    public static IConfigurationRoot ConfigurationRoot() =>
-        new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: false)
-            .AddEnvironmentVariables()
-            .Build();
-
     /// <summary>
     /// Reads a configuration section and converts it to the specified type.
     /// </summary>
@@ -21,5 +18,5 @@ public static class Configuration
     /// <param name="sectionName">The name of the configuration section to read.</param>
     /// <returns>An instance of <typeparamref name="T"/> representing the configuration section.</returns>
     public static T ReadSection<T>(string sectionName)
-        => ConfigurationRoot().GetSection(sectionName).Get<T>();
+        => JsonRoot().GetSection(sectionName).Get<T>();
 }

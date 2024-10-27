@@ -1,12 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
-using RegularExpressionsTimeOutApp.Models;
+﻿using RegularExpressionsTimeOutApp.Models;
 
 namespace RegularExpressionsTimeOutApp.Classes;
 
-public class RegExOperations
+public class RegexOperations
 {
-
-
 
     /// <summary>
     /// Retrieves the regular expression timeout value from the configuration.
@@ -22,6 +19,7 @@ public class RegExOperations
         var timeOut = Configuration.ReadSection<RegularExpressions>("RegularExpressions");
         return timeOut.Timeout;
     }
+
     public static string _timeout => "REGEX_DEFAULT_MATCH_TIMEOUT";
 
     /// <summary>
@@ -42,6 +40,6 @@ public class RegExOperations
     /// <returns>
     /// A <see cref="TimeSpan"/> representing the timeout value if it is set; otherwise, <c>null</c>.
     /// </returns>
-    public static TimeSpan? GetTimeout()
+    public static TimeSpan? GetTimeout() 
         => (TimeSpan?)AppDomain.CurrentDomain.GetData(_timeout);
 }
