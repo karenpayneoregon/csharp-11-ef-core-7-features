@@ -11,7 +11,7 @@ internal partial class Program
         RegularExpressionsOperations.SetTimeout();
 
         /*
-         * If timeout there is no default timeout for regular expression operations.
+         * If no timeout there is no default timeout for regular expression operations.
          */
         TimeSpan? time = RegularExpressionsOperations.GetTimeout();
         string formatted = $"{time?.Days:#0:;;\\}{time?.Hours:#0:;;\\}{time?.Minutes:00:}{time?.Seconds:00}";
