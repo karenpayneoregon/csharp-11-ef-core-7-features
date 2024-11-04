@@ -14,16 +14,16 @@ internal partial class Program
     static void Main(string[] args)
     {
 
-        if (Question("Continue?"))
-        {
-            //
-        }
-        else
-        {
-            //
-        }
+        //if (Question("Continue?"))
+        //{
+        
+        //}
+        //else
+        //{
+        
+        //}
 
-        var lineBreaks = Samples.LineEndings();
+        //var lineBreaks = Samples.LineEndings();
         var dob = DateTime.Parse("09/24/1956 00:00:02");
 
         var age1 = new DateOnly(1956, 9, 24).CalculateAge(DateTime.Today, true);

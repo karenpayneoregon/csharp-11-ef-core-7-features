@@ -36,6 +36,7 @@ partial class MainForm
         mainToolStripMenuItem = new ToolStripMenuItem();
         M_Selecao = new ToolStripMenuItem();
         button3 = new Button();
+        UUIDButton = new Button();
         menuStrip1.SuspendLayout();
         SuspendLayout();
         // 
@@ -112,11 +113,22 @@ partial class MainForm
         button3.UseVisualStyleBackColor = true;
         button3.Click += button3_Click;
         // 
+        // UUIDButton
+        // 
+        UUIDButton.Location = new Point(22, 264);
+        UUIDButton.Name = "UUIDButton";
+        UUIDButton.Size = new Size(94, 29);
+        UUIDButton.TabIndex = 6;
+        UUIDButton.Text = "UUID";
+        UUIDButton.UseVisualStyleBackColor = true;
+        UUIDButton.Click += UUIDButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(569, 227);
+        ClientSize = new Size(569, 443);
+        Controls.Add(UUIDButton);
         Controls.Add(button3);
         Controls.Add(button2);
         Controls.Add(revealPasswordButton);
@@ -144,4 +156,5 @@ partial class MainForm
     private ToolStripMenuItem mainToolStripMenuItem;
     private ToolStripMenuItem M_Selecao;
     private Button button3;
+    private Button UUIDButton;
 }

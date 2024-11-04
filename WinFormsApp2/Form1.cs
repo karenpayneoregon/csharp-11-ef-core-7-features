@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
+using UUIDNext;
 using WinFormsApp2.Classes;
 
 namespace WinFormsApp2;
@@ -72,6 +73,16 @@ public partial class MainForm : Form
         var result = names.RandomElements(3);
         Debug.WriteLine(string.Join(", ", result));
 
+    }
+
+    private void UUIDButton_Click(object sender, EventArgs e)
+    {
+
+        for (int index = 0; index < 5; index++)
+        {
+            Guid sequentialUuid = Uuid.NewDatabaseFriendly(Database.SqlServer);
+            Debug.WriteLine($"{index,4} UUID : {sequentialUuid}");
+        }
     }
 }
 

@@ -1,12 +1,9 @@
 ﻿#nullable disable
 using StringTokenFormatter;
-using System.Configuration;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace StringSyntaxAttributeExampleApp.Classes;
 public class Operations
@@ -26,19 +23,9 @@ public class Operations
     {
         
     }
-    public static void CompositeFormat([StringSyntax(StringSyntaxAttribute.CompositeFormat)] string sender)
-    {
 
-
-        string firstName = "Karen";
-        string lastName = "Payne";
-        string result = string.Format(sender, firstName, lastName);
-
-
-        FormattableString format = FormattableStringFactory.Create(sender, firstName,lastName, "S");
-
-    }
-
+    public static FormattableString CompositeFormat(Customer customer, [StringSyntax(StringSyntaxAttribute.CompositeFormat)] string sender) 
+        => FormattableStringFactory.Create(sender, customer.FirstName, customer.LastName, customer.Age, "S");
 
 
     /// <summary>
@@ -137,6 +124,7 @@ public class Customer
     public string Title { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
+    public int Age { get; set; }
     public bool IsFirstOrder { get; set; }
 }
 public class OrderLine

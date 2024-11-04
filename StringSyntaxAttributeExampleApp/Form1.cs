@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using StringSyntaxAttributeExampleApp.Classes;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Xml.Linq;
@@ -24,9 +25,17 @@ public partial class Form1 : Form
 
     private void CompositeFormatButton_Click(object sender, EventArgs e)
     {
-        var age = 10;
-        var name = "Joe";
-        Operations.CompositeFormat("First Name {0,-14} Last name {1}");
+
+        Customer customer = new()
+        {
+            FirstName = "Karen",
+            LastName = "Payne",
+            Title = "Ms",
+            Age = 68,
+            IsFirstOrder = false,
+        };
+
+        Debug.WriteLine(Operations.CompositeFormat(customer, "First Name {0,-14} Last name {1,-10} Age {2}"));
 
     }
 
