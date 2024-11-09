@@ -1,5 +1,4 @@
-﻿using System.Text;
-using Microsoft.Extensions.FileSystemGlobbing;
+﻿using Microsoft.Extensions.FileSystemGlobbing;
 using SolutionFinderApp.Models;
 
 namespace SolutionFinderApp.Classes;
@@ -24,7 +23,9 @@ internal class GlobSolutions
     /// <param name="solutionItem"></param>
     private static void ProcessFile(FileMatchItem fileMatch, string solutionItem)
     {
+        
         var solution = Solutions.FirstOrDefault(x => x.Name == solutionItem);
+
         if (solution is not null)
         {
             solution.Projects.Add(fileMatch.FileName);
