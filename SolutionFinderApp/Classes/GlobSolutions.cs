@@ -54,24 +54,21 @@ internal class GlobSolutions
     /// <param name="foundAction">The action to perform when a solution file is found.</param>
     private static async Task ProcessSolutionFolderAsync(string folder, Action<FileMatchItem, string> foundAction)
     {
-        int count = 0;
-
         Matcher matcher = new();
-        matcher.AddIncludePatterns(["**/*.sln"]);
+        matcher.AddInclude("**/*.sln");
 
-        await Task.Run(async () =>
+        var files = matcher.GetResultsInFullPath(folder);
+        var tasks = files.Select(async file =>
         {
-            foreach (var file in matcher.GetResultsInFullPath(folder))
+            foundAction?.Invoke(new FileMatchItem(file), file);
+            var list = await GetProjectFiles(Path.GetDirectoryName(file));
+            foreach (var item in list)
             {
-                foundAction?.Invoke(new FileMatchItem(file), file);
-                var list = await GetProjectFiles(Path.GetDirectoryName(file));
-                foreach (var item in list)
-                {
-                    foundAction?.Invoke(item, file);
-                }
-                count++;
+                foundAction?.Invoke(item, file);
             }
         });
+
+        await Task.WhenAll(tasks);
     }
 
     /// <summary>
@@ -87,7 +84,7 @@ internal class GlobSolutions
 
         await Task.Run(() =>
         {
-            foreach (string file in matcher.GetResultsInFullPath(parentFolder))
+            foreach (var file in matcher.GetResultsInFullPath(parentFolder))
             {
                 list.Add(new FileMatchItem(file));
             }
@@ -96,3 +93,4 @@ internal class GlobSolutions
         return list;
     }
 }
+

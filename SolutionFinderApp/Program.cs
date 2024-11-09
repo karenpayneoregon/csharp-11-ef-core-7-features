@@ -1,4 +1,5 @@
-﻿using SolutionFinderApp.Classes;
+﻿using System.Diagnostics;
+using SolutionFinderApp.Classes;
 using System.Text.Json;
 using SolutionFinderApp.Models;
 
@@ -29,9 +30,14 @@ internal partial class Program
 
 
         List<Solutions> data = GlobSolutions.Solutions;
+  
         await File.WriteAllTextAsync("Results.json", JsonSerializer.Serialize(data,Options));
         Console.Clear();
         AnsiConsole.MarkupLine($"[cyan]Total solutions:[/] [yellow]{data.Count}[/] [cyan]in[/] [yellow]{path}[/]");
+        
+        var projectCount = data.Sum(solution => solution.Projects.Count);
+        AnsiConsole.MarkupLine($"[cyan]Total projects:[/] [yellow]{projectCount}[/]");
+
 
         Console.ReadLine();
     }
