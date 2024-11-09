@@ -42,14 +42,16 @@ internal class Samples
         }
     }
 
+
     /// <summary>
-    /// Example showing formatting using string syntax attributes
+    /// Formats and displays a list of birthdays using the specified formats for ID, date, and age.
     /// </summary>
-    /// <param name="iDFormat">The ID style format</param>
-    /// <param name="dateFormat">The date style format</param>
-    /// <param name="ageFormat">The age style format</param>
+    /// <param name="identifierFormat">The format string for the ID.</param>
+    /// <param name="dateFormat">The format string for the birthdate.</param>
+    /// <param name="ageFormat">The format string for the age.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
     public static async Task Syntax(
-        [StringSyntax(NumericFormat)] string iDFormat,
+        [StringSyntax(NumericFormat)] string identifierFormat,
         [StringSyntax(DateOnlyFormat)] string dateFormat,
         [StringSyntax(NumericFormat)] string ageFormat)
     {
@@ -62,7 +64,7 @@ internal class Samples
         foreach (var item in list)
         {
             // line broken for readability
-            Debug.WriteLine($"{item.Id.ToString(iDFormat),-5}" +
+            Debug.WriteLine($"{item.Id.ToString(identifierFormat),-5}" +
                             $"{item.FirstName,-15}" +
                             $"{item.LastName,-15}" +
                             $"{item.BirthDate!.Value.ToString(dateFormat),-12}" +

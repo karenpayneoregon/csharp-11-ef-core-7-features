@@ -259,7 +259,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForumSurfingSamples", "Foru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JsonConverter", "JsonConverter", "{56B7D979-EF26-40F9-9615-5D97E403C5CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegularExpressionsTimeOutApp", "RegularExpressionsTimeOutApp\RegularExpressionsTimeOutApp.csproj", "{19AAA40D-5DDF-417F-8005-DD0A03256BCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegularExpressionsTimeOutApp", "RegularExpressionsTimeOutApp\RegularExpressionsTimeOutApp.csproj", "{19AAA40D-5DDF-417F-8005-DD0A03256BCC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Globbing", "Globbing", "{1A40A4EF-F1DC-4AD7-B54F-9483DE0D8E8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolutionFinderApp", "SolutionFinderApp\SolutionFinderApp.csproj", "{429CCC80-D1F7-4F09-A9D4-569C42F632CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -631,6 +635,10 @@ Global
 		{19AAA40D-5DDF-417F-8005-DD0A03256BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19AAA40D-5DDF-417F-8005-DD0A03256BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19AAA40D-5DDF-417F-8005-DD0A03256BCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{429CCC80-D1F7-4F09-A9D4-569C42F632CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{429CCC80-D1F7-4F09-A9D4-569C42F632CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{429CCC80-D1F7-4F09-A9D4-569C42F632CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{429CCC80-D1F7-4F09-A9D4-569C42F632CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -749,6 +757,8 @@ Global
 		{1A2D6098-560E-4B93-80B2-43B963C11A23} = {0CDE0C18-36EA-4138-BE5F-793B3E9D6EB3}
 		{56B7D979-EF26-40F9-9615-5D97E403C5CE} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{19AAA40D-5DDF-417F-8005-DD0A03256BCC} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{1A40A4EF-F1DC-4AD7-B54F-9483DE0D8E8F} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{429CCC80-D1F7-4F09-A9D4-569C42F632CF} = {1A40A4EF-F1DC-4AD7-B54F-9483DE0D8E8F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}
