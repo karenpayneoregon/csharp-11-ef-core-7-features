@@ -3,9 +3,9 @@ using Microsoft.Extensions.FileSystemGlobbing;
 using SolutionFinderApp.Models;
 
 namespace SolutionFinderApp.Classes;
-internal class SolutionExamples
+internal class GlobSolutions
 {
-    public static List<SolutionModel> Solutions = [];
+    public static List<Solutions> Solutions = [];
 
     /// <summary>
     /// Asynchronously retrieves and processes the names of solution files in the specified directory.
@@ -13,7 +13,7 @@ internal class SolutionExamples
     /// <param name="path">The directory path to search for solution files.</param>
     public static async Task GetSolutionNames(string path)
     {
-        await FilesAsync(path, ProcessFile, "");
+        await ProcessSolutionFolderAsync(path, ProcessFile);
 
     }
 
@@ -32,7 +32,7 @@ internal class SolutionExamples
         else
         {
 
-            solution = new SolutionModel
+            solution = new Solutions
             {
                 Name = solutionItem,
                 FileName = Path.GetFileName(solutionItem),
@@ -40,6 +40,7 @@ internal class SolutionExamples
             };
 
             Solutions.Add(solution);
+
         }
 
 
@@ -51,8 +52,7 @@ internal class SolutionExamples
     /// </summary>
     /// <param name="folder">The folder to search for solution files.</param>
     /// <param name="foundAction">The action to perform when a solution file is found.</param>
-    /// <param name="empty"></param>
-    private static async Task FilesAsync(string folder, Action<FileMatchItem, string> foundAction, string empty)
+    private static async Task ProcessSolutionFolderAsync(string folder, Action<FileMatchItem, string> foundAction)
     {
         int count = 0;
 

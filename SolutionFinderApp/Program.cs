@@ -8,7 +8,7 @@ internal partial class Program
 {
     private static async Task Main(string[] args)
     {
-        var path = @"C:\OED\DotnetLand\VS2022";
+        const string path = @"C:\OED\DotnetLand\VS2022";
 
         if (!Directory.Exists(path))
         {
@@ -17,17 +17,22 @@ internal partial class Program
             return;
         }
 
+        /*
+         * Scan folder with a simple spinner to apse the user
+         * KP alias is defined in the project file
+         */
         using (var spinner = new KB.Spinner($"Scanning {path}"))
         {
             spinner.Start();
-            await SolutionExamples.GetSolutionNames(path);
-            spinner.Succeed("Done");
+            await GlobSolutions.GetSolutionNames(path);
         }
 
-        List<SolutionModel> data = SolutionExamples.Solutions;
+
+        List<Solutions> data = GlobSolutions.Solutions;
         await File.WriteAllTextAsync("Results.json", JsonSerializer.Serialize(data,Options));
         Console.Clear();
         AnsiConsole.MarkupLine($"[cyan]Total solutions:[/] [yellow]{data.Count}[/] [cyan]in[/] [yellow]{path}[/]");
+
         Console.ReadLine();
     }
 
