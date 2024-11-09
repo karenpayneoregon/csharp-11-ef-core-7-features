@@ -12,7 +12,7 @@ internal partial class Program
         /*
          * Set this to a path with one or more Visual Studio solutions
          */
-        const string path = @"Your folder path for solution files goes here";
+        const string path = @"C:\DotnetLand\VS2022";
 
         if (!Directory.Exists(path))
         {
