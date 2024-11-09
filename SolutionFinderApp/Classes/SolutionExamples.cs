@@ -1,13 +1,11 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using System.Text;
+﻿using System.Text;
 using Microsoft.Extensions.FileSystemGlobbing;
 using SolutionFinderApp.Models;
 
 namespace SolutionFinderApp.Classes;
 internal class SolutionExamples
 {
-    private static StringBuilder _sb = new();
-    public static List<SolutionModel> Solutions = new();
+    public static List<SolutionModel> Solutions = [];
 
     /// <summary>
     /// Asynchronously retrieves and processes the names of solution files in the specified directory.
@@ -15,8 +13,8 @@ internal class SolutionExamples
     /// <param name="path">The directory path to search for solution files.</param>
     public static async Task GetSolutionNames(string path)
     {
-        //Console.WriteLine($"Traversing {path}...");
-        await FilesAsync(path, ProcessFile,"");
+        await FilesAsync(path, ProcessFile, "");
+
     }
 
     /// <summary>
@@ -24,8 +22,7 @@ internal class SolutionExamples
     /// </summary>
     /// <param name="fileMatch">The matched file item to process.</param>
     /// <param name="solutionItem"></param>
-    /// <param name="isProject"></param>
-    private static void ProcessFile(FileMatchItem fileMatch, string solutionItem, bool isProject)
+    private static void ProcessFile(FileMatchItem fileMatch, string solutionItem)
     {
         var solution = Solutions.FirstOrDefault(x => x.Name == solutionItem);
         if (solution is not null)
@@ -34,25 +31,20 @@ internal class SolutionExamples
         }
         else
         {
+
             solution = new SolutionModel
             {
-                Name = solutionItem, 
+                Name = solutionItem,
                 FileName = Path.GetFileName(solutionItem),
                 Folder = Path.GetDirectoryName(solutionItem)
             };
+
             Solutions.Add(solution);
         }
 
 
     }
 
-    /// <summary>
-    /// Completes the processing of solution files and writes file names and total count of file names.
-    /// </summary>
-    private static void Done()
-    {
-        Console.WriteLine($"Total solutions {Solutions.Count}");
-    }
 
     /// <summary>
     /// Asynchronously processes solution files in the specified folder.
@@ -60,10 +52,10 @@ internal class SolutionExamples
     /// <param name="folder">The folder to search for solution files.</param>
     /// <param name="foundAction">The action to perform when a solution file is found.</param>
     /// <param name="empty"></param>
-    private static async Task FilesAsync(string folder, Action<FileMatchItem, string, bool> foundAction, string empty)
+    private static async Task FilesAsync(string folder, Action<FileMatchItem, string> foundAction, string empty)
     {
         int count = 0;
-        
+
         Matcher matcher = new();
         matcher.AddIncludePatterns(["**/*.sln"]);
 
@@ -71,11 +63,11 @@ internal class SolutionExamples
         {
             foreach (var file in matcher.GetResultsInFullPath(folder))
             {
-                foundAction?.Invoke(new FileMatchItem(file),file ,false);
+                foundAction?.Invoke(new FileMatchItem(file), file);
                 var list = await GetProjectFiles(Path.GetDirectoryName(file));
                 foreach (var item in list)
                 {
-                    foundAction?.Invoke(item,file,true);
+                    foundAction?.Invoke(item, file);
                 }
                 count++;
             }
