@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using SolutionFinderApp.Classes;
+﻿using SolutionFinderApp.Classes;
 using System.Text.Json;
 using SolutionFinderApp.Models;
 
@@ -7,9 +6,13 @@ namespace SolutionFinderApp;
 
 internal partial class Program
 {
+
     private static async Task Main(string[] args)
     {
-        const string path = @"C:\OED\DotnetLand\VS2022";
+        /*
+         * Set this to a path with one or more Visual Studio solutions
+         */
+        const string path = @"Your folder path for solution files goes here";
 
         if (!Directory.Exists(path))
         {
@@ -42,5 +45,11 @@ internal partial class Program
         Console.ReadLine();
     }
 
+    /// <summary>
+    /// Gets the options for JSON serialization, configured to format the JSON output with indentation.
+    /// </summary>
+    /// <value>
+    /// The <see cref="JsonSerializerOptions"/> instance configured with <c>WriteIndented</c> set to <c>true</c>.
+    /// </value>
     private static JsonSerializerOptions Options => new() { WriteIndented = true };
 }

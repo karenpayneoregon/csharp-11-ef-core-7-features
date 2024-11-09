@@ -43,8 +43,7 @@ internal class GlobSolutions
             Solutions.Add(solution);
 
         }
-
-
+        
     }
 
 

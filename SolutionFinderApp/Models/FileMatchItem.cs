@@ -1,5 +1,8 @@
 ﻿namespace SolutionFinderApp.Models;
 
+/// <summary>
+/// Represents a matched file item within a directory, including its folder and file name.
+/// </summary>
 public class FileMatchItem
 {
     public FileMatchItem(string sender)
