@@ -40,12 +40,14 @@ public partial class Form1 : Form
 
     private void GetAgeRaw()
     {
-        GetAgeRawTextBox1.Text = ((2023_12_23 - 1956_09_24) / 10000).ToString();
+
+        GetAgeRawTextBox1.Text = ((2024_11_10 - 1956_09_24) / 10000).ToString();
 
         int now = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
         int dob = int.Parse(new DateOnly(1956, 9, 24).ToString("yyyyMMdd"));
         int age2 = (now - dob) / 10000;
 
         GetAgeRawTextBox2.Text = new DateOnly(1956, 9, 24).GetAge().ToString();
+
     }
 }

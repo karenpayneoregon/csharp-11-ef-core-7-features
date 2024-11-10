@@ -83,6 +83,7 @@ public partial class MainForm : Form
             Guid sequentialUuid = Uuid.NewDatabaseFriendly(Database.SqlServer);
             Debug.WriteLine($"{index,4} UUID : {sequentialUuid}");
         }
+
     }
 }
 
