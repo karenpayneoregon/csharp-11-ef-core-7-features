@@ -1,0 +1,155 @@
+﻿
+using DistinctByApp.LanguageExtensions;
+using DistinctByApp.Models;
+
+namespace DistinctByApp.Classes;
+internal class Samples
+{
+
+    /// <summary>
+    /// Displays a distinct list of movies based on their release year.
+    /// </summary>
+    /// <remarks>
+    /// This method retrieves a list of movies, filters them to ensure each release year is unique,
+    /// and then prints the distinct movies to the console with their index, ID, name, and release year.
+    /// </remarks>
+    public static void DistinctByMovieReleasedYear()
+    {
+
+        PrintCyan();
+
+        var distinctList = MockedData.MovieList()
+            .DistinctBy(movie => movie.Released)
+            .ToList();
+
+        MovieHeader();
+
+        foreach (var (index, item) in distinctList.Index())
+        {
+            Console.WriteLine($"{index,-7}{item.Id,-10}{item.Name,-25}{item.Released}");
+        }
+
+    }
+
+    /// <summary>
+    /// Filters a list of members to include only distinct entries based on their first and last names.
+    /// </summary>
+    /// <remarks>
+    /// This method retrieves a list of members, filters out duplicates based on the combination of 
+    /// <see cref="Member.FirstName"/> and <see cref="Member.SurName"/>, and then prints the distinct members 
+    /// to the console with their index, ID, first name, and surname.
+    /// </remarks>
+    public static void DistinctByFirstLastNames()
+    {
+
+        PrintCyan();
+
+        var distinctList = MockedData.MembersList1()
+            .DistinctBy(member => new
+            {
+                member.FirstName,
+                member.SurName
+            })
+            .ToList();
+
+        MemberHeader();
+
+        foreach (var (index, item) in distinctList.Index())
+        {
+            Console.WriteLine($"{index, -7}{item.Id, -10}{item.FirstName, -10}{item.SurName}");
+        }
+    }
+
+    /// <summary>
+    /// Filters a list of members to include only distinct entries based on their first name, surname, and active status.
+    /// </summary>
+    /// <remarks>
+    /// This method retrieves a list of members, filters out duplicates based on the combination of 
+    /// <see cref="Member.FirstName"/>, <see cref="Member.SurName"/>, and <see cref="Member.Active"/> properties, 
+    /// and then prints the distinct members to the console.
+    /// </remarks>
+    public static void DistinctByFirstLastNameAndActive()
+    {
+
+        PrintCyan();
+
+        var distinctList = MockedData.MembersList1()
+            .DistinctBy(member => new
+            {
+                member.FirstName,
+                member.SurName,
+                member.Active
+            })
+            .ToList();
+
+        MemberHeader();
+
+        foreach (var (index, item) in distinctList.Index())
+        {
+            Console.WriteLine($"{index,-7}{item.Id,-10}{item.FirstName,-10}{item.SurName}");
+        }
+    }
+
+    /// <summary>
+    /// Filters a list of members to include only distinct entries based on their primary key (Id).
+    /// </summary>
+    /// <remarks>
+    /// This method retrieves a list of members, filters out duplicates based on the Id property,
+    /// and then prints the distinct members' details to the console.
+    /// </remarks>
+    public static void DistinctByPrimaryKey()
+    {
+
+        PrintCyan();
+
+        var distinctList = MockedData.MembersList3()
+            .DistinctBy(member => new
+            {
+                member.Id
+            })
+            .ToList();
+
+        MemberHeader();
+
+        foreach (var (index, item) in distinctList.Index())
+        {
+            Console.WriteLine($"{index,-7}{item.Id,-10}{item.FirstName,-10}{item.SurName}");
+        }
+    }
+
+    /// <summary>
+    /// Filters a list of members to include only distinct entries based on their address properties.
+    /// </summary>
+    /// <remarks>
+    /// The distinct criteria are based on the combination of the following address properties:
+    /// <list type="bullet">
+    /// <item><description><see cref="Address.Id"/></description></item>
+    /// <item><description><see cref="Address.Street"/></description></item>
+    /// <item><description><see cref="Address.City"/></description></item>
+    /// <item><description><see cref="Address.State"/></description></item>
+    /// </list>
+    /// </remarks>
+    public static void DistinctByAddress()
+    {
+
+        PrintCyan();
+
+        var distinctList = MockedData.MembersList4()
+            .DistinctBy(member => new
+            {
+                member.Address.Id,
+                member.Address.Street,
+                member.Address.City,
+                member.Address.State
+
+            })
+            .ToList();
+
+        MemberHeader();
+
+        foreach (var (index, item) in distinctList.Index())
+        {
+            Console.WriteLine($"{index,-7}{item.Id,-10}{item.FirstName,-10}{item.SurName}");
+        }
+    }
+}
