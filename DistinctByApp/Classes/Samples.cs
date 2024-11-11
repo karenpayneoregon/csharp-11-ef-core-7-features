@@ -17,10 +17,12 @@ internal class Samples
     {
 
         PrintCyan();
-
+        
         var distinctList = MockedData.MovieList()
             .DistinctBy(movie => movie.Released)
             .ToList();
+
+
 
         MovieHeader();
 
@@ -29,6 +31,32 @@ internal class Samples
             Console.WriteLine($"{index,-7}{item.Id,-10}{item.Name,-25}{item.Released}");
         }
 
+    }
+
+    /// <summary>
+    /// Groups a list of movies by their release year and selects the first movie from each group.
+    /// </summary>
+    /// <remarks>
+    /// This method retrieves a list of movies, groups them by their release year, 
+    /// and then selects the first movie from each group.  
+    /// </remarks>
+    public static void GroupMoviesOnReleased()
+    {
+
+        PrintCyan();
+
+        var distinctMoviesByReleaseYear = 
+            MockedData.MovieList()
+                .GroupBy(m => m.Released)
+                .Select(g => g.First())
+                .ToList();
+
+        MovieHeader();
+
+        foreach (var (index, movie) in distinctMoviesByReleaseYear.Index())
+        {
+            Console.WriteLine($"{index,-7}{movie.Id,-10}{movie.Name,-25}{movie.Released}");
+        }
     }
 
     /// <summary>

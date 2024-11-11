@@ -15,10 +15,4 @@ public class Movie
 
 }
 
-public enum Rating
-{
-    Excellent,
-    Good,
-    Fair,
-    Poor
-}
+

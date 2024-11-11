@@ -11,8 +11,12 @@ internal partial class Program
         Samples.DistinctByFirstLastNameAndActive();
         Samples.DistinctByPrimaryKey();
         Samples.DistinctByAddress();
+
         NextResults();
+
+        Samples.GroupMoviesOnReleased();
         Samples.DistinctByMovieReleasedYear();
+
         Console.ReadLine();
     }
 }
