@@ -33,6 +33,7 @@ internal class Samples
 
     }
 
+
     /// <summary>
     /// Groups a list of movies by their release year and selects the first movie from each group.
     /// </summary>
@@ -45,7 +46,7 @@ internal class Samples
 
         PrintCyan();
 
-        var distinctMoviesByReleaseYear = 
+        var distinctList = 
             MockedData.MovieList()
                 .GroupBy(m => m.Released)
                 .Select(g => g.First())
@@ -53,9 +54,43 @@ internal class Samples
 
         MovieHeader();
 
-        foreach (var (index, movie) in distinctMoviesByReleaseYear.Index())
+        foreach (var (index, movie) in distinctList.Index())
         {
             Console.WriteLine($"{index,-7}{movie.Id,-10}{movie.Name,-25}{movie.Released}");
+        }
+    }
+
+    /// <summary>
+    /// Groups movies by whether their name starts with "The" and their rating, 
+    /// then prints the grouped movies to the console.
+    /// </summary>
+    /// <remarks>
+    /// This method uses the <see cref="MockedData.MovieList"/> to retrieve a list of movies.
+    /// It groups the movies based on whether their name starts with "The" (case-insensitive) 
+    /// and their rating. The grouped movies are then printed to the console, displaying 
+    /// the group key (whether the name starts with "The" and the rating) and the details 
+    /// of each movie in the group.
+    /// </remarks>
+    public static void GroupMoviesNameStartsWithAndRating()
+    {
+
+        PrintCyan();
+
+        var moviesGroupedByNameAndRating = MockedData.MovieList()
+            .GroupBy(m => new MovieItem(
+                m.Name.StartsWith("The", StringComparison.OrdinalIgnoreCase), 
+                m.Rating));
+
+
+        AnsiConsole.MarkupLine($"[{Color.Chartreuse1}][u]Name                      Released    Rating[/][/]");
+        foreach (var group in moviesGroupedByNameAndRating)
+        {
+            if (!group.Key.StartsWithThe) continue;
+            foreach (var movie in group)
+            {
+                Console.WriteLine($"{movie.Name, -25} {movie.Released, -12}{movie.Rating}");
+            }
+
         }
     }
 
@@ -179,5 +214,17 @@ internal class Samples
         {
             Console.WriteLine($"{index,-7}{item.Id,-10}{item.FirstName,-10}{item.SurName}");
         }
+    }
+}
+
+public class MovieItem
+{
+    public bool StartsWithThe { get; }
+    public int Rating { get; }
+
+    public MovieItem(bool startsWithThe, int rating)
+    {
+        StartsWithThe = startsWithThe;
+        Rating = rating;
     }
 }
