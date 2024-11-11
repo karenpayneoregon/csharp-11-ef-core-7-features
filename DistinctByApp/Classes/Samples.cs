@@ -216,15 +216,3 @@ internal class Samples
         }
     }
 }
-
-public class MovieItem
-{
-    public bool StartsWithThe { get; }
-    public int Rating { get; }
-
-    public MovieItem(bool startsWithThe, int rating)
-    {
-        StartsWithThe = startsWithThe;
-        Rating = rating;
-    }
-}
