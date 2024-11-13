@@ -22,7 +22,13 @@
 	  <Content Remove="C:\Users\paynek\.nuget\packages\consoleconfigurationlibrary\1.0.0.2\contentFiles\any\net8.0\readme.md" />
 	</ItemGroup>
 
-	<ItemGroup>
+    <ItemGroup>
+        <Using Include="KP_WindowsFormsNET9.Models" Alias="M1" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+		<PackageReference Include="Bogus" Version="35.6.1" />
 		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
 		<PackageReference Include="ConsoleConfigurationLibrary" Version="1.0.0.4" />
 	</ItemGroup>

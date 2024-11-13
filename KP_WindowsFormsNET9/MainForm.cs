@@ -1,6 +1,7 @@
 
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using KP_WindowsFormsNET9.Classes;
 using KP_WindowsFormsNET9.Models;
 
 namespace KP_WindowsFormsNET9;
@@ -21,12 +22,8 @@ public partial class MainForm : Form
 
     private void PersonPartialButton_Click(object sender, EventArgs e)
     {
-        List<Person> list =
-        [
-            new() { Id = 1, FirstName = "John", LastName = "Doe" },
-            new() { Id = 2, FirstName = "Jane", LastName = "Doe" },
-            new() { Id = 3, FirstName = "James", LastName = "Smith" }
-        ];
+
+        var list = BogusOperations.Persons();
 
         foreach (var (index, person) in list.Index())
         {
@@ -37,6 +34,7 @@ public partial class MainForm : Form
 
         var firstPerson = list[0];
         Debug.WriteLine($"{firstPerson[0],-8}{firstPerson[1]}");
+        Debug.WriteLine(new string('-',50));
     }
 }
 
