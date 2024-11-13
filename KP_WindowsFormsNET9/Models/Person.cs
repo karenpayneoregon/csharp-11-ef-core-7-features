@@ -5,13 +5,16 @@ namespace KP_WindowsFormsNET9.Models;
 
 public partial class Person
 {
+    public partial int Id { get; set; }
     public partial string this[int index] { get; set; }
     public partial string FirstName { get; set; } 
     public partial string LastName { get; set; } 
+    
 }
 
 public partial class Person
 {
+    private int _id;
     private string _firstName;
     private string _lastName;
 
@@ -36,6 +39,12 @@ public partial class Person
     {
         get => _lastName;
         set => _lastName = value;
+    }
+
+    public partial int Id
+    {
+        get => _id;
+        set => _id = value;
     }
 
     /// <summary>

@@ -23,13 +23,14 @@ public partial class MainForm : Form
     {
         List<Person> list =
         [
-            new() { FirstName = "John", LastName = "Doe" },
-            new() { FirstName = "Jane", LastName = "Doe" }
+            new() { Id = 1, FirstName = "John", LastName = "Doe" },
+            new() { Id = 2, FirstName = "Jane", LastName = "Doe" },
+            new() { Id = 3, FirstName = "James", LastName = "Smith" }
         ];
 
         foreach (var (index, person) in list.Index())
         {
-            Debug.WriteLine($"{index,-3}{person.FirstName,-8}{person.LastName}");
+            Debug.WriteLine($"{index,-3}{person.Id, -3}{person.FirstName,-8}{person.LastName}");
         }
 
         Debug.WriteLine("");
