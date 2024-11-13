@@ -33,6 +33,7 @@ partial class MainForm
         ShowFormButton = new Button();
         PersonPartialButton = new Button();
         FieldKeywordButton = new Button();
+        FuncMethodGroupButton = new Button();
         SuspendLayout();
         // 
         // ShowFormButton
@@ -65,11 +66,22 @@ partial class MainForm
         FieldKeywordButton.UseVisualStyleBackColor = true;
         FieldKeywordButton.Click += FieldKeywordButton_Click;
         // 
+        // FuncMethodGroupButton
+        // 
+        FuncMethodGroupButton.Location = new Point(38, 171);
+        FuncMethodGroupButton.Name = "FuncMethodGroupButton";
+        FuncMethodGroupButton.Size = new Size(157, 29);
+        FuncMethodGroupButton.TabIndex = 3;
+        FuncMethodGroupButton.Text = "Func Method Group";
+        FuncMethodGroupButton.UseVisualStyleBackColor = true;
+        FuncMethodGroupButton.Click += FuncMethodGroupButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(FuncMethodGroupButton);
         Controls.Add(FieldKeywordButton);
         Controls.Add(PersonPartialButton);
         Controls.Add(ShowFormButton);
@@ -84,4 +96,5 @@ partial class MainForm
     private Button ShowFormButton;
     private Button PersonPartialButton;
     private Button FieldKeywordButton;
+    private Button FuncMethodGroupButton;
 }
