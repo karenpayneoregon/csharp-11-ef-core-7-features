@@ -11,4 +11,3 @@ public partial class Person : IPerson
     public partial string LastName { get; set; }
     public override string ToString() => $"{FirstName,-10}{LastName}";
 }
-

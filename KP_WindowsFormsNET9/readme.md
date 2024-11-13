@@ -29,3 +29,12 @@ dotnet list package --vulnerable --include-transitive
 ```
 
 - `[Experimental("WFO5002")]` for `ShowDialogAsync`
+
+---
+## Field keyword
+
+Requires the following in .csproj
+
+```xml
+<LangVersion>preview</LangVersion>
+```

@@ -32,6 +32,7 @@ partial class MainForm
     {
         ShowFormButton = new Button();
         PersonPartialButton = new Button();
+        FieldKeywordButton = new Button();
         SuspendLayout();
         // 
         // ShowFormButton
@@ -54,11 +55,22 @@ partial class MainForm
         PersonPartialButton.UseVisualStyleBackColor = true;
         PersonPartialButton.Click += PersonPartialButton_Click;
         // 
+        // FieldKeywordButton
+        // 
+        FieldKeywordButton.Location = new Point(38, 127);
+        FieldKeywordButton.Name = "FieldKeywordButton";
+        FieldKeywordButton.Size = new Size(157, 29);
+        FieldKeywordButton.TabIndex = 2;
+        FieldKeywordButton.Text = "Field Keyword";
+        FieldKeywordButton.UseVisualStyleBackColor = true;
+        FieldKeywordButton.Click += FieldKeywordButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(FieldKeywordButton);
         Controls.Add(PersonPartialButton);
         Controls.Add(ShowFormButton);
         Name = "MainForm";
@@ -71,4 +83,5 @@ partial class MainForm
 
     private Button ShowFormButton;
     private Button PersonPartialButton;
+    private Button FieldKeywordButton;
 }

@@ -34,14 +34,28 @@ public partial class MainForm : Form
 
         foreach (var (index, person) in list.Index())
         {
-            Debug.WriteLine($"{index,-3}{person.Id, -3}{person.FirstName,-8}{person.LastName}");
+            Debug.WriteLine($"{index,-3}{person.Id,-3}{person.FirstName,-8}{person.LastName}");
         }
 
         Debug.WriteLine("");
 
         var firstPerson = list[0];
         Debug.WriteLine($"{firstPerson[0],-8}{firstPerson[1]}");
-        Debug.WriteLine(new string('-',50));
+        Debug.WriteLine(new string('-', 50));
+    }
+
+    private void FieldKeywordButton_Click(object sender, EventArgs e)
+    {
+        Customer customer = new()
+        {
+            FirstName = "john  ",
+            LastName = "doe  "
+        };
+
+
+        Debug.WriteLine($"First name '{customer.FirstName}'");
+        Debug.WriteLine($"Last name  '{customer.LastName}'");
+
     }
 }
 
