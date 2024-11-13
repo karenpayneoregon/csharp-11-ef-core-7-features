@@ -31,6 +31,7 @@ partial class MainForm
     private void InitializeComponent()
     {
         ShowFormButton = new Button();
+        PersonPartialButton = new Button();
         SuspendLayout();
         // 
         // ShowFormButton
@@ -43,11 +44,22 @@ partial class MainForm
         ShowFormButton.UseVisualStyleBackColor = true;
         ShowFormButton.Click += ShowFormButton_Click;
         // 
+        // PersonPartialButton
+        // 
+        PersonPartialButton.Location = new Point(38, 80);
+        PersonPartialButton.Name = "PersonPartialButton";
+        PersonPartialButton.Size = new Size(157, 29);
+        PersonPartialButton.TabIndex = 1;
+        PersonPartialButton.Text = "Person partial";
+        PersonPartialButton.UseVisualStyleBackColor = true;
+        PersonPartialButton.Click += PersonPartialButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(PersonPartialButton);
         Controls.Add(ShowFormButton);
         Name = "MainForm";
         StartPosition = FormStartPosition.CenterScreen;
@@ -58,4 +70,5 @@ partial class MainForm
     #endregion
 
     private Button ShowFormButton;
+    private Button PersonPartialButton;
 }
