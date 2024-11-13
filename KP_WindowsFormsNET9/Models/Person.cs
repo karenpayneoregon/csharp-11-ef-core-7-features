@@ -53,9 +53,12 @@ public partial class Person
     /// </exception>
     public partial string this[int index]
     {
-        get => 
-            index == 0 ? FirstName : 
-            index == 1 ? LastName : throw new IndexOutOfRangeException("Invalid index");
+        get => index switch
+        {
+            0 => FirstName,
+            1 => LastName,
+            _ => throw new IndexOutOfRangeException("Invalid index")
+        };
         set
         {
             switch (index)
