@@ -21,7 +21,7 @@ public class Client : INotifyPropertyChanged
     public event PropertyChangedEventHandler PropertyChanged;
 
     protected void OnPropertyChanged(string propertyName)
-        => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        => PropertyChanged?.Invoke(this, new(propertyName));
 
     /// <summary>
     /// Sets the field to the specified value and raises the <see cref="PropertyChanged"/> event if the value has changed.
