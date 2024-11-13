@@ -1,4 +1,5 @@
 ﻿#nullable disable
+using System.Collections.Specialized;
 using KP_WindowsFormsNET9.Interfaces;
 
 namespace KP_WindowsFormsNET9.Models;
