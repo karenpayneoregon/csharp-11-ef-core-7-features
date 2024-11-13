@@ -7,9 +7,12 @@ internal partial class Program
     static void Main(string[] args)
     {
 
-        //Samples.DistinctByFirstLastNames();
-        //Samples.DistinctByFirstLastNameAndActive();
-        //Samples.DistinctByPrimaryKey();
+        Samples.DistinctByFirstLastNames();
+        Samples.DistinctByFirstLastNameAndActive();
+
+        NextResults();
+
+        Samples.DistinctByPrimaryKey();
         Samples.DistinctByAddress();
 
         NextResults();
@@ -17,6 +20,7 @@ internal partial class Program
         Samples.GroupMoviesOnReleased();
         Samples.DistinctByMovieReleasedYear();
 
+        AnsiConsole.MarkupLine("[bold blue]End of samples[/]");
         Console.ReadLine();
     }
 }

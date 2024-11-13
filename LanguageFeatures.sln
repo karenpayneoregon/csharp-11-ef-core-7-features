@@ -257,7 +257,35 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Globbing", "Globbing", "{1A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SolutionFinderApp", "SolutionFinderApp\SolutionFinderApp.csproj", "{429CCC80-D1F7-4F09-A9D4-569C42F632CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistinctByApp", "DistinctByApp\DistinctByApp.csproj", "{80D5900D-B4E0-4D68-8058-B52D9048F8B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DistinctByApp", "DistinctByApp\DistinctByApp.csproj", "{80D5900D-B4E0-4D68-8058-B52D9048F8B0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReplaceLastSample", "ReplaceLastSample\ReplaceLastSample.csproj", "{74C6D672-13F5-4637-AD85-D92B0F40579B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KP_WindowsFormsNET9", "KP_WindowsFormsNET9\KP_WindowsFormsNET9.csproj", "{48CE6A81-6CB9-44AB-B3F7-38D64C3A1C81}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Markdown", "Markdown", "{4BA59C3F-70BB-4B6D-A1EA-54F8926BDD6E}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MarkdownSamples", "MarkdownSamples\", "{ED5DD305-828B-421B-AE42-053677E1017A}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_64534"
+		Debug.AspNetCompiler.PhysicalPath = "MarkdownSamples\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64534\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_64534"
+		Release.AspNetCompiler.PhysicalPath = "MarkdownSamples\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64534\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "64534"
+		SlnRelativePath = "MarkdownSamples\"
+		DefaultWebSiteLanguage = "Visual Basic"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -629,6 +657,18 @@ Global
 		{80D5900D-B4E0-4D68-8058-B52D9048F8B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80D5900D-B4E0-4D68-8058-B52D9048F8B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80D5900D-B4E0-4D68-8058-B52D9048F8B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C6D672-13F5-4637-AD85-D92B0F40579B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C6D672-13F5-4637-AD85-D92B0F40579B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C6D672-13F5-4637-AD85-D92B0F40579B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C6D672-13F5-4637-AD85-D92B0F40579B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48CE6A81-6CB9-44AB-B3F7-38D64C3A1C81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48CE6A81-6CB9-44AB-B3F7-38D64C3A1C81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48CE6A81-6CB9-44AB-B3F7-38D64C3A1C81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48CE6A81-6CB9-44AB-B3F7-38D64C3A1C81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED5DD305-828B-421B-AE42-053677E1017A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED5DD305-828B-421B-AE42-053677E1017A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED5DD305-828B-421B-AE42-053677E1017A}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED5DD305-828B-421B-AE42-053677E1017A}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -747,6 +787,9 @@ Global
 		{1A40A4EF-F1DC-4AD7-B54F-9483DE0D8E8F} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
 		{429CCC80-D1F7-4F09-A9D4-569C42F632CF} = {1A40A4EF-F1DC-4AD7-B54F-9483DE0D8E8F}
 		{80D5900D-B4E0-4D68-8058-B52D9048F8B0} = {9C87C710-B3B5-442B-AC04-6572C2E0B5A9}
+		{74C6D672-13F5-4637-AD85-D92B0F40579B} = {A756ED80-9B88-4CF7-AD42-6A65A3FFF445}
+		{48CE6A81-6CB9-44AB-B3F7-38D64C3A1C81} = {A756ED80-9B88-4CF7-AD42-6A65A3FFF445}
+		{ED5DD305-828B-421B-AE42-053677E1017A} = {4BA59C3F-70BB-4B6D-A1EA-54F8926BDD6E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}

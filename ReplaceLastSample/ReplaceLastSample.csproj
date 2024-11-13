@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>disable</Nullable>
 	</PropertyGroup>
@@ -17,23 +17,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<NuGetAuditSuppress Include="https://github.com/advisories/GHSA-447r-wph3-92pm" />
-		<NuGetAuditSuppress Include="https://github.com/advisories/GHSA-hh2w-p6rv-4g7w" />
-		<NuGetAuditSuppress Include="https://github.com/advisories/GHSA-8g4q-xg66-9fp4" />
+		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
 	</ItemGroup>
-
 
 	<ItemGroup>
 		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="FluentValidation" Version="11.10.0" />
-		<PackageReference Include="ConsoleConfigurationLibrary" Version="1.0.0.4" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Spectre.Console" Version="0.46.0" />
+		<PackageReference Include="Spectre.Console" Version="0.49.1" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -1,0 +1,23 @@
+fieldset {
+    padding: 5px;
+}
+
+.fieldset-auto-width {
+    display: inline-block;
+}
+
+legend {
+    background: blue;
+    color: white;
+    border: solid 1px black;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.ledgendSpan {
+    padding-left: 10px;
+    padding-right: 10px;
+}
