@@ -27,3 +27,5 @@ dotnet list package --vulnerable --include-transitive
   <NoWarn>$(NoWarn);WFO5002</NoWarn>
 </PropertyGroup>
 ```
+
+- `[Experimental("WFO5002")]` for `ShowDialogAsync`

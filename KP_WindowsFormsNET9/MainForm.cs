@@ -16,8 +16,15 @@ public partial class MainForm : Form
     [Experimental("WFO5002")]
     private async void ShowFormButton_Click(object sender, EventArgs e)
     {
-        ChildForm childForm = new();
-        await childForm.ShowDialogAsync();
+        try
+        {
+            ChildForm childForm = new();
+            await childForm.ShowDialogAsync();
+        }
+        catch (Exception localException)
+        {
+            Debug.WriteLine(localException.Message);
+        }
     }
 
     private void PersonPartialButton_Click(object sender, EventArgs e)
