@@ -12,6 +12,6 @@ public static class StringExtensions
         if (string.IsNullOrEmpty(input)) return input;
 
         input = input.TrimEnd(' ');
-        return char.ToUpper(input[0]) + input[1..];
+        return $"{char.ToUpper(input[0])}{input[1..]}";
     }
 }
