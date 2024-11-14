@@ -33,6 +33,9 @@ dotnet list package --vulnerable --include-transitive
 ---
 ## Field keyword
 
+> **Note**
+> The `field` keyword is a preview feature in C# 13.
+
 Requires the following in .csproj
 
 ```xml

@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+#nullable disable
 
 namespace KP_WindowsFormsNET9.Models;
 public partial class Person
 {
-    private int _id;
-
     /// <summary>
     /// Gets or sets the unique identifier for the person.
     /// </summary>
@@ -17,12 +12,9 @@ public partial class Person
     /// </value>
     public partial int Id
     {
-        get => _id;
-        set => _id = value;
+        get;
+        set => field = value;
     }
-
-    private string _firstName;
-    private string _lastName;
 
     /// <summary>
     /// Get or set the first name of the person.
@@ -32,9 +24,10 @@ public partial class Person
     /// </value>
     public partial string FirstName
     {
-        get => _firstName;
-        set => _firstName = value;
+        get;
+        set => field = value;
     }
+
     /// <summary>
     /// Get or set the last name of the person.
     /// </summary>
@@ -43,8 +36,8 @@ public partial class Person
     /// </value>
     public partial string LastName
     {
-        get => _lastName;
-        set => _lastName = value;
+        get;
+        set => field = value;
     }
 
     /// <summary>
