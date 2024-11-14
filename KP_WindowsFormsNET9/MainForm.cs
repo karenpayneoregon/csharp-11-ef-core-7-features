@@ -110,6 +110,7 @@ public partial class MainForm : Form
     /// </summary>
     private void SearchValuesButton_Click(object sender, EventArgs e)
     {
+
         // contains a list of banned words
         var json = File.ReadAllText("bannedwords.json");
 
@@ -127,5 +128,6 @@ public partial class MainForm : Form
                 ? $"{index,-5}contains banned words"
                 : $"{index,-5}is clean");
         }
+
     }
 }
