@@ -4,7 +4,8 @@ using Bogus.Bson;
 using System.Text.Json;
 using KP_WindowsFormsNET9.Classes;
 using KP_WindowsFormsNET9.Models;
-using static KP_WindowsFormsNET9.Classes.Dialogs;
+using static TaskDialogLibrary.Dialogs;
+
 
 // ReSharper disable MoveLocalFunctionAfterJumpStatement
 
@@ -94,11 +95,10 @@ public partial class MainForm : Form
     private void ParamCollectionButton_Click(object sender, EventArgs e)
     {
         int Calculate(params IEnumerable<int> numbers) => numbers.Sum();
-
         List<int> numbers = [5, 10, 10];
         int results = Calculate(numbers.ToArray());
 
-        Information(ParamCollectionButton, "Result", results.ToString());
+        Information(ParamCollectionButton, "Result", results.ToString(),"Cool");
 
 
     }

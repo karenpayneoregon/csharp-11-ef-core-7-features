@@ -86,7 +86,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\DialogsCoreLibrary\DialogsCoreLibrary.csproj" />
+	  <ProjectReference Include="..\TaskDialogLibrary\TaskDialogLibrary.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

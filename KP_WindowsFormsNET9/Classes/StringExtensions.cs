@@ -40,6 +40,21 @@ public static partial class StringExtensions
     }
 
     /// <summary>
+    /// Replaces the last occurrence of a specified string within the given string.
+    /// </summary>
+    /// <param name="source">The string to search within.</param>
+    /// <param name="find">The string to find case-sensitive.</param>
+    /// <param name="replace">The string to replace the found string with.</param>
+    /// <returns>A new string with the last occurrence of the specified string replaced.</returns>
+    public static string ReplaceLast(this string source, string find, string replace)
+    {
+        var index = source.LastIndexOf(find, StringComparison.OrdinalIgnoreCase);
+        return index == -1 ?
+            source :
+            source.Remove(index, find.Length).Insert(index, replace);
+    }
+
+    /// <summary>
     /// Provides a regular expression to match sequences of two or more whitespace characters.
     /// </summary>
     /// <returns>A <see cref="Regex"/> object that matches sequences of two or more whitespace characters.</returns>
