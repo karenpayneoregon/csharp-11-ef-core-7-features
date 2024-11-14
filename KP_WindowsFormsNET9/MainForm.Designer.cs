@@ -34,6 +34,8 @@ partial class MainForm
         PersonPartialButton = new Button();
         FieldKeywordButton = new Button();
         FuncMethodGroupButton = new Button();
+        ParamCollectionButton = new Button();
+        SearchValuesButton = new Button();
         SuspendLayout();
         // 
         // ShowFormButton
@@ -48,7 +50,7 @@ partial class MainForm
         // 
         // PersonPartialButton
         // 
-        PersonPartialButton.Location = new Point(38, 80);
+        PersonPartialButton.Location = new Point(38, 72);
         PersonPartialButton.Name = "PersonPartialButton";
         PersonPartialButton.Size = new Size(157, 29);
         PersonPartialButton.TabIndex = 1;
@@ -58,7 +60,7 @@ partial class MainForm
         // 
         // FieldKeywordButton
         // 
-        FieldKeywordButton.Location = new Point(38, 127);
+        FieldKeywordButton.Location = new Point(38, 121);
         FieldKeywordButton.Name = "FieldKeywordButton";
         FieldKeywordButton.Size = new Size(157, 29);
         FieldKeywordButton.TabIndex = 2;
@@ -68,7 +70,7 @@ partial class MainForm
         // 
         // FuncMethodGroupButton
         // 
-        FuncMethodGroupButton.Location = new Point(38, 171);
+        FuncMethodGroupButton.Location = new Point(38, 170);
         FuncMethodGroupButton.Name = "FuncMethodGroupButton";
         FuncMethodGroupButton.Size = new Size(157, 29);
         FuncMethodGroupButton.TabIndex = 3;
@@ -76,18 +78,41 @@ partial class MainForm
         FuncMethodGroupButton.UseVisualStyleBackColor = true;
         FuncMethodGroupButton.Click += FuncMethodGroupButton_Click;
         // 
+        // ParamCollectionButton
+        // 
+        ParamCollectionButton.Location = new Point(38, 215);
+        ParamCollectionButton.Name = "ParamCollectionButton";
+        ParamCollectionButton.Size = new Size(157, 29);
+        ParamCollectionButton.TabIndex = 4;
+        ParamCollectionButton.Text = "Param Collection";
+        ParamCollectionButton.UseVisualStyleBackColor = true;
+        ParamCollectionButton.Click += ParamCollectionButton_Click;
+        // 
+        // SearchValuesButton
+        // 
+        SearchValuesButton.Location = new Point(230, 23);
+        SearchValuesButton.Name = "SearchValuesButton";
+        SearchValuesButton.Size = new Size(157, 29);
+        SearchValuesButton.TabIndex = 5;
+        SearchValuesButton.Text = "SearchValues";
+        SearchValuesButton.UseVisualStyleBackColor = true;
+        SearchValuesButton.Click += SearchValuesButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(800, 450);
+        ClientSize = new Size(412, 308);
+        Controls.Add(SearchValuesButton);
+        Controls.Add(ParamCollectionButton);
         Controls.Add(FuncMethodGroupButton);
         Controls.Add(FieldKeywordButton);
         Controls.Add(PersonPartialButton);
         Controls.Add(ShowFormButton);
+        FormBorderStyle = FormBorderStyle.FixedToolWindow;
         Name = "MainForm";
         StartPosition = FormStartPosition.CenterScreen;
-        Text = "Form1";
+        Text = "C# 13 - in dark mode";
         ResumeLayout(false);
     }
 
@@ -97,4 +122,6 @@ partial class MainForm
     private Button PersonPartialButton;
     private Button FieldKeywordButton;
     private Button FuncMethodGroupButton;
+    private Button ParamCollectionButton;
+    private Button SearchValuesButton;
 }

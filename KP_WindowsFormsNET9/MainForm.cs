@@ -1,8 +1,13 @@
 
+using System.Buffers;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using Bogus.Bson;
+using System.Text.Json;
 using KP_WindowsFormsNET9.Classes;
 using KP_WindowsFormsNET9.Models;
+using static KP_WindowsFormsNET9.Classes.Dialogs;
+
 // ReSharper disable MoveLocalFunctionAfterJumpStatement
 
 namespace KP_WindowsFormsNET9;
@@ -82,5 +87,47 @@ public partial class MainForm : Form
 
         Demo(f);
 
+    }
+
+    /// <summary>
+    /// params collection
+    /// Calculates the sum of a collection of integers and displays the result in an information dialog.
+    /// </summary>
+    private void ParamCollectionButton_Click(object sender, EventArgs e)
+    {
+        int Calculate(params IEnumerable<int> numbers) => numbers.Sum();
+
+        List<int> numbers = [5, 10, 10];
+        int results = Calculate(numbers.ToArray());
+
+        Information(ParamCollectionButton, "Result", results.ToString());
+
+
+    }
+
+    /// <summary>
+    /// Reads a list of banned words from a JSON file
+    /// Reads test data from a text file
+    /// Test each sentence for banned words from the text file
+    /// </summary>
+    private void SearchValuesButton_Click(object sender, EventArgs e)
+    {
+        // contains a list of banned words
+        var json = File.ReadAllText("bannedwords.json");
+
+        // deserialize the json to a list of banned words
+        var words = JsonSerializer.Deserialize<List<BannedWord>>(json)!
+            .Select(x => x.Name).ToArray();
+
+        // contains a list of sentences to check for banned words
+        var sentences = File.ReadAllLines("TestBanneded.txt");
+
+        // check each sentence for banned words
+        foreach (var (index, item) in sentences.Index())
+        {
+            Debug.WriteLine(item.HasBannedWords(words)
+                ? $"{index,-5}contains banned words"
+                : $"{index,-5}is clean");
+        }
     }
 }

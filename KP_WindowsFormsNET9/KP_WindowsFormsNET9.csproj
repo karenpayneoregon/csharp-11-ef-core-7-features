@@ -14,6 +14,11 @@
 		<NuGetAuditSuppress Include="https://github.com/advisories/GHSA-8g4q-xg66-9fp4" />
 	</ItemGroup>
 
+    <!-- for dark mode-->
+    <PropertyGroup>
+        <NoWarn>$(NoWarn);WFO5001</NoWarn>
+    </PropertyGroup>
+
     <!-- for ShowDialogAsync-->
     <PropertyGroup>
         <NoWarn>$(NoWarn);WFO5002</NoWarn>
@@ -56,6 +61,15 @@
 	  <None Update="appsettings.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	  <None Update="bannedwords.json">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="blueInformation_32.ico">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="TestBanneded.txt">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 	<Target Name="MakeLogDir" AfterTargets="Build">
@@ -69,6 +83,25 @@
 
 	<ItemGroup>
 	  <None Include="C:\OED\DotnetLand\VS2022\LanguageFeatures\KP_WindowsFormsNET9\.editorconfig" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\DialogsCoreLibrary\DialogsCoreLibrary.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Properties\Resources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Resources.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Properties\Resources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 </Project>

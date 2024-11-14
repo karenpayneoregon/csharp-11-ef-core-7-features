@@ -28,13 +28,25 @@ partial class ChildForm
     /// </summary>
     private void InitializeComponent()
     {
+        CloseThisFormButton = new Button();
         SuspendLayout();
+        // 
+        // CloseThisFormButton
+        // 
+        CloseThisFormButton.DialogResult = DialogResult.OK;
+        CloseThisFormButton.Location = new Point(283, 227);
+        CloseThisFormButton.Name = "CloseThisFormButton";
+        CloseThisFormButton.Size = new Size(94, 29);
+        CloseThisFormButton.TabIndex = 0;
+        CloseThisFormButton.Text = "Close";
+        CloseThisFormButton.UseVisualStyleBackColor = true;
         // 
         // ChildForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(389, 280);
+        Controls.Add(CloseThisFormButton);
         FormBorderStyle = FormBorderStyle.FixedToolWindow;
         Name = "ChildForm";
         StartPosition = FormStartPosition.CenterParent;
@@ -43,4 +55,6 @@ partial class ChildForm
     }
 
     #endregion
+
+    private Button CloseThisFormButton;
 }

@@ -5,6 +5,7 @@ Playground for C# 13
 - Partial properties
 - Index() deconstruct
 - ShowDialogAsync
+- [Darkmode](https://learn.microsoft.com/en-us/dotnet/desktop/winforms/whats-new/net90?view=netdesktop-9.0#dark-mode)
 
 
 ## Notes
