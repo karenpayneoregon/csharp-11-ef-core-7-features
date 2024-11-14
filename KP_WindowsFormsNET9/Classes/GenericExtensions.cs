@@ -1,7 +1,5 @@
 ﻿
 
-using System.Buffers;
-
 namespace KP_WindowsFormsNET9.Classes;
 
 public static class GenericExtensions
