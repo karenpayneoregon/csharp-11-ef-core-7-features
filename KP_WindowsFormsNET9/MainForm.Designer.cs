@@ -36,6 +36,10 @@ partial class MainForm
         FuncMethodGroupButton = new Button();
         ParamCollectionButton = new Button();
         SearchValuesButton = new Button();
+        SearchValuesButton1 = new Button();
+        ComplexTypeButton = new Button();
+        groupBox1 = new GroupBox();
+        groupBox1.SuspendLayout();
         SuspendLayout();
         // 
         // ShowFormButton
@@ -94,15 +98,47 @@ partial class MainForm
         SearchValuesButton.Name = "SearchValuesButton";
         SearchValuesButton.Size = new Size(157, 29);
         SearchValuesButton.TabIndex = 5;
-        SearchValuesButton.Text = "SearchValues";
+        SearchValuesButton.Text = "SearchValues (spam)";
         SearchValuesButton.UseVisualStyleBackColor = true;
         SearchValuesButton.Click += SearchValuesButton_Click;
+        // 
+        // SearchValuesButton1
+        // 
+        SearchValuesButton1.Location = new Point(230, 72);
+        SearchValuesButton1.Name = "SearchValuesButton1";
+        SearchValuesButton1.Size = new Size(157, 29);
+        SearchValuesButton1.TabIndex = 6;
+        SearchValuesButton1.Text = "SearchValues (Log)";
+        SearchValuesButton1.UseVisualStyleBackColor = true;
+        SearchValuesButton1.Click += SearchValuesButton1_Click;
+        // 
+        // ComplexTypeButton
+        // 
+        ComplexTypeButton.Location = new Point(21, 29);
+        ComplexTypeButton.Name = "ComplexTypeButton";
+        ComplexTypeButton.Size = new Size(338, 29);
+        ComplexTypeButton.TabIndex = 7;
+        ComplexTypeButton.Text = "Complex Type";
+        ComplexTypeButton.UseVisualStyleBackColor = true;
+        ComplexTypeButton.Click += ComplexTypeButton_Click;
+        // 
+        // groupBox1
+        // 
+        groupBox1.Controls.Add(ComplexTypeButton);
+        groupBox1.Location = new Point(17, 272);
+        groupBox1.Name = "groupBox1";
+        groupBox1.Size = new Size(376, 117);
+        groupBox1.TabIndex = 8;
+        groupBox1.TabStop = false;
+        groupBox1.Text = "EF Core 9";
         // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(412, 308);
+        ClientSize = new Size(412, 411);
+        Controls.Add(groupBox1);
+        Controls.Add(SearchValuesButton1);
         Controls.Add(SearchValuesButton);
         Controls.Add(ParamCollectionButton);
         Controls.Add(FuncMethodGroupButton);
@@ -113,6 +149,7 @@ partial class MainForm
         Name = "MainForm";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "C# 13 - in dark mode";
+        groupBox1.ResumeLayout(false);
         ResumeLayout(false);
     }
 
@@ -124,4 +161,7 @@ partial class MainForm
     private Button FuncMethodGroupButton;
     private Button ParamCollectionButton;
     private Button SearchValuesButton;
+    private Button SearchValuesButton1;
+    private Button ComplexTypeButton;
+    private GroupBox groupBox1;
 }

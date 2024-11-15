@@ -5,6 +5,7 @@ using System.Text.Json;
 using KP_WindowsFormsNET9.Classes;
 using KP_WindowsFormsNET9.Models;
 using static TaskDialogLibrary.Dialogs;
+using KP_WindowsFormsNET9.EFCore.Sample1;
 
 
 // ReSharper disable MoveLocalFunctionAfterJumpStatement
@@ -98,7 +99,7 @@ public partial class MainForm : Form
         List<int> numbers = [5, 10, 10];
         int results = Calculate(numbers.ToArray());
 
-        Information(ParamCollectionButton, "Result", results.ToString(),"Cool");
+        Information(ParamCollectionButton, "Result", results.ToString(), "Cool");
 
 
     }
@@ -129,5 +130,33 @@ public partial class MainForm : Form
                 : $"{index,-5}is clean");
         }
 
+    }
+
+    private void SearchValuesButton1_Click(object sender, EventArgs e)
+    {
+        string[] dates = ["11/8/2024", "11/9/2024"];
+
+        var sentences = File.ReadAllLines("EF_Log.txt");
+
+        foreach (var (index, line) in sentences.Index())
+        {
+            if (line.HasDates(dates))
+            {
+                Debug.WriteLine($"Line {index + 1}");
+            }
+        }
+    }
+
+    private async void ComplexTypeButton_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            await ComplexTypesSample.GroupByComplexTypeInstances();
+            Information(this,"","Finish","Okay");
+        }
+        catch (Exception localException)
+        {
+            Information(this,"Error",localException.Message,"Done");
+        }
     }
 }

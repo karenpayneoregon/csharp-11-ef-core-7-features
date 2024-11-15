@@ -1,14 +1,21 @@
 # About
 
-Playground for C#13
+Playground for [C#13](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9/overview#c-13) and [EF Core 9](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-9.0/whatsnew)
 
+> **Note**
+> EF Core code samples came from Microsoft and modified by Karen Payne.
 
 - Partial properties
 - [params collections](https://devblogs.microsoft.com/dotnet/csharp13-calling-methods-is-easier-and-faster/)
-- Enumerable.Index() deconstruct
+- Enumerable.Index() deconstruct `no docs yet`
 - ShowDialogAsync
 - [Darkmode](https://learn.microsoft.com/en-us/dotnet/desktop/winforms/whats-new/net90?view=netdesktop-9.0#dark-mode)
 
+## Web
+
+TODO
+
+[What's new in ASP.NET Core 9.0](https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-9.0?view=aspnetcore-9.0#static-asset-delivery-optimization)
 
 ## Notes
 
