@@ -1,6 +1,6 @@
 ![Csharp11](assets/csharp11.png)
 
-# New features C# 11 and EF Core 7, NET 8
+# New features C# 11 and EF Core 7, NET 8, NET 9, EF Core 9
 
 
 This repository is dedicated to new features in C# 11 in .NET Core 7 along with several code samples for EF Core 7. There are many sites which offer code samples yet from what I’ve seen most are the same and don’t go very deep into the new features. Here you will find code samples that are ready to run and for the most part easy to understand.

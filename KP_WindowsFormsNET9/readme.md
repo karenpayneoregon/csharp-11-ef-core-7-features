@@ -5,9 +5,16 @@ Playground for [C#13](https://learn.microsoft.com/en-us/dotnet/core/whats-new/do
 > **Note**
 > EF Core code samples came from Microsoft and modified by Karen Payne.
 
+
+## Videos
+
+https://www.youtube.com/playlist?list=PLdo4fOcmZ0oXeSG8BgCVru3zQtw_K4ANY
+
+---
+
 - Partial properties
 - [params collections](https://devblogs.microsoft.com/dotnet/csharp13-calling-methods-is-easier-and-faster/)
-- Enumerable.Index() deconstruct `no docs yet`
+- [Enumerable.Index()](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.index?view=net-9.0) deconstruct 
 - ShowDialogAsync
 - [Darkmode](https://learn.microsoft.com/en-us/dotnet/desktop/winforms/whats-new/net90?view=netdesktop-9.0#dark-mode)
 
