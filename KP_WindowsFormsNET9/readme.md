@@ -1,6 +1,6 @@
 # About
 
-Playground for C# 13
+Playground for C#-13
 
 - Partial properties
 - [params collections](https://devblogs.microsoft.com/dotnet/csharp13-calling-methods-is-easier-and-faster/)
