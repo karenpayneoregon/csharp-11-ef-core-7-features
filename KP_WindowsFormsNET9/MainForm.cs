@@ -1,11 +1,11 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
-using Bogus.Bson;
 using System.Text.Json;
 using KP_WindowsFormsNET9.Classes;
 using KP_WindowsFormsNET9.Models;
 using static TaskDialogLibrary.Dialogs;
 using KP_WindowsFormsNET9.EFCore.Sample1;
+using Microsoft.VisualBasic.ApplicationServices;
 
 
 // ReSharper disable MoveLocalFunctionAfterJumpStatement
@@ -152,11 +152,25 @@ public partial class MainForm : Form
         try
         {
             await ComplexTypesSample.GroupByComplexTypeInstances();
-            Information(this,"","Finish","Okay");
+            Information(this, "", "Finish", "Okay");
         }
         catch (Exception localException)
         {
-            Information(this,"Error",localException.Message,"Done");
+            Information(this, "Error", localException.Message, "Done");
+        }
+    }
+
+    /// <summary>
+    /// This method counts the number of users by their roles and writes the count to the debug output.
+    /// </summary>
+    private void CountByButton_Click(object sender, EventArgs e)
+    {
+
+        var users = MockedData.Users();
+
+        foreach (var roleCount in users.CountBy(user => user.Role))
+        {
+            Debug.WriteLine($"There are {roleCount.Value} users with the role {roleCount.Key}");
         }
     }
 }

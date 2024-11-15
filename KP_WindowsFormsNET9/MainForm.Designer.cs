@@ -39,6 +39,7 @@ partial class MainForm
         SearchValuesButton1 = new Button();
         ComplexTypeButton = new Button();
         groupBox1 = new GroupBox();
+        CountByButton = new Button();
         groupBox1.SuspendLayout();
         SuspendLayout();
         // 
@@ -132,11 +133,22 @@ partial class MainForm
         groupBox1.TabStop = false;
         groupBox1.Text = "EF Core 9";
         // 
+        // CountByButton
+        // 
+        CountByButton.Location = new Point(230, 121);
+        CountByButton.Name = "CountByButton";
+        CountByButton.Size = new Size(157, 29);
+        CountByButton.TabIndex = 9;
+        CountByButton.Text = "CountBy";
+        CountByButton.UseVisualStyleBackColor = true;
+        CountByButton.Click += CountByButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(412, 411);
+        Controls.Add(CountByButton);
         Controls.Add(groupBox1);
         Controls.Add(SearchValuesButton1);
         Controls.Add(SearchValuesButton);
@@ -164,4 +176,5 @@ partial class MainForm
     private Button SearchValuesButton1;
     private Button ComplexTypeButton;
     private GroupBox groupBox1;
+    private Button CountByButton;
 }
