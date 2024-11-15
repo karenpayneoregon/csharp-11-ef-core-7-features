@@ -1,0 +1,106 @@
+info: 11/7/2024 06:28:40.649 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (82ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[CustomerIdentifier], [t].[City], [t].[CompanyName], [t].[ContactId], [t].[ContactTypeIdentifier], [t].[CountryIdentifier], [t].[Fax], [t].[ModifiedDate], [t].[Phone], [t].[PostalCode], [t].[Region], [t].[Street], [t0].[OrderID], [t0].[CustomerIdentifier], [t0].[DeliveredDate], [t0].[EmployeeID], [t0].[Freight], [t0].[OrderDate], [t0].[RequiredDate], [t0].[ShipAddress], [t0].[ShipCity], [t0].[ShipCountry], [t0].[ShipPostalCode], [t0].[ShipRegion], [t0].[ShipVia], [t0].[ShippedDate], [t0].[OrderID0], [t0].[ProductID], [t0].[Discount], [t0].[Quantity], [t0].[UnitPrice], [t0].[ProductID0], [t0].[CategoryID], [t0].[Discontinued], [t0].[DiscontinuedDate], [t0].[ProductName], [t0].[QuantityPerUnit], [t0].[ReorderLevel], [t0].[SupplierID], [t0].[UnitPrice0], [t0].[UnitsInStock], [t0].[UnitsOnOrder], [t0].[CategoryID0], [t0].[CategoryName], [t0].[Description], [t0].[Picture]
+      FROM (
+          SELECT TOP(1) [c].[CustomerIdentifier], [c].[City], [c].[CompanyName], [c].[ContactId], [c].[ContactTypeIdentifier], [c].[CountryIdentifier], [c].[Fax], [c].[ModifiedDate], [c].[Phone], [c].[PostalCode], [c].[Region], [c].[Street]
+          FROM [Customers] AS [c]
+          WHERE [c].[CustomerIdentifier] = 1
+      ) AS [t]
+      LEFT JOIN (
+          SELECT [o].[OrderID], [o].[CustomerIdentifier], [o].[DeliveredDate], [o].[EmployeeID], [o].[Freight], [o].[OrderDate], [o].[RequiredDate], [o].[ShipAddress], [o].[ShipCity], [o].[ShipCountry], [o].[ShipPostalCode], [o].[ShipRegion], [o].[ShipVia], [o].[ShippedDate], [t1].[OrderID] AS [OrderID0], [t1].[ProductID], [t1].[Discount], [t1].[Quantity], [t1].[UnitPrice], [t1].[ProductID0], [t1].[CategoryID], [t1].[Discontinued], [t1].[DiscontinuedDate], [t1].[ProductName], [t1].[QuantityPerUnit], [t1].[ReorderLevel], [t1].[SupplierID], [t1].[UnitPrice0], [t1].[UnitsInStock], [t1].[UnitsOnOrder], [t1].[CategoryID0], [t1].[CategoryName], [t1].[Description], [t1].[Picture]
+          FROM [Orders] AS [o]
+          LEFT JOIN (
+              SELECT [o0].[OrderID], [o0].[ProductID], [o0].[Discount], [o0].[Quantity], [o0].[UnitPrice], [p].[ProductID] AS [ProductID0], [p].[CategoryID], [p].[Discontinued], [p].[DiscontinuedDate], [p].[ProductName], [p].[QuantityPerUnit], [p].[ReorderLevel], [p].[SupplierID], [p].[UnitPrice] AS [UnitPrice0], [p].[UnitsInStock], [p].[UnitsOnOrder], [c0].[CategoryID] AS [CategoryID0], [c0].[CategoryName], [c0].[Description], [c0].[Picture]
+              FROM [OrderDetails] AS [o0]
+              INNER JOIN [Products] AS [p] ON [o0].[ProductID] = [p].[ProductID]
+              LEFT JOIN [Categories] AS [c0] ON [p].[CategoryID] = [c0].[CategoryID]
+          ) AS [t1] ON [o].[OrderID] = [t1].[OrderID]
+      ) AS [t0] ON [t].[CustomerIdentifier] = [t0].[CustomerIdentifier]
+      ORDER BY [t].[CustomerIdentifier], [t0].[OrderID], [t0].[OrderID0], [t0].[ProductID], [t0].[ProductID0]
+----------------------------------------
+info: 11/7/2024 06:29:46.470 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (62ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[CustomerIdentifier], [t].[City], [t].[CompanyName], [t].[ContactId], [t].[ContactTypeIdentifier], [t].[CountryIdentifier], [t].[Fax], [t].[ModifiedDate], [t].[Phone], [t].[PostalCode], [t].[Region], [t].[Street], [t].[CountryIdentifier0], [t].[Name], [t0].[OrderID], [t0].[CustomerIdentifier], [t0].[DeliveredDate], [t0].[EmployeeID], [t0].[Freight], [t0].[OrderDate], [t0].[RequiredDate], [t0].[ShipAddress], [t0].[ShipCity], [t0].[ShipCountry], [t0].[ShipPostalCode], [t0].[ShipRegion], [t0].[ShipVia], [t0].[ShippedDate], [t0].[OrderID0], [t0].[ProductID], [t0].[Discount], [t0].[Quantity], [t0].[UnitPrice], [t0].[ProductID0], [t0].[CategoryID], [t0].[Discontinued], [t0].[DiscontinuedDate], [t0].[ProductName], [t0].[QuantityPerUnit], [t0].[ReorderLevel], [t0].[SupplierID], [t0].[UnitPrice0], [t0].[UnitsInStock], [t0].[UnitsOnOrder], [t0].[CategoryID0], [t0].[CategoryName], [t0].[Description], [t0].[Picture]
+      FROM (
+          SELECT TOP(1) [c].[CustomerIdentifier], [c].[City], [c].[CompanyName], [c].[ContactId], [c].[ContactTypeIdentifier], [c].[CountryIdentifier], [c].[Fax], [c].[ModifiedDate], [c].[Phone], [c].[PostalCode], [c].[Region], [c].[Street], [c0].[CountryIdentifier] AS [CountryIdentifier0], [c0].[Name]
+          FROM [Customers] AS [c]
+          INNER JOIN [Countries] AS [c0] ON [c].[CountryIdentifier] = [c0].[CountryIdentifier]
+          WHERE [c].[CustomerIdentifier] = 1
+      ) AS [t]
+      LEFT JOIN (
+          SELECT [o].[OrderID], [o].[CustomerIdentifier], [o].[DeliveredDate], [o].[EmployeeID], [o].[Freight], [o].[OrderDate], [o].[RequiredDate], [o].[ShipAddress], [o].[ShipCity], [o].[ShipCountry], [o].[ShipPostalCode], [o].[ShipRegion], [o].[ShipVia], [o].[ShippedDate], [t1].[OrderID] AS [OrderID0], [t1].[ProductID], [t1].[Discount], [t1].[Quantity], [t1].[UnitPrice], [t1].[ProductID0], [t1].[CategoryID], [t1].[Discontinued], [t1].[DiscontinuedDate], [t1].[ProductName], [t1].[QuantityPerUnit], [t1].[ReorderLevel], [t1].[SupplierID], [t1].[UnitPrice0], [t1].[UnitsInStock], [t1].[UnitsOnOrder], [t1].[CategoryID0], [t1].[CategoryName], [t1].[Description], [t1].[Picture]
+          FROM [Orders] AS [o]
+          LEFT JOIN (
+              SELECT [o0].[OrderID], [o0].[ProductID], [o0].[Discount], [o0].[Quantity], [o0].[UnitPrice], [p].[ProductID] AS [ProductID0], [p].[CategoryID], [p].[Discontinued], [p].[DiscontinuedDate], [p].[ProductName], [p].[QuantityPerUnit], [p].[ReorderLevel], [p].[SupplierID], [p].[UnitPrice] AS [UnitPrice0], [p].[UnitsInStock], [p].[UnitsOnOrder], [c1].[CategoryID] AS [CategoryID0], [c1].[CategoryName], [c1].[Description], [c1].[Picture]
+              FROM [OrderDetails] AS [o0]
+              INNER JOIN [Products] AS [p] ON [o0].[ProductID] = [p].[ProductID]
+              LEFT JOIN [Categories] AS [c1] ON [p].[CategoryID] = [c1].[CategoryID]
+          ) AS [t1] ON [o].[OrderID] = [t1].[OrderID]
+      ) AS [t0] ON [t].[CustomerIdentifier] = [t0].[CustomerIdentifier]
+      ORDER BY [t].[CustomerIdentifier], [t].[CountryIdentifier0], [t0].[OrderID], [t0].[OrderID0], [t0].[ProductID], [t0].[ProductID0]
+----------------------------------------
+info: 11/7/2024 07:10:10.543 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (108ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[CustomerIdentifier], [t].[City], [t].[CompanyName], [t].[ContactId], [t].[ContactTypeIdentifier], [t].[CountryIdentifier], [t].[Fax], [t].[ModifiedDate], [t].[Phone], [t].[PostalCode], [t].[Region], [t].[Street], [t].[CountryIdentifier0], [t].[Name], [t0].[OrderID], [t0].[CustomerIdentifier], [t0].[DeliveredDate], [t0].[EmployeeID], [t0].[Freight], [t0].[OrderDate], [t0].[RequiredDate], [t0].[ShipAddress], [t0].[ShipCity], [t0].[ShipCountry], [t0].[ShipPostalCode], [t0].[ShipRegion], [t0].[ShipVia], [t0].[ShippedDate], [t0].[OrderID0], [t0].[ProductID], [t0].[Discount], [t0].[Quantity], [t0].[UnitPrice], [t0].[ProductID0], [t0].[CategoryID], [t0].[Discontinued], [t0].[DiscontinuedDate], [t0].[ProductName], [t0].[QuantityPerUnit], [t0].[ReorderLevel], [t0].[SupplierID], [t0].[UnitPrice0], [t0].[UnitsInStock], [t0].[UnitsOnOrder], [t0].[CategoryID0], [t0].[CategoryName], [t0].[Description], [t0].[Picture]
+      FROM (
+          SELECT TOP(1) [c].[CustomerIdentifier], [c].[City], [c].[CompanyName], [c].[ContactId], [c].[ContactTypeIdentifier], [c].[CountryIdentifier], [c].[Fax], [c].[ModifiedDate], [c].[Phone], [c].[PostalCode], [c].[Region], [c].[Street], [c0].[CountryIdentifier] AS [CountryIdentifier0], [c0].[Name]
+          FROM [Customers] AS [c]
+          INNER JOIN [Countries] AS [c0] ON [c].[CountryIdentifier] = [c0].[CountryIdentifier]
+          WHERE [c].[CustomerIdentifier] = @__customerId_0
+      ) AS [t]
+      LEFT JOIN (
+          SELECT [o].[OrderID], [o].[CustomerIdentifier], [o].[DeliveredDate], [o].[EmployeeID], [o].[Freight], [o].[OrderDate], [o].[RequiredDate], [o].[ShipAddress], [o].[ShipCity], [o].[ShipCountry], [o].[ShipPostalCode], [o].[ShipRegion], [o].[ShipVia], [o].[ShippedDate], [t1].[OrderID] AS [OrderID0], [t1].[ProductID], [t1].[Discount], [t1].[Quantity], [t1].[UnitPrice], [t1].[ProductID0], [t1].[CategoryID], [t1].[Discontinued], [t1].[DiscontinuedDate], [t1].[ProductName], [t1].[QuantityPerUnit], [t1].[ReorderLevel], [t1].[SupplierID], [t1].[UnitPrice0], [t1].[UnitsInStock], [t1].[UnitsOnOrder], [t1].[CategoryID0], [t1].[CategoryName], [t1].[Description], [t1].[Picture]
+          FROM [Orders] AS [o]
+          LEFT JOIN (
+              SELECT [o0].[OrderID], [o0].[ProductID], [o0].[Discount], [o0].[Quantity], [o0].[UnitPrice], [p].[ProductID] AS [ProductID0], [p].[CategoryID], [p].[Discontinued], [p].[DiscontinuedDate], [p].[ProductName], [p].[QuantityPerUnit], [p].[ReorderLevel], [p].[SupplierID], [p].[UnitPrice] AS [UnitPrice0], [p].[UnitsInStock], [p].[UnitsOnOrder], [c1].[CategoryID] AS [CategoryID0], [c1].[CategoryName], [c1].[Description], [c1].[Picture]
+              FROM [OrderDetails] AS [o0]
+              INNER JOIN [Products] AS [p] ON [o0].[ProductID] = [p].[ProductID]
+              LEFT JOIN [Categories] AS [c1] ON [p].[CategoryID] = [c1].[CategoryID]
+          ) AS [t1] ON [o].[OrderID] = [t1].[OrderID]
+      ) AS [t0] ON [t].[CustomerIdentifier] = [t0].[CustomerIdentifier]
+      ORDER BY [t].[CustomerIdentifier], [t].[CountryIdentifier0], [t0].[OrderID], [t0].[OrderID0], [t0].[ProductID], [t0].[ProductID0]
+----------------------------------------
+info: 11/8/2024 07:23:00.723 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (65ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[CustomerIdentifier], [t].[City], [t].[CompanyName], [t].[ContactId], [t].[ContactTypeIdentifier], [t].[CountryIdentifier], [t].[Fax], [t].[ModifiedDate], [t].[Phone], [t].[PostalCode], [t].[Region], [t].[Street], [t].[CountryIdentifier0], [t].[Name], [t].[ContactId0], [t].[ContactTypeIdentifier0], [t].[FirstName], [t].[FullName], [t].[LastName], [t0].[OrderID], [t0].[CustomerIdentifier], [t0].[DeliveredDate], [t0].[EmployeeID], [t0].[Freight], [t0].[OrderDate], [t0].[RequiredDate], [t0].[ShipAddress], [t0].[ShipCity], [t0].[ShipCountry], [t0].[ShipPostalCode], [t0].[ShipRegion], [t0].[ShipVia], [t0].[ShippedDate], [t0].[OrderID0], [t0].[ProductID], [t0].[Discount], [t0].[Quantity], [t0].[UnitPrice], [t0].[ProductID0], [t0].[CategoryID], [t0].[Discontinued], [t0].[DiscontinuedDate], [t0].[ProductName], [t0].[QuantityPerUnit], [t0].[ReorderLevel], [t0].[SupplierID], [t0].[UnitPrice0], [t0].[UnitsInStock], [t0].[UnitsOnOrder], [t0].[CategoryID0], [t0].[CategoryName], [t0].[Description], [t0].[Picture]
+      FROM (
+          SELECT TOP(1) [c].[CustomerIdentifier], [c].[City], [c].[CompanyName], [c].[ContactId], [c].[ContactTypeIdentifier], [c].[CountryIdentifier], [c].[Fax], [c].[ModifiedDate], [c].[Phone], [c].[PostalCode], [c].[Region], [c].[Street], [c0].[CountryIdentifier] AS [CountryIdentifier0], [c0].[Name], [c1].[ContactId] AS [ContactId0], [c1].[ContactTypeIdentifier] AS [ContactTypeIdentifier0], [c1].[FirstName], [c1].[FullName], [c1].[LastName]
+          FROM [Customers] AS [c]
+          INNER JOIN [Countries] AS [c0] ON [c].[CountryIdentifier] = [c0].[CountryIdentifier]
+          LEFT JOIN [Contacts] AS [c1] ON [c].[ContactId] = [c1].[ContactId]
+          WHERE [c].[CustomerIdentifier] = @__customerId_0
+      ) AS [t]
+      LEFT JOIN (
+          SELECT [o].[OrderID], [o].[CustomerIdentifier], [o].[DeliveredDate], [o].[EmployeeID], [o].[Freight], [o].[OrderDate], [o].[RequiredDate], [o].[ShipAddress], [o].[ShipCity], [o].[ShipCountry], [o].[ShipPostalCode], [o].[ShipRegion], [o].[ShipVia], [o].[ShippedDate], [t1].[OrderID] AS [OrderID0], [t1].[ProductID], [t1].[Discount], [t1].[Quantity], [t1].[UnitPrice], [t1].[ProductID0], [t1].[CategoryID], [t1].[Discontinued], [t1].[DiscontinuedDate], [t1].[ProductName], [t1].[QuantityPerUnit], [t1].[ReorderLevel], [t1].[SupplierID], [t1].[UnitPrice0], [t1].[UnitsInStock], [t1].[UnitsOnOrder], [t1].[CategoryID0], [t1].[CategoryName], [t1].[Description], [t1].[Picture]
+          FROM [Orders] AS [o]
+          LEFT JOIN (
+              SELECT [o0].[OrderID], [o0].[ProductID], [o0].[Discount], [o0].[Quantity], [o0].[UnitPrice], [p].[ProductID] AS [ProductID0], [p].[CategoryID], [p].[Discontinued], [p].[DiscontinuedDate], [p].[ProductName], [p].[QuantityPerUnit], [p].[ReorderLevel], [p].[SupplierID], [p].[UnitPrice] AS [UnitPrice0], [p].[UnitsInStock], [p].[UnitsOnOrder], [c2].[CategoryID] AS [CategoryID0], [c2].[CategoryName], [c2].[Description], [c2].[Picture]
+              FROM [OrderDetails] AS [o0]
+              INNER JOIN [Products] AS [p] ON [o0].[ProductID] = [p].[ProductID]
+              LEFT JOIN [Categories] AS [c2] ON [p].[CategoryID] = [c2].[CategoryID]
+          ) AS [t1] ON [o].[OrderID] = [t1].[OrderID]
+      ) AS [t0] ON [t].[CustomerIdentifier] = [t0].[CustomerIdentifier]
+      ORDER BY [t].[CustomerIdentifier], [t].[CountryIdentifier0], [t].[ContactId0], [t0].[OrderID], [t0].[OrderID0], [t0].[ProductID], [t0].[ProductID0]
+----------------------------------------
+info: 11/9/2024 07:28:24.180 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (63ms) [Parameters=[@__customerId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [t].[CustomerIdentifier], [t].[City], [t].[CompanyName], [t].[ContactId], [t].[ContactTypeIdentifier], [t].[CountryIdentifier], [t].[Fax], [t].[ModifiedDate], [t].[Phone], [t].[PostalCode], [t].[Region], [t].[Street], [t].[CountryIdentifier0], [t].[Name], [t].[ContactId0], [t].[ContactTypeIdentifier0], [t].[FirstName], [t].[FullName], [t].[LastName], [t0].[OrderID], [t0].[CustomerIdentifier], [t0].[DeliveredDate], [t0].[EmployeeID], [t0].[Freight], [t0].[OrderDate], [t0].[RequiredDate], [t0].[ShipAddress], [t0].[ShipCity], [t0].[ShipCountry], [t0].[ShipPostalCode], [t0].[ShipRegion], [t0].[ShipVia], [t0].[ShippedDate], [t0].[OrderID0], [t0].[ProductID], [t0].[Discount], [t0].[Quantity], [t0].[UnitPrice], [t0].[ProductID0], [t0].[CategoryID], [t0].[Discontinued], [t0].[DiscontinuedDate], [t0].[ProductName], [t0].[QuantityPerUnit], [t0].[ReorderLevel], [t0].[SupplierID], [t0].[UnitPrice0], [t0].[UnitsInStock], [t0].[UnitsOnOrder], [t0].[CategoryID0], [t0].[CategoryName], [t0].[Description], [t0].[Picture]
+      FROM (
+          SELECT TOP(1) [c].[CustomerIdentifier], [c].[City], [c].[CompanyName], [c].[ContactId], [c].[ContactTypeIdentifier], [c].[CountryIdentifier], [c].[Fax], [c].[ModifiedDate], [c].[Phone], [c].[PostalCode], [c].[Region], [c].[Street], [c0].[CountryIdentifier] AS [CountryIdentifier0], [c0].[Name], [c1].[ContactId] AS [ContactId0], [c1].[ContactTypeIdentifier] AS [ContactTypeIdentifier0], [c1].[FirstName], [c1].[FullName], [c1].[LastName]
+          FROM [Customers] AS [c]
+          INNER JOIN [Countries] AS [c0] ON [c].[CountryIdentifier] = [c0].[CountryIdentifier]
+          LEFT JOIN [Contacts] AS [c1] ON [c].[ContactId] = [c1].[ContactId]
+          WHERE [c].[CustomerIdentifier] = @__customerId_0
+      ) AS [t]
+      LEFT JOIN (
+          SELECT [o].[OrderID], [o].[CustomerIdentifier], [o].[DeliveredDate], [o].[EmployeeID], [o].[Freight], [o].[OrderDate], [o].[RequiredDate], [o].[ShipAddress], [o].[ShipCity], [o].[ShipCountry], [o].[ShipPostalCode], [o].[ShipRegion], [o].[ShipVia], [o].[ShippedDate], [t1].[OrderID] AS [OrderID0], [t1].[ProductID], [t1].[Discount], [t1].[Quantity], [t1].[UnitPrice], [t1].[ProductID0], [t1].[CategoryID], [t1].[Discontinued], [t1].[DiscontinuedDate], [t1].[ProductName], [t1].[QuantityPerUnit], [t1].[ReorderLevel], [t1].[SupplierID], [t1].[UnitPrice0], [t1].[UnitsInStock], [t1].[UnitsOnOrder], [t1].[CategoryID0], [t1].[CategoryName], [t1].[Description], [t1].[Picture]
+          FROM [Orders] AS [o]
+          LEFT JOIN (
+              SELECT [o0].[OrderID], [o0].[ProductID], [o0].[Discount], [o0].[Quantity], [o0].[UnitPrice], [p].[ProductID] AS [ProductID0], [p].[CategoryID], [p].[Discontinued], [p].[DiscontinuedDate], [p].[ProductName], [p].[QuantityPerUnit], [p].[ReorderLevel], [p].[SupplierID], [p].[UnitPrice] AS [UnitPrice0], [p].[UnitsInStock], [p].[UnitsOnOrder], [c2].[CategoryID] AS [CategoryID0], [c2].[CategoryName], [c2].[Description], [c2].[Picture]
+              FROM [OrderDetails] AS [o0]
+              INNER JOIN [Products] AS [p] ON [o0].[ProductID] = [p].[ProductID]
+              LEFT JOIN [Categories] AS [c2] ON [p].[CategoryID] = [c2].[CategoryID]
+          ) AS [t1] ON [o].[OrderID] = [t1].[OrderID]
+      ) AS [t0] ON [t].[CustomerIdentifier] = [t0].[CustomerIdentifier]
+      ORDER BY [t].[CustomerIdentifier], [t].[CountryIdentifier0], [t].[ContactId0], [t0].[OrderID], [t0].[OrderID0], [t0].[ProductID], [t0].[ProductID0]
+----------------------------------------
