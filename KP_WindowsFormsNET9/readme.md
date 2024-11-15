@@ -4,7 +4,7 @@ Playground for C#13
 
 - Partial properties
 - [params collections](https://devblogs.microsoft.com/dotnet/csharp13-calling-methods-is-easier-and-faster/)
-- Index() deconstruct
+- Enumerable.Index() deconstruct
 - ShowDialogAsync
 - [Darkmode](https://learn.microsoft.com/en-us/dotnet/desktop/winforms/whats-new/net90?view=netdesktop-9.0#dark-mode)
 
