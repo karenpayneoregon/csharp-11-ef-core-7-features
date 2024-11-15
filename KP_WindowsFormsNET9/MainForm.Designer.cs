@@ -40,6 +40,7 @@ partial class MainForm
         ComplexTypeButton = new Button();
         groupBox1 = new GroupBox();
         CountByButton = new Button();
+        AggregateByButton = new Button();
         groupBox1.SuspendLayout();
         SuspendLayout();
         // 
@@ -143,11 +144,22 @@ partial class MainForm
         CountByButton.UseVisualStyleBackColor = true;
         CountByButton.Click += CountByButton_Click;
         // 
+        // AggregateByButton
+        // 
+        AggregateByButton.Location = new Point(230, 170);
+        AggregateByButton.Name = "AggregateByButton";
+        AggregateByButton.Size = new Size(157, 29);
+        AggregateByButton.TabIndex = 10;
+        AggregateByButton.Text = "AggregateBy";
+        AggregateByButton.UseVisualStyleBackColor = true;
+        AggregateByButton.Click += AggregateByButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(412, 411);
+        Controls.Add(AggregateByButton);
         Controls.Add(CountByButton);
         Controls.Add(groupBox1);
         Controls.Add(SearchValuesButton1);
@@ -177,4 +189,5 @@ partial class MainForm
     private Button ComplexTypeButton;
     private GroupBox groupBox1;
     private Button CountByButton;
+    private Button AggregateByButton;
 }

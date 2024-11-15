@@ -24,4 +24,14 @@ public class MockedData
         new() { Id = 10, UserName = "Grace", Role = Role.Admin }
     ];
 
+    public static (string name, string department, int vacationDaysLeft)[] Employees =
+    [
+        ("John Doe", "IT", 12),
+        ("Eve Peterson", "Marketing", 18),
+        ("John Smith", "IT", 28),
+        ("Grace Johnson", "HR", 17),
+        ("Nick Carson", "Marketing", 5),
+        ("Grace Morgan", "HR", 9)
+    ];
+
 }

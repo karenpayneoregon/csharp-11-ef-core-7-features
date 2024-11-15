@@ -173,4 +173,20 @@ public partial class MainForm : Form
             Debug.WriteLine($"There are {roleCount.Value} users with the role {roleCount.Key}");
         }
     }
+
+    /// <summary>
+    /// Aggregates the remaining vacation days  for employees by their department
+    /// </summary>
+    private void AggregateByButton_Click(object sender, EventArgs e)
+    {
+
+        IEnumerable<KeyValuePair<string, int>> kvp = MockedData.Employees
+            .AggregateBy(emp => emp.department, 0, (acc, emp) 
+                => acc + emp.vacationDaysLeft);
+
+        foreach (var (key, value) in kvp)
+        {
+            Debug.WriteLine($"Department {key,-15} has a total of {value} vacation days left.");
+        }
+    }
 }
