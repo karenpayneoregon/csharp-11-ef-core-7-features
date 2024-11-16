@@ -8,6 +8,7 @@ using static TaskDialogLibrary.Dialogs;
 
 using KP_WindowsFormsNET9.EFCore.Sample1;
 using KP_WindowsFormsNET9.Classes.Configuration;
+using KP_WindowsFormsNET9.EFCore;
 
 // ReSharper disable VirtualMemberCallInConstructor
 // ReSharper disable MoveLocalFunctionAfterJumpStatement
@@ -185,12 +186,18 @@ public partial class MainForm : Form
     {
 
         IEnumerable<KeyValuePair<string, int>> kvp = MockedData.Employees
-            .AggregateBy(emp => emp.department, 0, (acc, emp) 
+            .AggregateBy(emp => emp.department, 0, (acc, emp)
                 => acc + emp.vacationDaysLeft);
 
         foreach (var (key, value) in kvp)
         {
             Debug.WriteLine($"Department {key,-15} has a total of {value} vacation days left.");
         }
+    }
+
+    private void AppSettingsButton_Click(object sender, EventArgs e)
+    {
+        using var form = new SettingsForm();
+        form.ShowDialog();
     }
 }

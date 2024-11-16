@@ -41,6 +41,7 @@ partial class MainForm
         groupBox1 = new GroupBox();
         CountByButton = new Button();
         AggregateByButton = new Button();
+        AppSettingsButton = new Button();
         groupBox1.SuspendLayout();
         SuspendLayout();
         // 
@@ -56,7 +57,7 @@ partial class MainForm
         // 
         // PersonPartialButton
         // 
-        PersonPartialButton.Location = new Point(38, 72);
+        PersonPartialButton.Location = new Point(38, 74);
         PersonPartialButton.Name = "PersonPartialButton";
         PersonPartialButton.Size = new Size(157, 29);
         PersonPartialButton.TabIndex = 1;
@@ -66,7 +67,7 @@ partial class MainForm
         // 
         // FieldKeywordButton
         // 
-        FieldKeywordButton.Location = new Point(38, 121);
+        FieldKeywordButton.Location = new Point(38, 125);
         FieldKeywordButton.Name = "FieldKeywordButton";
         FieldKeywordButton.Size = new Size(157, 29);
         FieldKeywordButton.TabIndex = 2;
@@ -76,7 +77,7 @@ partial class MainForm
         // 
         // FuncMethodGroupButton
         // 
-        FuncMethodGroupButton.Location = new Point(38, 170);
+        FuncMethodGroupButton.Location = new Point(38, 176);
         FuncMethodGroupButton.Name = "FuncMethodGroupButton";
         FuncMethodGroupButton.Size = new Size(157, 29);
         FuncMethodGroupButton.TabIndex = 3;
@@ -86,7 +87,7 @@ partial class MainForm
         // 
         // ParamCollectionButton
         // 
-        ParamCollectionButton.Location = new Point(38, 215);
+        ParamCollectionButton.Location = new Point(38, 227);
         ParamCollectionButton.Name = "ParamCollectionButton";
         ParamCollectionButton.Size = new Size(157, 29);
         ParamCollectionButton.TabIndex = 4;
@@ -127,7 +128,7 @@ partial class MainForm
         // groupBox1
         // 
         groupBox1.Controls.Add(ComplexTypeButton);
-        groupBox1.Location = new Point(17, 272);
+        groupBox1.Location = new Point(17, 318);
         groupBox1.Name = "groupBox1";
         groupBox1.Size = new Size(376, 117);
         groupBox1.TabIndex = 8;
@@ -154,11 +155,22 @@ partial class MainForm
         AggregateByButton.UseVisualStyleBackColor = true;
         AggregateByButton.Click += AggregateByButton_Click;
         // 
+        // AppSettingsButton
+        // 
+        AppSettingsButton.Location = new Point(38, 278);
+        AppSettingsButton.Name = "AppSettingsButton";
+        AppSettingsButton.Size = new Size(157, 29);
+        AppSettingsButton.TabIndex = 11;
+        AppSettingsButton.Text = "App settings";
+        AppSettingsButton.UseVisualStyleBackColor = true;
+        AppSettingsButton.Click += AppSettingsButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(412, 411);
+        ClientSize = new Size(412, 447);
+        Controls.Add(AppSettingsButton);
         Controls.Add(AggregateByButton);
         Controls.Add(CountByButton);
         Controls.Add(groupBox1);
@@ -190,4 +202,5 @@ partial class MainForm
     private GroupBox groupBox1;
     private Button CountByButton;
     private Button AggregateByButton;
+    private Button AppSettingsButton;
 }

@@ -1,9 +1,10 @@
-﻿using System.Net.Mime;
-using System.Text.Json;
+﻿using System.Text.Json;
+using WinFormsSystemColorModeLibrary.Models;
+
 #pragma warning disable CS8601 // Possible null reference assignment.
 #pragma warning disable CS8618, CS9264
 
-namespace KP_WindowsFormsNET9.Classes.Configuration;
+namespace WinFormsSystemColorModeLibrary;
 
 /// <summary>
 /// Represents the configuration settings for the application.

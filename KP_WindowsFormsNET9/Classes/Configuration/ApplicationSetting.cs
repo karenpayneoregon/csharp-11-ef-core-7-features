@@ -1,10 +1,13 @@
-﻿namespace KP_WindowsFormsNET9.Classes.Configuration;
+﻿#nullable disable
+namespace KP_WindowsFormsNET9.Classes.Configuration;
 
 /// <summary>
 /// Represents the application setting for, in this case is dark mode.
 /// </summary>
 public class ApplicationSetting
 {
+    public ConnectionStrings ConnectionStrings { get; set; }
+    public EntityConfiguration EntityConfiguration { get; set; }
 
     public required VisualConfiguration VisualConfiguration { get; set; }
 }
@@ -15,4 +18,15 @@ public class ApplicationSetting
 public class VisualConfiguration
 {
     public required string SystemColorMode { get; set; }
+}
+
+public class ConnectionStrings
+{
+    public string MainConnection { get; set; }
+    public string SecondaryConnection { get; set; }
+}
+
+public class EntityConfiguration
+{
+    public bool CreateNew { get; set; }
 }

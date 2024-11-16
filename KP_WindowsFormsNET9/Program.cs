@@ -1,6 +1,5 @@
 using KP_WindowsFormsNET9.Classes.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Text.Json;
 
 namespace KP_WindowsFormsNET9;
 internal static class Program

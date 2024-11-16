@@ -9,3 +9,4 @@ public sealed class EntitySettings
     /// </summary>
     public bool CreateNew { get; set; }
 }
+
