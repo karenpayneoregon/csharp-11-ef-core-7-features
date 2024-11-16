@@ -45,7 +45,6 @@ public static partial class DataGridViewExtensions
     {
         source.EnableHeadersVisualStyles = false;
         source.ColumnHeadersDefaultCellStyle.BackColor = Color.Blue;
-
     }
 
     /// <summary>

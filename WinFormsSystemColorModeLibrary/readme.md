@@ -19,3 +19,8 @@ Note in project file, the following is needed as per [Microsoft docs](https://le
 ```
 
 As coded in KP_WindowsFormsNET9, appsettings.json has two sections that the reader does not need left there to allow a developer to see what is needed for the update code.
+
+
+## Article
+
+https://dev.to/karenpayneoregon/window-forms-dark-mode-33on
