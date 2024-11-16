@@ -1,4 +1,4 @@
-﻿namespace KP_WindowsFormsNET9.EFCore;
+﻿namespace KP_WindowsFormsNET9;
 
 partial class SettingsForm
 {

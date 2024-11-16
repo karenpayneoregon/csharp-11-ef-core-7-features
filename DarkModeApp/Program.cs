@@ -13,8 +13,10 @@ internal static class Program
         /*
          * See https://learn.microsoft.com/en-us/dotnet/desktop/winforms/whats-new/net90?view=netdesktop-9.0#dark-mode
          */
+
         Application.SetColorMode(Configuration.Instance.ColorMode);
         ApplicationConfiguration.Initialize();
         Application.Run(new Form1());
+
     }
 }

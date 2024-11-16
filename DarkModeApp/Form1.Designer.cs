@@ -72,6 +72,7 @@ partial class Form1
         UserNameTextBox.Name = "UserNameTextBox";
         UserNameTextBox.Size = new Size(125, 27);
         UserNameTextBox.TabIndex = 3;
+        UserNameTextBox.Text = "KarenPayne";
         // 
         // ActiveCheckBox
         // 

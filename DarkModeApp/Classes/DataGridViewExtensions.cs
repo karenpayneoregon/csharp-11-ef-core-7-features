@@ -44,13 +44,8 @@ public static partial class DataGridViewExtensions
     public static void ColorizeDarkModeHeaders(this DataGridView source)
     {
         source.EnableHeadersVisualStyles = false;
-
         source.ColumnHeadersDefaultCellStyle.BackColor = Color.Blue;
 
-        for (var index = 0; index < source.ColumnCount; index++)
-        {
-           source.Columns[index].HeaderCell.Style.ForeColor = Color.White;
-        }
     }
 
     /// <summary>

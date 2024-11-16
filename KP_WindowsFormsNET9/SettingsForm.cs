@@ -1,8 +1,7 @@
 ﻿using KP_WindowsFormsNET9.Classes.Configuration;
-
 using static TaskDialogLibrary.Dialogs;
 
-namespace KP_WindowsFormsNET9.EFCore;
+namespace KP_WindowsFormsNET9;
 public partial class SettingsForm : Form
 {
     public SettingsForm()
@@ -22,6 +21,7 @@ public partial class SettingsForm : Form
     /// </summary>
     private void ChangeButton_Click(object sender, EventArgs e)
     {
+
         var selected = ModeComboBox.Text;
 
         if (Configuration.Instance.ColorMode == Enum.Parse<SystemColorMode>(selected))
@@ -41,8 +41,6 @@ public partial class SettingsForm : Form
                 DialogResult = DialogResult.Cancel;
             }
         }
-
-
 
     }
 }
