@@ -1,5 +1,6 @@
 using KP_WindowsFormsNET9.Classes.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Text.Json;
 
 namespace KP_WindowsFormsNET9;
 internal static class Program
@@ -12,7 +13,10 @@ internal static class Program
 
         await Setup();
 
-        Application.SetColorMode(SystemColorMode.Dark);
+        /*
+         * See https://learn.microsoft.com/en-us/dotnet/desktop/winforms/whats-new/net90?view=netdesktop-9.0#dark-mode
+         */
+        Application.SetColorMode(Configuration.Instance.ColorMode);
         Application.Run(new MainForm());
     }
 

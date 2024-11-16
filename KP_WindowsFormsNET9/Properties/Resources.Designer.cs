@@ -59,5 +59,15 @@ namespace KP_WindowsFormsNET9.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Exit_16x {
+            get {
+                object obj = ResourceManager.GetObject("Exit_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

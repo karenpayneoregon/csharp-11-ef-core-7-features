@@ -3,9 +3,13 @@ using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
 using KP_WindowsFormsNET9.Classes;
 using KP_WindowsFormsNET9.Models;
+
 using static TaskDialogLibrary.Dialogs;
+
 using KP_WindowsFormsNET9.EFCore.Sample1;
-using Microsoft.VisualBasic.ApplicationServices;
+using KP_WindowsFormsNET9.Classes.Configuration;
+
+// ReSharper disable VirtualMemberCallInConstructor
 
 
 // ReSharper disable MoveLocalFunctionAfterJumpStatement
@@ -17,6 +21,8 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
+
+        Text = Configuration.Instance.IsDarkMode ? "Dark Mode" : "Light Mode";
     }
 
     [Experimental("WFO5002")]
@@ -52,7 +58,7 @@ public partial class MainForm : Form
 
     private void FieldKeywordButton_Click(object sender, EventArgs e)
     {
-        Customer customer = new()
+        M1.Customer customer = new()
         {
             FirstName = "john  ",
             LastName = "doe  "
