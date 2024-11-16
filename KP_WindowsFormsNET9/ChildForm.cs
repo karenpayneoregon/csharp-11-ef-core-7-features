@@ -7,7 +7,6 @@ public partial class ChildForm : Form
     {
         InitializeComponent();
 
-        // SolidBrush
-        Text = Configuration.Instance.IsDarkMode ? "Dark Mode" : "Light Mode";
+        Text = Configuration.Instance.ModeText;
     }
 }

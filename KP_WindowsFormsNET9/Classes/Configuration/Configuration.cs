@@ -1,4 +1,7 @@
-﻿using System.Text.Json;
+﻿using System.Net.Mime;
+using System.Text.Json;
+#pragma warning disable CS8601 // Possible null reference assignment.
+#pragma warning disable CS8618, CS9264
 
 namespace KP_WindowsFormsNET9.Classes.Configuration;
 
@@ -27,6 +30,16 @@ public sealed class Configuration
     /// </value>
     public bool IsDarkMode => ColorMode == SystemColorMode.Dark;
 
+    /// <summary>
+    /// Gets or sets the text representation of the current color mode.
+    /// </summary>
+    /// <value>
+    /// A string that represents the current color mode. Possible values are "Dark mode", "Light mode", and "System mode".
+    /// </value>
+    /// <remarks>
+    /// This property is set based on the <see cref="ColorMode"/> property during the initialization of the <see cref="Configuration"/> class.
+    /// </remarks>
+    public string ModeText { get; set; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Configuration"/> class.
@@ -51,5 +64,13 @@ public sealed class Configuration
         {
             ColorMode = SystemColorMode.System;
         }
+
+        ModeText = ColorMode switch
+        {
+            SystemColorMode.Dark => "Dark mode",
+            SystemColorMode.Classic => "Light mode",
+            SystemColorMode.System => "System mode",
+            _ => ModeText
+        };
     }
 }

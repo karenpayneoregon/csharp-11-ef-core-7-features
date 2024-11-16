@@ -10,8 +10,6 @@ using KP_WindowsFormsNET9.EFCore.Sample1;
 using KP_WindowsFormsNET9.Classes.Configuration;
 
 // ReSharper disable VirtualMemberCallInConstructor
-
-
 // ReSharper disable MoveLocalFunctionAfterJumpStatement
 
 namespace KP_WindowsFormsNET9;
@@ -22,7 +20,7 @@ public partial class MainForm : Form
     {
         InitializeComponent();
 
-        Text = Configuration.Instance.IsDarkMode ? "Dark Mode" : "Light Mode";
+        Text = Configuration.Instance.ModeText;
     }
 
     [Experimental("WFO5002")]
