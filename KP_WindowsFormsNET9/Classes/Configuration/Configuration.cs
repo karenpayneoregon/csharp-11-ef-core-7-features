@@ -30,6 +30,27 @@ public sealed class Configuration
     public bool IsDarkMode => ColorMode == SystemColorMode.Dark;
 
     /// <summary>
+    /// Gets a value indicating whether the application is in light mode.
+    /// </summary>
+    /// <value>
+    /// <c>true</c> if the application is in light mode; otherwise, <c>false</c>.
+    /// </value>
+    /// <remarks>
+    /// This property returns <c>true</c> if the <see cref="ColorMode"/> is set to <see cref="SystemColorMode.Classic"/>.
+    /// </remarks>
+    public bool IsLightMode => ColorMode == SystemColorMode.Classic;
+    /// <summary>
+    /// Gets a value indicating whether the current color mode is set to system mode.
+    /// </summary>
+    /// <value>
+    /// <c>true</c> if the current color mode is system mode; otherwise, <c>false</c>.
+    /// </value>
+    /// <remarks>
+    /// The system mode color setting allows the application to adapt its color scheme based on the system's settings.
+    /// </remarks>
+    public bool IsSystemMode => ColorMode == SystemColorMode.System;
+
+    /// <summary>
     /// Gets or sets the text representation of the current color mode.
     /// </summary>
     /// <value>
