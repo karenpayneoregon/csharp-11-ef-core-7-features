@@ -112,6 +112,10 @@
 	  </EmbeddedResource>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Stash\" />
+	</ItemGroup>
+
     <Target Name="MakeLogDir" AfterTargets="Build">
         <MakeDir Directories="$(OutDir)LogFiles\$([System.DateTime]::Now.ToString(yyyy-MM-dd))" />
     </Target>

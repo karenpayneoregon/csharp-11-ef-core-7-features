@@ -1,0 +1,6 @@
+type='Warning'
+
+type='Error'
+
+<type>Error</type>
+<type>Warning</type>

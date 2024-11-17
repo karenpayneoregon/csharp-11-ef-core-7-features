@@ -8,7 +8,8 @@ using static TaskDialogLibrary.Dialogs;
 
 using KP_WindowsFormsNET9.EFCore.Sample1;
 using KP_WindowsFormsNET9.Classes.Configuration;
-using KP_WindowsFormsNET9.EFCore;
+using TaskDialogLibrary;
+
 
 // ReSharper disable VirtualMemberCallInConstructor
 // ReSharper disable MoveLocalFunctionAfterJumpStatement
@@ -22,6 +23,7 @@ public partial class MainForm : Form
         InitializeComponent();
 
         Text = Configuration.Instance.ModeText;
+
     }
 
     [Experimental("WFO5002")]
@@ -57,7 +59,7 @@ public partial class MainForm : Form
 
     private void FieldKeywordButton_Click(object sender, EventArgs e)
     {
-        M1.Customer customer = new()
+        Customer customer = new()
         {
             FirstName = "john  ",
             LastName = "doe  "
@@ -149,6 +151,30 @@ public partial class MainForm : Form
             {
                 Debug.WriteLine($"Line {index + 1}");
             }
+        }
+    }
+
+    /// <summary>
+    /// Attempt to read the activity log file which.
+    /// - May not exist or if exists may be locked.
+    /// </summary>
+    private void SearchValuesActivityLogButton_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            var (lines, success) = FileOperations.GetActivityLog();
+            if (success)
+            {
+                MessageBox.Show($"{lines.Length}");
+            }
+            else
+            {
+                MessageBox.Show("Booo");
+            }
+        }
+        catch (Exception ex)
+        {
+            ErrorBox(ex);
         }
     }
 

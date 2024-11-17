@@ -42,6 +42,7 @@ partial class MainForm
         CountByButton = new Button();
         AggregateByButton = new Button();
         AppSettingsButton = new Button();
+        SearchValuesActivityLogButton = new Button();
         groupBox1.SuspendLayout();
         SuspendLayout();
         // 
@@ -111,7 +112,7 @@ partial class MainForm
         SearchValuesButton1.Name = "SearchValuesButton1";
         SearchValuesButton1.Size = new Size(157, 29);
         SearchValuesButton1.TabIndex = 6;
-        SearchValuesButton1.Text = "SearchValues (Log)";
+        SearchValuesButton1.Text = "SearchValues (Log) 1";
         SearchValuesButton1.UseVisualStyleBackColor = true;
         SearchValuesButton1.Click += SearchValuesButton1_Click;
         // 
@@ -137,7 +138,7 @@ partial class MainForm
         // 
         // CountByButton
         // 
-        CountByButton.Location = new Point(230, 121);
+        CountByButton.Location = new Point(230, 176);
         CountByButton.Name = "CountByButton";
         CountByButton.Size = new Size(157, 29);
         CountByButton.TabIndex = 9;
@@ -147,7 +148,7 @@ partial class MainForm
         // 
         // AggregateByButton
         // 
-        AggregateByButton.Location = new Point(230, 170);
+        AggregateByButton.Location = new Point(230, 227);
         AggregateByButton.Name = "AggregateByButton";
         AggregateByButton.Size = new Size(157, 29);
         AggregateByButton.TabIndex = 10;
@@ -165,11 +166,22 @@ partial class MainForm
         AppSettingsButton.UseVisualStyleBackColor = true;
         AppSettingsButton.Click += AppSettingsButton_Click;
         // 
+        // SearchValuesActivityLogButton
+        // 
+        SearchValuesActivityLogButton.Location = new Point(230, 125);
+        SearchValuesActivityLogButton.Name = "SearchValuesActivityLogButton";
+        SearchValuesActivityLogButton.Size = new Size(157, 29);
+        SearchValuesActivityLogButton.TabIndex = 13;
+        SearchValuesActivityLogButton.Text = "SearchValues (Log) 2";
+        SearchValuesActivityLogButton.UseVisualStyleBackColor = true;
+        SearchValuesActivityLogButton.Click += SearchValuesActivityLogButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(412, 447);
+        Controls.Add(SearchValuesActivityLogButton);
         Controls.Add(AppSettingsButton);
         Controls.Add(AggregateByButton);
         Controls.Add(CountByButton);
@@ -203,4 +215,6 @@ partial class MainForm
     private Button CountByButton;
     private Button AggregateByButton;
     private Button AppSettingsButton;
+    private Button button1;
+    private Button SearchValuesActivityLogButton;
 }
