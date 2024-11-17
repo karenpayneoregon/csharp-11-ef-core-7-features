@@ -26,9 +26,5 @@
 	  <Folder Include="assets\" />
 	</ItemGroup>
 
-	<!-- for dark mode-->
-	<PropertyGroup>
-		<NoWarn>$(NoWarn);WFO5001</NoWarn>
-	</PropertyGroup>
 
 </Project>

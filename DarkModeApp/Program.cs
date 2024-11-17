@@ -1,7 +1,7 @@
 using WinFormsSystemColorModeLibrary;
 
 namespace DarkModeApp;
-
+#pragma warning disable WFO5001
 internal static class Program
 {
     /// <summary>
