@@ -1,4 +1,6 @@
-﻿using TaskDialogLibrary.Classes;
+﻿#nullable disable
+
+using TaskDialogLibrary.Classes;
 using TaskDialogLibrary.Models;
 using Timer = System.Windows.Forms.Timer;
 
@@ -367,7 +369,7 @@ public partial class Dialogs
 
     }
 
-    public static void MsgBox(string heading, string buttonText = "Ok")
+    public static void MsgBox(Control owner, string heading, string buttonText = "Ok")
     {
 
         TaskDialogButton okayButton = new(buttonText);
@@ -382,12 +384,12 @@ public partial class Dialogs
         };
 
 
-        TaskDialog.ShowDialog(page, TaskDialogStartupLocation.CenterScreen);
+        TaskDialog.ShowDialog(owner, page);
 
     }
 
     /// <summary>
-    /// Mocked example for showing a auto-close dialog which by not passing parent like the
+    /// Mocked example for showing an auto-close dialog which by not passing parent like the
     /// overloaded version below centers the dialog on the monitor
     /// </summary>
     /// <param name="icon">Icon to display in dialog</param>
@@ -406,7 +408,7 @@ public partial class Dialogs
             Text = string.Format(textFormat, (remainingTenthSeconds + 9) / 10),
             Icon = new TaskDialogIcon(icon),
             ProgressBar = new TaskDialogProgressBar() { State = TaskDialogProgressBarState.Paused },
-            Buttons = new TaskDialogButtonCollection() { continueButton, cancelButton },
+            Buttons = [continueButton, cancelButton],
             Caption = "Auto-close"
         };
 
@@ -501,29 +503,28 @@ public partial class Dialogs
         ContinueOperation?.Invoke(result == continueButton);
     }
 
+
     /// <summary>
-    /// Auto close dialog by specified seconds, if timed out
-    /// invoke continue button.
+    /// Displays a task dialog that automatically closes after a specified number of seconds.
     /// </summary>
-    /// <param name="owner">control or form</param>
-    /// <param name="icon">icon to present</param>
-    /// <param name="seconds">seconds to timeout</param>
-    /// <param name="okText">text for continue button</param>
-    /// <param name="cancelText">text for cancel button</param>
-    public static void AutoCloseDialog(Control owner, string text, string header, Icon icon, int seconds, string okText = "OK", string cancelText = "Cancel")
+    /// <param name="owner">The control that owns this dialog.</param>
+    /// <param name="text">The main text to display in the dialog.</param>
+    /// <param name="header">The header text to display in the dialog.</param>
+    /// <param name="seconds">The number of seconds before the dialog automatically closes.</param>
+    /// <param name="okText">The text for the OK button. Defaults to "OK".</param>
+    public static void AutoCloseDialog(Control owner, string text, string header, int seconds, string okText = "OK")
     {
 
         var remaining = seconds * 10;
 
         TaskDialogButton continueButton = new(okText);
-        TaskDialogButton cancelButton = new(cancelText);
 
         TaskDialogPage page = new()
         {
             Heading = header,
             Text = text,
-            Icon = new TaskDialogIcon(icon),
-            Buttons = [continueButton, cancelButton],
+            Icon = new TaskDialogIcon(Properties.Resources.csharp1),
+            Buttons = [continueButton],
             Caption = "Auto-close"
         };
 
@@ -545,7 +546,7 @@ public partial class Dialogs
             }
         };
 
-        TaskDialogButton result = TaskDialog.ShowDialog(owner, page);
+        var result = TaskDialog.ShowDialog(owner, page);
 
         ContinueOperation?.Invoke(result == continueButton);
 

@@ -157,6 +157,8 @@ public partial class MainForm : Form
     /// <summary>
     /// Attempt to read the activity log file which.
     /// - May not exist or if exists may be locked.
+    /// - May not have the correct permissions to read the file.
+    /// 
     /// </summary>
     private void SearchValuesActivityLogButton_Click(object sender, EventArgs e)
     {
@@ -165,11 +167,22 @@ public partial class MainForm : Form
             var (lines, success) = FileOperations.GetActivityLog();
             if (success)
             {
-                MessageBox.Show($"{lines.Length}");
+                /*
+                 * Note in this case the first instance of error is in a comment.
+                 */
+                foreach (var (index, line) in lines.Index())
+                {
+                    if (line.LineHasWarningOrError())
+                    {
+                        Debug.WriteLine($"{index + 1,-10}{line}");
+                    }
+                }
+
+                AutoCloseDialog(this, "Done", "", 1, "Bye");
             }
             else
             {
-                MessageBox.Show("Booo");
+                MessageBox.Show("Dang, operation failed.");
             }
         }
         catch (Exception ex)
@@ -225,5 +238,11 @@ public partial class MainForm : Form
     {
         using var form = new SettingsForm();
         form.ShowDialog();
+    }
+
+    private void OverloadResolutionPriorityButton_Click(object sender, EventArgs e)
+    {
+        var value = true;
+        Console.WriteLine(value.ToYesNo());
     }
 }

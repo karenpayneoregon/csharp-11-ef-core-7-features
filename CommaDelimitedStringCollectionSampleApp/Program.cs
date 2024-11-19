@@ -97,6 +97,8 @@ internal partial class Program
             Console.WriteLine($"\t{result}");
             Console.WriteLine(result.Contains("appsettings.json").ToYesNo());
 
+            
+
             result.SetReadOnly();
             if (!result.IsReadOnly)
             {

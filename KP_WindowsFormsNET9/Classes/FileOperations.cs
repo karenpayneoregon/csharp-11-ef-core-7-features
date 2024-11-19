@@ -1,6 +1,9 @@
 ﻿using KP_WindowsFormsNET9.Models;
 
 namespace KP_WindowsFormsNET9.Classes;
+/// <summary>
+/// Provides file operation utilities, specifically for handling Visual Studio activity logs.
+/// </summary>
 internal class FileOperations
 {
     /// <summary>
@@ -15,16 +18,14 @@ internal class FileOperations
     {
         var rootDirectory = VisualStudioRootActivityFolder(out var activityDirectory);
 
-        if (activityDirectory == null) return ([],  false);
+        if (activityDirectory == null) return ([], false);
 
         var path = Path.Combine(rootDirectory, activityDirectory.Name);
         var activityLogFileName = Path.Combine(path, "ActivityLog.xml");
 
-   
-
-        return File.Exists(activityLogFileName) ? 
-            (File.ReadAllLines(activityLogFileName),  true) : 
-            ([],  false)!;
+        return File.Exists(activityLogFileName) ?
+            (File.ReadAllLines(activityLogFileName), true) :
+            ([], false)!;
     }
 
     /// <summary>

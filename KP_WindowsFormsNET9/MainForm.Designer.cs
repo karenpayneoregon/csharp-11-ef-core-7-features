@@ -43,6 +43,7 @@ partial class MainForm
         AggregateByButton = new Button();
         AppSettingsButton = new Button();
         SearchValuesActivityLogButton = new Button();
+        OverloadResolutionPriorityButton = new Button();
         groupBox1.SuspendLayout();
         SuspendLayout();
         // 
@@ -50,7 +51,7 @@ partial class MainForm
         // 
         ShowFormButton.Location = new Point(38, 23);
         ShowFormButton.Name = "ShowFormButton";
-        ShowFormButton.Size = new Size(157, 29);
+        ShowFormButton.Size = new Size(226, 29);
         ShowFormButton.TabIndex = 0;
         ShowFormButton.Text = "Show child form";
         ShowFormButton.UseVisualStyleBackColor = true;
@@ -60,7 +61,7 @@ partial class MainForm
         // 
         PersonPartialButton.Location = new Point(38, 74);
         PersonPartialButton.Name = "PersonPartialButton";
-        PersonPartialButton.Size = new Size(157, 29);
+        PersonPartialButton.Size = new Size(226, 29);
         PersonPartialButton.TabIndex = 1;
         PersonPartialButton.Text = "Person partial";
         PersonPartialButton.UseVisualStyleBackColor = true;
@@ -70,7 +71,7 @@ partial class MainForm
         // 
         FieldKeywordButton.Location = new Point(38, 125);
         FieldKeywordButton.Name = "FieldKeywordButton";
-        FieldKeywordButton.Size = new Size(157, 29);
+        FieldKeywordButton.Size = new Size(226, 29);
         FieldKeywordButton.TabIndex = 2;
         FieldKeywordButton.Text = "Field Keyword";
         FieldKeywordButton.UseVisualStyleBackColor = true;
@@ -80,7 +81,7 @@ partial class MainForm
         // 
         FuncMethodGroupButton.Location = new Point(38, 176);
         FuncMethodGroupButton.Name = "FuncMethodGroupButton";
-        FuncMethodGroupButton.Size = new Size(157, 29);
+        FuncMethodGroupButton.Size = new Size(226, 29);
         FuncMethodGroupButton.TabIndex = 3;
         FuncMethodGroupButton.Text = "Func Method Group";
         FuncMethodGroupButton.UseVisualStyleBackColor = true;
@@ -90,7 +91,7 @@ partial class MainForm
         // 
         ParamCollectionButton.Location = new Point(38, 227);
         ParamCollectionButton.Name = "ParamCollectionButton";
-        ParamCollectionButton.Size = new Size(157, 29);
+        ParamCollectionButton.Size = new Size(226, 29);
         ParamCollectionButton.TabIndex = 4;
         ParamCollectionButton.Text = "Param Collection";
         ParamCollectionButton.UseVisualStyleBackColor = true;
@@ -98,9 +99,9 @@ partial class MainForm
         // 
         // SearchValuesButton
         // 
-        SearchValuesButton.Location = new Point(230, 23);
+        SearchValuesButton.Location = new Point(294, 23);
         SearchValuesButton.Name = "SearchValuesButton";
-        SearchValuesButton.Size = new Size(157, 29);
+        SearchValuesButton.Size = new Size(226, 29);
         SearchValuesButton.TabIndex = 5;
         SearchValuesButton.Text = "SearchValues (spam)";
         SearchValuesButton.UseVisualStyleBackColor = true;
@@ -108,9 +109,9 @@ partial class MainForm
         // 
         // SearchValuesButton1
         // 
-        SearchValuesButton1.Location = new Point(230, 72);
+        SearchValuesButton1.Location = new Point(294, 72);
         SearchValuesButton1.Name = "SearchValuesButton1";
-        SearchValuesButton1.Size = new Size(157, 29);
+        SearchValuesButton1.Size = new Size(226, 29);
         SearchValuesButton1.TabIndex = 6;
         SearchValuesButton1.Text = "SearchValues (Log) 1";
         SearchValuesButton1.UseVisualStyleBackColor = true;
@@ -138,9 +139,9 @@ partial class MainForm
         // 
         // CountByButton
         // 
-        CountByButton.Location = new Point(230, 176);
+        CountByButton.Location = new Point(294, 176);
         CountByButton.Name = "CountByButton";
-        CountByButton.Size = new Size(157, 29);
+        CountByButton.Size = new Size(226, 29);
         CountByButton.TabIndex = 9;
         CountByButton.Text = "CountBy";
         CountByButton.UseVisualStyleBackColor = true;
@@ -148,9 +149,9 @@ partial class MainForm
         // 
         // AggregateByButton
         // 
-        AggregateByButton.Location = new Point(230, 227);
+        AggregateByButton.Location = new Point(294, 227);
         AggregateByButton.Name = "AggregateByButton";
-        AggregateByButton.Size = new Size(157, 29);
+        AggregateByButton.Size = new Size(226, 29);
         AggregateByButton.TabIndex = 10;
         AggregateByButton.Text = "AggregateBy";
         AggregateByButton.UseVisualStyleBackColor = true;
@@ -160,7 +161,7 @@ partial class MainForm
         // 
         AppSettingsButton.Location = new Point(38, 278);
         AppSettingsButton.Name = "AppSettingsButton";
-        AppSettingsButton.Size = new Size(157, 29);
+        AppSettingsButton.Size = new Size(226, 29);
         AppSettingsButton.TabIndex = 11;
         AppSettingsButton.Text = "App settings";
         AppSettingsButton.UseVisualStyleBackColor = true;
@@ -168,19 +169,30 @@ partial class MainForm
         // 
         // SearchValuesActivityLogButton
         // 
-        SearchValuesActivityLogButton.Location = new Point(230, 125);
+        SearchValuesActivityLogButton.Location = new Point(294, 125);
         SearchValuesActivityLogButton.Name = "SearchValuesActivityLogButton";
-        SearchValuesActivityLogButton.Size = new Size(157, 29);
+        SearchValuesActivityLogButton.Size = new Size(226, 29);
         SearchValuesActivityLogButton.TabIndex = 13;
         SearchValuesActivityLogButton.Text = "SearchValues (Log) 2";
         SearchValuesActivityLogButton.UseVisualStyleBackColor = true;
         SearchValuesActivityLogButton.Click += SearchValuesActivityLogButton_Click;
         // 
+        // OverloadResolutionPriorityButton
+        // 
+        OverloadResolutionPriorityButton.Location = new Point(294, 278);
+        OverloadResolutionPriorityButton.Name = "OverloadResolutionPriorityButton";
+        OverloadResolutionPriorityButton.Size = new Size(226, 29);
+        OverloadResolutionPriorityButton.TabIndex = 14;
+        OverloadResolutionPriorityButton.Text = "OverloadResolutionPriority";
+        OverloadResolutionPriorityButton.UseVisualStyleBackColor = true;
+        OverloadResolutionPriorityButton.Click += OverloadResolutionPriorityButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(412, 447);
+        ClientSize = new Size(548, 447);
+        Controls.Add(OverloadResolutionPriorityButton);
         Controls.Add(SearchValuesActivityLogButton);
         Controls.Add(AppSettingsButton);
         Controls.Add(AggregateByButton);
@@ -217,4 +229,5 @@ partial class MainForm
     private Button AppSettingsButton;
     private Button button1;
     private Button SearchValuesActivityLogButton;
+    private Button OverloadResolutionPriorityButton;
 }

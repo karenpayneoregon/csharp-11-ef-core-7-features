@@ -1,5 +1,5 @@
 ﻿namespace RandomSharedApp.Models;
-internal class Human
+public class Human
 {
     public int Id { get; set; }
     public string FirstName { get; set; }
