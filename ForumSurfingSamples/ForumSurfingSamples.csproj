@@ -6,6 +6,7 @@
 		<Nullable>enable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<SdkAnalysisLevel>8.0.100</SdkAnalysisLevel>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -16,6 +17,10 @@
 	<ItemGroup>
 		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
 		<PackageReference Include="EntityCoreFileLogger" Version="1.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="ConsoleConfigurationLibrary.Classes" Alias="Config" />
 	</ItemGroup>
 
 	<ItemGroup>

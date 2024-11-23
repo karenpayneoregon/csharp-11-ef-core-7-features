@@ -242,7 +242,6 @@ public partial class MainForm : Form
 
     private void OverloadResolutionPriorityButton_Click(object sender, EventArgs e)
     {
-        var value = true;
-        Console.WriteLine(value.ToYesNo());
+        OverloadResolutionPriorityDemo.DisplayInvoice("ABC0");
     }
 }

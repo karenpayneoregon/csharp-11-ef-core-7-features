@@ -30,6 +30,7 @@ partial class MainForm
     /// </summary>
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
         ShowFormButton = new Button();
         PersonPartialButton = new Button();
         FieldKeywordButton = new Button();
@@ -205,7 +206,8 @@ partial class MainForm
         Controls.Add(FieldKeywordButton);
         Controls.Add(PersonPartialButton);
         Controls.Add(ShowFormButton);
-        FormBorderStyle = FormBorderStyle.FixedToolWindow;
+        Icon = (Icon)resources.GetObject("$this.Icon");
+        MaximizeBox = false;
         Name = "MainForm";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "C# 13 - in dark mode";
