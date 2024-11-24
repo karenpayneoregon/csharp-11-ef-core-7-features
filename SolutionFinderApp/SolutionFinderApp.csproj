@@ -16,9 +16,9 @@
 	  <Content Include="readme.md" />
 	</ItemGroup>
 
-	<ItemGroup>
+	<!--<ItemGroup>
 		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
-	</ItemGroup>
+	</ItemGroup>-->
 
 	<ItemGroup>
 		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
@@ -26,6 +26,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Kurukuru" Version="1.4.2" />
+		<PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="8.0.0" />
 		<Using Include="Kurukuru" Alias="KB" />
 	</ItemGroup>
 

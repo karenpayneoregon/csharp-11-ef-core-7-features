@@ -45,6 +45,7 @@ partial class MainForm
         AppSettingsButton = new Button();
         SearchValuesActivityLogButton = new Button();
         OverloadResolutionPriorityButton = new Button();
+        GetJsonSchemaAsNodeButton = new Button();
         groupBox1.SuspendLayout();
         SuspendLayout();
         // 
@@ -131,7 +132,7 @@ partial class MainForm
         // groupBox1
         // 
         groupBox1.Controls.Add(ComplexTypeButton);
-        groupBox1.Location = new Point(17, 318);
+        groupBox1.Location = new Point(23, 376);
         groupBox1.Name = "groupBox1";
         groupBox1.Size = new Size(376, 117);
         groupBox1.TabIndex = 8;
@@ -188,11 +189,23 @@ partial class MainForm
         OverloadResolutionPriorityButton.UseVisualStyleBackColor = true;
         OverloadResolutionPriorityButton.Click += OverloadResolutionPriorityButton_Click;
         // 
+        // GetJsonSchemaAsNodeButton
+        // 
+        GetJsonSchemaAsNodeButton.Location = new Point(38, 325);
+        GetJsonSchemaAsNodeButton.Name = "GetJsonSchemaAsNodeButton";
+        GetJsonSchemaAsNodeButton.Size = new Size(226, 29);
+        GetJsonSchemaAsNodeButton.TabIndex = 15;
+        GetJsonSchemaAsNodeButton.Text = "GetJsonSchemaAsNode";
+        GetJsonSchemaAsNodeButton.TextAlign = ContentAlignment.BottomCenter;
+        GetJsonSchemaAsNodeButton.UseVisualStyleBackColor = true;
+        GetJsonSchemaAsNodeButton.Click += GetJsonSchemaAsNodeButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(548, 447);
+        ClientSize = new Size(548, 524);
+        Controls.Add(GetJsonSchemaAsNodeButton);
         Controls.Add(OverloadResolutionPriorityButton);
         Controls.Add(SearchValuesActivityLogButton);
         Controls.Add(AppSettingsButton);
@@ -232,4 +245,5 @@ partial class MainForm
     private Button button1;
     private Button SearchValuesActivityLogButton;
     private Button OverloadResolutionPriorityButton;
+    private Button GetJsonSchemaAsNodeButton;
 }

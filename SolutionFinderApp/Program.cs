@@ -14,6 +14,8 @@ internal partial class Program
          */
         const string path = @"C:\DotnetLand\VS2022";
 
+        const ScanOptions option = ScanOptions.WarningsOnly;
+
         if (!Directory.Exists(path))
         {
             AnsiConsole.MarkupLine($"[red]The specified path does not exist:[/] [yellow]{path}[/]");
@@ -25,21 +27,31 @@ internal partial class Program
          * Scan folder with a simple spinner to apse the user
          * KP alias is defined in the project file
          */
-        using (var spinner = new KB.Spinner($"Scanning {path}"))
+        using (var spinner = new KB.Spinner($"Scanning {path} for warnings"))
         {
             spinner.Start();
-            await GlobSolutions.GetSolutionNames(path);
+            await GlobSolutions.GetSolutionNames(path, option);
         }
 
 
         List<Solutions> data = GlobSolutions.Solutions;
-  
-        await File.WriteAllTextAsync("Results.json", JsonSerializer.Serialize(data,Options));
+
+        var noWarnings = data.Where(x => x.Projects.Count > 0).ToList();
+
+        if (option == ScanOptions.All)
+        {
+            await File.WriteAllTextAsync("Results.json", JsonSerializer.Serialize(data,Options));
+        }
+        else
+        {
+            await File.WriteAllTextAsync("NoWarnings.json", JsonSerializer.Serialize(noWarnings, Options));
+        }
+        
         Console.Clear();
         AnsiConsole.MarkupLine($"[cyan]Total solutions:[/] [yellow]{data.Count}[/] [cyan]in[/] [yellow]{path}[/]");
         
         var projectCount = data.Sum(solution => solution.Projects.Count);
-        AnsiConsole.MarkupLine($"[cyan]Total projects:[/] [yellow]{projectCount}[/]");
+        AnsiConsole.MarkupLine($"[cyan]Total projects :[/] [yellow]{projectCount}[/][cyan] needing attention[/]");
 
 
         Console.ReadLine();

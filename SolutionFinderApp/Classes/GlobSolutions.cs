@@ -10,9 +10,11 @@ internal class GlobSolutions
     /// Asynchronously retrieves and processes the names of solution files in the specified directory.
     /// </summary>
     /// <param name="path">The directory path to search for solution files.</param>
-    public static async Task GetSolutionNames(string path)
+    /// <param name="options">Options for scanning the directory.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
+    public static async Task GetSolutionNames(string path, ScanOptions options)
     {
-        await ProcessSolutionFolderAsync(path, ProcessFile);
+        await ProcessSolutionFolderAsync(path, ProcessFile, options);
 
     }
 
@@ -52,10 +54,14 @@ internal class GlobSolutions
     /// </summary>
     /// <param name="folder">The folder to search for solution files.</param>
     /// <param name="foundAction">The action to perform when a solution file is found.</param>
-    private static async Task ProcessSolutionFolderAsync(string folder, Action<FileMatchItem, string> foundAction)
+    /// <param name="options">Options for scanning the directory.</param>
+    /// <returns>A task that represents the asynchronous operation.</returns>
+    private static async Task ProcessSolutionFolderAsync(string folder, Action<FileMatchItem, string> foundAction, ScanOptions options)
     {
         Matcher matcher = new();
         matcher.AddInclude("**/*.sln");
+
+        string[] watchItems = ["<SdkAnalysisLevel>8.0.100</SdkAnalysisLevel>", "<NoWarn>NU", "NuGetAuditSuppress"];
 
         var files = matcher.GetResultsInFullPath(folder);
         var tasks = files.Select(async file =>
@@ -64,7 +70,28 @@ internal class GlobSolutions
             var list = await GetProjectFiles(Path.GetDirectoryName(file));
             foreach (var item in list)
             {
-                foundAction?.Invoke(item, file);
+                if (options == ScanOptions.WarningsOnly)
+                {
+                    try
+                    {
+                        var contents = await File.ReadAllTextAsync(item.ToString());
+
+                        if (watchItems.Any(contents.Contains))
+                        {
+                            foundAction?.Invoke(item, file);
+                        }
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
+                }
+                else
+                {
+                    foundAction?.Invoke(item, file);
+                }
+
+                
             }
         });
 

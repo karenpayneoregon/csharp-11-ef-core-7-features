@@ -115,6 +115,7 @@
 
 	<ItemGroup>
 	  <Folder Include="assets\" />
+	  <Folder Include="article\" />
 	  <Folder Include="Stash\" />
 	</ItemGroup>
 

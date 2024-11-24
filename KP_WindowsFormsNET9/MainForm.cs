@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
@@ -9,6 +11,8 @@ using static TaskDialogLibrary.Dialogs;
 using KP_WindowsFormsNET9.EFCore.Sample1;
 using KP_WindowsFormsNET9.Classes.Configuration;
 using TaskDialogLibrary;
+using System.Text.Json.Schema;
+using System.Text.RegularExpressions;
 
 
 // ReSharper disable VirtualMemberCallInConstructor
@@ -119,6 +123,7 @@ public partial class MainForm : Form
     private void SearchValuesButton_Click(object sender, EventArgs e)
     {
 
+        
         // contains a list of banned words
         var json = File.ReadAllText("bannedwords.json");
 
@@ -243,5 +248,12 @@ public partial class MainForm : Form
     private void OverloadResolutionPriorityButton_Click(object sender, EventArgs e)
     {
         OverloadResolutionPriorityDemo.DisplayInvoice("ABC0");
+    }
+
+    private void GetJsonSchemaAsNodeButton_Click(object sender, EventArgs e)
+    {
+        //https://github.com/dotnet/core/blob/main/release-notes/9.0/preview/preview6/libraries.md#generatedregex-on-properties
+        Debug.WriteLine("");
+        Debug.WriteLine(JsonSerializerOptions.Default.GetJsonSchemaAsNode(typeof(Customer)));
     }
 }
