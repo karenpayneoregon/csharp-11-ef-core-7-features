@@ -46,6 +46,8 @@ partial class MainForm
         SearchValuesActivityLogButton = new Button();
         OverloadResolutionPriorityButton = new Button();
         GetJsonSchemaAsNodeButton = new Button();
+        EnumerableIndexButton = new Button();
+        GuidCreateVersion7Button = new Button();
         groupBox1.SuspendLayout();
         SuspendLayout();
         // 
@@ -132,9 +134,9 @@ partial class MainForm
         // groupBox1
         // 
         groupBox1.Controls.Add(ComplexTypeButton);
-        groupBox1.Location = new Point(23, 376);
+        groupBox1.Location = new Point(25, 423);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(376, 117);
+        groupBox1.Size = new Size(376, 89);
         groupBox1.TabIndex = 8;
         groupBox1.TabStop = false;
         groupBox1.Text = "EF Core 9";
@@ -200,11 +202,35 @@ partial class MainForm
         GetJsonSchemaAsNodeButton.UseVisualStyleBackColor = true;
         GetJsonSchemaAsNodeButton.Click += GetJsonSchemaAsNodeButton_Click;
         // 
+        // EnumerableIndexButton
+        // 
+        EnumerableIndexButton.Location = new Point(294, 325);
+        EnumerableIndexButton.Name = "EnumerableIndexButton";
+        EnumerableIndexButton.Size = new Size(226, 29);
+        EnumerableIndexButton.TabIndex = 16;
+        EnumerableIndexButton.Text = "Enumerable.Index";
+        EnumerableIndexButton.TextAlign = ContentAlignment.BottomCenter;
+        EnumerableIndexButton.UseVisualStyleBackColor = true;
+        EnumerableIndexButton.Click += EnumerableIndexButton_Click;
+        // 
+        // GuidCreateVersion7Button
+        // 
+        GuidCreateVersion7Button.Location = new Point(175, 371);
+        GuidCreateVersion7Button.Name = "GuidCreateVersion7Button";
+        GuidCreateVersion7Button.Size = new Size(226, 29);
+        GuidCreateVersion7Button.TabIndex = 17;
+        GuidCreateVersion7Button.Text = "Guid.CreateVersion7";
+        GuidCreateVersion7Button.TextAlign = ContentAlignment.BottomCenter;
+        GuidCreateVersion7Button.UseVisualStyleBackColor = true;
+        GuidCreateVersion7Button.Click += GuidCreateVersion7Button_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(548, 524);
+        Controls.Add(GuidCreateVersion7Button);
+        Controls.Add(EnumerableIndexButton);
         Controls.Add(GetJsonSchemaAsNodeButton);
         Controls.Add(OverloadResolutionPriorityButton);
         Controls.Add(SearchValuesActivityLogButton);
@@ -246,4 +272,6 @@ partial class MainForm
     private Button SearchValuesActivityLogButton;
     private Button OverloadResolutionPriorityButton;
     private Button GetJsonSchemaAsNodeButton;
+    private Button EnumerableIndexButton;
+    private Button GuidCreateVersion7Button;
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
@@ -10,9 +8,8 @@ using static TaskDialogLibrary.Dialogs;
 
 using KP_WindowsFormsNET9.EFCore.Sample1;
 using KP_WindowsFormsNET9.Classes.Configuration;
-using TaskDialogLibrary;
 using System.Text.Json.Schema;
-using System.Text.RegularExpressions;
+using System;
 
 
 // ReSharper disable VirtualMemberCallInConstructor
@@ -33,6 +30,8 @@ public partial class MainForm : Form
     [Experimental("WFO5002")]
     private async void ShowFormButton_Click(object sender, EventArgs e)
     {
+
+
         try
         {
             ChildForm childForm = new();
@@ -47,7 +46,7 @@ public partial class MainForm : Form
     private void PersonPartialButton_Click(object sender, EventArgs e)
     {
 
-        var list = BogusOperations.Persons();
+        var list = BogusOperations.People();
 
         foreach (var (index, person) in list.Index())
         {
@@ -123,7 +122,7 @@ public partial class MainForm : Form
     private void SearchValuesButton_Click(object sender, EventArgs e)
     {
 
-        
+
         // contains a list of banned words
         var json = File.ReadAllText("bannedwords.json");
 
@@ -215,11 +214,35 @@ public partial class MainForm : Form
     private void CountByButton_Click(object sender, EventArgs e)
     {
 
+        CountByWithCount();
+
+        Debug.WriteLine("");
+
+        GroupByWithCount();
+
+    }
+
+    private void CountByWithCount()
+    {
         var users = MockedData.Users();
 
         foreach (var roleCount in users.CountBy(user => user.Role))
         {
             Debug.WriteLine($"There are {roleCount.Value} users with the role {roleCount.Key}");
+        }
+
+    }
+
+    private void GroupByWithCount()
+    {
+        var users = MockedData.Users();
+
+        var groupedUsers = users.GroupBy(user => user.Role)
+            .Select(group => new { Role = group.Key, Count = group.Count() });
+
+        foreach (var group in groupedUsers)
+        {
+            Debug.WriteLine($"Role: {group.Role}, Count: {group.Count}");
         }
     }
 
@@ -228,8 +251,26 @@ public partial class MainForm : Form
     /// </summary>
     private void AggregateByButton_Click(object sender, EventArgs e)
     {
+        GroupByAggregateBySample();
+        Debug.WriteLine("");
+        AggregateBySample();
+    }
 
-        IEnumerable<KeyValuePair<string, int>> kvp = MockedData.Employees
+    private static void GroupByAggregateBySample()
+    {
+        var kvp = MockedData.Employees
+            .GroupBy(emp => emp.department)
+            .Select(group => new KeyValuePair<string, int>(group.Key, group.Sum(emp
+                => emp.vacationDaysLeft)));
+
+        foreach (var (key, value) in kvp)
+        {
+            Debug.WriteLine($"Department {key,-15} has a total of {value} vacation days left.");
+        }
+    }
+    private static void AggregateBySample()
+    {
+        var kvp = MockedData.Employees
             .AggregateBy(emp => emp.department, 0, (acc, emp)
                 => acc + emp.vacationDaysLeft);
 
@@ -252,8 +293,38 @@ public partial class MainForm : Form
 
     private void GetJsonSchemaAsNodeButton_Click(object sender, EventArgs e)
     {
-        //https://github.com/dotnet/core/blob/main/release-notes/9.0/preview/preview6/libraries.md#generatedregex-on-properties
+
         Debug.WriteLine("");
         Debug.WriteLine(JsonSerializerOptions.Default.GetJsonSchemaAsNode(typeof(Customer)));
+
+    }
+
+    private void EnumerableIndexButton_Click(object sender, EventArgs e)
+    {
+        var list = BogusOperations.People();
+
+        foreach (var (index, person) in list.Index())
+        {
+            Debug.WriteLine($"{index,-3}{person.Id,-3}{person.FirstName,-8}{person.LastName}");
+        }
+    }
+
+    /// <summary>
+    /// Handles the click event for the "Create Version 7 GUID" button.
+    /// Generates two Version 7 GUIDs and writes them to the debug output.
+    /// </summary>
+    /// <remarks>
+    /// https://learn.microsoft.com/en-us/dotnet/api/system.guid.createversion7?view=net-9.0
+    /// </remarks>
+    private void GuidCreateVersion7Button_Click(object sender, EventArgs e)
+    {
+        //Creates a new Guid according to RFC 9562, following the Version 7 format.
+        var item1 = Guid.CreateVersion7();
+
+        //Creates a new Guid according to RFC 9562, following the Version 7 format with DateTimeOffset
+        var item2 = Guid.CreateVersion7(TimeProvider.System.GetUtcNow());
+
+        Debug.WriteLine(item1);
+        Debug.WriteLine(item2);
     }
 }
