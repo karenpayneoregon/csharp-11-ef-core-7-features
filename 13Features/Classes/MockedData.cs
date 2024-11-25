@@ -1,6 +1,6 @@
-﻿using _13Features.Models;
+﻿using Net9Features.Models;
 
-namespace _13Features.Classes
+namespace Net9Features.Classes
 {
     internal class MockedData
     {

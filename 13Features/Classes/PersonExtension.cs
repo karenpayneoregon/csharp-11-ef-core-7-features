@@ -1,6 +1,6 @@
-﻿using _13Features.Models;
+﻿using Net9Features.Models;
 
-namespace Classes;
+namespace Net9Features.Classes;
 
 public static class PersonExtension
 {
@@ -11,6 +11,9 @@ public static class PersonExtension
     /// <returns>
     /// <c>true</c> if the person is a lead of any team; otherwise, <c>false</c>.
     /// </returns>
+    /// <remarks>
+    /// Tried to do an extension but seems like it's not working hence a regular extension.
+    /// </remarks>
     public static bool IsLead(this Person person)
         => person.Organization
             .Teams

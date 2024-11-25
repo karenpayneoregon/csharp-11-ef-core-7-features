@@ -1,7 +1,6 @@
-﻿using _13Features.Classes;
-using Classes;
+﻿using Net9Features.Classes;
 
-namespace _13Features;
+namespace Net9Features;
 
 using static System.Globalization.DateTimeFormatInfo;
 internal partial class Program
