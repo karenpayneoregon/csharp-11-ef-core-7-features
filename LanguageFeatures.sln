@@ -297,6 +297,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkModeApp", "DarkModeApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13Features", "13Features\13Features.csproj", "{F9FF1DCD-B4DC-4FA0-BE30-2207C3AD677B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryFormatterAlternate", "BinaryFormatterAlternate\BinaryFormatterAlternate.csproj", "{7F02EE62-5DF4-4A7E-8F68-3EE034FFD951}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -695,6 +697,10 @@ Global
 		{F9FF1DCD-B4DC-4FA0-BE30-2207C3AD677B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9FF1DCD-B4DC-4FA0-BE30-2207C3AD677B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9FF1DCD-B4DC-4FA0-BE30-2207C3AD677B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F02EE62-5DF4-4A7E-8F68-3EE034FFD951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F02EE62-5DF4-4A7E-8F68-3EE034FFD951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F02EE62-5DF4-4A7E-8F68-3EE034FFD951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F02EE62-5DF4-4A7E-8F68-3EE034FFD951}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -820,6 +826,7 @@ Global
 		{AEFF4662-0EE0-4BED-97E5-B4E83F941D57} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
 		{5030315E-84D0-46E6-9268-F503E2B8F4DE} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
 		{F9FF1DCD-B4DC-4FA0-BE30-2207C3AD677B} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
+		{7F02EE62-5DF4-4A7E-8F68-3EE034FFD951} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}

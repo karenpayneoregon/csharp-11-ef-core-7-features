@@ -7,9 +7,15 @@ internal class Program
     static void Main(string[] args)
     {
 
-        const string sentence = "a b c d the";
-        Console.WriteLine(Helpers.ContainsFiveCharWord(sentence));
- 
+        const string sentence = "a test to see if";
+        Console.WriteLine(Helpers.ContainsFiveCharWord(sentence).ToYesNo());
+
+        ReadOnlySpan<char> input = "Hello;world!;How;are;you?";
+        foreach (Range r in Regex.EnumerateSplits(input, "[;]"))
+        {
+            Console.WriteLine($"Split: \"{input[r]}\"");
+        }
+
         Console.ReadLine();
     }
 }
@@ -24,9 +30,13 @@ public static partial class Helpers
     /// <c>true</c> if the input string contains a word with exactly five characters; otherwise, <c>false</c>.
     /// </returns>
     public static bool ContainsFiveCharWord(string input) => 
-        !string.IsNullOrEmpty(input) && FiveCharWord().IsMatch(input);
+        !string.IsNullOrEmpty(input) && FiveCharWord.IsMatch(input);
 
+    public static string ToYesNo(this bool value) => value ? "Yes" : "No";
 
     [GeneratedRegex(@"^\s*\b\w+\b(\s+\b\w+\b){4}\s*$")]
-    private static partial Regex FiveCharWord();
+    private static partial Regex FiveCharWord { get; }
 }
+
+
+
