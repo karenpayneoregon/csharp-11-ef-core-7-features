@@ -4,30 +4,27 @@ using static BinaryFormatterAlternate.Classes.SpectreConsoleHelpers;
 
 namespace BinaryFormatterAlternate;
 
+
 internal partial class Program
 {
-    /// <summary>
-    /// The main entry point for the application, which executes various serialization and deserialization samples.
-    /// </summary>
+
     static void Main(string[] args)
     {
         
-
         if (Question("Run Protobuf samples?"))
         {
             ProtobufOperations.SerializePeople();
             ProtobufOperations.DeserializePeople();
         }
-
-
+        
         if (Question("Run MessagePack samples?"))
         {
-            MessagePackOperations.SingleFriend1();
+            MessagePackOperations.SingleBinaryFriend1();
             MessagePackOperations.SingleFriend();
             MessagePackOperations.ListFriends();
+            MessagePackOperations.SingleJsonFriend1();
         }
-
-
+        
         if (Question("Run System.Text.Json samples?",true))
         {
             SystemTextJsonOperations.SerializePeople();

@@ -1,5 +1,6 @@
 ﻿using BinaryFormatterAlternate.Models;
 using MessagePack;
+
 using static BinaryFormatterAlternate.Classes.SpectreConsoleHelpers;
 
 namespace BinaryFormatterAlternate.Classes;
@@ -51,12 +52,12 @@ internal class MessagePackOperations
     /// The method uses the MessagePack library for serialization and deserialization with attributes and is the preferred
     /// path for new work. This is faster executing and more efficient than the Contractless process.
     /// </remarks>
-    public static void SingleFriend1()
+    public static void SingleBinaryFriend1()
     {
 
         PrintCyan();
 
-        var fileName = "SingleFriend1.bin";
+        var fileName = "SingleBinaryFriend1.bin";
 
         Friend1 friend = new()
         {
@@ -69,9 +70,51 @@ internal class MessagePackOperations
 
         // Serialize Friend to byte[]
         var bytes = MessagePackSerializer.Serialize(friend);
+
+        var json = MessagePackSerializer.ConvertToJson(bytes);
+
         File.WriteAllBytes(fileName, bytes);
         // Deserialize byte[] to Friend
         var bytes1 = File.ReadAllBytes(fileName);
+        var deserialized = MessagePackSerializer.Deserialize<Friend1>(bytes1);
+
+        AnsiConsole.MarkupLine(BeautifyFriendDump(deserialized.Dump()));
+    }
+
+    /// <summary>
+    /// Serializes a <see cref="Friend1"/> object to JSON using MessagePack, writes it to a file,
+    /// reads the JSON from the file, deserializes it back to a <see cref="Friend1"/> object,
+    /// and displays the deserialized object's details.
+    /// </summary>
+    /// <remarks>
+    /// The method demonstrates the process of converting a <see cref="Friend1"/> object to a JSON string
+    /// using MessagePack serialization, storing it in a file, and then reversing the process to retrieve
+    /// and display the object's data.
+    /// </remarks>
+    public static void SingleJsonFriend1()
+    {
+
+        PrintCyan();
+
+        var fileName = "SingleJsonFriend1.json";
+
+        Friend1 friend = new()
+        {
+            Id = 1,
+            FirstName = "John",
+            LastName = "Doe",
+            BirthDate = new DateOnly(1980, 1, 1),
+            CellPhone = "555-555-5555"
+        };
+
+        var bytes = MessagePackSerializer.Serialize(friend);
+        var json = MessagePackSerializer.ConvertToJson(bytes);
+
+        File.WriteAllText(fileName, json);
+        // Deserialize byte[] to Friend
+        var json1 = File.ReadAllText(fileName);
+        var bytes1 = MessagePackSerializer.ConvertFromJson(json1);
+
         var deserialized = MessagePackSerializer.Deserialize<Friend1>(bytes1);
 
         AnsiConsole.MarkupLine(BeautifyFriendDump(deserialized.Dump()));
