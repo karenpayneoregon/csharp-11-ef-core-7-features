@@ -23,14 +23,15 @@
 
 	<ItemGroup>
 		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
+		<PackageReference Include="Inferno" Version="1.6.6" />
 		<PackageReference Include="MessagePack" Version="2.5.192" />
-		<!--<PackageReference Include="MPack" Version="2.1.1" />-->
 		<PackageReference Include="ObjectDumper.NET" Version="4.3.2" />
 		<PackageReference Include="protobuf-net" Version="3.2.45" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Spectre.Console" Version="0.49.1" />
+		<PackageReference Include="Spectre.Console.Json" Version="0.49.1" />
 	</ItemGroup>
 
 	<ItemGroup>

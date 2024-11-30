@@ -1,36 +1,51 @@
-﻿using BinaryFormatterAlternate.Classes;
-using BinaryFormatterAlternate.Models;
-using MessagePack;
-using ProtoBuf;
+﻿
+using BinaryFormatterAlternate.Classes;
 using static BinaryFormatterAlternate.Classes.SpectreConsoleHelpers;
 
 namespace BinaryFormatterAlternate;
 
 internal partial class Program
 {
+    /// <summary>
+    /// The main entry point for the application, which executes various serialization and deserialization samples.
+    /// </summary>
     static void Main(string[] args)
     {
-        //SerializeFile();
-        //DeserializeFile();
-
-        MessagePackOperations.SingleFriend();
-        ExitPrompt();
-    }
-
-    private static string fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "people.bin");
-    private static void SerializeFile()
-    {
-        List<Person> people = MockedData.GetPersons();
         
-        using var file = File.Create(fileName);
-        Serializer.Serialize(file, people);
+
+        if (Question("Run Protobuf samples?"))
+        {
+            ProtobufOperations.SerializePeople();
+            ProtobufOperations.DeserializePeople();
+        }
+
+
+        if (Question("Run MessagePack samples?"))
+        {
+            MessagePackOperations.SingleFriend1();
+            MessagePackOperations.SingleFriend();
+            MessagePackOperations.ListFriends();
+        }
+
+
+        if (Question("Run System.Text.Json samples?",true))
+        {
+            SystemTextJsonOperations.SerializePeople();
+            SystemTextJsonOperations.DeserializePeople();
+        }
+
+        if (Question("Run Inferno sample?", true))
+        {
+            InfernoOperations.EncryptDecrypt();
+        }
+
+        if (Question("Run DataContractSerializer sample?"))
+        {
+            DataContractSerializerOperations.SerializePeople();
+        }
+
+        ExitPrompt();
+
     }
 
-    private static void DeserializeFile()
-    {
-        using var file = File.OpenRead(fileName);
-        var people = Serializer.Deserialize<List<Person>>(file);
-
-        AnsiConsole.MarkupLine($"{BeautifyDump(people.Dump())}");
-    }
 }

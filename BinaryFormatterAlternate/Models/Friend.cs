@@ -1,19 +1,25 @@
-﻿using MessagePack;
-
+﻿
 
 namespace BinaryFormatterAlternate.Models;
+/// <summary>
+/// Represents a friend with personal details such as name, birthdate, and contact information.
+/// </summary>
+/// <remarks>
+/// Used for serialization and deserialization of friend objects using the MessagePack library.
+/// Note this is a ContractLess process which is useful when a developer does not want to use attributes to define the contract
+/// or does not have access to a class to declarative the attributes.
+/// </remarks>
 
-[MessagePackObject]
 public class Friend
 {
-    [Key(0)]
+
     public int Id { get; set; }
-    [Key(1)]
+
     public string FirstName { get; set; }
-    [Key(2)]
+
     public string LastName { get; set; }
-    [Key(3)]
+
     public DateOnly BirthDate { get; set; }
-    [Key(4)]
+
     public string CellPhone { get; set; }   
 }
