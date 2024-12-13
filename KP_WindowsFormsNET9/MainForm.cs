@@ -19,12 +19,21 @@ namespace KP_WindowsFormsNET9;
 
 public partial class MainForm : Form
 {
+
+
+    public static bool IsInRange(object value) => value is
+        >= 0 and <= 100 or    // integer tests
+        >= 0F and <= 100F or  // float tests
+        >= 0D and <= 100D;    // double tests
+
     public MainForm()
     {
         InitializeComponent();
 
         Text = Configuration.Instance.ModeText;
 
+        // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-9.0/patterns3#semantics-eg-type-for-relational-operators
+        var result = IsInRange(50);
     }
 
     [Experimental("WFO5002")]
