@@ -1,6 +1,6 @@
 # About
 
-A simple example for using globbing via NuGet package [Meziantou.Framework.Globbing](https://www.nuget.org/packages/Meziantou.Framework.Globbing).
+A simple example for using globbing via NuGet package [Meziantou.Framework.Globbing](https://www.nuget.org/packages/Meziantou.Framework.Globbing) and [docs](https://www.meziantou.net/enumerating-files-using-globbing-and-system-io-enumeration.htm).
 
 The main benefit of using globbing is to match file paths using wildcards. This is useful when you want to match multiple files with a single pattern.
 
