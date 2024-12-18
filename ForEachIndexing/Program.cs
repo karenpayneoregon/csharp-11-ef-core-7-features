@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Runtime.InteropServices;
+using System.Text.Json;
 using ForEachIndexing.Classes;
 
 namespace ForEachIndexing;
@@ -10,8 +11,40 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        //FindInvalidLinesInFileExample2();
 
+
+        var  people = JsonSerializer.Deserialize<List<Person>>(Json);
+        foreach (var (index, person) in people.Index())
+        {
+            Console.WriteLine($"{index,-3}{person}");
+        }
+        Console.ReadLine();
+    }
+
+    public static string Json =>
+        /*lang=json*/
+        """
+        [
+          {
+        	"FirstName": "Jose",
+        	"LastName": "Fernandez",
+        	"BirthDate": "1985-01-01"
+          },
+          {
+        	"FirstName": "Miguel",
+        	"LastName": "Lopez",
+        	"BirthDate": "1970-12-04"
+          },
+          {
+        	"FirstName": "Angel",
+        	"LastName": "Perez",
+        	"BirthDate": "1980-09-11"
+          }
+        ]
+        """;
+
+    private static void ProcessCountryCodeLines()
+    {
         ReadOnlySpan<string> lines = File.ReadAllLines("CountryCodes.txt");
 
         var listEnumerator = lines.GetEnumerator();
@@ -20,7 +53,7 @@ internal partial class Program
         {
             var line = listEnumerator.Current;
 
-            Console.WriteLine($"{index, -5}{line}");
+            Console.WriteLine($"{index,-5}{line}");
 
             var parts = line.Split(',');
             if (parts.Length < 2)
@@ -28,11 +61,6 @@ internal partial class Program
                 Console.WriteLine($"Line {index + 1} is invalid: {line}");
             }
         }
-
-        //FindInvalidLinesInFileExample2();
-
-
-        Console.ReadLine();
     }
 
     /// <summary>
@@ -132,7 +160,7 @@ internal partial class Program
             Console.WriteLine($"{index,-3}{span[index]}");
         }
 
-        
+
     }
 
     /// <summary>
@@ -162,4 +190,16 @@ public static class Extensions
     public static IEnumerable<(T senderType, int index)> IncludeIndex<T>(this IEnumerable<T> source)
         => source.Select((item, index)
             => (item, index));
+}
+
+
+
+
+public class Person
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string BirthDate { get; set; }
+    public override string ToString() => $"{FirstName} {LastName} {BirthDate}";
+
 }
