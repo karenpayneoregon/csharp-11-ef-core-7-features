@@ -5,12 +5,6 @@ namespace NewStuffApp.Models;
 
 internal partial class Person : INotifyPropertyChanged
 {
-    public int Id
-    {
-        get;
-        set => SetField(ref field, value, nameof(Id));
-    }
-
     public string FirstName
     {
         get;
