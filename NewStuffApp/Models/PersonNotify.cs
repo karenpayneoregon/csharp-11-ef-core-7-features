@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace NewStuffApp.Models;
 
@@ -9,7 +10,7 @@ internal partial class Person
     protected void OnPropertyChanged(string propertyName)
         => PropertyChanged?.Invoke(this, new(propertyName));
 
-    protected bool SetField<T>(ref T field, T value, string propertyName)
+    protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = "")
     {
         if (EqualityComparer<T>.Default.Equals(field, value)) return false;
         field = value;
