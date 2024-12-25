@@ -7,7 +7,7 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        
+
         var people = JsonSerializer.Deserialize<List<Person>>(Json);
         foreach (var (index, person) in people.Index())
         {
@@ -42,10 +42,10 @@ internal partial class Program
 }
 
 public class Person
-    {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string BirthDate { get; set; }
-        public override string ToString() => $"{FirstName} {LastName} {BirthDate}";
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string BirthDate { get; set; }
+    public override string ToString() => $"{FirstName} {LastName} {BirthDate}";
 
-    }
+}

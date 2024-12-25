@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using GlobbingMyDocs.Classes;
 using GlobbingMyDocs.Models;
 
@@ -16,6 +17,8 @@ public partial class MainForm : Form
     {
         InitializeComponent();
 
+        GetExcelFilesUnderMyDocuments();
+
         TraverseMatch += MainForm_TraverseSolutionMatch;
     }
 
@@ -23,6 +26,29 @@ public partial class MainForm : Form
     {
         listBox1.InvokeIfRequired(lb => lb.Items.Add(sender));
     }
+
+    public static void GetExcelFilesUnderMyDocuments()
+    {
+        var folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+        var options = new EnumerationOptions()
+        {
+            AttributesToSkip = FileAttributes.Hidden | FileAttributes.System,
+            RecurseSubdirectories = true,
+            IgnoreInaccessible = true
+        };
+
+        var source = new DirectoryInfo(folder);
+        foreach (var subfolder in source.EnumerateDirectories("*", options))
+        {
+            foreach (var file in subfolder.EnumerateFiles("*.xlsx", options))
+            {
+                Debug.WriteLine($"File: {file.FullName}");
+            }
+        }
+        
+    }
+
     /// <summary>
     /// Asynchronously retrieves all matching solution files from the user's "My Documents" folder.
     /// </summary>
@@ -33,7 +59,7 @@ public partial class MainForm : Form
     public static async Task GetSolutionFilesAsync()
     {
         var folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        
+
         await Task.Run(() =>
         {
             /*
