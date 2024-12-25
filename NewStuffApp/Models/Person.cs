@@ -8,24 +8,24 @@ internal partial class Person : INotifyPropertyChanged
     public string FirstName
     {
         get;
-        set => SetField(ref field, value, nameof(FirstName));
+        set => SetField(ref field, value);
     }
 
     public string LastName
     {
         get;
-        set => SetField(ref field, value, nameof(LastName));
+        set => SetField(ref field, value);
     }
 
     public DateTime BirthDate
     {
         get;
-        set => SetField(ref field, value, nameof(BirthDate));
+        set => SetField(ref field, value);
     }
 
     public Gender Gender
     {
         get;
-        set => SetField(ref field, value, nameof(Gender));
+        set => SetField(ref field, value);
     }
 }
