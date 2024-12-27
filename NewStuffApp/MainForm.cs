@@ -20,11 +20,11 @@ public partial class MainForm : Form
         dataGridView1.DataSource = _bindingSource;
         dataGridView1.ExpandColumns();
 
-        RemarksLabel.DataBindings.Add("Text", _bindingSource, "Remarks");
+        RemarksLabel.DataBindings.Add("Text", _bindingSource, nameof(Person.Remarks));
 
         dataGridView1.DataError += (sender, e) => e.Cancel = true;
 
-
+        
 
     }
 
