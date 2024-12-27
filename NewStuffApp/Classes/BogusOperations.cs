@@ -22,9 +22,10 @@ internal class BogusOperations
             .RuleFor(c => c.FirstName, (f, u) => f.Name.FirstName((Name.Gender?)u.Gender))
             .RuleFor(c => c.LastName, f => f.Name.LastName())
             .RuleFor(c => c.BirthDate, f => f.Person.DateOfBirth)
+            .RuleFor(c => c.IsActive, f => f.Random.Bool())
+            .RuleFor(c => c.Remarks, f => f.Lorem.Paragraph())
             .RuleFor(c => c.Gender, f => f.PickRandom<Gender>());
-
-
+        
         return faker.Generate(count);
 
     }

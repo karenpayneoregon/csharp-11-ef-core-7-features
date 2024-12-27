@@ -3,17 +3,17 @@ using System.ComponentModel;
 
 namespace NewStuffApp.Models;
 
-internal partial class Person : INotifyPropertyChanged
+internal partial class Person : Base, INotifyPropertyChanged
 {
     public string FirstName
     {
-        get;
+        get => field.TrimEnd();
         set => SetField(ref field, value, nameof(FirstName));
     }
 
     public string LastName
     {
-        get;
+        get => field.TrimEnd();
         set => SetField(ref field, value, nameof(LastName));
     }
 
@@ -28,4 +28,7 @@ internal partial class Person : INotifyPropertyChanged
         get;
         set => SetField(ref field, value, nameof(Gender));
     }
+
+    public partial string Remarks { get; set; }
+
 }

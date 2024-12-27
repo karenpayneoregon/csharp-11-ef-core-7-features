@@ -1,4 +1,3 @@
-
 using BindingListLibrary;
 using NewStuffApp.Classes;
 using NewStuffApp.Models;
@@ -13,11 +12,20 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
+
         dataGridView1.AutoGenerateColumns = false;
+
         _bindingList = new SortableBindingList<Person>(BogusOperations.PersonsList(12));
         _bindingSource.DataSource = _bindingList;
         dataGridView1.DataSource = _bindingSource;
         dataGridView1.ExpandColumns();
+
+        RemarksLabel.DataBindings.Add("Text", _bindingSource, "Remarks");
+
+        dataGridView1.DataError += (sender, e) => e.Cancel = true;
+
+
+
     }
 
     private void CurrentButton_Click(object sender, EventArgs e)
