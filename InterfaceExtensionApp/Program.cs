@@ -23,7 +23,7 @@ internal partial class Program
         var entities = Helpers.GetAllEntityNames<IIdentity>();
         var entities1 = Helpers.GetAllEntities<IIdentity>();
 
-        Song song = Song.Parse("Everlong|Foo Fighters|326", CultureInfo.InvariantCulture); // Fix the Parse method call
+        Person parsedPerson = Person.Parse("1,John,Doe,1990-01-01,Male,English\n", CultureInfo.InvariantCulture); 
 
         Console.ReadLine();
 
