@@ -8,4 +8,5 @@ public interface IHuman
     public string LastName { get; set; }
     public DateOnly DateOfBirth { get; set; }
     public Gender Gender { get; set; }
+    public Language Language { get; set; }
 }
