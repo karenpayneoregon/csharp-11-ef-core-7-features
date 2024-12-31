@@ -14,11 +14,13 @@ internal class Params
         foreach (var (index, item) in values.Index())
             Debug.WriteLine($"{index,-5}{item}");
     }
+
     public static void Iterate(params IEnumerable<int> values)
     {
         foreach (var (index, item) in values.Index())
             Debug.WriteLine($"{index,-5}{item}");
     }
+
     public static void Iterate(params IEnumerable<Person> values)
     {
         foreach (var (index, item) in values.Index())
@@ -32,4 +34,5 @@ internal class Params
         Iterate(["Jim", "Tony", "Lisa"]);
         Iterate(BogusOperations.PersonsList(2));
     }
+
 }
