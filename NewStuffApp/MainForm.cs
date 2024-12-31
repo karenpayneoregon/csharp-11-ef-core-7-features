@@ -24,12 +24,17 @@ public partial class MainForm : Form
 
         dataGridView1.DataError += (sender, e) => e.Cancel = true;
 
-        
+
 
     }
 
     private void CurrentButton_Click(object sender, EventArgs e)
     {
         Person person = _bindingList[_bindingSource.Position];
+    }
+
+    private void ParamsButton_Click(object sender, EventArgs e)
+    {
+        Params.Examples();
     }
 }

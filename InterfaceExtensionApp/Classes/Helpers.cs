@@ -42,8 +42,8 @@ public static partial class Helpers
         if (!typeof(T).IsInterface)
             throw new ArgumentException("T must be an interface.");
 
-        return Enumerable
-            .Select<Type, string>(GetAllEntities<T>(), x => x.Name)
+        return GetAllEntities<T>()
+            .Select(x => x.Name)
             .ToList();
     }
 
@@ -69,6 +69,28 @@ public static partial class Helpers
             .Where(x => typeof(T).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
             .ToList();
     }
+
+    /// <summary>
+    /// Retrieves the generic type arguments of all <see cref="IEnumerable{T}"/> interfaces
+    /// implemented by the specified object.
+    /// </summary>
+    /// <param name="sender">
+    /// The object whose implemented <see cref="IEnumerable{T}"/> interfaces are to be inspected.
+    /// </param>
+    /// <returns>
+    /// An <see cref="IEnumerable{T}"/> of <see cref="Type"/> objects representing the generic type
+    /// arguments of all <see cref="IEnumerable{T}"/> interfaces implemented by the specified object.
+    /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown if the <paramref name="sender"/> is <c>null</c>.
+    /// </exception>
+    public static IEnumerable<Type> GetGenericIEnumerable(object sender) =>
+        sender
+            .GetType()
+            .GetInterfaces()
+            .Where(t => t.IsGenericType && t.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+            .Select(t => t.GetGenericArguments()[0]);
+
 
     [GeneratedRegex("[0-9]+$")]
     private static partial Regex TrailingNumberRegex();

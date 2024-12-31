@@ -35,8 +35,9 @@ partial class MainForm
         GenderColumn = new DataGridViewTextBoxColumn();
         BirthDateColumn = new DataGridViewTextBoxColumn();
         panel1 = new Panel();
-        CurrentButton = new Button();
+        ParamsButton = new Button();
         RemarksLabel = new Label();
+        CurrentButton = new Button();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
         panel1.SuspendLayout();
         SuspendLayout();
@@ -97,6 +98,7 @@ partial class MainForm
         // 
         // panel1
         // 
+        panel1.Controls.Add(ParamsButton);
         panel1.Controls.Add(RemarksLabel);
         panel1.Controls.Add(CurrentButton);
         panel1.Dock = DockStyle.Bottom;
@@ -104,6 +106,25 @@ partial class MainForm
         panel1.Name = "panel1";
         panel1.Size = new Size(706, 72);
         panel1.TabIndex = 1;
+        // 
+        // ParamsButton
+        // 
+        ParamsButton.Location = new Point(600, 25);
+        ParamsButton.Name = "ParamsButton";
+        ParamsButton.Size = new Size(94, 29);
+        ParamsButton.TabIndex = 2;
+        ParamsButton.Text = "Params";
+        ParamsButton.UseVisualStyleBackColor = true;
+        ParamsButton.Click += ParamsButton_Click;
+        // 
+        // RemarksLabel
+        // 
+        RemarksLabel.AutoSize = true;
+        RemarksLabel.Location = new Point(129, 25);
+        RemarksLabel.Name = "RemarksLabel";
+        RemarksLabel.Size = new Size(50, 20);
+        RemarksLabel.TabIndex = 1;
+        RemarksLabel.Text = "label1";
         // 
         // CurrentButton
         // 
@@ -114,15 +135,6 @@ partial class MainForm
         CurrentButton.Text = "Current";
         CurrentButton.UseVisualStyleBackColor = true;
         CurrentButton.Click += CurrentButton_Click;
-        // 
-        // RemarksLabel
-        // 
-        RemarksLabel.AutoSize = true;
-        RemarksLabel.Location = new Point(129, 25);
-        RemarksLabel.Name = "RemarksLabel";
-        RemarksLabel.Size = new Size(50, 20);
-        RemarksLabel.TabIndex = 1;
-        RemarksLabel.Text = "label1";
         // 
         // MainForm
         // 
@@ -152,4 +164,5 @@ partial class MainForm
     private DataGridViewTextBoxColumn GenderColumn;
     private DataGridViewTextBoxColumn BirthDateColumn;
     private Label RemarksLabel;
+    private Button ParamsButton;
 }

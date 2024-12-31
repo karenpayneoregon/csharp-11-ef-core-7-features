@@ -17,3 +17,4 @@ public interface IHuman
     public Gender Gender { get; set; }
     public Language Language { get; set; }
 }
+

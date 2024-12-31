@@ -14,7 +14,7 @@ internal partial class Program
 
         foreach (var human in humans)
         {
-            human.Display();
+            human.DisplayWithTable();
             Console.WriteLine();
         }
 

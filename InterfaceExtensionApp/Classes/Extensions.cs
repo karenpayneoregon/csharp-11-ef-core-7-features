@@ -33,4 +33,36 @@ public static class Extensions
         Console.WriteLine($"     Birth: {human.DateOfBirth}");
         Console.WriteLine($"  Language: {human.Language}");
     }
+    public static void DisplayWithTable(this IHuman human)
+    {
+
+        var table = CreateTable();
+        table.Title = new TableTitle($"[white]Type:[/] [yellow]{human.GetType().Name}[/]");
+
+        table.AddRow(
+            human is IIdentity identity ? identity.Id.ToString() : string.Empty,
+            human is ICustomer customer ? $"[orange3]{customer.Account}[/]" : string.Empty,
+            human.FirstName,
+            human.LastName,
+            human.Gender.ToString(),
+            human.DateOfBirth.ToString(),
+            human.Language.ToString());
+
+        AnsiConsole.Write(table);
+
+    }
+
+    private static Table CreateTable()
+        => new Table()
+            .AddColumn("[cyan]Id[/]")
+            .AddColumn("[cyan]Account[/]")
+            .AddColumn("[cyan]First[/]")
+            .AddColumn("[cyan]Last[/]")
+            .AddColumn("[cyan]Gender[/]")
+            .AddColumn("[cyan]Birth[/]")
+            .AddColumn("[cyan]Spoken[/]")
+            .BorderColor(Color.LightSlateGrey)
+            .Width(200)
+            .Border(TableBorder.Rounded);
+
 }
