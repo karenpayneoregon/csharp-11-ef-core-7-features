@@ -1,11 +1,25 @@
-namespace ReadPeopleWithCopilotChatDemo.Models
+// ReSharper disable ConvertToAutoProperty
+using Humanizer;
+
+namespace ReadPeopleWithCopilotChatDemo.Models;
+
+public class Person
 {
-    public class Person
+    public string FirstName
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public DateOnly BirthDate { get; set; }
+        get;
+        set => field = value.Transform(To.LowerCase, To.TitleCase).Trim();
+    }
 
+    public string LastName
+    {
+        get;
+        set => field = value.Transform(To.LowerCase, To.TitleCase).Trim();
+    }
 
+    public DateOnly BirthDate
+    {
+        get;
+        set => field = value;
     }
 }

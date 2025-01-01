@@ -5,10 +5,10 @@ namespace ReadPeopleWithCopilotChatDemo;
 
 internal partial class Program
 {
-    static void Main(string[] args)
+    private static async Task Main(string[] args)
     {
         string filePath = "people.txt";
-        List<Person> people = FileOperations.ReadPeopleFromFile(filePath);
+        List<Person> people = await FileOperations.ReadPeopleFromFile(filePath);
 
         foreach (var person in people)
         {
