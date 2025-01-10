@@ -18,4 +18,7 @@ public static class PersonExtension
         => person.Organization
             .Teams
             .Any(team => team.Lead == person);
+
+
 }
+

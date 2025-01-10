@@ -8,7 +8,7 @@ internal partial class Program
     private static async Task Main(string[] args)
     {
         string filePath = "people.txt";
-        List<Person> people = await FileOperations.ReadPeopleFromFile(filePath);
+        List<Person> people = await FileOperations.Read(filePath);
 
         foreach (var person in people)
         {

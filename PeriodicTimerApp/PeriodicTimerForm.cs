@@ -32,7 +32,11 @@ public partial class PeriodicTimerForm : Form
 
     private void ShowTime(string sender)
     {
-        ShowTimeLabel.InvokeIfRequired(label => { label.Text = sender; });
+        // Before NET 9 
+        //ShowTimeLabel.InvokeIfRequired(label => { label.Text = sender; });
+
+        // NET 9
+        ShowTimeLabel.Invoke( () => ShowTimeLabel.Text = sender);
     }
 
     private async void StartButton_Click(object sender, EventArgs e)
