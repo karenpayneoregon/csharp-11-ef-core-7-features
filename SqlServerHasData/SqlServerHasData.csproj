@@ -20,9 +20,20 @@
 		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.1" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Spectre.Console" Version="0.46.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="EntityCoreFileLogger" Version="1.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\PayneServiceLibrary\PayneServiceLibrary.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -31,4 +42,12 @@
 	  </None>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Scripts\" />
+	</ItemGroup>
+	<Target Name="MakeLogDir" AfterTargets="Build">
+		<!-- Create folder LogFiles than each day create a folder with the current date -->
+		<MakeDir Directories="$(OutDir)LogFiles\$([System.DateTime]::Now.ToString(yyyy-MM-dd))" />
+	</Target>
+	
 </Project>

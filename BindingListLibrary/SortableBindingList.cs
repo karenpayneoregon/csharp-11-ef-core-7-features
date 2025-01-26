@@ -75,7 +75,7 @@ public class SortableBindingList<T> : BindingList<T> where T : class
 
         List<T> list = Items as List<T>;
         if (list == null) return;
-
+        
         list.Sort(Compare);
 
         _isSorted = true;

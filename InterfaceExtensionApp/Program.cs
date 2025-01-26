@@ -23,7 +23,14 @@ internal partial class Program
         var entities = Helpers.GetAllEntityNames<IIdentity>();
         var entities1 = Helpers.GetAllEntities<IIdentity>();
 
-        Person parsedPerson = Person.Parse("1,John,Doe,1990-01-01,Male,English\n", CultureInfo.InvariantCulture); 
+        List<string> list =
+        [
+            "1|John|Doe|1990-01-01|Male|English",
+            "2|Mary|Doe|1992-02-01|Female|English",
+            "3|Mark|Smith|2000-02-01|Female|Spanish"
+        ];
+
+        List<Person> people = list.Select(x => Person.Parse(x, CultureInfo.InvariantCulture)).ToList();
 
         Console.ReadLine();
 

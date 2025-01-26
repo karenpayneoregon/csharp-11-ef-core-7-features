@@ -30,8 +30,6 @@ public class NorthWind : DataSet
     public string ContactTypeNames()
         => Random.ArrayElement(contactTitles);
 
-    
-
     public ContactType ContactTypes()
     {
         var data = new Faker<ContactType>()
@@ -42,7 +40,8 @@ public class NorthWind : DataSet
 
     }
 
-    private static Categories RandomCategory => System.Random.Shared.GetItems(categories().ToArray(), 1)[0];
+    private static Categories RandomCategory 
+        => System.Random.Shared.GetItems(categories().ToArray(), 1)[0];
     /// <summary>
     /// Sample to control data returned
     /// </summary>

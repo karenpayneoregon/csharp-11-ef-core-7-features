@@ -16,10 +16,11 @@ public class BogusOperations
     /// Generates a list of people with random data.
     /// </summary>
     /// <param name="count">The number of people to generate.</param>
-    /// <returns>A list of <see cref="BirthDays"/> objects with random people.</returns>
-    public static List<BirthDays> PeopleList(int count)
+    /// <param name="identifier">An optional identifier to initialize the <see cref="BirthDays"/> objects. Default is 1.</param>
+    /// <returns>A list of <see cref="BirthDays"/> objects with randomly generated data.</returns>
+    public static List<BirthDays> PeopleList(int count, int identifier = 1)
     {
-        var identifier = 1;
+        //var identifier = 1;
         Randomizer.Seed = new Random(338);
 
         var faker = new Faker<BirthDays>()
@@ -34,14 +35,19 @@ public class BogusOperations
     }
 
     /// <summary>
-    /// Generates a consistent list of people.
+    /// Generates a consistent list of people with repeatable random data.
     /// </summary>
     /// <param name="count">The number of people to generate.</param>
-    /// <param name="seed">The seed value for repeatable data. Default is 338.</param>
-    /// <returns>A list of <see cref="BirthDays"/>> objects with repeatable people.</returns>
-    public static List<BirthDays> PeopleList(int count, int seed = 338)
+    /// <param name="seed">The seed value for generating repeatable data. Default is 338.</param>
+    /// <param name="identifier">
+    /// An optional identifier to initialize the <see cref="BirthDays"/> objects. 
+    /// This value is incremented for each generated person. Default is 1.
+    /// </param>
+    /// <returns>
+    /// A list of <see cref="BirthDays"/> objects with consistent and repeatable random data.
+    /// </returns>
+    public static List<BirthDays> PeopleList(int count, int seed = 338, int identifier = 1)
     {
-        var identifier = 1;
         Randomizer.Seed = new Random(seed);
 
         var faker = new Faker<BirthDays>().Rules((f, b) =>

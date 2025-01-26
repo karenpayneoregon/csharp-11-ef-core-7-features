@@ -13,7 +13,7 @@ public static partial class DataGridViewExtensions
     {
         foreach (DataGridViewColumn col in source.Columns)
         {
-            if (col.ValueType.Name != "ICollection`1")
+            if (col.ValueType!.Name != "ICollection`1")
             {
                 col.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }

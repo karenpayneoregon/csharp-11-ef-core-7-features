@@ -5,6 +5,7 @@
 		<TargetFramework>net9.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>disable</Nullable>
+		<PackageId>SqliteHasData</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -16,13 +17,24 @@
 	  <Content Include="readme.md" />
 	</ItemGroup>
 
+	<!--<ItemGroup>
+		<PackageReference Include="ConfigurationLibrary" Version="1.0.4" />
+	</ItemGroup>-->
+
 	<ItemGroup>
 		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Spectre.Console" Version="0.46.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\PayneServiceLibrary\PayneServiceLibrary.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

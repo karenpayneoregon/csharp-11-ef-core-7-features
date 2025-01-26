@@ -44,10 +44,10 @@ public class Person : IHuman, IIdentity, IParsable<Person>
     /// </exception>
     public static Person Parse(string item, IFormatProvider? provider)
     {
-        string[] personPortions = item.Split(',');
+        string[] personPortions = item.Split('|');
         if (personPortions.Length != 6)
         {
-            throw new FormatException("Expected format: Id,FirstName,LastName,DateOfBirth,Gender,Language");
+            throw new FormatException("Expected format: Id|FirstName|LastName|DateOfBirth|Gender|Language");
         }
         return new Person(
             int.Parse(personPortions[0]),
