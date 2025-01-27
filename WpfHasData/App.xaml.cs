@@ -1,18 +1,26 @@
 ﻿using PayneServiceLibrary;
 using System.Windows;
+using Serilog;
+using WpfHasData.Classes;
 
 namespace WpfHasData
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
-        public App()
+        protected override async void OnStartup(StartupEventArgs e)
         {
-            Setup().Wait();
+            // to satisfy async void usage
+            try
+            {
+                base.OnStartup(e);
+                await Setup();
+                SetupLogging.Initialize();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Failure in OnStartup");
+            }
         }
-
         private async Task Setup()
         {
             await MainConfiguration.Setup();
