@@ -9,6 +9,41 @@ Both projects have product and category tables that are populated with the same 
 - SqliteHasData
 - SqlServerHasData
 
+## Setup
+
+### Console project
+
+```csharp
+internal partial class Program
+{
+    private static async Task Main(string[] args)
+    {
+        await MainConfiguration.Setup();
+    }
+}
+```
+
+### Windows Forms
+
+```csharp
+internal static class Program
+{
+    /// <summary>
+    ///  The main entry point for the application.
+    /// </summary>
+    [STAThread]
+    static async Task Main()
+    {
+
+        ApplicationConfiguration.Initialize();
+
+        await MainConfiguration.Setup();
+
+        Application.Run(new Form1());
+    }
+}
+```
+
 ## Sample configration file
 
 Use `MainConnection` for general connections and `SecondaryConnection` for additional connections.

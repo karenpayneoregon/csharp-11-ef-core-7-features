@@ -4,8 +4,13 @@ namespace ConventionalRead;
 
 internal partial class Program
 {
-    static void Main(string[] args)
+    /// <summary>
+    /// This method reads configuration values from the application's JSON configuration file, 
+    /// such as the main connection string and entity creation settings, and displays them in the console.
+    /// </summary>
+    private static void Main(string[] args)
     {
+
         AnsiConsole.MarkupLine("    [yellow]Source:[/][cyan] appsettings.json[/]");
         var mainConnectionString = Config.Configuration.JsonRoot()
             .GetSection(nameof(ConnectionStrings))[nameof(ConnectionStrings.MainConnection)];
@@ -17,5 +22,7 @@ internal partial class Program
 
         AnsiConsole.MarkupLine($"    [yellow]Create:[/] [cyan]{shouldCreate.ToBool().ToYesNo()}[/]");
         Console.ReadLine();
+        
     }
+
 }
