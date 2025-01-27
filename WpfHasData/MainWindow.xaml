@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="WPF Sqlite Has Data" Height="476" Width="800" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        Title="WPF Sqlite Has Data" Height="437" Width="736" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <CollectionViewSource x:Key="categoryViewSource"/>
         <CollectionViewSource x:Key="categoryProductsViewSource" 
@@ -18,7 +18,7 @@
         <DataGrid x:Name="categoryDataGrid" AutoGenerateColumns="False" 
                   EnableRowVirtualization="True" 
                   ItemsSource="{Binding Source={StaticResource categoryViewSource}}" 
-                  Margin="13,13,43,229" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.ColumnSpan="2">
+                  Margin="13,13,28,229" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding CategoryId}"
                                     Header="Category Id" Width="SizeToHeader"
@@ -30,7 +30,7 @@
         <DataGrid x:Name="productsDataGrid" AutoGenerateColumns="False" 
                   EnableRowVirtualization="True" 
                   ItemsSource="{Binding Source={StaticResource categoryProductsViewSource}}" 
-                  Margin="13,205,43,80" RowDetailsVisibilityMode="VisibleWhenSelected" 
+                  Margin="13,205,28,80" RowDetailsVisibilityMode="VisibleWhenSelected" 
                   RenderTransformOrigin="0.488,0.251" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding CategoryId}" 
