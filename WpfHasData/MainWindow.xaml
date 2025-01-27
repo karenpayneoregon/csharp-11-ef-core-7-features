@@ -30,7 +30,7 @@
         <DataGrid x:Name="productsDataGrid" AutoGenerateColumns="False" 
                   EnableRowVirtualization="True" 
                   ItemsSource="{Binding Source={StaticResource categoryProductsViewSource}}" 
-                  Margin="13,205,28,80" RowDetailsVisibilityMode="VisibleWhenSelected" 
+                  Margin="13,230,28,63" RowDetailsVisibilityMode="VisibleWhenSelected" 
                   RenderTransformOrigin="0.488,0.251" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding CategoryId}" 
