@@ -31,7 +31,7 @@
                   EnableRowVirtualization="True" 
                   ItemsSource="{Binding Source={StaticResource categoryProductsViewSource}}" 
                   Margin="13,230,28,63" RowDetailsVisibilityMode="VisibleWhenSelected" 
-                  RenderTransformOrigin="0.488,0.251" Grid.ColumnSpan="2">
+                  RenderTransformOrigin="0.488,0.251" Grid.ColumnSpan="2" Grid.Column="0">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding CategoryId}" 
                                     Header="Category Id" Width="SizeToHeader"
