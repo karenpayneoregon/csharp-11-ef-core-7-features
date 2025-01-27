@@ -317,10 +317,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteHasData", "SqliteHasD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlServerHasData", "SqlServerHasData\SqlServerHasData.csproj", "{0D70F62B-74EE-4066-8414-7A66AB8715F3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EF Core Has Data", "EF Core Has Data", "{2716CA6A-6635-4A3F-86A2-7194DA914F9E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Has Data", "Has Data", "{2716CA6A-6635-4A3F-86A2-7194DA914F9E}"
 	ProjectSection(SolutionItems) = preProject
 		About.md = About.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConventionalRead", "ConventionalRead\ConventionalRead.csproj", "{7A0688B9-61D5-407C-BC9B-061D77FEF961}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -756,6 +758,10 @@ Global
 		{0D70F62B-74EE-4066-8414-7A66AB8715F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D70F62B-74EE-4066-8414-7A66AB8715F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D70F62B-74EE-4066-8414-7A66AB8715F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A0688B9-61D5-407C-BC9B-061D77FEF961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A0688B9-61D5-407C-BC9B-061D77FEF961}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A0688B9-61D5-407C-BC9B-061D77FEF961}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A0688B9-61D5-407C-BC9B-061D77FEF961}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -892,6 +898,7 @@ Global
 		{2B27BD66-7E67-491A-A2D7-8C02F755486A} = {2716CA6A-6635-4A3F-86A2-7194DA914F9E}
 		{0D70F62B-74EE-4066-8414-7A66AB8715F3} = {2716CA6A-6635-4A3F-86A2-7194DA914F9E}
 		{2716CA6A-6635-4A3F-86A2-7194DA914F9E} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
+		{7A0688B9-61D5-407C-BC9B-061D77FEF961} = {2716CA6A-6635-4A3F-86A2-7194DA914F9E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}

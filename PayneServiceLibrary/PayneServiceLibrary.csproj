@@ -6,6 +6,10 @@
     <Nullable>enable</Nullable>
 	  <SdkAnalysisLevel>8.0.100</SdkAnalysisLevel>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\paynek\.nuget\packages\consoleconfigurationlibrary\1.0.0.4\contentFiles\any\net8.0\readme.md" />
+  </ItemGroup>
 	<ItemGroup>
 		<NuGetAuditSuppress Include="https://github.com/advisories/GHSA-hh2w-p6rv-4g7w" />
 		<NuGetAuditSuppress Include="https://github.com/advisories/GHSA-8g4q-xg66-9fp4" />
