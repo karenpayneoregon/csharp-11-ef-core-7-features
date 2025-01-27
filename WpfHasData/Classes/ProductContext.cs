@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EntityCoreFileLogger;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using PayneServiceLibrary.Classes.Configuration;
 using Serilog;
 using WpfHasData.Classes;
@@ -12,7 +14,10 @@ namespace WpfHasData
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(DataConnections.Instance.MainConnection);
+            optionsBuilder.UseSqlite(DataConnections.Instance.MainConnection)
+                .EnableSensitiveDataLogging()
+                .LogTo(new DbContextToFileLogger().Log, [DbLoggerCategory.Database.Command.Name],
+                    LogLevel.Information);
             optionsBuilder.UseLazyLoadingProxies();
         }
         /// <summary>
