@@ -13,3 +13,5 @@ These two projects show how to control creating and populating database tables f
 ```
 
 Setting `CreateNew` to true to create and populate the database specified in `ConnectionStrings.MainConnection`
+
+Project `ConventionalRead` is for writing an article.
