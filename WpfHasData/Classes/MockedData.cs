@@ -4,11 +4,11 @@ namespace WpfHasData.Classes;
 internal class MockedData
 {
 
-    public static async Task CreateIfNeeded(ProductContext context)
+    public static void CreateIfNeeded(ProductContext context)
     {
         if (!EntitySettings.Instance.CreateNew) return;
-        await context.Database.EnsureDeletedAsync();
-        await context.Database.EnsureCreatedAsync();
+         context.Database.EnsureDeleted();
+         context.Database.EnsureCreated();
     }
     /// <summary>
     /// Gets the predefined list of <see cref="Category"/> objects used to seed the database.

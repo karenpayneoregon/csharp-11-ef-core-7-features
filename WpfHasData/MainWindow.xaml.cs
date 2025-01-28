@@ -3,6 +3,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using Microsoft.EntityFrameworkCore;
+using WpfHasData.Classes;
+
 #pragma warning disable CS8622 // Nullability of reference types in type of parameter doesn't match the target delegate (possibly because of nullability attributes).
 
 namespace WpfHasData
@@ -26,9 +28,8 @@ namespace WpfHasData
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            _context.Database.EnsureDeleted();
-            _context.Database.EnsureCreated();
-
+            MockedData.CreateIfNeeded(_context);
+        
             _context.Categories.Load();
 
             categoryViewSource.Source = _context.Categories.Local.ToObservableCollection();
