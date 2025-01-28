@@ -63,7 +63,6 @@ namespace WpfHasData
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            // clean up database connections
             _context.Dispose();
             base.OnClosing(e);
         }
