@@ -9,3 +9,4 @@ Uses the same models as in SqlServerHasData and SqliteHasData projects.
 - Added [SeriLog](https://www.nuget.org/packages/Serilog/4.2.1-dev-02337)
 - Added PayneServiceLibrary `local class project`
 - [EntityCoreFileLogger](https://www.nuget.org/packages/EntityCoreFileLogger) package
+- Added `SortDataGrid`

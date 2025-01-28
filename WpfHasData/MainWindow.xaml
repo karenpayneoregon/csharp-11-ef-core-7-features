@@ -38,7 +38,7 @@
                                     IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding ProductId}" Header="Product Id" 
                                     Width="SizeToHeader" IsReadOnly="True"/>
-                <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="Name" Width="*" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
