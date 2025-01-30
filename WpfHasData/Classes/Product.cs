@@ -1,4 +1,6 @@
-﻿namespace WpfHasData
+﻿using WpfHasData.Classes;
+
+namespace WpfHasData
 {
     public class Product
     {

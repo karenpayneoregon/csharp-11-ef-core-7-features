@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="WPF Sqlite Has Data" Height="437" Width="736" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        Title="WPF Sqlite Has Data" Height="437" Width="736" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.Resources>
         <CollectionViewSource x:Key="categoryViewSource"/>
         <CollectionViewSource x:Key="categoryProductsViewSource" 
@@ -21,7 +21,7 @@
                   Margin="13,13,28,229" RowDetailsVisibilityMode="VisibleWhenSelected" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding CategoryId}"
-                                    Header="Category Id" Width="SizeToHeader"
+                                    Header="Id" Width="SizeToHeader"
                                     IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Name}" Header="Name" 
                                     Width="*"/>
@@ -34,7 +34,7 @@
                   RenderTransformOrigin="0.488,0.251" Grid.ColumnSpan="2" Grid.Column="0">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding CategoryId}" 
-                                    Header="Category Id" Width="SizeToHeader"
+                                    Header="Id" Width="SizeToHeader"
                                     IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding ProductId}" Header="Product Id" 
                                     Width="SizeToHeader" IsReadOnly="True"/>

@@ -50,6 +50,7 @@ namespace WpfHasData
         private void CalledWhenPropertyIsChanged(object sender, EventArgs e)
         {
             SortDataGrid(productsDataGrid, 2);
+            productsDataGrid.SelectedIndex = 0;
         }
 
         // not used in this example

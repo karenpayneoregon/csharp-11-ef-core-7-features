@@ -26,12 +26,12 @@ namespace SwitchExpressions.Classes
                 .Title("[yellow]Likes[/]");
 
             
-            List<string[]> nameList = new()
-            {
-                new[] { "Karen", "Mary", "Tom", "Adam", "Sue" },
-                new[] { "Karen", "Mary", "Tom" },
-                new[] { "Karen" }
-            };
+            List<string[]> nameList =
+            [
+                ["Karen", "Mary", "Tom", "Adam", "Sue"],
+                ["Karen", "Mary", "Tom"],
+                ["Karen"]
+            ];
 
             foreach (var names in nameList)
             {

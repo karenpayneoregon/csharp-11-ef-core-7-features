@@ -1,10 +1,12 @@
-﻿namespace SqliteHasData.Classes;
+﻿using static System.Text.Json.JsonSerializer;
+
+namespace SqliteHasData.Classes;
 internal class JsonOperations
 {
     public static Configuration GetConfiguration()
     {
         var json = File.ReadAllText("appsettings.json");
-        return System.Text.Json.JsonSerializer.Deserialize<Configuration>(json);
+        return Deserialize<Configuration>(json);
     }
 }
 
