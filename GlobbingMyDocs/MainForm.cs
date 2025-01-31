@@ -18,7 +18,7 @@ public partial class MainForm : Form
     {
         InitializeComponent();
 
-        GetExcelFilesUnderMyDocuments();
+        //GetExcelFilesUnderMyDocuments();
 
         TraverseMatch += MainForm_TraverseSolutionMatch;
     }
@@ -66,7 +66,9 @@ public partial class MainForm : Form
             /*
              * match all .docx and .xlsx files in the MyDocuments folder
              */
+
             var glob = Glob.Parse("/**/*.{docx,xlsx}", GlobOptions.None);
+
             var enumerationOptions = new EnumerationOptions
             {
                 IgnoreInaccessible = true,
@@ -80,26 +82,20 @@ public partial class MainForm : Form
 
     }
 
-    public static async IAsyncEnumerable<FileMatchItem> GetSolutionFilesAsync(string[] extensions, string token)
+    public static async IAsyncEnumerable<FileMatchItem> GetFilesAsync(string[] extensions, string token)
     {
         var folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         var globPattern = $"/**/*.{{{string.Join(",", extensions)}}}";
         var glob = Glob.Parse(globPattern, GlobOptions.None);
         var enumerationOptions = new EnumerationOptions { IgnoreInaccessible = true, AttributesToSkip = FileAttributes.Hidden };
 
-        await foreach (var file in GetFilesAsync(glob, folder, enumerationOptions))
+        await foreach (var file in GetFilesAsync(glob, folder, enumerationOptions).WithCancellation(CancellationToken.None))
         {
-
             if (file == token)
             {
                 yield break;
             }
-            else
-            {
-                yield return new FileMatchItem(file);
-            }
-
-
+            yield return new FileMatchItem(file);
         }
     }
 
@@ -113,6 +109,7 @@ public partial class MainForm : Form
     }
 
 
+
     private async void ExecuteButton_Click(object sender, EventArgs e)
     {
         await GetSolutionFilesAsync();
@@ -121,7 +118,7 @@ public partial class MainForm : Form
     private async void OtherButton_Click(object sender, EventArgs e)
     {
         string[] extensions = ["docx", "xlsx"]; 
-        await foreach (var fileMatch in GetSolutionFilesAsync(extensions, "Firewall rule for FTP for Web Developers.docx"))
+        await foreach (var fileMatch in GetFilesAsync(extensions, "Firewall rule for FTP for Web Developers.docx"))
         {
             Debug.WriteLine(fileMatch.FileName);
         }
