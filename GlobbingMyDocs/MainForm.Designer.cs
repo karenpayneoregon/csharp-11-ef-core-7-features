@@ -30,6 +30,7 @@ partial class MainForm
     {
         listBox1 = new ListBox();
         ExecuteButton = new Button();
+        OtherButton = new Button();
         SuspendLayout();
         // 
         // listBox1
@@ -50,11 +51,22 @@ partial class MainForm
         ExecuteButton.UseVisualStyleBackColor = true;
         ExecuteButton.Click += ExecuteButton_Click;
         // 
+        // OtherButton
+        // 
+        OtherButton.Location = new Point(12, 65);
+        OtherButton.Name = "OtherButton";
+        OtherButton.Size = new Size(94, 29);
+        OtherButton.TabIndex = 2;
+        OtherButton.Text = "Other";
+        OtherButton.UseVisualStyleBackColor = true;
+        OtherButton.Click += OtherButton_Click;
+        // 
         // MainForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(OtherButton);
         Controls.Add(ExecuteButton);
         Controls.Add(listBox1);
         FormBorderStyle = FormBorderStyle.FixedToolWindow;
@@ -68,4 +80,5 @@ partial class MainForm
 
     private ListBox listBox1;
     private Button ExecuteButton;
+    private Button OtherButton;
 }

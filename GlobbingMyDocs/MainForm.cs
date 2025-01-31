@@ -5,6 +5,7 @@ using GlobbingMyDocs.Models;
 using Meziantou.Framework.Globbing;
 
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
 
 namespace GlobbingMyDocs;
 
@@ -46,7 +47,7 @@ public partial class MainForm : Form
                 Debug.WriteLine($"File: {file.FullName}");
             }
         }
-        
+
     }
 
     /// <summary>
@@ -77,11 +78,52 @@ public partial class MainForm : Form
             }
         });
 
-
     }
+
+    public static async IAsyncEnumerable<FileMatchItem> GetSolutionFilesAsync(string[] extensions, string token)
+    {
+        var folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        var globPattern = $"/**/*.{{{string.Join(",", extensions)}}}";
+        var glob = Glob.Parse(globPattern, GlobOptions.None);
+        var enumerationOptions = new EnumerationOptions { IgnoreInaccessible = true, AttributesToSkip = FileAttributes.Hidden };
+
+        await foreach (var file in GetFilesAsync(glob, folder, enumerationOptions))
+        {
+
+            if (file == token)
+            {
+                yield break;
+            }
+            else
+            {
+                yield return new FileMatchItem(file);
+            }
+
+
+        }
+    }
+
+    private static async IAsyncEnumerable<string> GetFilesAsync(Glob glob, string folder, EnumerationOptions options)
+    {
+        foreach (var file in glob.EnumerateFiles(folder, options))
+        {
+            yield return file;
+            await Task.Yield();
+        }
+    }
+
 
     private async void ExecuteButton_Click(object sender, EventArgs e)
     {
         await GetSolutionFilesAsync();
+    }
+
+    private async void OtherButton_Click(object sender, EventArgs e)
+    {
+        string[] extensions = ["docx", "xlsx"]; 
+        await foreach (var fileMatch in GetSolutionFilesAsync(extensions, "Firewall rule for FTP for Web Developers.docx"))
+        {
+            Debug.WriteLine(fileMatch.FileName);
+        }
     }
 }
