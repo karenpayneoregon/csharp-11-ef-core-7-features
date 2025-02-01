@@ -1,9 +1,4 @@
-﻿using PayneServiceLibrary;
-using System.Text.Json;
-using PayneServiceLibrary.Classes;
-using PayneServiceLibrary.Classes.Configuration;
-
-namespace CheckSectionExistsAppSettings;
+﻿namespace CheckSectionExistsAppSettings;
 
 internal partial class Program
 {
@@ -15,8 +10,8 @@ internal partial class Program
     static async Task Main(string[] args)
     {
         await Task.Delay(0);
-        //await MainConfiguration.Setup();
-        //Console.WriteLine(EntitySettings.Instance.CreateNew.ToYesNo());
+        await MainConfiguration.Setup();
+        Console.WriteLine(EntitySettings.Instance.CreateNew.ToYesNo());
 
         AnsiConsole.MarkupLine($"[cyan]MainConnection exists[/] [yellow]{JsonHelpers.MainConnectionExists().ToYesNo()}[/]");
 
