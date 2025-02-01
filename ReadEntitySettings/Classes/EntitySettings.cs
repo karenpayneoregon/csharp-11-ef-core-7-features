@@ -7,8 +7,16 @@ namespace ReadEntitySettings.Classes;
 /// Provides functionality for managing entity settings, including reading configuration
 /// from the "appsettings.json" file to determine whether a new entity should be created.
 /// </summary>
-public class EntitySettings
+public sealed class EntitySettings
 {
+    private static readonly Lazy<EntitySettings> Lazy = new(() => new EntitySettings());
+    public static EntitySettings Instance => Lazy.Value;
+
+    public bool GenerateData { get; set; }
+    private EntitySettings()
+    {
+        GenerateData = CreateNew();
+    }
     /// <summary>
     /// Reads the "appsettings.json" file and determines whether a new entity should be created
     /// based on the "CreateNew" property in the "EntityConfiguration" section.
@@ -20,7 +28,7 @@ public class EntitySettings
     /// <exception cref="Exception">
     /// Thrown when the "EntityConfiguration" section is not found in the "appsettings.json" file.
     /// </exception>
-    public static bool CreateNew()
+    private static bool CreateNew()
     {
 
         string json = File.ReadAllText("appsettings.json");
