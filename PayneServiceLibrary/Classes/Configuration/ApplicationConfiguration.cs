@@ -27,8 +27,12 @@ internal class ApplicationConfiguration
             services.Configure<ConnectionStrings>(Config.Configuration.JsonRoot()
                 .GetSection(nameof(ConnectionStrings)));
 
-            services.Configure<EntityConfiguration>(Config.Configuration.JsonRoot()
-                .GetSection(nameof(EntityConfiguration)));
+            if (JsonHelpers.EntityConfigurationSectionExists())
+            {
+                services.Configure<EntityConfiguration>(Config.Configuration.JsonRoot()
+                    .GetSection(nameof(EntityConfiguration)));
+            }
+
 
             services.AddScoped<SetupServices>();
         }

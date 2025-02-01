@@ -13,7 +13,7 @@ internal class FileOperations
         }
 
         var lines = File.ReadAllLines(filePath)
-            .Where(x => !string.IsNullOrWhiteSpace(x))
+            //.Where(x => !string.IsNullOrWhiteSpace(x))
             .ToArray();
 
         foreach (var line in lines)
@@ -39,8 +39,18 @@ internal class FileOperations
                     Code = "Unknown" // Placeholder for missing code
                 });
             }
+            else if (parts.Length == 0) // Missing code
+            {
+                countries.Add(new Country
+                {
+                    Name = "Unknown",
+                    Code = "Unknown" // Placeholder for missing code
+                });
+            }
         }
 
         return countries;
     }
+
+
 }

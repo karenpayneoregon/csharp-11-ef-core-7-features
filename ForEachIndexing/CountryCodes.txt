@@ -1,5 +1,5 @@
 Aland Islands,AX
-Albania,AL
+
 Andorra,AD
 Argentina,AR
 Australia,AU
@@ -63,7 +63,7 @@ Liechtenstein,LI
 Lithuania,LT
 Luxembourg
 Madagascar,MG
-Malta,MT
+Malta
 Mexico,MX
 Moldova,MD
 Monaco,MC
@@ -111,3 +111,4 @@ Vatican City,VA
 Venezuela,VE
 Vietnam,VN
 Zimbabwe,ZW
+	

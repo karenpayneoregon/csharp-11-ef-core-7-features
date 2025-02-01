@@ -8,13 +8,27 @@ internal partial class Program
     static void Main(string[] args)
     {
 
-        var people = JsonSerializer.Deserialize<List<Person>>(Json);
-        foreach (var (index, person) in people.Index())
-        {
-            Console.WriteLine($"{index,-3}{person}");
-        }
+        //var people = JsonSerializer.Deserialize<List<Person>>(Json);
+        //foreach (var (index, person) in people.Index())
+        //{
+        //    Console.WriteLine($"{index,-3}{person}");
+        //}
 
         var countries = FileOperations.ReadCountryCodes("countrycodes.txt");
+        foreach (var (index, country) in countries.Index())
+        {
+            if (country.Code == "Unknown")
+            {
+                Console.WriteLine($"{index,-3}{country}");
+            }
+
+        }
+
+        //var lines = File.ReadAllLines("countrycodes.txt").ToArray();
+        //foreach (var (index, item) in lines.Index())
+        //{
+        //    Console.WriteLine($"{index,-5}'{item}'");
+        //}
         Console.ReadLine();
     }
 

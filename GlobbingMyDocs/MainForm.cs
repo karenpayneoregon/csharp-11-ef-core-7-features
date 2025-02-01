@@ -61,25 +61,20 @@ public partial class MainForm : Form
     {
         var folder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
+        var glob = Glob.Parse("/**/*.{docx,xlsx}", GlobOptions.None);
+        var enumerationOptions = new EnumerationOptions
+        {
+            IgnoreInaccessible = true,
+            AttributesToSkip = FileAttributes.Hidden,
+        };
+
         await Task.Run(() =>
         {
-            /*
-             * match all .docx and .xlsx files in the MyDocuments folder
-             */
-
-            var glob = Glob.Parse("/**/*.{docx,xlsx}", GlobOptions.None);
-
-            var enumerationOptions = new EnumerationOptions
-            {
-                IgnoreInaccessible = true,
-                AttributesToSkip = FileAttributes.Hidden,
-            };
             foreach (var file in glob.EnumerateFiles(folder, enumerationOptions))
             {
                 TraverseMatch?.Invoke(new FileMatchItem(file));
             }
         });
-
     }
 
     public static async IAsyncEnumerable<FileMatchItem> GetFilesAsync(string[] extensions, string token)
