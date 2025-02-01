@@ -13,6 +13,16 @@ namespace PayneServiceLibrary.Classes;
 /// </remarks>
 public class JsonHelpers
 {
+    /// <summary>
+    /// Gets the name of the configuration file used for validating the presence of specific sections.
+    /// </summary>
+    /// <value>
+    /// The name of the configuration file, which is "appsettings.json" or this can be changed to a development version.
+    /// </value>
+    /// <remarks>
+    /// This property provides the default file name for the application's configuration file, 
+    /// which is utilized by methods in the <see cref="JsonHelpers"/> class to perform validation checks.
+    /// </remarks>
     private static string FileName => "appsettings.json";
 
     /// <summary>

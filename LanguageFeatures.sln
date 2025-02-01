@@ -327,6 +327,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Section exists", "Section e
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckSectionExistsAppSettings", "CheckSectionExistsAppSettings\CheckSectionExistsAppSettings.csproj", "{B5AD0C13-7119-4DF8-849F-7ADF49EC43E5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Only EntitySettings", "Only EntitySettings", "{89C2CF5B-6E84-421F-9FEE-CCFD41E486A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadEntitySettings", "ReadEntitySettings\ReadEntitySettings.csproj", "{1ABC2771-8F16-4B6A-9CAA-036E9F09CBF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -773,6 +777,10 @@ Global
 		{B5AD0C13-7119-4DF8-849F-7ADF49EC43E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5AD0C13-7119-4DF8-849F-7ADF49EC43E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B5AD0C13-7119-4DF8-849F-7ADF49EC43E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ABC2771-8F16-4B6A-9CAA-036E9F09CBF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ABC2771-8F16-4B6A-9CAA-036E9F09CBF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ABC2771-8F16-4B6A-9CAA-036E9F09CBF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ABC2771-8F16-4B6A-9CAA-036E9F09CBF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -913,6 +921,8 @@ Global
 		{383478B1-EA17-4F20-8D8F-546607194637} = {2716CA6A-6635-4A3F-86A2-7194DA914F9E}
 		{133242F9-90C5-466C-B85E-80B692962485} = {2716CA6A-6635-4A3F-86A2-7194DA914F9E}
 		{B5AD0C13-7119-4DF8-849F-7ADF49EC43E5} = {133242F9-90C5-466C-B85E-80B692962485}
+		{89C2CF5B-6E84-421F-9FEE-CCFD41E486A4} = {2716CA6A-6635-4A3F-86A2-7194DA914F9E}
+		{1ABC2771-8F16-4B6A-9CAA-036E9F09CBF6} = {89C2CF5B-6E84-421F-9FEE-CCFD41E486A4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}
