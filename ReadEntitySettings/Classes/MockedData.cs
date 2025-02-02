@@ -19,12 +19,22 @@ internal class MockedData
         await context.Database.EnsureCreatedAsync();
     }
     /// <summary>
-    /// Gets the predefined list of <see cref="Category"/> objects used to seed the database.
+    /// Gets a list of <see cref="Category"/> objects deserialized from the "Categories.json" file.
     /// </summary>
     /// <remarks>
-    /// This property provides a static collection of categories, each with a unique identifier and name.
-    /// It is utilized during the database initialization process to populate the <c>Categories</c> table.
+    /// This property reads the content of the "Categories.json" file and deserializes it into a list of 
+    /// <see cref="Category"/> instances using the <see cref="System.Text.Json.JsonSerializer"/>.
+    /// Ensure that the "Categories.json" file exists and contains valid JSON data before accessing this property.
     /// </remarks>
+    /// <returns>
+    /// A list of <see cref="Category"/> objects representing the categories defined in the JSON file.
+    /// </returns>
+    /// <exception cref="System.IO.FileNotFoundException">
+    /// Thrown if the "Categories.json" file is not found.
+    /// </exception>
+    /// <exception cref="System.Text.Json.JsonException">
+    /// Thrown if the JSON content of the file cannot be deserialized into a list of <see cref="Category"/> objects.
+    /// </exception>
     public static List<Category> CategoriesFromJson 
         => JsonSerializer.Deserialize<List<Category>>(File.ReadAllText("Categories.json"));
 
