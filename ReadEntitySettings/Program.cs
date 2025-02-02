@@ -36,7 +36,7 @@ internal partial class Program
             AnsiConsole.MarkupLine($"[cyan]{group.Category.Name}[/]");
             foreach (var product in group.Products)
             {
-                Console.WriteLine($"     {product.Name}");
+                Console.WriteLine($"     {product.ProductId,-5}{product.Name}");
             }
         }
 

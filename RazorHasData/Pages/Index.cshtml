@@ -1,0 +1,23 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container">
+    <div class="alert alert-primary" role="alert">
+        <h1 class="fs-5">Product List</h1>
+    </div>
+    
+    @foreach (var group in Model.GroupedProducts)
+    {
+        <h2 class="text-primary">@group.Category.Name</h2>
+
+        <ul>
+            @foreach (var product in group.Products)
+            {
+                <li>@product.Name</li>
+            }
+        </ul>
+    }
+</div>
