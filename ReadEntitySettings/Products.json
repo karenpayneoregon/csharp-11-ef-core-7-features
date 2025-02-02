@@ -1,0 +1,167 @@
+[
+  {
+    "ProductId": 1,
+    "Name": "Cheddar",
+    "CategoryId": 1
+  },
+  {
+    "ProductId": 2,
+    "Name": "Brie",
+    "CategoryId": 1
+  },
+  {
+    "ProductId": 3,
+    "Name": "Stilton",
+    "CategoryId": 1
+  },
+  {
+    "ProductId": 4,
+    "Name": "Cheshire",
+    "CategoryId": 1
+  },
+  {
+    "ProductId": 5,
+    "Name": "Swiss",
+    "CategoryId": 1
+  },
+  {
+    "ProductId": 6,
+    "Name": "Gruyere",
+    "CategoryId": 1
+  },
+  {
+    "ProductId": 7,
+    "Name": "Colby",
+    "CategoryId": 1
+  },
+  {
+    "ProductId": 8,
+    "Name": "Mozzela",
+    "CategoryId": 1
+  },
+  {
+    "ProductId": 9,
+    "Name": "Ricotta",
+    "CategoryId": 1
+  },
+  {
+    "ProductId": 10,
+    "Name": "Parmesan",
+    "CategoryId": 1
+  },
+  {
+    "ProductId": 11,
+    "Name": "Ham",
+    "CategoryId": 2
+  },
+  {
+    "ProductId": 12,
+    "Name": "Beef",
+    "CategoryId": 2
+  },
+  {
+    "ProductId": 13,
+    "Name": "Chicken",
+    "CategoryId": 2
+  },
+  {
+    "ProductId": 14,
+    "Name": "Turkey",
+    "CategoryId": 2
+  },
+  {
+    "ProductId": 15,
+    "Name": "Prosciutto",
+    "CategoryId": 2
+  },
+  {
+    "ProductId": 16,
+    "Name": "Bacon",
+    "CategoryId": 2
+  },
+  {
+    "ProductId": 17,
+    "Name": "Mutton",
+    "CategoryId": 2
+  },
+  {
+    "ProductId": 18,
+    "Name": "Pastrami",
+    "CategoryId": 2
+  },
+  {
+    "ProductId": 19,
+    "Name": "Hazlet",
+    "CategoryId": 2
+  },
+  {
+    "ProductId": 20,
+    "Name": "Salami",
+    "CategoryId": 2
+  },
+  {
+    "ProductId": 21,
+    "Name": "Salmon",
+    "CategoryId": 3
+  },
+  {
+    "ProductId": 22,
+    "Name": "Tuna",
+    "CategoryId": 3
+  },
+  {
+    "ProductId": 23,
+    "Name": "Mackerel",
+    "CategoryId": 3
+  },
+  {
+    "ProductId": 24,
+    "Name": "Rye",
+    "CategoryId": 4
+  },
+  {
+    "ProductId": 25,
+    "Name": "Wheat",
+    "CategoryId": 4
+  },
+  {
+    "ProductId": 26,
+    "Name": "Brioche",
+    "CategoryId": 4
+  },
+  {
+    "ProductId": 27,
+    "Name": "Naan",
+    "CategoryId": 4
+  },
+  {
+    "ProductId": 28,
+    "Name": "Focaccia",
+    "CategoryId": 4
+  },
+  {
+    "ProductId": 29,
+    "Name": "Malted",
+    "CategoryId": 4
+  },
+  {
+    "ProductId": 30,
+    "Name": "Sourdough",
+    "CategoryId": 4
+  },
+  {
+    "ProductId": 31,
+    "Name": "Corn",
+    "CategoryId": 4
+  },
+  {
+    "ProductId": 32,
+    "Name": "White",
+    "CategoryId": 4
+  },
+  {
+    "ProductId": 33,
+    "Name": "Soda",
+    "CategoryId": 4
+  }
+]

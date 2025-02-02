@@ -1,4 +1,6 @@
-﻿namespace ReadEntitySettings.Models;
+﻿using System.Text.Json.Serialization;
+
+namespace ReadEntitySettings.Models;
 
 /// <summary>
 /// Represents a product entity in the application, which is associated with a category.
@@ -11,6 +13,7 @@ public class Product
     public string Name { get; set; }
 
     public int CategoryId { get; set; }
+    [JsonIgnore]
     public virtual Category Category { get; set; } = null!;
     public override string ToString() => Name;
 }
