@@ -17,7 +17,7 @@ public class Context : DbContext
 
         if (!EntitySettings.Instance.GenerateData) return;
 
-        modelBuilder.Entity<Category>().HasData(MockedData.Categories);
+        modelBuilder.Entity<Category>().HasData(MockedData.CategoriesFromJson);
         modelBuilder.Entity<Product>().HasData(MockedData.ProductsFromJson());
 
     }

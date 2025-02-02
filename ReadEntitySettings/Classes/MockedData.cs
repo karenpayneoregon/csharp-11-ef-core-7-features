@@ -25,14 +25,8 @@ internal class MockedData
     /// This property provides a static collection of categories, each with a unique identifier and name.
     /// It is utilized during the database initialization process to populate the <c>Categories</c> table.
     /// </remarks>
-    public static List<Category> Categories { get; } =
-    [
-        new Category { CategoryId = 1, Name = "Cheese" },
-        new Category { CategoryId = 2, Name = "Meat" },
-        new Category { CategoryId = 3, Name = "Fish" },
-        new Category { CategoryId = 4, Name = "Bread" }
-    ];
-
+    public static List<Category> CategoriesFromJson 
+        => JsonSerializer.Deserialize<List<Category>>(File.ReadAllText("Categories.json"));
 
     /// <summary>
     /// Reads and deserializes product data from a JSON file named "Products.json".

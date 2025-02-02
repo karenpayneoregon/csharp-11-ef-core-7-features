@@ -40,7 +40,7 @@ internal partial class Program
             }
         }
 
-
+        
         Console.ReadLine();
 
     }
@@ -64,6 +64,12 @@ internal partial class Program
             list, JsonSerializerOptions));
     }
 
+    private static async Task WriteCategoriesToFile(Context context)
+    {
+        List<Category> list = context.Categories.ToList();
+        await File.WriteAllTextAsync("Categories.json", JsonSerializer.Serialize(
+            list, JsonSerializerOptions));
+    }
     /// <summary>
     /// Gets the JSON serializer options used for serializing objects to JSON.
     /// </summary>

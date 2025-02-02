@@ -1,0 +1,18 @@
+[
+  {
+    "CategoryId": 1,
+    "Name": "Cheese"
+  },
+  {
+    "CategoryId": 2,
+    "Name": "Meat"
+  },
+  {
+    "CategoryId": 3,
+    "Name": "Fish"
+  },
+  {
+    "CategoryId": 4,
+    "Name": "Bread"
+  }
+]
