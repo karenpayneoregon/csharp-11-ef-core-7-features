@@ -12,14 +12,22 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        /*
+         * Setup for connection string and mocking data
+         */
         await MainConfiguration.Setup();
 
         builder.Services.AddRazorPages();
 
+        /*
+         * Connection string from appsettings.json
+         * Sensitive data logging enabled
+         * Logs to a text file
+         */
         builder.Services.AddDbContext<Context>(options =>
             options.UseSqlServer(DataConnections.Instance.MainConnection)
                 .EnableSensitiveDataLogging()
-                .LogTo(new DbContextToFileLogger().Log));
+                .LogTo(action: new DbContextToFileLogger().Log));
 
 
         SetupLogging.Development();
