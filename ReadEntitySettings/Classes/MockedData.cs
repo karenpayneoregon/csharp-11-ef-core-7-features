@@ -43,6 +43,6 @@ internal class MockedData
     /// <remarks>
     /// By using a file a developer can modify the product data without recompiling the application.
     /// </remarks>
-    public static List<Product> ProductsFromJson() 
+    public static List<Product> ProductsFromJson 
         => JsonSerializer.Deserialize<List<Product>>(File.ReadAllText("Products.json"));
 }
