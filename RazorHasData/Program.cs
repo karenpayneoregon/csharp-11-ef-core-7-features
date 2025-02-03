@@ -19,11 +19,6 @@ public class Program
 
         builder.Services.AddRazorPages();
         
-        /*
-         * Connection string from appsettings.json
-         * Sensitive data logging enabled
-         * Logs to a text file
-         */
 
         if (builder.Environment.IsDevelopment())
         {
