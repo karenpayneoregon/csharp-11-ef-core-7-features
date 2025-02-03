@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using RazorHasData.Classes;
 using RazorHasData.Data;
 using RazorHasData.Models;
-using Serilog;
+
 
 namespace RazorHasData.Pages;
 public class IndexModel(Context context) : PageModel

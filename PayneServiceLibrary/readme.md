@@ -4,8 +4,9 @@ It provides easy access to database connections and a setting for EF Core to ind
 
 ## See the following example projects.
 
-Both projects have product and category tables that are populated with the same data. 
+These projects have product and category tables that are populated with the same data. 
 
+- RazorHasData
 - SqliteHasData
 - SqlServerHasData
 
@@ -42,6 +43,38 @@ internal static class Program
         Application.Run(new Form1());
     }
 }
+```
+
+### ASP.NET Core
+
+```csharp
+public class Program
+{
+    public static async Task Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+
+        /*
+         * Setup for connection string and mocking data
+         */
+        await MainConfiguration.Setup();
+
+        builder.Services.AddRazorPages();
+
+        /*
+         * Connection string from appsettings.json
+         * Sensitive data logging enabled
+         * Logs to a text file
+         */
+        builder.Services.AddDbContext<Context>(options =>
+            options.UseSqlServer(DataConnections.Instance.MainConnection)
+                .EnableSensitiveDataLogging()
+                .LogTo(action: new DbContextToFileLogger().Log));
+
+
+        SetupLogging.Development();
+        var app = builder.Build();
+
 ```
 
 ## Sample configration file
