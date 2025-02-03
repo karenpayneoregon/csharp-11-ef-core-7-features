@@ -18,16 +18,27 @@ public class Program
         await MainConfiguration.Setup();
 
         builder.Services.AddRazorPages();
-
+        
         /*
          * Connection string from appsettings.json
          * Sensitive data logging enabled
          * Logs to a text file
          */
-        builder.Services.AddDbContext<Context>(options =>
-            options.UseSqlServer(DataConnections.Instance.MainConnection)
-                .EnableSensitiveDataLogging()
-                .LogTo(action: new DbContextToFileLogger().Log));
+
+        if (builder.Environment.IsDevelopment())
+        {
+            builder.Services.AddDbContextPool<Context>(options =>
+                options.UseSqlServer(DataConnections.Instance.MainConnection)
+                    .EnableSensitiveDataLogging()
+                    .LogTo(action: new DbContextToFileLogger().Log));
+        }
+        else
+        {
+            builder.Services.AddDbContextPool<Context>(options =>
+                options.UseSqlServer(DataConnections.Instance.MainConnection)
+                    .LogTo(action: new DbContextToFileLogger().Log));
+        }
+
 
 
         SetupLogging.Development();
