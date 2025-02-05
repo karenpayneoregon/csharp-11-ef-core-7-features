@@ -27,11 +27,16 @@ public static partial class StringExtensions
     public static bool ValidateString(this string input) 
         => ValidateStringRegex().IsMatch(input);
 
+
     /// <summary>
-    /// Gets the next value by incrementing the numeric suffix in the given string.
+    /// Generates the next sequential value by incrementing the numeric suffix of the given string.
     /// </summary>
-    /// <param name="sender">The string to get the next value from.</param>
-    /// <returns>The next value with the numeric suffix incremented.</returns>
+    /// <param name="sender">The input string containing a numeric suffix to be incremented.</param>
+    /// <returns>A new string with the numeric suffix incremented by one, preserving the original length of the numeric part.</returns>
+    /// <exception cref="FormatException">Thrown when the numeric suffix cannot be parsed as a valid number.</exception>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// Thrown when the numeric suffix is too large to be incremented within the bounds of a <see cref="long"/>.
+    /// </exception>
     [DebuggerStepThrough]
     public static string NextValue(string sender)
     {
@@ -39,6 +44,8 @@ public static partial class StringExtensions
         return sender[..^value.Length] + (long.Parse(value) + 1)
             .ToString().PadLeft(value.Length, '0');
     }
+
+  
 
     public static string Increment(string input) =>
         IncrementSuffixRegex().Replace(input, m => char.IsLetter(m.Value[0])
