@@ -46,7 +46,19 @@ public static partial class StringExtensions
     }
 
   
-
+    /// <summary>
+    /// Increments the last alphanumeric segment of the specified input string.
+    /// </summary>
+    /// <param name="input">The input string containing the segment to increment.</param>
+    /// <returns>
+    /// A new string where the last alphanumeric segment is incremented. 
+    /// If the segment is a letter, it is replaced with the next letter in the alphabet. 
+    /// If the segment is a number, it is incremented by 1.
+    /// </returns>
+    /// <remarks>
+    /// This method uses a regular expression to identify the last alphanumeric segment 
+    /// in the input string. If no such segment is found, the input string remains unchanged.
+    /// </remarks>
     public static string Increment(string input) =>
         IncrementSuffixRegex().Replace(input, m => char.IsLetter(m.Value[0])
             ? ((char)(m.Value[0] + 1)).ToString()
