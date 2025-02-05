@@ -20,4 +20,7 @@ public static partial class StringExtensions
     [GeneratedRegex(@"^(?=\w{0,4}\p{L})(?=\w{0,4}\d)\w{5}")]
     private static partial Regex ValidateStringRegex();
 
+    [GeneratedRegex(@"([A-Z]|[0-9]+)\z")]
+    private static partial Regex IncrementSuffixRegex();
+
 }

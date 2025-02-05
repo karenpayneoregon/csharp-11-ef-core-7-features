@@ -1,7 +1,8 @@
 ﻿using GeneratedRegexApp.Classes;
+using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
-using StringExtensions = GeneratedRegexApp.Classes.StringExtensions;
+using static GeneratedRegexApp.Classes.StringExtensions;
 
 
 namespace GeneratedRegexApp;
@@ -10,6 +11,19 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
+
+
+
+        var invoices = DisplayInvoice("ZZZ200");
+        foreach (var (index, invoice) in invoices.Index())
+        {
+            Console.WriteLine($"{index, -5}{invoice}");
+        }
+
+        var singleInvoice = Increment("ZZZ200");
+
+        Console.ReadLine();
+
         Samples.CreditCardMask();
         Samples.ValidatePassword();
         Samples.NextValueExample();
@@ -17,6 +31,19 @@ internal partial class Program
         Samples.ValidateString();
 
         SpectreConsoleHelpers.ExitPrompt();
+    }
+
+    public static List<string> DisplayInvoice(string invoice, int count = 5)
+    {
+        List<string> invoices = [];
+        var value = invoice;
+        for (var index = 0; index < count; index++)
+        {
+            value = NextValue(value);
+            invoices.Add(value);
+        }
+
+        return invoices;
     }
 
 }
@@ -84,7 +111,7 @@ public partial class Samples
 
         for (int index = 0; index < invoices.Count; index++)
         {
-            var newValue = StringExtensions.NextValue(invoices[index].Number);
+            var newValue = NextValue(invoices[index].Number);
             invoices[index].Number = newValue;
         }
 

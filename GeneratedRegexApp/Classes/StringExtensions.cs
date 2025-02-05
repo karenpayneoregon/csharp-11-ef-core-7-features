@@ -40,6 +40,12 @@ public static partial class StringExtensions
             .ToString().PadLeft(value.Length, '0');
     }
 
+    public static string Increment(string input) =>
+        IncrementSuffixRegex().Replace(input, m => char.IsLetter(m.Value[0])
+            ? ((char)(m.Value[0] + 1)).ToString()
+            : (int.Parse(m.Value) + 1).ToString());
+
+
     /// <summary>
     /// Masks the credit card number in the given string by replacing the digits with a specified mask character.
     /// </summary>
@@ -62,4 +68,6 @@ public static partial class StringExtensions
                 : match.Value;
         });
     }
+
+
 }
