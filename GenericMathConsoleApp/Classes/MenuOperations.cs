@@ -32,9 +32,10 @@ class MenuOperations
             new () {Id =  10, Text  = "Rounding            ", Action = Samples.Rounding },
             new () {Id =  10, Text  = "Percentage          ", Action = Samples.PercentageExample },
             new () {Id =  11, Text  = "About               ", Action = About },
-            new () {Id =  -1, Text  = "Exit                "},
+            new () {Id =  -1, Text  = "Exit                ", Action = () => Environment.Exit(0)},
         });
 
+        Action<int> printActionDel = Console.WriteLine;
         return menu;
 
     }

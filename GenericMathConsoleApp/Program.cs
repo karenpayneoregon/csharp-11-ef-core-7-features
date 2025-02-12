@@ -1,6 +1,8 @@
 ﻿using GenericMathConsoleApp.Classes;
 using GenericMathLibrary;
 
+// ReSharper disable FunctionNeverReturns
+
 namespace GenericMathConsoleApp;
 
 internal partial class Program
@@ -8,8 +10,6 @@ internal partial class Program
     static void Main(string[] args)
     {
         RunMenu();
-        //string[] items = { "", "10.5", "" };
-        //var results = items.GetNonNumericIndexes<decimal>();
     }
 
     private static void RunMenu()
@@ -19,14 +19,14 @@ internal partial class Program
             Console.Clear();
 
             var menuItem = AnsiConsole.Prompt(MenuOperations.SelectionPrompt());
-            if (menuItem.Id != -1)
-            {
-                menuItem.Action();
-            }
-            else
-            {
-                return;
-            }
+            menuItem.Action();
+
         }
+    }
+
+    private static void ExtractNonNumericIndexes()
+    {
+        string[] items = ["", "10.5", ""];
+        var results = items.GetNonNumericIndexes<decimal>();
     }
 }
