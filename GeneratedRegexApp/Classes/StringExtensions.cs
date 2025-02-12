@@ -45,7 +45,7 @@ public static partial class StringExtensions
             .ToString().PadLeft(value.Length, '0');
     }
 
-  
+
     /// <summary>
     /// Increments the last alphanumeric segment of the specified input string.
     /// </summary>
@@ -59,6 +59,7 @@ public static partial class StringExtensions
     /// This method uses a regular expression to identify the last alphanumeric segment 
     /// in the input string. If no such segment is found, the input string remains unchanged.
     /// </remarks>
+    [DebuggerStepThrough]
     public static string Increment(string input) =>
         IncrementSuffixRegex().Replace(input, m => char.IsLetter(m.Value[0])
             ? ((char)(m.Value[0] + 1)).ToString()
@@ -88,5 +89,20 @@ public static partial class StringExtensions
         });
     }
 
+    /// <summary>
+    /// Checks if the given string ends with a number.
+    /// </summary>
+    /// <param name="input">The input string to check.</param>
+    /// <returns>True if the string ends with a number, otherwise false.</returns>
+    public static bool EndsWithNumber1(this string input) 
+        => !string.IsNullOrEmpty(input) && EndsWithNumberRegex().IsMatch(input);
+
+    /// <summary>
+    /// Checks if the given string ends with a number.
+    /// </summary>
+    /// <param name="input">The input string to check.</param>
+    /// <returns>True if the string ends with a number, otherwise false.</returns>
+    public static bool EndsWithNumber2(this string input) 
+        => !string.IsNullOrEmpty(input) && char.IsDigit(input[^1]);
 
 }

@@ -9,37 +9,66 @@ namespace GeneratedRegexApp;
 
 internal partial class Program
 {
-    static void Main(string[] args)
+    private static void Main(string[] args)
     {
 
 
 
-        var invoices = DisplayInvoice("ZZZ200");
+        var invoices = DisplayInvoice1("ZZZ200");
         foreach (var (index, invoice) in invoices.Index())
         {
             Console.WriteLine($"{index, -5}{invoice}");
         }
 
-        var singleInvoice = Increment("ZZZ200");
+        string test1 = "Hello123";
+        string test2 = "Hello World";
+        string test3 = "Test99";
+        string test4 = "";
+        string test5 = "123";
 
-        Console.ReadLine();
+        Console.WriteLine(test1.EndsWithNumber2()); // True
+        Console.WriteLine(test2.EndsWithNumber2()); // False
+        Console.WriteLine(test3.EndsWithNumber2()); // True
+        Console.WriteLine(test4.EndsWithNumber2()); // False
+        Console.WriteLine(test5.EndsWithNumber2()); // True
 
-        Samples.CreditCardMask();
-        Samples.ValidatePassword();
-        Samples.NextValueExample();
+        //var singleInvoice = Increment("ZZZ200");
 
-        Samples.ValidateString();
+
+
+        //Samples.CreditCardMask();
+        //Samples.ValidatePassword();
+        //Samples.NextValueExample();
+
+        //Samples.ValidateString();
 
         SpectreConsoleHelpers.ExitPrompt();
+        return;
+
+        static int WithDefault(int addTo = 2) => addTo + 1;
+
+        static string Checker(string sender, string value = "A1") => string.IsNullOrEmpty(sender) ? value : sender;
     }
 
-    public static List<string> DisplayInvoice(string invoice, int count = 5)
+    public static List<string> DisplayInvoice1(string invoice, int count = 500)
     {
         List<string> invoices = [];
         var value = invoice;
         for (var index = 0; index < count; index++)
         {
             value = NextValue(value);
+            invoices.Add(value);
+        }
+
+        return invoices;
+    }
+    public static List<string> DisplayInvoice2(string invoice, int count = 500)
+    {
+        List<string> invoices = [];
+        var value = invoice;
+        for (var index = 0; index < count; index++)
+        {
+            value = Increment(value);
             invoices.Add(value);
         }
 

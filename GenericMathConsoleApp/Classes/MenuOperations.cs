@@ -11,7 +11,9 @@ class MenuOperations
     {
         SelectionPrompt<MenuItem> menu = new()
         {
-            HighlightStyle = new Style(Color.White, Color.Blue1, Decoration.None)
+            HighlightStyle = new Style(Color.White, Color.Blue1, Decoration.None),
+            SearchHighlightStyle = new Style(Color.Blue1, Color.White, Decoration.None), 
+            SearchEnabled = true
         };
 
         menu.Title("[orchid1]Select a option[/]");

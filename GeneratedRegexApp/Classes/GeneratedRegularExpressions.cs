@@ -23,4 +23,7 @@ public static partial class StringExtensions
     [GeneratedRegex(@"([A-Z]|[0-9]+)\z")]
     private static partial Regex IncrementSuffixRegex();
 
+    [GeneratedRegex(@"\d+$")]
+    private static partial Regex EndsWithNumberRegex();
+
 }

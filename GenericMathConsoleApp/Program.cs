@@ -7,9 +7,9 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        //RunMenu();
-        string[] items = { "", "10.5", "" };
-        var results = items.GetNonNumericIndexes<decimal>();
+        RunMenu();
+        //string[] items = { "", "10.5", "" };
+        //var results = items.GetNonNumericIndexes<decimal>();
     }
 
     private static void RunMenu()

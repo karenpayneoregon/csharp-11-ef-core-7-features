@@ -57,7 +57,20 @@ public static class GenericExtensions
     public static T Subtract<T>(this T  left, T right) where T : INumber<T> 
         => left - right;
 
-    /// <summary>Clamps a value to an inclusive minimum and maximum value.</summary>
+    /// <summary>
+    /// Clamps a value to a specified range defined by a minimum and maximum value.
+    /// </summary>
+    /// <typeparam name="T">
+    /// The numeric type of the value, minimum, and maximum. Must implement <see cref="System.Numerics.INumber{T}"/>.
+    /// </typeparam>
+    /// <param name="value">The value to clamp.</param>
+    /// <param name="min">The inclusive minimum value of the range.</param>
+    /// <param name="max">The inclusive maximum value of the range.</param>
+    /// <returns>
+    /// The clamped value, which will be equal to <paramref name="min"/> if <paramref name="value"/> is less than <paramref name="min"/>, 
+    /// or <paramref name="max"/> if <paramref name="value"/> is greater than <paramref name="max"/>. 
+    /// Otherwise, it will return <paramref name="value"/>.
+    /// </returns>
     public static T Clamp<T>(this T value, T min, T max) where T : INumber<T> 
         => T.Clamp(value, min, max);
 
@@ -65,21 +78,62 @@ public static class GenericExtensions
     public static T Abs<T>(this T left, T right) where T : INumber<T> => 
         T.Abs(left);
 
-    /// <summary>Compares two values to compute which is lesser and returning the other value if an input is <c>NaN</c>.</summary>
+    /// <summary>
+    /// Compares two values to determine the lesser value, returning the other value if one is <c>NaN</c>.
+    /// </summary>
+    /// <typeparam name="T">
+    /// A numeric type implementing <see cref="System.Numerics.INumber{T}"/>.
+    /// </typeparam>
+    /// <param name="a">The first value to compare.</param>
+    /// <param name="b">The second value to compare.</param>
+    /// <returns>The lesser value, or the other if one is <c>NaN</c>.</returns>
     public static T GetMinNumber<T>(this T a, T b) where T : INumber<T>
         => T.MinNumber(a, b);
 
-    /// <summary>Compares two values to compute which is greater and returning the other value if an input is <c>NaN</c>.</summary>
+    /// <summary>
+    /// Returns the greater of two values, or the other value if one is <c>NaN</c>.
+    /// </summary>
+    /// <typeparam name="T">
+    /// A numeric type implementing <see cref="System.Numerics.INumber{T}"/>.
+    /// </typeparam>
+    /// <param name="a">The first value.</param>
+    /// <param name="b">The second value.</param>
+    /// <returns>The greater value, or the other if one is <c>NaN</c>.</returns>
     public static T GetMaxNumber<T>(this T a, T b) where T : INumber<T> 
         => T.MaxNumber(a, b);
 
-    /// <summary> Flip negative to positive or positive to negative </summary>
+    /// <summary>
+    /// Negates the specified numeric value, effectively flipping its sign.
+    /// </summary>
+    /// <typeparam name="T">The numeric type of the value, constrained to implement <see cref="System.Numerics.INumber{T}"/>.</typeparam>
+    /// <param name="source">The numeric value to be inverted.</param>
+    /// <returns>The negated value of <paramref name="source"/>.</returns>
     public static T Invert<T>(this T source) where T : INumber<T> 
         => -source;
 
+    /// <summary>
+    /// Rounds the specified floating-point value to a given number of decimal places.
+    /// </summary>
+    /// <typeparam name="T">
+    /// The type of the floating-point value. Must implement <see cref="IFloatingPoint{T}"/>.
+    /// </typeparam>
+    /// <param name="sender">The floating-point value to round.</param>
+    /// <param name="decimalPlaces">The number of decimal places to round to.</param>
+    /// <returns>The rounded value.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// Thrown if <paramref name="decimalPlaces"/> is negative.
+    /// </exception>
     public static T Round<T>(this T sender, int decimalPlaces) where T : IFloatingPoint<T>
         => T.Round(sender, decimalPlaces);
 
+    /// <summary>
+    /// Merges two arrays into a single array by concatenating the elements of the second array
+    /// to the end of the first array.
+    /// </summary>
+    /// <typeparam name="T">The type of the elements in the arrays, constrained to numeric types.</typeparam>
+    /// <param name="front">The first array to merge.</param>
+    /// <param name="back">The second array to merge.</param>
+    /// <returns>A new array containing all elements from both input arrays.</returns>
     public static T[] Merge<T>(this T[] front, T[] back) where T : INumber<T>
         => front.Concat(back).ToArray();
 
