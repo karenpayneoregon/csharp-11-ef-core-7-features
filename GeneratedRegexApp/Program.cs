@@ -50,6 +50,16 @@ internal partial class Program
         static string Checker(string sender, string value = "A1") => string.IsNullOrEmpty(sender) ? value : sender;
     }
 
+    /// <summary>
+    /// Generates a list of sequential invoice identifiers starting from the specified invoice.
+    /// </summary>
+    /// <param name="invoice">The initial invoice identifier to start the sequence.</param>
+    /// <param name="count">The number of sequential invoice identifiers to generate. Defaults to 500.</param>
+    /// <returns>A list of sequential invoice identifiers.</returns>
+    /// <exception cref="FormatException">Thrown when the numeric suffix of the invoice cannot be parsed as a valid number.</exception>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// Thrown when the numeric suffix of the invoice is too large to be incremented within the bounds of a <see cref="long"/>.
+    /// </exception>
     public static List<string> DisplayInvoice1(string invoice, int count = 500)
     {
         List<string> invoices = [];
