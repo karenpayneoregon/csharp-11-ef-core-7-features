@@ -338,6 +338,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonLibrary", "JsonLibrary\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorHasData", "RazorHasData\RazorHasData.csproj", "{AC3255E9-22E5-476D-8016-98987F7C49FF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionDispatchInfoApp", "ExceptionDispatchInfoApp\ExceptionDispatchInfoApp.csproj", "{8110B8F8-0041-49F7-9048-387DD8FF6A7B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -796,6 +798,10 @@ Global
 		{AC3255E9-22E5-476D-8016-98987F7C49FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC3255E9-22E5-476D-8016-98987F7C49FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC3255E9-22E5-476D-8016-98987F7C49FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8110B8F8-0041-49F7-9048-387DD8FF6A7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8110B8F8-0041-49F7-9048-387DD8FF6A7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8110B8F8-0041-49F7-9048-387DD8FF6A7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8110B8F8-0041-49F7-9048-387DD8FF6A7B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -940,6 +946,7 @@ Global
 		{1ABC2771-8F16-4B6A-9CAA-036E9F09CBF6} = {89C2CF5B-6E84-421F-9FEE-CCFD41E486A4}
 		{DBE1CF05-31C5-43AD-AD30-A449523CECEA} = {4ACEE8F5-FB62-48EC-8572-30B1224A93D9}
 		{AC3255E9-22E5-476D-8016-98987F7C49FF} = {2716CA6A-6635-4A3F-86A2-7194DA914F9E}
+		{8110B8F8-0041-49F7-9048-387DD8FF6A7B} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}
