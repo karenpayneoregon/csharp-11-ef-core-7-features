@@ -56,7 +56,7 @@ internal partial class Program
             Console.WriteLine(ex2 == original);  // True
         }
 
-        // So now "original" has lost the StackTrace containing "Foo":
+        // So now "original" has lost the StackTrace containing "Toss":
         Console.WriteLine(original.StackTrace.Contains("Toss"));  // False
 
         // But dispatchInfo still has it:
