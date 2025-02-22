@@ -14,15 +14,12 @@ namespace KarenConsoleApplication
 {
     class Program
     {
-        public Program(Context context, IConfiguration configuration)
+        public Program(Context context)
         {
             _context = context;
-            //_configuration = configuration;
         }
 
         private readonly Context _context;
-        //private readonly IConfiguration _configuration;
-
 
         static void Main(string[] args)
         {
