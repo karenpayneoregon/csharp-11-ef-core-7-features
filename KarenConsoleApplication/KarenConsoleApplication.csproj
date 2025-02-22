@@ -22,6 +22,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Serilog" Version="4.2.0" />
+		<PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Update="appsettings.*.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 			<DependentUpon>appsettings.json</DependentUpon>

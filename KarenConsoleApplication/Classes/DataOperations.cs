@@ -46,14 +46,12 @@ namespace KarenConsoleApplication.Classes
         /// A <see cref="List{T}"/> of <see cref="Customer"/> objects, each containing customer details 
         /// and their associated contact type and gender information.
         /// </returns>
-        public List<Customer> GetCustomers()
-        {
-            return _context
+        public List<Customer> GetCustomers() =>
+            _context
                 .Customers
                 .Include(c => c.ContactTypeIdentifierNavigation)
                 .Include(c => c.GenderIdentifierNavigation)
                 .Take(2)
                 .ToList();
-        }
     }
 }

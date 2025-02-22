@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using KarenConsoleApplication.Classes;
 using KarenConsoleApplication.Data;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 using Pri.ConsoleApplicationBuilder;
+using Serilog;
 using Spectre.Console;
 
 namespace KarenConsoleApplication
@@ -21,11 +23,21 @@ namespace KarenConsoleApplication
 
         private readonly Context _context;
 
+        /// <summary>
+        /// Initializes logging, configures services, sets up the database context, and builds the application.
+        /// Uses the ConsoleApplicationBuilder to configure and run the application.
+        /// </summary>
+        /// <remarks>
+        /// Consider folding Main once configuration is done and focus on Run.
+        /// </remarks>
         static void Main(string[] args)
         {
 
+            SetupLogging.Initialize();
+
             var builder = ConsoleApplication.CreateBuilder(args);
 
+            //builder.Services.AddLogging(configure => configure.AddConfiguration());
             // get settings from appsettings.json to determine logging behavior
             var useLogging = builder.Configuration.GetSection(AppSettings.LogPath).GetValue<string>(AppSettings.UseLogging);
 
@@ -55,9 +67,14 @@ namespace KarenConsoleApplication
         private void Run()
         {
             var ops = new DataOperations(_context);
-            
+
+            Log.Information("Start");
+
             var customers = ops.GetCustomers();
             Console.WriteLine(ObjectDumper.Dump(customers));
+
+            Log.Information("Bye");
+            Log.CloseAndFlush();
 
             SpectreConsoleHelpers.ExitPrompt();
         }
