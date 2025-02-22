@@ -37,9 +37,10 @@ namespace KarenConsoleApplication
 
             var builder = ConsoleApplication.CreateBuilder(args);
 
-            //builder.Services.AddLogging(configure => configure.AddConfiguration());
             // get settings from appsettings.json to determine logging behavior
-            var useLogging = builder.Configuration.GetSection(AppSettings.LogPath).GetValue<string>(AppSettings.UseLogging);
+            // not for SeriLog
+            var useLogging = builder.Configuration.GetSection(AppSettings.LogPath)
+                .GetValue<string>(AppSettings.UseLogging);
 
             if (Enum.TryParse(useLogging,true,out ProgramLoggingType plt))
             {
