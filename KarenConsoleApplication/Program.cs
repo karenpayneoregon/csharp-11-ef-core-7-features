@@ -32,7 +32,6 @@ namespace KarenConsoleApplication
         /// </remarks>
         static void Main(string[] args)
         {
-
             SetupLogging.Initialize();
 
             var builder = ConsoleApplication.CreateBuilder(args);
@@ -42,12 +41,12 @@ namespace KarenConsoleApplication
             var useLogging = builder.Configuration.GetSection(AppSettings.LogPath)
                 .GetValue<string>(AppSettings.UseLogging);
 
-            if (Enum.TryParse(useLogging,true,out ProgramLoggingType plt))
+            if (Enum.TryParse(useLogging, true, out ProgramLoggingType plt))
             {
                 if (plt == ProgramLoggingType.None)
                 {
                     builder.Logging.SetMinimumLevel(LogLevel.None);
-                }   
+                }
             }
 
             builder.Services.AddDbContextPool<Context>(options =>
@@ -55,14 +54,14 @@ namespace KarenConsoleApplication
                    .EnableSensitiveDataLogging()
                    .LogTo(new DbContextToFileLogger().Log, [RelationalEventId.CommandExecuted]));
 
-
             builder.Services.AddScoped<DataOperations>();
             builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 
             var program = builder.Build<Program>();
 
-            program.Run();
 
+
+            program.Run();
         }
 
         private void Run()
@@ -71,8 +70,17 @@ namespace KarenConsoleApplication
 
             Log.Information("Start");
 
-            var customers = ops.GetCustomers();
-            Console.WriteLine(ObjectDumper.Dump(customers));
+            if (Startup.DatabaseExists(_context))
+            {
+                var customers = ops.GetCustomers();
+                Console.WriteLine(ObjectDumper.Dump(customers));
+            }
+            else
+            {
+                AnsiConsole.MarkupLine("[red]Database does not exist[/]");
+            }
+
+
 
             Log.Information("Bye");
             Log.CloseAndFlush();
