@@ -4,7 +4,7 @@ Example for [Globbing](https://learn.microsoft.com/en-us/dotnet/core/extensions/
 
 In this example we want `.png` files with the following criteria:
 
-- Include file names starting with `Ri` and `Bl
+- Include file names starting with `Ri` and `Bl`
 - Exclude files names starting with `Blog` and `Black` plus file names containg `*arrow_16*`
 
 Currently, the folder is `My Documents\Snagit` where Snagit is a screen capture utility.
