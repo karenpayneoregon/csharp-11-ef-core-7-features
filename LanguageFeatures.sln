@@ -344,6 +344,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console dependency injectio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarenConsoleApplication", "KarenConsoleApplication\KarenConsoleApplication.csproj", "{F2ECF06C-F0CB-2009-CD9B-E2BB280E3302}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobbingImages", "GlobbingImages\GlobbingImages.csproj", "{8D7DCC04-30A8-4F16-AE42-6C9B950EF3AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -810,6 +812,10 @@ Global
 		{F2ECF06C-F0CB-2009-CD9B-E2BB280E3302}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2ECF06C-F0CB-2009-CD9B-E2BB280E3302}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2ECF06C-F0CB-2009-CD9B-E2BB280E3302}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D7DCC04-30A8-4F16-AE42-6C9B950EF3AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D7DCC04-30A8-4F16-AE42-6C9B950EF3AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D7DCC04-30A8-4F16-AE42-6C9B950EF3AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D7DCC04-30A8-4F16-AE42-6C9B950EF3AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -957,6 +963,7 @@ Global
 		{8110B8F8-0041-49F7-9048-387DD8FF6A7B} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
 		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
 		{F2ECF06C-F0CB-2009-CD9B-E2BB280E3302} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{8D7DCC04-30A8-4F16-AE42-6C9B950EF3AA} = {1A40A4EF-F1DC-4AD7-B54F-9483DE0D8E8F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}

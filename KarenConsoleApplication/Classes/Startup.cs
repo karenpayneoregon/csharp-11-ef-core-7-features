@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using ConsoleHelperLibrary.Classes;
 using KarenConsoleApplication.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 
@@ -24,25 +25,5 @@ namespace KarenConsoleApplication.Classes
             WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
         }
 
-        /// <summary>
-        /// Checks if the database associated with the provided <see cref="Context"/> exists.
-        /// </summary>
-        /// <param name="context">The database context to check for the existence of the database.</param>
-        /// <returns>
-        /// <c>true</c> if the database exists; otherwise, <c>false</c>.
-        /// </returns>
-        /// <exception cref="InvalidOperationException">
-        /// Thrown when the database creator service is not available in the provided context.
-        /// </exception>
-        public static bool DatabaseExists(Context context)
-        {
-           
-            if (context.GetService<IDatabaseCreator>() is not RelationalDatabaseCreator databaseCreator)
-            {
-                throw new InvalidOperationException("Database creator service is not available.");
-            }
-
-            return databaseCreator.Exists();
-        }
     }
 }

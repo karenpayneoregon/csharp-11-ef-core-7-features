@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using KarenConsoleApplication.Classes;
 using KarenConsoleApplication.Data;
 using Microsoft.EntityFrameworkCore;
@@ -70,14 +72,15 @@ namespace KarenConsoleApplication
 
             Log.Information("Start");
 
-            if (Startup.DatabaseExists(_context))
+
+            if (DbContextHelpers.FullCheck(_context, "Customer", "ContactTypes", "Genders"))
             {
                 var customers = ops.GetCustomers();
                 Console.WriteLine(ObjectDumper.Dump(customers));
             }
             else
             {
-                AnsiConsole.MarkupLine("[red]Database does not exist[/]");
+                AnsiConsole.MarkupLine("[red]Create the database and run the script under[/][cyan] Data scripts[/]");
             }
 
 
