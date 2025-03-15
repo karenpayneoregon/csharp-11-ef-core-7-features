@@ -1,0 +1,20 @@
+[
+  {
+    "Id": 1,
+    "FirstName": "Rebecca",
+    "LastName": "Trantow",
+    "BirthDate": "2015-07-05T13:32:56.8288252-07:00"
+  },
+  {
+    "Id": 2,
+    "FirstName": "Ismael",
+    "LastName": "Dibbert",
+    "BirthDate": "2015-07-08T14:36:23.4751426-07:00"
+  },
+  {
+    "Id": 3,
+    "FirstName": "Jim",
+    "LastName": "Smith",
+    "BirthDate": "1990-01-01T00:00:00"
+  }
+]

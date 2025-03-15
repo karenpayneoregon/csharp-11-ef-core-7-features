@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text.Json;
 using ListPatternApp.Classes;
 
 namespace ListPatternApp;
@@ -26,6 +27,10 @@ internal partial class Program
         var parts = MockedLinesFromFile()
             .Where(x=> !string.IsNullOrWhiteSpace(x))
             .Select(x => x.Split(','));
+
+        Console.WriteLine();
+        Console.WriteLine();
+        Samples.IntegerListMatch();
 
 
         Console.ReadLine();
@@ -345,6 +350,34 @@ internal partial class Program
         Console.WriteLine();
 
     }
+
+    private static void IntegerListMatch()
+    {
+
+        List<List<int>> list =
+        [
+            [1, 4],
+            [1, 2, 3],
+            [1, 2, 3, 4],
+            [0, 2, 3, 4],
+            [1, 2, 3, 5 ,4],
+        ];
+
+        string json = JsonSerializer.Serialize(list, Indented);
+
+        foreach (var sublist in list)
+        {
+            Console.WriteLine($"[{string.Join(", ", sublist)}]");
+        }
+
+        foreach (var (index, item) in list.Index())
+        {
+            Console.WriteLine($"{index,-2} is match    {(item is [1, 2, 3, .., 4] ? "Match" : "Not a match") }");
+        }
+
+    }
+
+    public static JsonSerializerOptions Indented => new() { WriteIndented = true };
 
     /// <summary>
     /// Match first three elements 1 2 3 and then display the remaining elements in value variable

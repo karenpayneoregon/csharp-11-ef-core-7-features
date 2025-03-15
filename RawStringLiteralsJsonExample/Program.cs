@@ -23,6 +23,12 @@ namespace JsonExample
                 AnsiConsole.MarkupLine($"[white]Run[/] {nameof(Sample)} to create {PeopleOperations.FileName}");
             }
 
+            Console.WriteLine();
+
+            string xmlFriends = JsonOperations.ToXml(
+                File.ReadAllText("People.json"), "People","Friend");
+            Console.WriteLine(xmlFriends);
+
             Console.ReadLine();
         }
 

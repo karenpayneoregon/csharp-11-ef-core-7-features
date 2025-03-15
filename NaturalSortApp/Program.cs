@@ -7,11 +7,12 @@ namespace NaturalSortApp;
 
 internal partial class Program
 {
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
+        await Task.Delay(0);
         //await Example();
 
-        //Example1();
+        Example1();
         ExitPrompt();
     }
 
@@ -58,10 +59,10 @@ internal partial class Program
 
         var fileNames = 
             """
-            File1Test.txt
+            File20Test.txt
             File10Test.txt
             File2Test.txt
-            File20Test.txt
+            File1Test.txt
             File3Test.txt
             File30Test.txt
             File4Test.txt
