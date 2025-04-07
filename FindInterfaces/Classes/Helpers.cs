@@ -6,7 +6,7 @@ using Microsoft.CodeAnalysis;
 namespace FindInterfaces.Classes;
 internal class Helpers
 {
-    public static async Task<List<string?>> FindInterfacesInSolution()
+    public static async Task<List<string?>> FindInterfacesInSolutionOld()
     {
         List<string?> list = new();
 
@@ -24,7 +24,7 @@ internal class Helpers
 
             foreach (var interfaceNode in interfaceNodes)
             {
-                list.Add(file.Replace(folder + "\\", ""));
+                list.Add(file.Replace($"{folder}\\", ""));
                 foreach (MemberDeclarationSyntax member in interfaceNode.Members)
                 {
                     if (member is not PropertyDeclarationSyntax property) continue;
@@ -36,6 +36,32 @@ internal class Helpers
 
         return list;
     }
+
+    public static async Task<List<string?>> FindInterfacesInSolution()
+    {
+        var list = new List<string?>();
+        var folder = DirectoryOperations.GetSolutionInfo().FullName;
+        var files = await Task.Run(() => GetFiles(folder));
+
+        var tasks = files.Select(async file =>
+        {
+            var fileContents = await File.ReadAllTextAsync(file);
+            var syntaxTree = CSharpSyntaxTree.ParseText(fileContents);
+            var root = await syntaxTree.GetRootAsync();
+
+            var interfaceNodes = root.DescendantNodes()
+                .OfType<InterfaceDeclarationSyntax>();
+
+            if (interfaceNodes.Any())
+            {
+                list.Add(file.Replace($"{folder}\\", ""));
+            }
+        });
+
+        await Task.WhenAll(tasks);
+        return list;
+    }
+
 
     public static string[] GetFiles(string folder) 
         => Directory.GetFiles(folder, "*.cs", SearchOption.AllDirectories);

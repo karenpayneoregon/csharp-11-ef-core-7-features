@@ -1,5 +1,6 @@
 using StringSyntaxWithEntityFrameworkCore.Classes;
 using StringSyntaxWithEntityFrameworkCore.Classes.Configuration;
+// ReSharper disable AsyncVoidMethod
 
 namespace StringSyntaxWithEntityFrameworkCore;
 

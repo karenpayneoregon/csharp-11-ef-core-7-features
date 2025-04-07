@@ -4,15 +4,25 @@ namespace NaturalSortApp.Classes;
 
 public static partial class Extensions
 {
+    // Cache regex instance
+    private static readonly Regex _digitPatternRegex = DigitPatternRegex(); 
+
     public static IEnumerable<T> NaturalOrderBy<T>(this IEnumerable<T> items, Func<T, string> selector, StringComparer stringComparer = null)
     {
-        var regex = DigitPatternRegex();
+        if (items == null) throw new ArgumentNullException(nameof(items));
+        if (selector == null) throw new ArgumentNullException(nameof(selector));
 
+        // Find maxDigits efficiently
         int maxDigits = items
-            .SelectMany(value => regex.Matches(selector(value))
-                .Select(digitChunk => (int?)digitChunk.Value.Length)).Max() ?? 0;
+            .Select(selector)
+            .SelectMany(value => _digitPatternRegex
+                .Matches(value)
+                .Select(m => m.Length))
+            .DefaultIfEmpty(0)
+            .Max();
 
-        return items.OrderBy(value => regex.Replace(selector(value),
+        // Order items naturally
+        return items.OrderBy(value => _digitPatternRegex.Replace(selector(value),
                 match => match.Value.PadLeft(maxDigits, '0')),
             stringComparer ?? StringComparer.CurrentCulture);
     }

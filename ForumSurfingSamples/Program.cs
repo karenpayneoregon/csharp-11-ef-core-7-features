@@ -1,5 +1,6 @@
-using ForumSurfingSamples.Classes.Configuration;
+using ConsoleConfigurationLibrary.Classes;
 using Microsoft.Extensions.DependencyInjection;
+using static ConsoleConfigurationLibrary.Classes.ApplicationConfiguration;
 
 namespace ForumSurfingSamples;
 internal static class Program
@@ -13,17 +14,16 @@ internal static class Program
         // To customize application configuration such as set high DPI settings or default font,
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
-        await Setup();
+        Setup();
         Application.Run(new MainForm());
     }
-    /// <summary>
-    /// Setup for reading connection strings and entity settings from appsettings.json
-    /// </summary>
-    private static async Task Setup()
+    private static void Setup()
     {
-        var services = Classes.Configuration.ApplicationConfiguration.ConfigureServices();
-        await using var serviceProvider = services.BuildServiceProvider();
-        serviceProvider.GetService<SetupServices>()!.GetConnectionStrings();
-        serviceProvider.GetService<SetupServices>()!.GetEntitySettings();
+        var services = ConfigureServices();
+        using var provider = services.BuildServiceProvider();
+        var setup = provider.GetService<SetupServices>();
+        setup.GetConnectionStrings();
+        setup.GetEntitySettings();
     }
+
 }

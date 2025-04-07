@@ -11,10 +11,10 @@ internal partial class Program
         var timespan = Regex.InfiniteMatchTimeout;
         //Console.WriteLine(timespan.Format(false));
         //var xxx = Samples.IsDefaultTimeout();
-        //Samples.HandleRegexTimeout();
+        Samples.HandleRegexTimeout();
         //Samples.MicrosoftExample(true,1);
         //Samples.BadSampleRaw();
-        Samples.NormalUse();
+        //Samples.NormalUse();
 
         SpectreConsoleHelpers.ExitPrompt();
     }

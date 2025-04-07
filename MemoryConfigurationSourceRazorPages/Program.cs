@@ -4,6 +4,7 @@ using MemoryConfigurationSourceRazorPages.Classes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration.Memory;
 using Serilog;
+#pragma warning disable ASP0000
 
 namespace MemoryConfigurationSourceRazorPages;
 

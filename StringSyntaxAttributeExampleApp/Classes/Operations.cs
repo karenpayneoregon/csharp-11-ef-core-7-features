@@ -24,7 +24,8 @@ public class Operations
         
     }
 
-    public static FormattableString CompositeFormat(Customer customer, [StringSyntax(StringSyntaxAttribute.CompositeFormat)] string sender) 
+    public static FormattableString CompositeFormat(Customer customer, 
+        [StringSyntax(StringSyntaxAttribute.CompositeFormat)] string sender) 
         => FormattableStringFactory.Create(sender, customer.FirstName, customer.LastName, customer.Age, "S");
 
 

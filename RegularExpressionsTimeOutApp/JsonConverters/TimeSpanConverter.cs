@@ -4,8 +4,12 @@ using System.Text.Json.Serialization;
 namespace RegularExpressionsTimeOutApp.JsonConverters;
 
 /// <summary>
-/// Provides a custom JSON converter for <see cref="TimeSpan"/> objects.
+/// A custom JSON converter for serializing and deserializing <see cref="TimeSpan"/> objects.
 /// </summary>
+/// <remarks>
+/// This converter ensures that <see cref="TimeSpan"/> objects are serialized and deserialized
+/// using the specific format <c>hh:mm:ss.fff</c>.
+/// </remarks>
 public class TimeSpanConverter : JsonConverter<TimeSpan>
 {
     private const string Format = @"hh\:mm\:ss\.fff";

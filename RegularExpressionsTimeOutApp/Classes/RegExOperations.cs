@@ -16,7 +16,7 @@ public class RegexOperations
     /// </remarks>
     public static TimeSpan RegexTimeOut()
     {
-        var timeOut = Configuration.ReadSection<RegularExpressions>("RegularExpressions");
+        var timeOut = Configuration.ReadSection<RegularExpressions>(nameof(RegularExpressions));
         return timeOut.Timeout;
     }
 
