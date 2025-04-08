@@ -22,8 +22,8 @@ internal partial class Program
         // set breakpoint below to see interfaces
         var usedInterfaces = typeof(Customer).GetInterfaces().Select(x => x.Name);
 
-        var entities = Helpers.GetAllEntityNames<IIdentity>();
-        var entities1 = Helpers.GetAllEntities<IIdentity>();
+        List<string> entities = Helpers.GetAllEntityNames<IIdentity>();
+        List<Type> entities1 = Helpers.GetAllEntities<IIdentity>();
 
         List<string> list =
         [
@@ -33,6 +33,11 @@ internal partial class Program
         ];
 
         List<Person> people = list.Select(x => Person.Parse(x, CultureInfo.InvariantCulture)).ToList();
+
+        bool result = Helpers.ImplementsInterface<Customer, IBogus>();
+        bool result1 = Helpers.ImplementsInterfaces<Customer>(typeof(IIdentity), typeof(IHuman));
+        bool result2 = Helpers.ImplementsInterfaces<Customer>(typeof(IIdentity), typeof(IHuman), typeof(IBogus));
+        IEnumerable<Type> result3 = Helpers.GetUnimplementedInterfaces<Customer>(typeof(IIdentity), typeof(IHuman), typeof(IBogus));
 
         Console.ReadLine();
 

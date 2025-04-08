@@ -6,6 +6,100 @@ public static partial class Helpers
 {
 
     /// <summary>
+    /// Determines whether a specified class type implements a specified interface type.
+    /// </summary>
+    /// <typeparam name="TClass">
+    /// The class type to check for implementation of the interface.
+    /// </typeparam>
+    /// <typeparam name="TInterface">
+    /// The interface type to check for implementation by the class.
+    /// </typeparam>
+    /// <returns>
+    /// <c>true</c> if <typeparamref name="TClass"/> implements <typeparamref name="TInterface"/>; otherwise, <c>false</c>.
+    /// </returns>
+    public static bool ImplementsInterface<TClass, TInterface>() 
+        => typeof(TInterface).IsInterface && typeof(TInterface).IsAssignableFrom(typeof(TClass));
+
+    /// <summary>
+    /// Determines whether a specified class type implements all the specified interface types.
+    /// </summary>
+    /// <typeparam name="TClass">
+    /// The class type to check for implementation of the interfaces.
+    /// </typeparam>
+    /// <param name="interfaces">
+    /// An array of interface types to check for implementation by the class.
+    /// </param>
+    /// <returns>
+    /// <c>true</c> if <typeparamref name="TClass"/> implements all the specified interfaces; otherwise, <c>false</c>.
+    /// </returns>
+    /// <exception cref="ArgumentException">
+    /// Thrown when no interface types are provided or when a provided type is not an interface.
+    /// </exception>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown when one of the provided interface types is <c>null</c>.
+    /// </exception>
+    public static bool ImplementsInterfaces<TClass>(params Type[] interfaces)
+    {
+        var classType = typeof(TClass);
+
+        if (interfaces == null || interfaces.Length == 0)
+            throw new ArgumentException("At least one interface type must be provided.", nameof(interfaces));
+
+        foreach (var iface in interfaces)
+        {
+            if (iface == null)
+                throw new ArgumentNullException(nameof(interfaces), "One of the provided interface types is null.");
+
+            if (!iface.IsInterface)
+                throw new ArgumentException($"Type {iface.Name} is not an interface.", nameof(interfaces));
+
+            if (!iface.IsAssignableFrom(classType))
+                return false;
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    /// Identifies the interfaces from the provided list that are not implemented by the specified class type.
+    /// </summary>
+    /// <typeparam name="TClass">
+    /// The class type to check for unimplemented interfaces.
+    /// </typeparam>
+    /// <param name="interfaces">
+    /// An array of interface types to check against the specified class type.
+    /// </param>
+    /// <returns>
+    /// An <see cref="IEnumerable{T}"/> containing the interface types that are not implemented by <typeparamref name="TClass"/>.
+    /// </returns>
+    /// <exception cref="ArgumentException">
+    /// Thrown when no interface types are provided or when a provided type is not an interface.
+    /// </exception>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown when one of the provided interface types is <c>null</c>.
+    /// </exception>
+    public static IEnumerable<Type> GetUnimplementedInterfaces<TClass>(params Type[] interfaces)
+    {
+        var classType = typeof(TClass);
+
+        if (interfaces == null || interfaces.Length == 0)
+            throw new ArgumentException("At least one interface type must be provided.", nameof(interfaces));
+
+        foreach (var iface in interfaces)
+        {
+            if (iface == null)
+                throw new ArgumentNullException(nameof(interfaces), "One of the provided interface types is null.");
+            if (!iface.IsInterface)
+                throw new ArgumentException($"Type {iface.Name} is not an interface.", nameof(interfaces));
+
+            if (!iface.IsAssignableFrom(classType))
+                yield return iface;
+        }
+    }
+
+
+
+    /// <summary>
     /// Retrieves the names of all entities that implement a specified interface type.
     /// </summary>
     /// <typeparam name="T">
@@ -46,7 +140,7 @@ public static partial class Helpers
 
         return AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(x => x.GetTypes())
-            .Where(x => typeof(T).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
+            .Where(x => typeof(T).IsAssignableFrom(x) && x is { IsInterface: false, IsAbstract: false })
             .ToList();
     }
 
