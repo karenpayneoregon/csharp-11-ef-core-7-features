@@ -14,4 +14,8 @@
     <Content Include="readme.md" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Stash\" />
+  </ItemGroup>
+
 </Project>
