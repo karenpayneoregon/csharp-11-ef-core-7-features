@@ -1,4 +1,6 @@
+using System.Diagnostics;
 using BindingListLibrary;
+using Microsoft.Win32;
 using NewStuffApp.Classes;
 using NewStuffApp.Models;
 
@@ -12,6 +14,12 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
+
+        var current = Studio.Details();
+        if (current is not null)
+        {
+            Text = $"New Stuff App - {current.DisplayName} {current.Catalog.ProductDisplayVersion}";
+        }
 
         dataGridView1.AutoGenerateColumns = false;
 
