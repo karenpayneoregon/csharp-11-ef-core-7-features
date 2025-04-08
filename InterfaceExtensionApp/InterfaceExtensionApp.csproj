@@ -25,6 +25,11 @@
 		<PackageReference Include="Spectre.Console" Version="0.46.0" />
 	</ItemGroup>
 
+
+	<ItemGroup>
+	  <ProjectReference Include="..\InterfaceLibrary\InterfaceLibrary.csproj" />
+	</ItemGroup>
+
 	<ItemGroup>
 	  <None Update="appsettings.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

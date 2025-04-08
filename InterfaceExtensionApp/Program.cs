@@ -2,6 +2,7 @@
 using InterfaceExtensionApp.Classes;
 using InterfaceExtensionApp.Interfaces;
 using InterfaceExtensionApp.Models;
+using InterfaceLibrary;
 
 namespace InterfaceExtensionApp;
 
@@ -18,7 +19,8 @@ internal partial class Program
             Console.WriteLine();
         }
 
-        var test = typeof(Customer).GetInterfaces().Select(x => x.Name);
+        // set breakpoint below to see interfaces
+        var usedInterfaces = typeof(Customer).GetInterfaces().Select(x => x.Name);
 
         var entities = Helpers.GetAllEntityNames<IIdentity>();
         var entities1 = Helpers.GetAllEntities<IIdentity>();

@@ -1,3 +1,4 @@
+using KP_WindowsFormsNET9.Classes;
 using KP_WindowsFormsNET9.Classes.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +11,7 @@ internal static class Program
     {
         ApplicationConfiguration.Initialize();
 
+        var (grade, remarks) = 80.GetGradeWithRemarks();
         await Setup();
 
         /*

@@ -1,29 +1,9 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace InterfaceExtensionApp.Classes;
+namespace InterfaceLibrary;
 
 public static partial class Helpers
 {
-    /// <summary>
-    /// Increments the trailing numeric portion of the specified string by 1.
-    /// </summary>
-    /// <param name="sender">The input string that ends with a numeric value.</param>
-    /// <returns>
-    /// A new string where the numeric portion at the end of the input string is incremented by 1,
-    /// preserving the original length of the numeric portion with leading zeros if necessary.
-    /// </returns>
-    /// <exception cref="FormatException">
-    /// Thrown if the trailing numeric portion of the string cannot be parsed as a valid number.
-    /// </exception>
-    /// <exception cref="ArgumentNullException">
-    /// Thrown if the <paramref name="sender"/> is <c>null</c>.
-    /// </exception>
-    public static string NextValue(this string sender)
-    {
-        string value = TrailingNumberRegex().Match(sender).Value;
-        return sender[..^value.Length] + (long.Parse(value) + 1)
-            .ToString().PadLeft(value.Length, '0');
-    }
 
     /// <summary>
     /// Retrieves the names of all entities that implement a specified interface type.
@@ -92,6 +72,4 @@ public static partial class Helpers
             .Select(t => t.GetGenericArguments()[0]);
 
 
-    [GeneratedRegex("[0-9]+$")]
-    private static partial Regex TrailingNumberRegex();
 }

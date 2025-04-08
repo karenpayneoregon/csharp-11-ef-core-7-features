@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
-using ConfigurationLibrary.Classes;
 using ExecuteUpdateSample.Models;
 using Microsoft.EntityFrameworkCore;
+using static ConfigurationLibrary.Classes.ConfigurationHelper;
 
 namespace ExecuteUpdateSample.Data;
 
@@ -11,7 +11,7 @@ public class ProductsContext : DbContext
     public DbSet<Category> Categories { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(ConfigurationHelper.ConnectionString())
+        => optionsBuilder.UseSqlServer(ConnectionString())
             .EnableSensitiveDataLogging()
             .LogTo(message => Debug.WriteLine(message));
 
