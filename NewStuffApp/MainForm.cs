@@ -14,7 +14,7 @@ public partial class MainForm : Form
     public MainForm()
     {
         InitializeComponent();
-
+        var tester = Experiments.IsVpnConnected();
         var current = Studio.Details();
         if (current is not null)
         {

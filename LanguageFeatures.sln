@@ -364,6 +364,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Using Interfaces", "Using I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceLibrary", "InterfaceLibrary\InterfaceLibrary.csproj", "{5A6258AB-ACA2-4E2C-8B02-1BBCC90143CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FieldKeywordSample", "FieldKeywordSample\FieldKeywordSample.csproj", "{A984C404-FEC0-1807-8633-FB58CB9C99D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -858,6 +860,10 @@ Global
 		{5A6258AB-ACA2-4E2C-8B02-1BBCC90143CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A6258AB-ACA2-4E2C-8B02-1BBCC90143CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A6258AB-ACA2-4E2C-8B02-1BBCC90143CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A984C404-FEC0-1807-8633-FB58CB9C99D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A984C404-FEC0-1807-8633-FB58CB9C99D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A984C404-FEC0-1807-8633-FB58CB9C99D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A984C404-FEC0-1807-8633-FB58CB9C99D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1014,6 +1020,7 @@ Global
 		{828D884F-A407-4EB4-A803-1D8F3965C95E} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
 		{D2978FB5-C831-42FD-B7F6-8E028BA71701} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
 		{5A6258AB-ACA2-4E2C-8B02-1BBCC90143CC} = {4ACEE8F5-FB62-48EC-8572-30B1224A93D9}
+		{A984C404-FEC0-1807-8633-FB58CB9C99D9} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}
