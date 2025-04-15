@@ -1,4 +1,5 @@
-﻿Public Class AppColorMode
+﻿#Disable Warning WFO5001
+Public Class AppColorMode
 
     'SystemColorMode is experimental, add to project file in PropertyGroup:
     '<NoWarn>$(NoWarn);WFO5001</NoWarn>
@@ -30,16 +31,15 @@
         End If
     End Sub
 
-#Disable Warning WFO5001
+
     Public Shared Function ShowDialog(Optional defaultMode As SystemColorMode = SystemColorMode.System) As SystemColorMode
-#Disable Warning IDE0079 ' Remove unnecessary suppression
+
 
         Dim page As New TaskDialogPage With {
             .Caption = Application.ProductName,
             .Heading = "Application color mode",
             .Text = "Select a mode, press OK to restart."
         }
-#Enable Warning IDE0079 ' Remove unnecessary suppression
 
         For Each mode In System.Enum.GetValues(Of SystemColorMode)
             page.RadioButtons.Add(New TaskDialogRadioButton With {
