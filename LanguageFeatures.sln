@@ -366,6 +366,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceLibrary", "Interfa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FieldKeywordSample", "FieldKeywordSample\FieldKeywordSample.csproj", "{A984C404-FEC0-1807-8633-FB58CB9C99D9}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DarkModeVB", "DarkModeVB\DarkModeVB.vbproj", "{53E4FCC4-8F9C-4E28-B78E-B965C44D4638}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -864,6 +866,10 @@ Global
 		{A984C404-FEC0-1807-8633-FB58CB9C99D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A984C404-FEC0-1807-8633-FB58CB9C99D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A984C404-FEC0-1807-8633-FB58CB9C99D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53E4FCC4-8F9C-4E28-B78E-B965C44D4638}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E4FCC4-8F9C-4E28-B78E-B965C44D4638}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53E4FCC4-8F9C-4E28-B78E-B965C44D4638}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53E4FCC4-8F9C-4E28-B78E-B965C44D4638}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1021,6 +1027,7 @@ Global
 		{D2978FB5-C831-42FD-B7F6-8E028BA71701} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
 		{5A6258AB-ACA2-4E2C-8B02-1BBCC90143CC} = {4ACEE8F5-FB62-48EC-8572-30B1224A93D9}
 		{A984C404-FEC0-1807-8633-FB58CB9C99D9} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
+		{53E4FCC4-8F9C-4E28-B78E-B965C44D4638} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}
