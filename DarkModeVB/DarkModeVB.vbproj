@@ -14,10 +14,6 @@
 		<Import Include="System.Windows.Forms" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\WinFormsSystemColorModeLibrary\WinFormsSystemColorModeLibrary.csproj" />
-	</ItemGroup>
-
 	<PropertyGroup>
 		<NoWarn>$(NoWarn);WFO5001</NoWarn>
 	</PropertyGroup>
