@@ -83,8 +83,8 @@ namespace KarenConsoleApplication
                 AnsiConsole.MarkupLine("[red]Create the database and run the script under[/][cyan] Data scripts[/]");
             }
 
-
-
+            var scripts = DbContextHelpers.GenerateScripts(_context);
+            File.WriteAllText("script.sql",scripts);
             Log.Information("Bye");
             Log.CloseAndFlush();
 

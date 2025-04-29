@@ -46,8 +46,18 @@ internal class DbContextHelpers
         {
             throw new InvalidOperationException("Database creator service is not available.");
         }
-
+        
         return databaseCreator.HasTables();
+    }
+
+    public static string GenerateScripts<TContext>(TContext context) where TContext : DbContext
+    {
+        if (context.GetService<IRelationalDatabaseCreator>() is not RelationalDatabaseCreator databaseCreator)
+        {
+            throw new InvalidOperationException("Database creator service is not available.");
+        }
+
+        return databaseCreator.GenerateCreateScript();
     }
 
     /// <summary>

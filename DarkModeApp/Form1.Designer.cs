@@ -35,6 +35,7 @@ partial class Form1
         ActiveCheckBox = new CheckBox();
         groupBox1 = new GroupBox();
         CloseAppButton = new Button();
+        DialogQuestionButton = new Button();
         ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
         groupBox1.SuspendLayout();
         SuspendLayout();
@@ -110,11 +111,22 @@ partial class Form1
         CloseAppButton.UseVisualStyleBackColor = true;
         CloseAppButton.Click += CloseAppButton_Click;
         // 
+        // DialogQuestionButton
+        // 
+        DialogQuestionButton.Location = new Point(600, 351);
+        DialogQuestionButton.Name = "DialogQuestionButton";
+        DialogQuestionButton.Size = new Size(94, 29);
+        DialogQuestionButton.TabIndex = 7;
+        DialogQuestionButton.Text = "Question";
+        DialogQuestionButton.UseVisualStyleBackColor = true;
+        DialogQuestionButton.Click += DialogQuestionButton_Click;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1009, 411);
+        Controls.Add(DialogQuestionButton);
         Controls.Add(CloseAppButton);
         Controls.Add(groupBox1);
         Controls.Add(dataGridView1);
@@ -137,4 +149,5 @@ partial class Form1
     private CheckBox ActiveCheckBox;
     private GroupBox groupBox1;
     private Button CloseAppButton;
+    private Button DialogQuestionButton;
 }

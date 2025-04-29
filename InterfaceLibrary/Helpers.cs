@@ -140,7 +140,8 @@ public static partial class Helpers
 
         return AppDomain.CurrentDomain.GetAssemblies()
             .SelectMany(x => x.GetTypes())
-            .Where(x => typeof(T).IsAssignableFrom(x) && x is { IsInterface: false, IsAbstract: false })
+            .Where(x => typeof(T).IsAssignableFrom(x) && 
+                        x is { IsInterface: false, IsAbstract: false })
             .ToList();
     }
 

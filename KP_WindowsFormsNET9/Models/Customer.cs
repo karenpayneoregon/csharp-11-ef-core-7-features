@@ -4,7 +4,7 @@ using KP_WindowsFormsNET9.Classes;
 namespace KP_WindowsFormsNET9.Models;
 
 /// <summary>
-/// Field Keyword
+/// Field Keyword example.
 /// </summary>
 public class Customer
 {

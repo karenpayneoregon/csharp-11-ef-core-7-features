@@ -1,6 +1,6 @@
 ﻿#nullable enable
 using System.Runtime.CompilerServices;
-using Spectre.Console;
+
 
 namespace PrimaryConstructorIComparerApp.Classes;
 

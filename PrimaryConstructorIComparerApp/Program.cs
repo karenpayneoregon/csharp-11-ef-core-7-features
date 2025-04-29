@@ -1,6 +1,5 @@
 ﻿using PrimaryConstructorIComparerApp.Classes;
 using PrimaryConstructorIComparerApp.Comparers;
-using static PrimaryConstructorIComparerApp.Classes.SpectreConsoleHelpers;
 
 namespace PrimaryConstructorIComparerApp;
 
@@ -9,8 +8,10 @@ internal partial class Program
     static void Main(string[] args)
     {
         var students = Operations.Students();
-        students.Sort(new StudentLastNameComparer());
-        AnsiConsole.MarkupLine($"[cyan]{nameof(StudentLastNameComparer)}[/]");
+
+        students.Sort(new LastNameComparer());
+        AnsiConsole.MarkupLine($"[cyan]{nameof(LastNameComparer)}[/]");
+
         foreach (var student in students)
         {
             Console.WriteLine(student);
@@ -18,8 +19,9 @@ internal partial class Program
 
         Console.WriteLine();
 
-        students.Sort(new StudentGradeComparer());
-        AnsiConsole.MarkupLine($"[cyan]{nameof(StudentGradeComparer)}[/]");
+        students.Sort(new GradeComparer());
+        AnsiConsole.MarkupLine($"[cyan]{nameof(GradeComparer)}[/]");
+
         foreach (var student in students)
         {
             Console.WriteLine(student);

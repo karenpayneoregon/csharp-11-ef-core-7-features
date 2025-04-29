@@ -1,4 +1,5 @@
 using DarkModeApp.Classes;
+using DialogsCoreLibrary;
 using WinFormsSystemColorModeLibrary;
 using static System.Globalization.DateTimeFormatInfo;
 
@@ -24,5 +25,10 @@ public partial class Form1 : Form
     private void CloseAppButton_Click(object sender, EventArgs e)
     {
         Close();
+    }
+
+    private void DialogQuestionButton_Click(object sender, EventArgs e)
+    {
+        Dialogs.Question(this, "Caption", "question to ask");
     }
 }
