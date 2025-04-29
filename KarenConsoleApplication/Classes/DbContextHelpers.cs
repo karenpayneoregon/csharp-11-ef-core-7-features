@@ -50,6 +50,15 @@ internal class DbContextHelpers
         return databaseCreator.HasTables();
     }
 
+    /// <summary>
+    /// Generates the SQL script required to create the database schema for the provided <see cref="DbContext"/>.
+    /// </summary>
+    /// <typeparam name="TContext">The type of the database context, which must derive from <see cref="DbContext"/>.</typeparam>
+    /// <param name="context">The database context for which the creation script is generated.</param>
+    /// <returns>A string containing the SQL script to create the database schema.</returns>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown when the relational database creator service is not available in the provided context.
+    /// </exception>
     public static string GenerateScripts<TContext>(TContext context) where TContext : DbContext
     {
         if (context.GetService<IRelationalDatabaseCreator>() is not RelationalDatabaseCreator databaseCreator)
