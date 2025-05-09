@@ -13,6 +13,9 @@ public class ProjectFileUpdater
     /// ("Serilog.AspNetCore" and "SeriLogThemesLibrary") are included. If they are missing, it adds them to the 
     /// project file and saves the changes. If the file does not exist or an error occurs during the update, 
     /// appropriate messages are displayed.
+    ///
+    /// * Versions are not current on purpose.
+    /// 
     /// </remarks>
     /// <exception cref="FileNotFoundException">Thrown if the specified project file does not exist.</exception>
     /// <exception cref="Exception">Thrown if an error occurs while processing the project file.</exception>
