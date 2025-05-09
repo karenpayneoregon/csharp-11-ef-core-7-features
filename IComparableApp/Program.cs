@@ -19,6 +19,7 @@ internal partial class Program
         Examples.BetweenTimeOnlyNative();
 
         Conventional();
+        
         ExitPrompt();
     }
 

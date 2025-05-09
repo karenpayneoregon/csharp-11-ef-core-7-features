@@ -1,5 +1,7 @@
 ﻿using BogusProperGenderApp.Classes;
 using BogusProperGenderApp.Models;
+// ReSharper disable FormatStringProblem
+// ReSharper disable CoVariantArrayConversion
 
 namespace BogusProperGenderApp;
 
@@ -21,4 +23,18 @@ internal partial class Program
 
         SpectreConsoleHelpers.ExitPrompt();
     }
+
+    private static void DisplayItems()
+    {
+        Console.WriteLine("{0}-{1}-{2}", 
+            [1,2,3]);
+
+        AnsiConsole.MarkupLine("[cyan]{0}[/]-[yellow]{1}[/]-[deeppink3_1]{2}[/]", 
+            [1,2,3]);
+
+        AnsiConsole.MarkupLine("[deeppink3_1]{0}[/][cyan]{1}[/][yellow]{2}[/] ", 
+            // returns three customers
+            BogusOperations.Customers);
+    }
+
 }

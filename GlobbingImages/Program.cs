@@ -45,5 +45,6 @@ internal partial class Program
             AnsiConsole.MarkupLine($"Folder [hotpink]{folder}[/] not found");
         }
     }
+
 }
 

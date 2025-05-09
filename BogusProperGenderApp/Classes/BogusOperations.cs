@@ -33,6 +33,8 @@ public class BogusOperations
 
     }
 
+    public static Customer[] Customers => CustomersList(3,false).ToArray();
+
     private static void ToObjectDumper(Faker<Customer> faker)
     {
         //faker.FinishWith((f, c) => Log.Information("\n{@Customer}", ObjectDumper.Dump(c, DumpStyle.CSharp)));

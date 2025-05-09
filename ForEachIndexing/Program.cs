@@ -29,6 +29,7 @@ internal partial class Program
         //{
         //    Console.WriteLine($"{index,-5}'{item}'");
         //}
+   
         Console.ReadLine();
     }
 

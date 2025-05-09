@@ -13,4 +13,5 @@ public class Customer
     public string Email { get; set; }
 
     public Gender? Gender { get; set; }
+    public override string ToString() => $"{Id,-3}{FirstName,-7}{LastName,-10} ~ ";
 }
