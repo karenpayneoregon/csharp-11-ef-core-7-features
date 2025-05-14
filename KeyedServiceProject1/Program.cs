@@ -1,6 +1,7 @@
 using KeyedServiceProject1.Classes;
 using KeyedServiceProject1.Interfaces;
 using Serilog;
+using Serilog.Events;
 using SeriLogThemesLibrary;
 
 namespace KeyedServiceProject1;
@@ -19,9 +20,18 @@ public class Program
             SecondNotification>(ServiceKeys.Second);
 
 
-        SetupLogging.Development();
+        //SetupLogging.Development();
         //builder.Services.AddSerilog();
 
+        // Configure Serilog
+        Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+            .MinimumLevel.Override("System", LogEventLevel.Warning)
+            .MinimumLevel.Information()
+            .WriteTo.Console()
+            .CreateLogger();
+
+        builder.Host.UseSerilog();
 
         var app = builder.Build();
         //app.UseSerilogRequestLogging();

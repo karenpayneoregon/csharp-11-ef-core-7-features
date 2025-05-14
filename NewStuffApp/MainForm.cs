@@ -15,7 +15,7 @@ public partial class MainForm : Form
     {
         InitializeComponent();
         var tester = Experiments.IsVpnConnected();
-        var current = Studio.Details();
+        VisualStudioInstance? current = Studio.Details();
         if (current is not null)
         {
             Text = $"New Stuff App - {current.DisplayName} {current.Catalog.ProductDisplayVersion}";
