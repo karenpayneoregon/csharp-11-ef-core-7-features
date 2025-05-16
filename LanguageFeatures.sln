@@ -372,6 +372,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddSerilogToProject", "AddS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{A8D92943-2AC0-4E68-B155-5AF26999AFD5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpectreConsoleMenuApp", "SpectreConsoleMenuApp\SpectreConsoleMenuApp.csproj", "{EE1AFC04-372F-4556-914E-D2DA196B0FFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -882,6 +884,10 @@ Global
 		{A8D92943-2AC0-4E68-B155-5AF26999AFD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8D92943-2AC0-4E68-B155-5AF26999AFD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8D92943-2AC0-4E68-B155-5AF26999AFD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE1AFC04-372F-4556-914E-D2DA196B0FFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE1AFC04-372F-4556-914E-D2DA196B0FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE1AFC04-372F-4556-914E-D2DA196B0FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE1AFC04-372F-4556-914E-D2DA196B0FFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1042,6 +1048,7 @@ Global
 		{B8AE82E9-E6CF-4530-A490-BB1D733930B4} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
 		{0F05686F-DD62-43A1-A38E-0E9B28DE0C1C} = {B8AE82E9-E6CF-4530-A490-BB1D733930B4}
 		{A8D92943-2AC0-4E68-B155-5AF26999AFD5} = {B8AE82E9-E6CF-4530-A490-BB1D733930B4}
+		{EE1AFC04-372F-4556-914E-D2DA196B0FFF} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}

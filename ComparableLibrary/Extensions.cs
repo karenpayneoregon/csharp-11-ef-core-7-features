@@ -5,6 +5,7 @@
 /// </summary>
 public static class Extensions
 {
+
     /// <summary>
     /// Determines whether the specified value is between the given lower and upper bounds, inclusive.
     /// </summary>
@@ -58,7 +59,6 @@ public static class Extensions
     /// </returns>
     public static bool IsBetweenExclusive<T>(this IComparable<T> sender, T minimumValue, T maximumValue)
         => sender.BetweenExclusive(minimumValue, maximumValue);
-
 
 }
 
