@@ -22,7 +22,7 @@ internal static class Program
         var services = ConfigureServices();
         using var provider = services.BuildServiceProvider();
         var setup = provider.GetService<SetupServices>();
-        setup.GetConnectionStrings();
+        setup!.GetConnectionStrings();
         setup.GetEntitySettings();
     }
 

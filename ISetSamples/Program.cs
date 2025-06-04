@@ -41,8 +41,12 @@ internal partial class Program
     }
 
     /// <summary>
-    /// Create a list of people and then convert to a set.
+    /// Converts a list of people to a set, ensuring unique entries based on the 
+    /// <see cref="Person"/> class's equality implementation.
     /// </summary>
+    /// <remarks>
+    /// This method demonstrates the conversion of a list to a set, which removes duplicate entries.
+    /// </remarks>
     private static void ListToSet()
     {
         ShowExecutingMethodName();
@@ -51,8 +55,11 @@ internal partial class Program
     }
 
     /// <summary>
-    /// HashSet to a list of person
+    /// Converts a <see cref="HashSet{T}"/> of <see cref="Person"/> objects to a <see cref="List{T}"/>.
     /// </summary>
+    /// <remarks>
+    /// This method demonstrates how to transform a set of unique <see cref="Person"/> objects into a list.
+    /// </remarks>
     private static void SetToList()
     {
         ShowExecutingMethodName();

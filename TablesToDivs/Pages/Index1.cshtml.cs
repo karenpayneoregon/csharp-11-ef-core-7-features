@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Spectre.Console;
 using TablesToDivs.Models;
 
 namespace TablesToDivs.Pages
@@ -17,6 +18,7 @@ namespace TablesToDivs.Pages
         {
             PersonName = $"Name: {person.FirstName} {person.LastName}";
             ViewData["JavaScript"] = "window.location = '" + Url.Page("Index1") + "'";
+            AnsiConsole.MarkupLine($"[{Color.Pink3}]{person.FirstName} {person.LastName}[/]");
         }
 
     }

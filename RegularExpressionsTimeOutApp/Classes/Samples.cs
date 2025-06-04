@@ -32,11 +32,11 @@ public  partial class Samples
     /// </remarks>
     public static void MicrosoftExample(bool setTimeout, int seconds)
     {
-        void SetRegexTimeout(int seconds)
+        void SetRegexTimeout(int timeoutSeconds)
         {
             AppDomain domain = AppDomain.CurrentDomain;
-            // Set a timeout interval of 2 seconds.
-            domain.SetData("REGEX_DEFAULT_MATCH_TIMEOUT", TimeSpan.FromSeconds(seconds));
+            // Set a timeout interval of 2 timeoutSeconds.
+            domain.SetData("REGEX_DEFAULT_MATCH_TIMEOUT", TimeSpan.FromSeconds(timeoutSeconds));
             var timeout = domain.GetData("REGEX_DEFAULT_MATCH_TIMEOUT");
             Console.WriteLine($"Default regex match timeout: {timeout ?? "<null>"}");
         }
@@ -48,7 +48,7 @@ public  partial class Samples
 
         Regex rgx = new Regex("[aeiouy]");
         Console.WriteLine("Regular expression pattern: {0}", rgx.ToString());
-        Console.WriteLine("Timeout interval for this regex: {0} seconds",
+        Console.WriteLine("Timeout interval for this regex: {0} timeoutSeconds",
             rgx.MatchTimeout.TotalSeconds);
 
     }
