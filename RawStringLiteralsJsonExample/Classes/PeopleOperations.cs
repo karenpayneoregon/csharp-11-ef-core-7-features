@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using JsonExample.Models;
+using System.Text.Json;
 
 namespace JsonExample.Classes;
 

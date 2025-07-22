@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using Person = JsonExample.Models.Person;
 
 namespace JsonExample.Classes;
 

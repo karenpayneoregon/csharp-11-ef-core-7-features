@@ -1,4 +1,5 @@
 ﻿using JsonExample.Classes;
+using JsonExample.Models;
 using Spectre.Console;
 
 namespace JsonExample
@@ -8,10 +9,7 @@ namespace JsonExample
         static void Main(string[] args)
         {
             //Sample();
-            var test = Json;
-            var xml = SystemTextOperations.JsonToXml(Json);
-            File.WriteAllText("Game.xml", xml);
-
+  
 
             if (File.Exists(PeopleOperations.FileName))
             {

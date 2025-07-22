@@ -47,6 +47,11 @@ internal partial class Program
             Console.WriteLine($"{item.Index,-3}{item.value}");
         }
 
+        foreach (var (item, index) in list.Index())
+        {
+            
+        }
+
         AnsiConsole.MarkupLine("[yellow]----------------[/]");
 
         foreach (var (value, index) in list.Select((v, i) => (value: v, index: i)))

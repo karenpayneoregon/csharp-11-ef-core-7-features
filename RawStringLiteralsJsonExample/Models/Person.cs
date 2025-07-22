@@ -1,7 +1,6 @@
-﻿
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
-namespace JsonExample.Classes;
+namespace JsonExample.Models;
 
 public class Person
 {
