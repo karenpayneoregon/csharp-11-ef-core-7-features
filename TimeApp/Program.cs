@@ -12,6 +12,8 @@
             GreetingsService service = new(new EveningTimeProvider());
 
             Console.WriteLine(service.TimeOfDay());
+            Console.WriteLine();
+            
             Console.ReadLine();
         }
 

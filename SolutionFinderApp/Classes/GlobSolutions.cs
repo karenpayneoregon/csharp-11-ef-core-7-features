@@ -83,7 +83,7 @@ internal class GlobSolutions
                     }
                     catch (Exception e)
                     {
-
+                        // TODO Add logging here
                     }
                 }
                 else

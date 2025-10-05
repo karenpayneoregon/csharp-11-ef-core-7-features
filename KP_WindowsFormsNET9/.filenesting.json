@@ -1,0 +1,15 @@
+{
+    "help": "https://go.microsoft.com/fwlink/?linkid=866610",
+    "root": true,
+    "dependentFileProviders": {
+        "add": {
+            "fileToFile": {
+              "add": {
+                "Client.Sets.cs": [
+                  "Client.cs"
+                ]
+              }
+            }
+        }
+    }
+}

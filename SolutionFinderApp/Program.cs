@@ -12,7 +12,7 @@ internal partial class Program
         /*
          * Set this to a path with one or more Visual Studio solutions
          */
-        const string path = @"C:\DotnetLand\VS2022";
+        const string path = @"C:\OED\DotnetLand\VS2022";
 
         const ScanOptions option = ScanOptions.WarningsOnly;
 

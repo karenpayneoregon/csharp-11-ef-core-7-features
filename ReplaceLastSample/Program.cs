@@ -27,7 +27,7 @@ internal partial class Program
 
         var sentence = "This is a     test          sentence.";
         Console.WriteLine(sentence);
-        Console.WriteLine(sentence.RemoveExtraSpaces());
+        Console.WriteLine($"'{sentence.RemoveExtraSpaces()}'");
 
         Console.ReadLine();
     }

@@ -8,6 +8,7 @@ internal partial class Program
     static void Main(string[] args)
     {
 
+
         //var people = JsonSerializer.Deserialize<List<Person>>(Json);
         //foreach (var (index, person) in people.Index())
         //{
@@ -29,10 +30,20 @@ internal partial class Program
         //{
         //    Console.WriteLine($"{index,-5}'{item}'");
         //}
-   
+
         Console.ReadLine();
     }
 
+
+
+    private static void IndexDemo()
+    {
+        var people = JsonSerializer.Deserialize<List<Person>>(Json);
+        foreach (var (index, person) in people.Index())
+        {
+            Console.WriteLine($"{index,-3}{person}");
+        }
+    }
     public static string Json =>
         /*lang=json*/
         """
@@ -55,6 +66,7 @@ internal partial class Program
         ]
         """;
 }
+
 
 public class Person
 {

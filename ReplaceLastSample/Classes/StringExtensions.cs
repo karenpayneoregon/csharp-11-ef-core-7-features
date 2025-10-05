@@ -22,6 +22,16 @@ public static partial  class StringExtensions
     }
 
     /// <summary>
+    /// Trims the last character from the given string.
+    /// </summary>
+    /// <param name="sender">The string from which to trim the last character.</param>
+    /// <returns>A new string with the last character removed, or the original string if it is null or whitespace.</returns>
+    public static string TrimLastCharacter(this string sender)
+        => string.IsNullOrWhiteSpace(sender) ?
+            sender :
+            sender[..^1];
+
+    /// <summary>
     /// Removes extra spaces from the given string, optionally trimming the end.
     /// </summary>
     /// <param name="source">The string from which to remove extra spaces.</param>
@@ -32,16 +42,6 @@ public static partial  class StringExtensions
         var result = ExtraSpacesRegex().Replace(source, " ");
         return trimEnd ? result.TrimEnd() : result;
     }
-
-    /// <summary>
-    /// Trims the last character from the given string.
-    /// </summary>
-    /// <param name="sender">The string from which to trim the last character.</param>
-    /// <returns>A new string with the last character removed, or the original string if it is null or whitespace.</returns>
-    public static string TrimLastCharacter(this string sender)
-        => string.IsNullOrWhiteSpace(sender) ?
-            sender :
-            sender[..^1];
 
     /// <summary>
     /// Provides a regular expression to match sequences of two or more whitespace characters.

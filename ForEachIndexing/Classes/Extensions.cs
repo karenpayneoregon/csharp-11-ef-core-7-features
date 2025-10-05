@@ -1,6 +1,7 @@
 ﻿namespace ForEachIndexing.Classes;
 public static class Extensions
 {
+
     /// <summary>
     /// Returns an enumerator that iterates through the span.
     /// </summary>
@@ -9,5 +10,10 @@ public static class Extensions
     /// <returns>An enumerator that can be used to iterate through the span.</returns>
     public static Span<T>.Enumerator Enumerator<T>(this Span<T> sender)
         => sender.GetEnumerator();
+
+
+    public static List<T> Times<T>(this int sender, T item)
+        => Enumerable.Range(0, sender).Select(x => item).ToList();
+
 }
 

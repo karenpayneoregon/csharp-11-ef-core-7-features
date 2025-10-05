@@ -32,7 +32,9 @@ internal class Operations
         }
     }
     public static async Task Syntax(
-        [StringSyntax(NumericFormat)] string identifierFormat, [StringSyntax(DateOnlyFormat)] string dateFormat, [StringSyntax(NumericFormat)] string ageFormat)
+        [StringSyntax(NumericFormat)] string identifierFormat, 
+        [StringSyntax(DateOnlyFormat)] string dateFormat, 
+        [StringSyntax(NumericFormat)] string ageFormat)
     {
 
         await using var context = new Context();

@@ -9,7 +9,7 @@ namespace WpfHasData
     {
         protected override async void OnStartup(StartupEventArgs e)
         {
-            // to satisfy async void usage
+
             try
             {
                 base.OnStartup(e);

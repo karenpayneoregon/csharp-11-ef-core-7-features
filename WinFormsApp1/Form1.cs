@@ -1,6 +1,7 @@
 using System.Collections.Frozen;
 using System.Collections.Immutable;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Diagnostics;
 // ReSharper disable ReturnValueOfPureMethodIsNotUsed
 
@@ -179,6 +180,43 @@ public partial class Form1 : Form
     {
         var (list, success) = await DateTimeHelpers.TimeZones();
     }
+
+    private void button5_Click(object sender, EventArgs e)
+    {
+        DataTable dt = new DataTable();
+        dt.Columns.Add(new DataColumn() { ColumnName = "Id", DataType = typeof(int), AutoIncrement = true, AutoIncrementSeed = 1 });
+        dt.Columns.Add(new DataColumn() { ColumnName = "FirstName", DataType = typeof(string) });
+        dt.Columns.Add(new DataColumn() { ColumnName = "LastName", DataType = typeof(string) });
+        dt.Columns.Add(new DataColumn() { ColumnName = "BirthDate", DataType = typeof(DateTime) });
+
+        // Adding rows
+        dt.Rows.Add(null, "John", "Doe", new DateTime(1990, 1, 1));
+        dt.Rows.Add(null, "Jane", "Smith", new DateTime(1985, 5, 20));
+
+        // Third row without setting BirthDate
+        DataRow thirdRow = dt.NewRow();
+        thirdRow["FirstName"] = "Alice";
+        thirdRow["LastName"] = "Johnson";
+        // BirthDate remains unset (DBNull by default)
+        dt.Rows.Add(thirdRow);
+
+        dt.Rows.Add(null, "Bob", "Brown", new DateTime(1978, 9, 15));
+        dt.Rows.Add(null, "Eve", "Williams", new DateTime(2000, 12, 31));
+
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+            if (dt.Rows[i].IsNull("BirthDate"))
+            {
+                Debug.WriteLine($"Row {i + 1}: BirthDate is DBNull.");
+            }
+            else
+            {
+                DateTime birthDate = (DateTime)dt.Rows[i]["BirthDate"];
+                Debug.WriteLine($"Row {i + 1}: BirthDate is {birthDate:d}.");
+            }
+        }
+
+    }
 }
 
 
@@ -198,8 +236,8 @@ public static class DateTimeHelpers
     public static async Task<(ImmutableList<string> list, bool success)> TimeZones()
     {
         DateTimeOffset? local = await InternetHelpers.LocalTime();
-        return local is null ? 
-            (Enumerable.Empty<string>().ToImmutableList(), false) : 
+        return local is null ?
+            (Enumerable.Empty<string>().ToImmutableList(), false) :
             (local.Value.PossibleTimeZones(), true);
     }
 

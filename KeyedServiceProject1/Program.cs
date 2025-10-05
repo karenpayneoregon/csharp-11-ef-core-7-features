@@ -2,7 +2,6 @@ using KeyedServiceProject1.Classes;
 using KeyedServiceProject1.Interfaces;
 using Serilog;
 using Serilog.Events;
-using SeriLogThemesLibrary;
 
 namespace KeyedServiceProject1;
 public class Program
@@ -14,10 +13,10 @@ public class Program
         builder.Services.AddRazorPages();
 
         builder.Services.AddKeyedTransient<INotificationService, 
-            FirstNotification>(ServiceKeys.First);
+            FirstNotification>(ServiceKeys.FirstDemo);
 
         builder.Services.AddKeyedTransient<INotificationService, 
-            SecondNotification>(ServiceKeys.Second);
+            SecondNotification>(ServiceKeys.SecondDemo);
 
 
         //SetupLogging.Development();

@@ -4,8 +4,8 @@ namespace KeyedServiceProject1.Classes;
 
 public enum ServiceKeys
 {
-    First,
-    Second
+    FirstDemo,
+    SecondDemo
 }
 public class FirstNotification : INotificationService
 {

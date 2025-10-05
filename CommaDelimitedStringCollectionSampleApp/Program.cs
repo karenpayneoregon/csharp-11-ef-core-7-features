@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Configuration;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Configuration;
 using System.Globalization;
-using System.Text;
 using CommaDelimitedStringCollectionSampleApp.Classes;
 
 namespace CommaDelimitedStringCollectionSampleApp;
@@ -11,10 +8,40 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        MainExamples();
+        //MainExamples();
 
+        AnsiConsole.MarkupLine("[yellow]Comma delimited full month names[/]");
+        CommaDelimitedStringCollection result1 = [];
 
+        result1.AddRange(DateTimeFormatInfo.CurrentInfo.MonthNames[..^1]);
+        Console.WriteLine($"{result1}");
 
+        AnsiConsole.MarkupLine("[yellow]Using an int array[/]");
+        int[] items = [1, 2, 3];
+        CommaDelimitedStringCollection result2 = new();
+        result2.AddRange(items.ToStringArray());
+        result2.Add("4");
+        Console.WriteLine($"{result2}");
+
+        AnsiConsole.MarkupLine("[yellow]Using DateOnly[/]");
+        CommaDelimitedStringCollection results3 = [];
+
+        List<DateOnly> dates = [new(2022, 1, 1), new(2023, 2, 14), new(2024, 3, 17), new(2025, 7, 4)];
+        foreach (var date in dates)
+        {
+            results3.Add(date.ToString());
+        }
+
+        Console.WriteLine($"{results3}");
+
+        List<DateOnly> datesBack = results3
+            .Cast<string>()                      
+            .Select(DateOnly.Parse)     
+            .ToList();
+
+        AnsiConsole.MarkupLine("Back to DateOnly");
+        var results4 = string.Join(",", datesBack);
+        Console.WriteLine(results4);
         Console.ReadLine();
     }
 
@@ -97,7 +124,7 @@ internal partial class Program
             Console.WriteLine($"\t{result}");
             Console.WriteLine(result.Contains("appsettings.json").ToYesNo());
 
-            
+
 
             result.SetReadOnly();
             if (!result.IsReadOnly)
