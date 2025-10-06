@@ -1,8 +1,6 @@
 ﻿# Using alias directive to reference any kind of Type
 
-Had to try this C# 12 [feature](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-12.0/using-alias-types) out.
-
-Created the using alias and placed it in GlobalUsing.cs
+Created the using alias  [feature](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-12.0/using-alias-types) and placed it in GlobalUsing.cs
 
 ```csharp
 global using Baggage =
