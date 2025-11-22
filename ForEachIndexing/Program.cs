@@ -18,6 +18,7 @@ internal partial class Program
         var countries = FileOperations.ReadCountryCodes("countrycodes.txt");
         foreach (var (index, country) in countries.Index())
         {
+            
             if (country.Code == "Unknown")
             {
                 Console.WriteLine($"{index,-3}{country}");

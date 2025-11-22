@@ -46,13 +46,42 @@ public static class GenericExtensions
         return value =  left + right;
     }
 
-    /// <summary>Add elements in an array</summary>
+    /// <summary>
+    /// Computes the sum of all elements in the provided array.
+    /// </summary>
+    /// <typeparam name="T">
+    /// The numeric type of the elements in the array. Must implement <see cref="System.Numerics.INumber{T}"/>.
+    /// </typeparam>
+    /// <param name="sender">
+    /// The array of numeric values to be summed.
+    /// </param>
+    /// <returns>
+    /// The sum of all elements in the array. If the array is empty, returns the additive identity of type <typeparamref name="T"/>.
+    /// </returns>
+    /// <exception cref="ArgumentNullException">
+    /// Thrown if the <paramref name="sender"/> array is <c>null</c>.
+    /// </exception>
     public static T AddAll<T>(this T[] sender) where T : INumber<T>
     {
         T result = T.Zero;
         foreach (T item in sender) { result += item; }
         return result;
     }
+
+    /// <summary>
+    /// Calculates the sum of all positive numbers in the given array.
+    /// </summary>
+    /// <typeparam name="T">
+    /// The numeric type of the elements in the array. Must implement <see cref="System.Numerics.INumber{T}"/>.
+    /// </typeparam>
+    /// <param name="numbers">
+    /// The array of numbers to process.
+    /// </param>
+    /// <returns>
+    /// The sum of all positive numbers in the array. If no positive numbers are found, returns the additive identity of type <typeparamref name="T"/>.
+    /// </returns>
+    public static T AddAllNumbers<T>(this T[] numbers) where T : INumber<T> 
+        => numbers.Where(T.IsPositive).Aggregate(T.Zero, (current, number) => current + number);
 
     public static T Subtract<T>(this T  left, T right) where T : INumber<T> 
         => left - right;
@@ -210,6 +239,7 @@ public static class GenericExtensions
     {
         int count = 0;
         int length = sender.Length;
+        
         // First pass: count non-numeric values
         for (int i = 0; i < length; i++)
         {
@@ -217,9 +247,11 @@ public static class GenericExtensions
                     out _)) continue;
             count++;
         }
+        
         // Allocate array of the required size
         int[] indexes = new int[count];
         int index = 0;
+        
         // Second pass: fill the array with indices
         for (int i = 0; i < length; i++)
         {
@@ -238,20 +270,29 @@ public static class GenericExtensions
     /// <param name="width">Width to pad</param>
     /// <param name="paddingChar">Character to pad with, defaults to a period</param>
     /// <returns>Padded string</returns>
-    public static string Ellipsis<T>(this T sender, int width, char paddingChar = '.') where T : INumber<T>
-    {
-        return sender.ToString().Ellipsis(width, paddingChar);
-    }
-    public static string Ellipsis<T>(this T? sender, int width, char paddingChar = '.') where T : struct
-    {
-        if (sender is not null)
-        {
-            return sender.ToString().Ellipsis(width, paddingChar);
-        }
-        else
-        {
-            return "".Ellipsis(width, paddingChar);
-        }
+    public static string Ellipsis<T>(this T sender, int width, char paddingChar = '.') where T : INumber<T> 
+        => sender.ToString().Ellipsis(width, paddingChar);
 
-    }
+    /// <summary>
+    /// Truncates or pads the string representation of the value to fit within the specified width, 
+    /// using the specified padding character if necessary.
+    /// </summary>
+    /// <typeparam name="T">
+    /// The type of the value, which must be a non-nullable value type.
+    /// </typeparam>
+    /// <param name="sender">
+    /// The value to be converted to a string and processed.
+    /// </param>
+    /// <param name="width">
+    /// The desired width of the resulting string.
+    /// </param>
+    /// <param name="paddingChar">
+    /// The character to use for padding if the string representation of the value is shorter than the specified width.
+    /// Defaults to '.' if not specified.
+    /// </param>
+    /// <returns>
+    /// A string that represents the value, truncated or padded to the specified width.
+    /// </returns>
+    public static string Ellipsis<T>(this T? sender, int width, char paddingChar = '.') where T : struct 
+        => sender is not null ? sender.ToString().Ellipsis(width, paddingChar) : "".Ellipsis(width, paddingChar);
 }

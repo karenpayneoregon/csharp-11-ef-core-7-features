@@ -31,6 +31,7 @@ internal class Operations
                             $"{item.YearsOld.Value.ToString(yearsOldFormat)}");
         }
     }
+    
     public static async Task Syntax(
         [StringSyntax(NumericFormat)] string identifierFormat, 
         [StringSyntax(DateOnlyFormat)] string dateFormat, 
@@ -42,8 +43,11 @@ internal class Operations
 
         foreach (var item in list)
         {
-            Debug.WriteLine($"{item.Id.ToString(identifierFormat),-5}{item.FirstName,-15}{item.LastName,-15}{item.BirthDate.Value.ToString(dateFormat),-12}" +
+            Debug.WriteLine($"{item.Id.ToString(identifierFormat),-5}{item.FirstName,-15}{item.LastName,-15}" +
+                            $"{item.BirthDate.Value.ToString(dateFormat),-12}" +
                             $"{item.YearsOld.Value.ToString(ageFormat)}");
         }
+        
     }
+    
 }

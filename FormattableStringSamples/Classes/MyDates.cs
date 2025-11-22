@@ -1,4 +1,4 @@
-using System;
+namespace FormattableStringSamples.Classes;
 
 public static class MyDates
 {

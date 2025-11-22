@@ -69,7 +69,7 @@ public readonly struct Percent<T> :
         };
 
     /// <inheritdoc/>
-    public Boolean Equals(Percent<T> other) => Value.Equals(other.Value);
+    public bool Equals(Percent<T> other) => Value.Equals(other.Value);
 
     /// <inheritdoc/>
     public override int GetHashCode() => Value.GetHashCode();

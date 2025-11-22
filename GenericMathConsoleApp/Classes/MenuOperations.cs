@@ -2,11 +2,18 @@
 
 namespace GenericMathConsoleApp.Classes;
 
-class MenuOperations
+internal class MenuOperations
 {
     /// <summary>
-    /// Create main menu
+    /// Creates and configures a selection prompt for displaying a menu of options.
     /// </summary>
+    /// <returns>
+    /// A <see cref="SelectionPrompt{MenuItem}"/> instance configured with menu options and styles.
+    /// </returns>
+    /// <remarks>
+    /// The selection prompt includes various menu items, each associated with an action to execute upon selection.
+    /// It supports search functionality and highlights the selected option.
+    /// </remarks>
     public static SelectionPrompt<MenuItem> SelectionPrompt()
     {
         SelectionPrompt<MenuItem> menu = new()
@@ -17,7 +24,7 @@ class MenuOperations
         };
 
         menu.Title("[orchid1]Select a option[/]");
-        menu.PageSize(12);
+        menu.PageSize(14);
 
         _ = menu.AddChoices(new List<MenuItem>()
         {
@@ -30,8 +37,9 @@ class MenuOperations
             new () {Id =  7,  Text  = "Generic Helpers     ", Action = Samples.GenericHelpersExamples },
             new () {Id =  8,  Text  = "Switch expression   ", Action = Samples.Expressions },
             new () {Id =  10, Text  = "Rounding            ", Action = Samples.Rounding },
-            new () {Id =  10, Text  = "Percentage          ", Action = Samples.PercentageExample },
-            new () {Id =  11, Text  = "About               ", Action = About },
+            new () {Id =  11, Text  = "Percentage          ", Action = Samples.PercentageExample },
+            new () {Id =  12, Text  = "Add positive        ", Action = Samples.AddAllNumbersExample },
+            new () {Id =  13, Text  = "About               ", Action = About },
             new () {Id =  -1, Text  = "Exit                ", Action = () => Environment.Exit(0)},
         });
 

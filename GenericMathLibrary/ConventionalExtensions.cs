@@ -1,5 +1,8 @@
 ﻿namespace GenericMathLibrary;
 
+/// <summary>
+/// Provides extension methods for performing conventional operations on arrays of strings.
+/// </summary>
 public static class ConventionalExtensions
 {
     public static bool AllDouble(this string[] sender)

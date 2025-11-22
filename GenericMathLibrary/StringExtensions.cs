@@ -8,8 +8,6 @@ public static class StringExtensions
     /// <param name="width">Width to pad</param>
     /// <param name="paddingChar">Character to pad with, defaults to a period</param>
     /// <returns>Padded string</returns>
-    public static string Ellipsis(this string? sender, int width, char paddingChar = '.')
-    {
-        return sender.PadRight(width, paddingChar);
-    }
+    public static string Ellipsis(this string? sender, int width, char paddingChar = '.') 
+        => sender.PadRight(width, paddingChar);
 }

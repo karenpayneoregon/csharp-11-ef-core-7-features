@@ -34,7 +34,7 @@ namespace GeneratedRegexSamplesApp.Classes
         ///         ○ Match a Unicode digit atomically at least once.<br/>
         /// </code>
         /// </remarks>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
         private static partial global::System.Text.RegularExpressions.Regex ProductUrlRegex() => global::System.Text.RegularExpressions.Generated.ProductUrlRegex_0.Instance;
     }
 }
@@ -64,7 +64,7 @@ namespace GeneratedRegexSamplesApp.Classes
         /// ○ Match 'M'.<br/>
         /// </code>
         /// </remarks>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
         private static partial global::System.Text.RegularExpressions.Regex DateRegex() => global::System.Text.RegularExpressions.Generated.DateRegex_1.Instance;
     }
 }
@@ -83,7 +83,7 @@ namespace GeneratedRegexSamplesApp.Classes
         /// ○ Match a character in the set [0-9].<br/>
         /// </code>
         /// </remarks>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
         private static partial global::System.Text.RegularExpressions.Regex CreditCardRegex() => global::System.Text.RegularExpressions.Generated.CreditCardRegex_2.Instance;
     }
 }
@@ -100,7 +100,7 @@ namespace GeneratedRegexSamplesApp.Classes
         /// ○ Match ' ' atomically at least twice.<br/>
         /// </code>
         /// </remarks>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
         private static partial global::System.Text.RegularExpressions.Regex MultipleSpacesRegex() => global::System.Text.RegularExpressions.Generated.MultipleSpacesRegex_3.Instance;
     }
 }
@@ -126,7 +126,7 @@ namespace GeneratedRegexSamplesApp.Classes
         ///         ○ Match any character other than '\n'.<br/>
         /// </code>
         /// </remarks>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
         private static partial global::System.Text.RegularExpressions.Regex SentenceCaseRegex() => global::System.Text.RegularExpressions.Generated.SentenceCaseRegex_4.Instance;
     }
 }
@@ -170,7 +170,7 @@ namespace GeneratedRegexSamplesApp.Classes
         /// ○ Match if at the end of the string or if before an ending newline.<br/>
         /// </code>
         /// </remarks>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
         private static partial global::System.Text.RegularExpressions.Regex SSNValidationRegex() => global::System.Text.RegularExpressions.Generated.SSNValidationRegex_5.Instance;
     }
 }
@@ -205,7 +205,7 @@ namespace GeneratedRegexSamplesApp.Classes
         ///     ○ Match a Unicode digit exactly 4 times.<br/>
         /// </code>
         /// </remarks>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
         private static partial global::System.Text.RegularExpressions.Regex DatesRegex() => global::System.Text.RegularExpressions.Generated.DatesRegex_6.Instance;
     }
 }
@@ -224,7 +224,7 @@ namespace GeneratedRegexSamplesApp.Classes
         ///     ○ Match a character in the set [a-z] atomically at least once.<br/>
         /// </code>
         /// </remarks>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
         private static partial global::System.Text.RegularExpressions.Regex CasingRegex() => global::System.Text.RegularExpressions.Generated.CasingRegex_7.Instance;
     }
 }
@@ -242,7 +242,7 @@ namespace GeneratedRegexSamplesApp.Classes
         /// ○ Match if at the end of the string or if before an ending newline.<br/>
         /// </code>
         /// </remarks>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
         private static partial global::System.Text.RegularExpressions.Regex NumbersPatternRegex() => global::System.Text.RegularExpressions.Generated.NumbersPatternRegex_8.Instance;
     }
 }
@@ -261,7 +261,7 @@ namespace GeneratedRegexSamplesApp.Classes
         ///     ○ Match a character in the set [a-z] atomically at least once.<br/>
         /// </code>
         /// </remarks>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
         private static partial global::System.Text.RegularExpressions.Regex SplitterRegex() => global::System.Text.RegularExpressions.Generated.CasingRegex_7.Instance;
     }
 }
@@ -279,7 +279,7 @@ namespace System.Text.RegularExpressions.Generated
     using System.Threading;
 
     /// <summary>Custom <see cref="Regex"/>-derived type for the ProductUrlRegex method.</summary>
-    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
     file sealed class ProductUrlRegex_0 : Regex
     {
         /// <summary>Cached, thread-safe singleton instance.</summary>
@@ -517,7 +517,7 @@ namespace System.Text.RegularExpressions.Generated
     }
     
     /// <summary>Custom <see cref="Regex"/>-derived type for the DateRegex method.</summary>
-    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
     file sealed class DateRegex_1 : Regex
     {
         /// <summary>Cached, thread-safe singleton instance.</summary>
@@ -693,7 +693,7 @@ namespace System.Text.RegularExpressions.Generated
     }
     
     /// <summary>Custom <see cref="Regex"/>-derived type for the CreditCardRegex method.</summary>
-    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
     file sealed class CreditCardRegex_2 : Regex
     {
         /// <summary>Cached, thread-safe singleton instance.</summary>
@@ -859,7 +859,7 @@ namespace System.Text.RegularExpressions.Generated
     }
     
     /// <summary>Custom <see cref="Regex"/>-derived type for the MultipleSpacesRegex method.</summary>
-    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
     file sealed class MultipleSpacesRegex_3 : Regex
     {
         /// <summary>Cached, thread-safe singleton instance.</summary>
@@ -964,7 +964,7 @@ namespace System.Text.RegularExpressions.Generated
     }
     
     /// <summary>Custom <see cref="Regex"/>-derived type for the SentenceCaseRegex method.</summary>
-    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
     file sealed class SentenceCaseRegex_4 : Regex
     {
         /// <summary>Cached, thread-safe singleton instance.</summary>
@@ -1152,7 +1152,7 @@ namespace System.Text.RegularExpressions.Generated
     }
     
     /// <summary>Custom <see cref="Regex"/>-derived type for the SSNValidationRegex method.</summary>
-    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
     file sealed class SSNValidationRegex_5 : Regex
     {
         /// <summary>Cached, thread-safe singleton instance.</summary>
@@ -1576,7 +1576,7 @@ namespace System.Text.RegularExpressions.Generated
     }
     
     /// <summary>Custom <see cref="Regex"/>-derived type for the DatesRegex method.</summary>
-    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
     file sealed class DatesRegex_6 : Regex
     {
         /// <summary>Cached, thread-safe singleton instance.</summary>
@@ -1987,7 +1987,7 @@ namespace System.Text.RegularExpressions.Generated
     }
     
     /// <summary>Custom <see cref="Regex"/>-derived type for the CasingRegex method.</summary>
-    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
     file sealed class CasingRegex_7 : Regex
     {
         /// <summary>Cached, thread-safe singleton instance.</summary>
@@ -2139,7 +2139,7 @@ namespace System.Text.RegularExpressions.Generated
     }
     
     /// <summary>Custom <see cref="Regex"/>-derived type for the NumbersPatternRegex method.</summary>
-    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
     file sealed class NumbersPatternRegex_8 : Regex
     {
         /// <summary>Cached, thread-safe singleton instance.</summary>
@@ -2256,7 +2256,7 @@ namespace System.Text.RegularExpressions.Generated
     }
     
     /// <summary>Helper methods used by generated <see cref="Regex"/>-derived implementations.</summary>
-    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.11.1707")]
+    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "8.0.13.2707")]
     file static class Utilities
     {
         /// <summary>Default timeout value set in <see cref="AppContext"/>, or <see cref="Regex.InfiniteMatchTimeout"/> if none was set.</summary>

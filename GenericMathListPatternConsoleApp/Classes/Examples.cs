@@ -1,11 +1,5 @@
 ﻿#nullable enable
-using Azure;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GenericMathListPatternConsoleApp.Classes;
 internal class Examples
@@ -48,8 +42,9 @@ internal class Examples
                 var results = values.GetNonNumericIndexes<int>();
                 if (results.Length > 0)
                 {
-                    Console.WriteLine(
-                        $"Bad Line {anonymousItem.Index,-3}{string.Join(",", results),-5} -> {string.Join(",", anonymousItem.Items.Skip(2))}");
+                    Console.WriteLine($"Bad Line {anonymousItem.Index,-3}" +
+                                      $"{string.Join(",", results),-5} -> " +
+                                      $"{string.Join(",", anonymousItem.Items.Skip(2))}");
                 }
                 else
                 {
@@ -77,8 +72,9 @@ internal class Examples
                 var results = values.GetNonNumericIndexes<decimal>();
                 if (results.Length > 0)
                 {
-                    Console.WriteLine(
-                        $"Bad Line {anonymousItem.Index,-3}{string.Join(",", results),-5} -> {string.Join(",", anonymousItem.Items.Skip(2))}");
+                    Console.WriteLine($"Bad Line {anonymousItem.Index,-3}" +
+                                      $"{string.Join(",", results),-5} -> " +
+                                      $"{string.Join(",", anonymousItem.Items.Skip(2))}");
                 }
                 else
                 {
@@ -90,28 +86,28 @@ internal class Examples
         }
     }
 
-public static void JustGetTheNumbers()
-{
-    Print();
-
-    var lines = MockedData.FileDataForDecimals()
-        .Split(Environment.NewLine)
-        .Select((line, index) => new
-        {
-            Index = index, 
-            Items = line.Split(',')
-        })
-        .ToArray();
-
-    foreach (var anonymousItem in lines)
+    public static void JustGetTheNumbers()
     {
-        if (anonymousItem.Items is [_, _, .. var values])
+        Print();
+
+        var lines = MockedData.FileDataForDecimals()
+            .Split(Environment.NewLine)
+            .Select((line, index) => new
+            {
+                Index = index,
+                Items = line.Split(',')
+            })
+            .ToArray();
+
+        foreach (var anonymousItem in lines)
         {
-            var results = anonymousItem.Items.ToNumbersPreserveArray<decimal>();
-            Console.WriteLine(string.Join(",", results.Skip(2)));
+            if (anonymousItem.Items is [_, _, .. var values])
+            {
+                var results = anonymousItem.Items.ToNumbersPreserveArray<decimal>();
+                Console.WriteLine(string.Join(",", results.Skip(2)));
+            }
         }
     }
-}
 
     private static void Print([CallerMemberName] string? methodName = null)
     {
@@ -141,7 +137,8 @@ public static void JustGetTheNumbers()
         DateTime highDateTime = new(2022, 1, 8);
 
         // uses our extension switch expression
-        Console.WriteLine($"{someDateTime:d} between {lowDateTime:d} and {highDateTime:d}? {someDateTime.Between(lowDateTime, highDateTime).ToYesNo()}");
+        Console.WriteLine($"{someDateTime:d} between {lowDateTime:d} and {highDateTime:d}? " +
+                          $"{someDateTime.Between(lowDateTime, highDateTime).ToYesNo()}");
 
         // uses our extension within a 
         Console.WriteLine($"{7.CaseWhen()}");
@@ -151,6 +148,5 @@ public static void JustGetTheNumbers()
 
 
     }
-
 
 }

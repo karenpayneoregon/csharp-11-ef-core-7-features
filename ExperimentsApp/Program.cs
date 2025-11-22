@@ -33,7 +33,7 @@ public static partial class Helpers
             index--;
 
         if (index == sender.Length - 1)
-            return sender + incrementBy.ToString();
+            return sender + incrementBy;
 
         var numberPart = sender[(index + 1)..];
         var prefix = sender[..(index + 1)];

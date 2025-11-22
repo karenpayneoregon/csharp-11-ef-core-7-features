@@ -8,7 +8,10 @@ internal partial class Program
     {
 
         var (lines, exceptionDispatchInfo) = ReadAllLines();
-        exceptionDispatchInfo?.Throw();
+        if (exceptionDispatchInfo is not null)
+        {
+            exceptionDispatchInfo?.Throw();
+        }
         foreach (var line in lines)
         {
             Console.WriteLine(line);

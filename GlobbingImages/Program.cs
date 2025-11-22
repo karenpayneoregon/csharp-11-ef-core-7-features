@@ -33,7 +33,7 @@ internal partial class Program
                 ParentFolder = folder
             };
 
-            var imageNames = await Globbing.GetImagesNamesAsync(matcherParameters).ConfigureAwait(false);
+            Func<List<string>> imageNames = await Globbing.GetImagesNamesAsync(matcherParameters).ConfigureAwait(false);
 
             foreach (var image in imageNames())
             {
