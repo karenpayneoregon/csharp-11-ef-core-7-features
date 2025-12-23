@@ -1,4 +1,7 @@
-﻿namespace CheckSectionExistsAppSettings;
+﻿using CheckSectionExistsAppSettings.Classes;
+using Serilog;
+
+namespace CheckSectionExistsAppSettings;
 
 internal partial class Program
 {
@@ -10,12 +13,12 @@ internal partial class Program
     static async Task Main(string[] args)
     {
         await Task.Delay(0);
-        await MainConfiguration.Setup();
-        Console.WriteLine(EntitySettings.Instance.CreateNew.ToYesNo());
+        //await MainConfiguration.Setup();
+        //Console.WriteLine(EntitySettings.Instance.CreateNew.ToYesNo());
 
-        AnsiConsole.MarkupLine($"[cyan]MainConnection exists[/] [yellow]{JsonHelpers.MainConnectionExists().ToYesNo()}[/]");
-
-        Console.ReadLine();
+        //AnsiConsole.MarkupLine($"[cyan]MainConnection exists[/] [yellow]{JsonHelpers.MainConnectionExists().ToYesNo()}[/]");
+        MainSectionExists();
+        SpectreConsoleHelpers.ExitPrompt();
     }
 
 
@@ -32,21 +35,21 @@ internal partial class Program
             {
                 if (connectionStrings.TryGetProperty("MainConnection", out JsonElement mainConnection))
                 {
-                    Console.WriteLine("MainConnection exists: " + mainConnection.GetString());
+                    Log.Information("MainConnection exists: {P}", mainConnection.GetString());
                 }
                 else
                 {
-                    Console.WriteLine("MainConnection does not exist.");
+                    Log.Information("MainConnection does not exist.");
                 }
             }
             else
             {
-                Console.WriteLine("ConnectionStrings section does not exist.");
+                Log.Information("ConnectionStrings section does not exist.");
             }
         }
         else
         {
-            Console.WriteLine("appsettings.json not found.");
+            Log.Information("appsettings.json not found.");
         }
     }
 }

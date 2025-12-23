@@ -4,9 +4,8 @@ namespace DistinctByApp.Classes;
 
 internal class MockedData
 {
-    public static IEnumerable<Movie> MovieList()
-    {
-        return new List<Movie>
+    public static IEnumerable<Movie> MovieList() =>
+        new List<Movie>
         {
             new() { Id = 1, Name = "Inception", Released = 2010, Rating = 5 },
             new() { Id = 2, Name = "The Matrix", Released = 1999, Rating = 5},
@@ -19,7 +18,6 @@ internal class MockedData
             new() { Id = 9, Name = "The Godfather", Released = 1972, Rating = 5 },
             new() { Id = 10, Name = "The Godfather: Part II", Released = 1974, Rating = 5 }
         };
-    }
 
     public static IEnumerable<Member> MembersList1() =>
     [

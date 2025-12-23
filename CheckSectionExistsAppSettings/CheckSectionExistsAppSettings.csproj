@@ -7,6 +7,19 @@
 		<Nullable>disable</Nullable>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<Product>Code sample</Product>
+		<Company>Payne services</Company>
+		<Copyright>Copyright $([System.DateTime]::Now.Year)</Copyright>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Serilog" Version="4.3.0" />
+		<PackageReference Include="SeriLogThemesLibrary" Version="1.0.0.2" />
+		<PackageReference Include="Serilog.Extensions.Logging.File" Version="3.0.0" />
+		<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+	</ItemGroup>
+
 	<ItemGroup>
 	  <None Remove="readme.md" />
 	</ItemGroup>

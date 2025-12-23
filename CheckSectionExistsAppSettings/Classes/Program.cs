@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.CompilerServices;
+using CheckSectionExistsAppSettings.Classes;
 
 // ReSharper disable once CheckNamespace
 namespace CheckSectionExistsAppSettings;
@@ -15,5 +11,6 @@ internal partial class Program
         AnsiConsole.MarkupLine("");
         Console.Title = "Code sample";
         WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
+        SetupLogging.Development();
     }
 }
