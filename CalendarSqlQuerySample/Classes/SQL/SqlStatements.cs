@@ -1,4 +1,4 @@
-﻿namespace CalendarSqlQuerySample.Classes;
+﻿namespace CalendarSqlQuerySample.Classes.SQL;
 internal class SqlStatements
 {
 

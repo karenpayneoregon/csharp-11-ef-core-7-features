@@ -2,8 +2,9 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-using CalendarSqlQuerySample.Classes;
+using CalendarSqlQuerySample.Classes.Configuration;
 using CalendarSqlQuerySample.Models;
+using EntityCoreFileLogger;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Calendar = CalendarSqlQuerySample.Models.Calendar;
@@ -25,11 +26,7 @@ public partial class Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer(DataConnections.Instance.MainConnection).EnableSensitiveDataLogging()
-            .LogTo(new DbContextToFileLogger().Log, new[]
-                {
-                    DbLoggerCategory.Database.Command.Name
-                },
-                LogLevel.Information);
+            .LogTo(new DbContextToFileLogger().Log, [DbLoggerCategory.Database.Command.Name], LogLevel.Information);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

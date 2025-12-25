@@ -1,6 +1,8 @@
-﻿using CalendarSqlQuerySample.Classes;
+﻿using CalendarSqlQuerySample.Classes.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Text;
 
 // ReSharper disable once CheckNamespace
 namespace CalendarSqlQuerySample;
@@ -13,8 +15,16 @@ internal partial class Program
     [ModuleInitializer]
     public static void Init()
     {
-        Console.Title = "Code sample";
+
+        var assembly = Assembly.GetEntryAssembly();
+        var product = assembly?.GetCustomAttribute<AssemblyProductAttribute>()?.Product;
+
+        Console.Title = product!;
+        
         WindowUtility.SetConsoleWindowPosition(WindowUtility.AnchorWindow.Center);
+
+        Console.OutputEncoding = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
+        Console.InputEncoding = Encoding.UTF8;
     }
 
     /// <summary>

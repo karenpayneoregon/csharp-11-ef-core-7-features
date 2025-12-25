@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CalendarSqlQuerySample.Classes;
+namespace CalendarSqlQuerySample.Classes.Configuration;
 internal class ApplicationConfiguration
 {
     /// <summary>
@@ -19,9 +19,7 @@ internal class ApplicationConfiguration
         static void ConfigureService(IServiceCollection services)
         {
 
-            services.Configure<ConnectionStrings>(ConfigurationRoot()
-                .GetSection(nameof(ConnectionStrings)));
-
+            services.Configure<ConnectionStrings>(ConfigurationRoot().GetSection(nameof(ConnectionStrings)));
             services.AddTransient<SetupServices>();
         }
 

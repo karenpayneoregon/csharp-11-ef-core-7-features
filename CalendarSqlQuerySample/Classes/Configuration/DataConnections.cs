@@ -1,4 +1,4 @@
-﻿namespace CalendarSqlQuerySample.Classes;
+﻿namespace CalendarSqlQuerySample.Classes.Configuration;
 /// <summary>
 /// Known connection strings
 /// </summary>

@@ -5,10 +5,13 @@ public static class SpectreConsoleHelpers
 {
     public static void ExitPrompt()
     {
-        Console.WriteLine();
+        Console.CursorVisible = false;
 
-        Render(new Rule($"[yellow]Press[/] [cyan]ENTER[/] [yellow]to exit the demo[/]")
-            .RuleStyle(Style.Parse("silver")).Centered());
+        AnsiConsole.Write(new Table()
+            .Border(TableBorder.None)
+            .Alignment(Justify.Center)
+            .AddColumn("").AddColumn("")
+            .AddRow(new Pill("Press any key to exit...", PillType.Info), new Text("")));
 
         Console.ReadLine();
     }
@@ -17,17 +20,5 @@ public static class SpectreConsoleHelpers
         AnsiConsole.MarkupLine($"[cyan]{methodName}[/]");
         Console.WriteLine();
     }
-    private static void Render(Rule rule)
-    {
-        AnsiConsole.Write(rule);
-        AnsiConsole.WriteLine();
-    }
 
-    /// <summary>
-    /// Replaces the placeholder "{Holiday}" with formatted holiday text for Spectre.Console
-    /// </summary>
-    /// <param name="item">The input string.</param>
-    /// <returns>Formatted string with color embedded</returns>
-    public static string HolidayColors(this string item)
-        => item.Replace("{Holiday}", "[yellow]{[/][lightskyblue3]Holiday[/][yellow]}[/]");
 }
