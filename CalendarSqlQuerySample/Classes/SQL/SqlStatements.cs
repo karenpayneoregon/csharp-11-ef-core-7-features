@@ -10,15 +10,38 @@ internal class SqlStatements
     public static FormattableString GetHolidays(int year) => 
         $"""
          SELECT CalendarDate,
-               CalendarDateDescription AS [Description],
-               CalendarMonth,
-               DATENAME(MONTH, DATEADD(MONTH, CalendarMonth, -1)) AS [Month],
-               CalendarDay AS [Day],
-               DayOfWeekName,
-               IIF(BusinessDay = 0, 'No', 'Yes') AS BusinessDay,
-               IIF(Weekday = 0, 'No', 'Yes') AS [Weekday]
-          FROM DateTimeDatabase.dbo.Calendar
+         CalendarDateDescription AS [Description],
+         CalendarMonth,
+         DATENAME(MONTH, DATEADD(MONTH, CalendarMonth, -1)) AS [Month],
+         CalendarDay AS [Day],
+         DayOfWeekName,
+         IIF(BusinessDay = 0, 'No', 'Yes') AS BusinessDay,
+         IIF(Weekday = 0, 'No', 'Yes') AS [Weekday]
+         FROM DateTimeDatabase.dbo.Calendar
          WHERE CalendarYear = {year}
-           AND Holiday      = 1;
+         AND Holiday      = 1;
+         """;
+    
+    
+    /// <summary>
+    /// Retrieves holidays for the current year.
+    /// </summary>
+    /// <returns>
+    /// A <see cref="FormattableString"/> representing the SQL query to retrieve holidays 
+    /// for the current year using EF Core.
+    /// </returns>
+    public static FormattableString GetCurrentYearHolidays() =>
+        $"""
+         SELECT CalendarDate,
+         CalendarDateDescription AS [Description],
+         CalendarMonth,
+         DATENAME(MONTH, DATEADD(MONTH, CalendarMonth, -1)) AS [Month],
+         CalendarDay AS [Day],
+         DayOfWeekName,
+         IIF(BusinessDay = 0, 'No', 'Yes') AS BusinessDay,
+         IIF(Weekday = 0, 'No', 'Yes') AS [Weekday]
+         FROM DateTimeDatabase.dbo.Calendar
+         WHERE CalendarYear = YEAR(GETDATE())
+         AND Holiday      = 1;
          """;
 }

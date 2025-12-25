@@ -98,6 +98,6 @@ internal partial class Program
     private static async Task<IReadOnlyList<Holiday>> Holidays(int year)
     {
         await using var context = new Context();
-        return [.. context.Database.SqlQuery<Holiday>(SqlStatements.GetHolidays(year))];
+        return [.. context.Database.SqlQuery<Holiday>(SqlStatements.GetCurrentYearHolidays())];
     }
 }
