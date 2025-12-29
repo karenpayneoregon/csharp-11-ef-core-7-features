@@ -20,7 +20,7 @@ public static class FileOperations
     /// </remarks>
     /// <exception cref="FormatException">Thrown if the birthdate format is invalid.</exception>
     /// <exception cref="IOException">Thrown if there is an error reading the file.</exception>
-    public static async Task<List<Person>> Read(string filePath)
+    public static async Task<List<Person>> ReadAsync(string filePath)
     {
         var people = new List<Person>();
 

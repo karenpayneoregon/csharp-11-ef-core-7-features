@@ -27,7 +27,7 @@ public static class GenericExtensions
     }
 
     /// <summary>
-    ///  Example of how the we would write to get numbers before generic math, now we have <see cref="ToNumbersPreserveArray"/> above
+    ///  Example of how they would write to get numbers before generic math, now we have <see cref="ToNumbersPreserveArray"/> above
     /// </summary>
     public static double[] ToDoublePreserveArray(this string[] sender)
     {
@@ -75,16 +75,34 @@ public static class GenericExtensions
     /// <typeparam name="T">convert to</typeparam>
     /// <param name="sender">source array</param>
     /// <returns>converted array</returns>
-    public static T[] ToNumberArray<T>(this string[] sender) where T : INumber<T> =>
-        Array
-            .ConvertAll(sender,
-                (input) => new
-                {
-                    IsNumber = T.TryParse(input, NumberStyles.Any, CultureInfo.CurrentCulture, out var value),
-                    Value = value})
-            .Where(result => result.IsNumber)
-            .Select(result => result.Value)
-            .ToArray();
+    public static T[] ToNumberArray<T>(this string[] sender) where T : INumber<T>
+    {
+        if (sender == null || sender.Length == 0)
+            return Array.Empty<T>();
+
+        var styles = NumberStyles.Any;
+        var culture = CultureInfo.CurrentCulture;
+
+        // allocate once with maximum possible size, shrink at the end if needed
+        var results = new T[sender.Length];
+        var count = 0;
+
+        foreach (var t in sender)
+        {
+            if (T.TryParse(t, styles, culture, out var value))
+                results[count++] = value;
+        }
+
+        if (count == 0)
+            return Array.Empty<T>();
+
+        if (count != results.Length)
+        {
+            Array.Resize(ref results, count);
+        }
+
+        return results;
+    }
 
     /// <summary>
     /// Get non numeric value indices

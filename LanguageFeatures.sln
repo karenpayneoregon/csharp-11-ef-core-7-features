@@ -380,6 +380,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".NET Validators", ".NET Val
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeValidatorsSamples", "NativeValidatorsSamples\NativeValidatorsSamples.csproj", "{15B75BCC-364E-414C-8592-BD0CF386D573}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Indexing", "Indexing", "{D1298307-9C92-7E02-BC84-B10E992BE499}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndexMonths", "IndexMonths\IndexMonths.csproj", "{8FF1F47C-121D-3A64-4640-25059A1EAC78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -902,6 +906,10 @@ Global
 		{15B75BCC-364E-414C-8592-BD0CF386D573}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15B75BCC-364E-414C-8592-BD0CF386D573}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15B75BCC-364E-414C-8592-BD0CF386D573}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FF1F47C-121D-3A64-4640-25059A1EAC78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF1F47C-121D-3A64-4640-25059A1EAC78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF1F47C-121D-3A64-4640-25059A1EAC78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF1F47C-121D-3A64-4640-25059A1EAC78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1066,6 +1074,7 @@ Global
 		{C96A1E59-AF83-4429-95CC-F136D6DB0A61} = {75093408-3A12-4CFB-96C9-3D2562726F97}
 		{62333A48-36B7-1E53-A9C0-1C977D9623EC} = {D77B397C-4137-42D0-B09A-DB03A7B4DBD4}
 		{15B75BCC-364E-414C-8592-BD0CF386D573} = {62333A48-36B7-1E53-A9C0-1C977D9623EC}
+		{8FF1F47C-121D-3A64-4640-25059A1EAC78} = {D1298307-9C92-7E02-BC84-B10E992BE499}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {11C930E6-50C3-41A3-85BC-C9980F374C50}

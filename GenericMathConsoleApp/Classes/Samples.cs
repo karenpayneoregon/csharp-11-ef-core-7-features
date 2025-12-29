@@ -130,17 +130,18 @@ namespace GenericMathConsoleApp.Classes
         }
 
         /// <summary>
-        /// Demonstrates the usage of increment and decrement operations on numeric types.
+        /// Demonstrates the use of increment and decrement operations on numeric types.
         /// </summary>
         /// <remarks>
-        /// This method showcases the functionality of the <see cref="GenericMathLibrary.GenericExtensions.Increment{T}"/> 
-        /// and <see cref="GenericMathLibrary.GenericExtensions.Decrement{T}"/> extension methods. It performs the following:
+        /// This method highlights the functionality of the <see cref="GenericMathLibrary.GenericExtensions.Increment{T}"/>
+        /// and <see cref="GenericMathLibrary.GenericExtensions.Decrement{T}"/> extension methods.
+        /// It performs the following operations:
         /// <list type="bullet">
         /// <item>Increments and decrements an integer value.</item>
-        /// <item>Performs multiple increments and decrements on an integer value with a specified step.</item>
+        /// <item>Performs multiple increments and decrements on an integer value using a specified step.</item>
         /// <item>Increments and decrements a double value.</item>
         /// </list>
-        /// The results are displayed using ANSI console markup.
+        /// The results are displayed using ANSI console markup for better visualization.
         /// </remarks>
         public static void IncrementDecrementExamples()
         {
