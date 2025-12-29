@@ -3,7 +3,7 @@ using IndexMonths.Models;
 
 namespace IndexMonths.Classes;
 
-class Helpers
+public class Helpers
 {
     public static List<string> MonthNames() => 
         DateTimeFormatInfo.CurrentInfo!.MonthNames[..^1].ToList();
@@ -13,11 +13,8 @@ class Helpers
         {
             Value = element,
             StartIndex = new Index(index),
-            EndIndex = new Index(Enumerable.Range(0, list.Count).Reverse().ToList()[index], true),
-            MonthIndex = index + 1
+            EndIndex = new Index(list.Count - index - 1, true),
+            Index = index + 1
         }).ToList();
-
-
-
 }
 
