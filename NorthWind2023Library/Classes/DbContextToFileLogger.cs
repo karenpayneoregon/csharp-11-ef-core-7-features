@@ -15,9 +15,9 @@ namespace NorthWind2023Library.Classes;
 public class DbContextToFileLogger
 {
     /// <summary>
-    /// Log file name
+    /// Represents the name of the log file used for DbContext logging.
     /// </summary>
-    private readonly string _fileName = 
+    private readonly string _fileName =
         Path.Combine(AppDomain.CurrentDomain.BaseDirectory, 
             "LogFiles", $"{Now.Year}-{Now.Month}-{Now.Day}", 
             "EF_Log.txt");

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "items": [
+    {
+      "name": ".filenesting.json",
+      "path": "IndexMonths\\.filenesting.json"
+    },
+    {
+      "name": "AppSettings.cs",
+      "path": "KarenConsoleApplication\\Classes\\AppSettings.cs"
+    }
+  ]
+}

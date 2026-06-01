@@ -47,7 +47,7 @@ partial class Form1
         FormBorderStyle = FormBorderStyle.FixedToolWindow;
         Name = "Form1";
         StartPosition = FormStartPosition.CenterScreen;
-        Text = "Form1";
+        Text = "IProgress sample";
         ResumeLayout(false);
     }
 

@@ -113,6 +113,7 @@ internal class Samples
                 member.FirstName,
                 member.SurName
             })
+            //.OrderBy(x => x.FirstName)
             .ToList();
 
         MemberHeader();

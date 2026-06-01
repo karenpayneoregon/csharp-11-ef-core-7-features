@@ -3,8 +3,10 @@ using System.ComponentModel;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-using Newtonsoft.Json;
-using Formatting = Newtonsoft.Json.Formatting;
+using System.Text.Json;
+
+//using Newtonsoft.Json;
+//using Formatting = Newtonsoft.Json.Formatting;
 
 namespace AddingStringObjectDictionaryToConfiguration;
 
@@ -22,17 +24,17 @@ partial class Program
             .AddInMemoryCollection(initialData)
             .Build();
 
-        Console.WriteLine($"Configuration: {JsonConvert.SerializeObject(GetConfigurationAsDictionary(configuration), Formatting.Indented)}");
+        Console.WriteLine($"Configuration: {JsonSerializer.Serialize(GetConfigurationAsDictionary(configuration), Indented)}");
 
         var section = configuration.GetSection(sectionName);
         Console.WriteLine($"Configuration section {sectionName}: " +
-                          $"{JsonConvert.SerializeObject(GetConfigurationAsDictionary(section), Formatting.Indented)}");
+                          $"{JsonSerializer.Serialize(GetConfigurationAsDictionary(section), Indented)}");
 
         // Use the DI extensions to map the configuration to the strongly typed options class
         var options = GenerateOptions<MyTestOptions>(section);
 
         // Look at the result
-        Console.WriteLine($"Options: {JsonConvert.SerializeObject(options, Formatting.Indented)}");
+        Console.WriteLine($"Options: {JsonSerializer.Serialize(options, Indented)}");
         Console.ReadLine();
     }
 
@@ -179,4 +181,6 @@ partial class Program
         }
 
     }
+
+    public static JsonSerializerOptions Indented => new() { WriteIndented = true };
 }

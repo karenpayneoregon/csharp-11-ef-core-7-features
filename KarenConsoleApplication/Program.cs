@@ -36,7 +36,7 @@ namespace KarenConsoleApplication
         {
             SetupLogging.Initialize();
 
-            var builder = ConsoleApplication.CreateBuilder(args);
+            IConsoleApplicationBuilder builder = ConsoleApplication.CreateBuilder(args);
 
             // get settings from appsettings.json to determine logging behavior
             // not for SeriLog
