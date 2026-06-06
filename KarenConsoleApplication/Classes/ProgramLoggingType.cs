@@ -1,6 +1,15 @@
 ﻿namespace KarenConsoleApplication.Classes;
 
-enum ProgramLoggingType
+/// <summary>
+/// Specifies the logging behavior for the program.
+/// </summary>
+/// <summary>
+/// Disables logging entirely.
+/// </summary>
+/// <summary>
+/// Enables logging based on the configured settings.
+/// </summary>
+internal enum ProgramLoggingType
 {
     /// <summary>
     /// No logging

@@ -1,5 +1,11 @@
 ﻿namespace KarenConsoleApplication.Classes;
 
+/// <summary>
+/// Represents application settings and provides static properties for accessing configuration keys.
+/// </summary>
+/// <remarks>
+/// This class contains predefined keys used for retrieving specific configuration values, such as logging settings and database connection strings.
+/// </remarks>
 public class AppSettings
 {
     /// <summary>

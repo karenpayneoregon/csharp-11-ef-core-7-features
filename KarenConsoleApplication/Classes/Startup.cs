@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using ConsoleHelperLibrary.Classes;
-using KarenConsoleApplication.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Storage;
 
 namespace KarenConsoleApplication.Classes
 {
-    class Startup
+    internal class Startup
     {
         /// <summary>
         /// Initializes the console application by setting the console title and positioning the console window.

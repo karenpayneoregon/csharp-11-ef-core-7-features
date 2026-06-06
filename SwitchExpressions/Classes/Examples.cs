@@ -174,6 +174,41 @@ namespace SwitchExpressions.Classes
             };
 
             Console.WriteLine(message);
+            
+        }
+
+        public static void RecursivePatternMatchingSimple()
+        {
+
+            const string state = "WA";
+
+            Console.WriteLine(nameof(RecursivePatternMatching));
+
+            Customer customer = new()
+            {
+                FirstName = "Karen",
+                LastName = "Payne",
+                ShipmentStatus = Shipment.State.Delivered,
+                Address = new() { Street = "123 Apple street", State = "OR", Zip = "1111" }
+            };
+            
+            var message = customer switch
+            {
+                null => throw new ArgumentNullException(nameof(customer)),
+                { ShipmentStatus: Shipment.State.Ordered } => "Congrats on your order",
+                { Address.State: state } => "I live there too!",
+                { Address.Zip: null } => "You forgot to enter a zip code!",
+                {
+                        ShipmentStatus: Shipment.State.Delivered,
+                        FirstName: var firstName,
+                        LastName: var lastName
+                    } => $"Enjoy your package {firstName} {lastName}!",
+
+                _ => "I'm not sure what I'm looking at here."
+            };
+
+            Console.WriteLine(message);
+
         }
 
 

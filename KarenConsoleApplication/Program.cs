@@ -16,15 +16,16 @@ using Spectre.Console;
 
 namespace KarenConsoleApplication
 {
-    class Program
+    /// <summary>
+    /// Represents the entry point of the app.
+    /// </summary>
+    /// <remarks>
+    /// This class is responsible for initializing logging, configuring services, setting up the database context, 
+    /// and building the application using the ConsoleApplicationBuilder. It also contains the main execution logic 
+    /// for running the application.
+    /// </remarks>
+    internal class Program(Context context)
     {
-        public Program(Context context)
-        {
-            _context = context;
-        }
-
-        private readonly Context _context;
-
         /// <summary>
         /// Initializes logging, configures services, sets up the database context, and builds the application.
         /// Uses the ConsoleApplicationBuilder to configure and run the application.
@@ -66,14 +67,29 @@ namespace KarenConsoleApplication
             program.Run();
         }
 
+        /// <summary>
+        /// Executes the main logic of the application, including database checks, data retrieval, 
+        /// script generation, and logging operations.
+        /// </summary>
+        /// <remarks>
+        /// This method performs the following tasks:
+        /// - Verifies the existence of required database tables.
+        /// - Retrieves customer data and outputs it to the console.
+        /// - Generates and saves database scripts to a file.
+        /// - Logs the start and end of the process.
+        /// - Prompts the user for exit confirmation.
+        /// </remarks>
+        /// <exception cref="System.IO.IOException">
+        /// Thrown when an error occurs while writing the database script to a file.
+        /// </exception>
         private void Run()
         {
-            var ops = new DataOperations(_context);
+            var ops = new DataOperations(context);
 
             Log.Information("Start");
 
 
-            if (DbContextHelpers.FullCheck(_context, "Customer", "ContactTypes", "Genders"))
+            if (DbContextHelpers.FullCheck(context, "Customer", "ContactTypes", "Genders"))
             {
                 var customers = ops.GetCustomers();
                 Console.WriteLine(ObjectDumper.Dump(customers));
@@ -83,7 +99,7 @@ namespace KarenConsoleApplication
                 AnsiConsole.MarkupLine("[red]Create the database and run the script under[/][cyan] Data scripts[/]");
             }
 
-            var scripts = DbContextHelpers.GenerateScripts(_context);
+            var scripts = DbContextHelpers.GenerateScripts(context);
             File.WriteAllText("script.sql",scripts);
             Log.Information("Bye");
             Log.CloseAndFlush();
